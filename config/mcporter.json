@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "affine": {
+      "command": "affine-mcp",
+      "keepAlive": true,
+      "env": {
+        "AFFINE_BASE_URL": "https://pkm.mouthygeese.com",
+        "AFFINE_API_TOKEN": "ut_GuyptR42g-vJq0L3aU1ISE1fhUnXsx5bAqwsGyeKauY"
+      }
+    }
+  },
+  "imports": []
+}

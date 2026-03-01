@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: zvk3c-keykp
+created: 2026-02-27T15:37:36-06:00

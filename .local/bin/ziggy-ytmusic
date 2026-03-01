@@ -1,0 +1,12 @@
+#!/bin/bash
+# Ziggy's YouTube Music Player - Routes to Den via Bluetooth
+# Usage: ziggy-ytmusic <URL or search query>
+
+AUDIO_DEVICE="coreaudio/54-78-C9-7E-8A-25:output"
+
+if [ -z "$1" ]; then
+    echo "Usage: ziggy-ytmusic <YouTube/YouTube Music URL>"
+    exit 1
+fi
+
+/opt/homebrew/bin/mpv "$1" --no-video --audio-device="$AUDIO_DEVICE" "$@"

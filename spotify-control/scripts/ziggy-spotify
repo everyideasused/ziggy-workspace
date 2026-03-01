@@ -1,0 +1,233 @@
+#!/Volumes/ziggy/Users/ziggy/.local/share/ziggy-spotify/venv/bin/python3
+"""
+Spotify Control Script for OpenClaw
+Uses spotipy (official Spotify Web API)
+"""
+
+import os
+import sys
+import json
+import spotipy
+from spotipy.oauth2 import SpotifyOAuth
+
+# Config
+CLIENT_ID = "9dec8e2c3ab34ef18b5043a09d4af8f4"  # ziggy app
+CLIENT_SECRET = "fc7de34c10754b95bd7b32dd62e2b49f"  # ziggy app
+REDIRECT_URI = "http://127.0.0.1:8888/callback"
+SCOPE = "user-read-playback-state,user-modify-playback-state,user-read-currently-playing,playlist-read-private"
+CACHE_PATH = os.path.expanduser("~/.openclaw/spotify_cache.json")
+
+def get_spotify():
+    """Get authenticated Spotify client"""
+    auth_manager = SpotifyOAuth(
+        client_id=CLIENT_ID,
+        client_secret=CLIENT_SECRET,
+        redirect_uri=REDIRECT_URI,
+        scope=SCOPE,
+        cache_path=CACHE_PATH,
+        open_browser=True
+    )
+    
+    # Check if we have a valid token
+    token_info = auth_manager.get_cached_token()
+    if not token_info:
+        print("🔐 Authentication required!")
+        print("Opening browser for Spotify login...")
+        print("If browser doesn't open, visit this URL:")
+        auth_url = auth_manager.get_authorize_url()
+        print(auth_url)
+    
+    return spotipy.Spotify(auth_manager=auth_manager)
+
+def cmd_devices():
+    """List available devices"""
+    sp = get_spotify()
+    devices = sp.devices()
+    print("🎵 Available Spotify Devices:")
+    print("-" * 50)
+    for device in devices['devices']:
+        active = "🔊" if device['is_active'] else "  "
+        print(f"{active} {device['name']} ({device['type']})")
+        print(f"   ID: {device['id']}")
+        print(f"   Volume: {device['volume_percent']}%")
+        print()
+
+def cmd_play(song_name=None, device_name=None):
+    """Play a song, playlist, or radio station"""
+    sp = get_spotify()
+    
+    # Find device if specified
+    device_id = None
+    if device_name:
+        devices = sp.devices()
+        for device in devices['devices']:
+            if device_name.lower() in device['name'].lower():
+                device_id = device['id']
+                break
+        if not device_id:
+            print(f"❌ Device '{device_name}' not found. Use 'devices' command to list.")
+            return
+    
+    if not song_name:
+        # Resume playback
+        sp.start_playback(device_id=device_id)
+        print("▶️  Resuming playback")
+        return
+    
+    # Check for radio/playlist mode
+    is_radio = "radio" in song_name.lower()
+    clean_name = song_name.lower().replace("radio", "").strip()
+    
+    # ALWAYS try to find a playlist first (for full album/playlist experience)
+    print(f"🔍 Searching for playlist: {song_name}")
+    playlist_results = sp.search(q=song_name, type='playlist', limit=5)
+    
+    if playlist_results['playlists']['items']:
+        # Found playlists - pick the best match
+        playlist = playlist_results['playlists']['items'][0]
+        track_count = playlist.get('tracks', {}).get('total', '?')
+        print(f"📀 Found playlist: {playlist['name']} ({track_count} tracks)")
+        
+        # Play the entire playlist (context_uri)
+        sp.start_playback(
+            device_id=device_id,
+            context_uri=playlist['uri']
+        )
+        print(f"▶️  Playing playlist on {device_name or 'active device'}")
+        return
+    
+    if is_radio:
+        # No playlist found - use recommendations API for true radio
+        print(f"🎵 Building radio station for: {clean_name.title()}")
+        
+        # Search for the artist
+        artist_results = sp.search(q=clean_name, type='artist', limit=1)
+        if artist_results['artists']['items']:
+            artist = artist_results['artists']['items'][0]
+            
+            # Get recommendations based on this artist + related
+            recommendations = sp.recommendations(
+                seed_artists=[artist['id']],
+                limit=50,  # 50 tracks = ~3 hours of music
+                market='US'
+            )
+            
+            if recommendations['tracks']:
+                uris = [t['uri'] for t in recommendations['tracks']]
+                sp.start_playback(device_id=device_id, uris=uris)
+                print(f"▶️  Playing: {artist['name']} Radio")
+                print(f"   {len(uris)} tracks (~{len(uris)*3.5:.0f} minutes)")
+                return
+        
+        print(f"❌ Could not find radio station for '{clean_name}'")
+    else:
+        # No playlist found - fall back to track search
+        results = sp.search(q=song_name, type='track', limit=1)
+        if results['tracks']['items']:
+            track = results['tracks']['items'][0]
+            print(f"▶️  Playing: {track['name']} by {track['artists'][0]['name']}")
+            sp.start_playback(device_id=device_id, uris=[track['uri']])
+        else:
+            print(f"❌ Song '{song_name}' not found.")
+
+def cmd_pause():
+    """Pause playback"""
+    sp = get_spotify()
+    sp.pause_playback()
+    print("⏸️  Paused")
+
+def cmd_next():
+    """Next track"""
+    sp = get_spotify()
+    sp.next_track()
+    print("⏭️  Next track")
+
+def cmd_previous():
+    """Previous track"""
+    sp = get_spotify()
+    sp.previous_track()
+    print("⏮️  Previous track")
+
+def cmd_status():
+    """Show current playback status"""
+    sp = get_spotify()
+    playback = sp.current_playback()
+    if playback and playback['is_playing']:
+        track = playback['item']
+        print(f"🎵 Now playing: {track['name']}")
+        print(f"   Artist: {track['artists'][0]['name']}")
+        print(f"   Album: {track['album']['name']}")
+        print(f"   Device: {playback['device']['name']}")
+        print(f"   Volume: {playback['device']['volume_percent']}%")
+    else:
+        print("⏹️  Nothing playing")
+
+def cmd_volume(level):
+    """Set volume (0-100)"""
+    sp = get_spotify()
+    sp.volume(int(level))
+    print(f"🔊 Volume set to {level}%")
+
+def main():
+    if len(sys.argv) < 2:
+        print("Spotify Control for OpenClaw")
+        print("Usage: ziggy-spotify <command> [args]")
+        print()
+        print("Commands:")
+        print("  devices                    List available devices")
+        print("  play [song] [--device X]   Play song or resume")
+        print("  pause                      Pause playback")
+        print("  next                       Next track")
+        print("  previous                   Previous track")
+        print("  status                     Show current playback")
+        print("  volume <0-100>            Set volume")
+        print()
+        print("Examples:")
+        print('  ziggy-spotify play "Still Alive"')
+        print('  ziggy-spotify play "Still Alive" --device "Living Room"')
+        print("  ziggy-spotify pause")
+        return
+    
+    command = sys.argv[1]
+    
+    try:
+        if command == "devices":
+            cmd_devices()
+        elif command == "play":
+            song = None
+            device = None
+            if len(sys.argv) > 2:
+                # Check for --device flag
+                if "--device" in sys.argv:
+                    device_idx = sys.argv.index("--device")
+                    device = sys.argv[device_idx + 1]
+                    song = " ".join(sys.argv[2:device_idx])
+                else:
+                    song = " ".join(sys.argv[2:])
+            cmd_play(song, device)
+        elif command == "pause":
+            cmd_pause()
+        elif command == "next":
+            cmd_next()
+        elif command == "previous":
+            cmd_previous()
+        elif command == "status":
+            cmd_status()
+        elif command == "volume":
+            if len(sys.argv) < 3:
+                print("Usage: ziggy-spotify volume <0-100>")
+                return
+            cmd_volume(sys.argv[2])
+        else:
+            print(f"Unknown command: {command}")
+    except spotipy.exceptions.SpotifyException as e:
+        if "No active device" in str(e):
+            print("❌ No active Spotify device found.")
+            print("   Open Spotify on a device or use 'devices' to list available.")
+        else:
+            print(f"❌ Spotify error: {e}")
+    except Exception as e:
+        print(f"❌ Error: {e}")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,148 @@
+#!/usr/bin/env python3
+"""
+Habit Streak Updater - Scans daily notes and updates habit streak counts
+Usage: update-habit-streaks [--date YYYY-MM-DD]
+"""
+
+import sys
+import re
+from pathlib import Path
+from datetime import datetime, timedelta
+from collections import defaultdict
+
+VAULT_PATH = Path("/Volumes/ziggy/openclaw-workspace/Pinky & The Brain")
+JOURNAL_PATH = VAULT_PATH / "Journal"
+NOTES_PATH = VAULT_PATH / "Notes"
+
+def extract_frontmatter(content):
+    """Extract YAML frontmatter from markdown content."""
+    match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
+    if not match:
+        return None
+    
+    frontmatter = {}
+    for line in match.group(1).split('\n'):
+        if ':' in line:
+            key, value = line.split(':', 1)
+            frontmatter[key.strip()] = value.strip()
+    return frontmatter
+
+def update_frontmatter_field(content, field, value):
+    """Update a frontmatter field value."""
+    pattern = rf'^({field}:)\s*.*$'
+    replacement = f'\\1 {value}'
+    return re.sub(pattern, replacement, content, flags=re.MULTILINE)
+
+def get_habit_notes():
+    """Get all active habit notes."""
+    habits = {}
+    for note_path in NOTES_PATH.glob("*.md"):
+        with open(note_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        frontmatter = extract_frontmatter(content)
+        if frontmatter and frontmatter.get('type') == 'habit' and frontmatter.get('status') == 'active':
+            habit_name = note_path.stem
+            habits[habit_name] = {
+                'path': note_path,
+                'content': content,
+                'frequency': frontmatter.get('frequency', 'daily'),
+                'streak': int(frontmatter.get('streak', '0')),
+                'best_streak': int(frontmatter.get('best_streak', '0'))
+            }
+    return habits
+
+def check_daily_note_for_habit(date_str, habit_name):
+    """Check if a habit was completed on a specific date."""
+    daily_note = JOURNAL_PATH / f"{date_str}.md"
+    if not daily_note.exists():
+        return False
+    
+    with open(daily_note, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Look for checked habit checkbox with the habit name
+    # Format: - [x] Habit Name OR - [x] [[Habit Name]]
+    pattern = rf'- \[x\].*{re.escape(habit_name)}'
+    return bool(re.search(pattern, content, re.IGNORECASE))
+
+def calculate_streak(habit_name, end_date):
+    """Calculate current streak for a habit going backwards from end_date."""
+    streak = 0
+    current_date = end_date
+    
+    while True:
+        date_str = current_date.strftime('%Y-%m-%d')
+        if check_daily_note_for_habit(date_str, habit_name):
+            streak += 1
+            current_date -= timedelta(days=1)
+        else:
+            break
+        
+        # Safety limit
+        if streak > 365:
+            break
+    
+    return streak
+
+def update_habits(target_date=None):
+    """Update all habit streaks based on daily note completions."""
+    if target_date is None:
+        target_date = datetime.now().date()
+    else:
+        target_date = datetime.strptime(target_date, '%Y-%m-%d').date()
+    
+    habits = get_habit_notes()
+    
+    if not habits:
+        print("No active habits found.")
+        return
+    
+    print(f"Updating habit streaks as of {target_date.strftime('%Y-%m-%d')}...")
+    print()
+    
+    for habit_name, habit_data in habits.items():
+        # Calculate current streak
+        new_streak = calculate_streak(habit_name, target_date)
+        old_streak = habit_data['streak']
+        best_streak = habit_data['best_streak']
+        
+        # Update best streak if current exceeds it
+        if new_streak > best_streak:
+            best_streak = new_streak
+        
+        # Update the habit note
+        updated_content = habit_data['content']
+        updated_content = update_frontmatter_field(updated_content, 'streak', new_streak)
+        updated_content = update_frontmatter_field(updated_content, 'best_streak', best_streak)
+        
+        # Write back if changed
+        if new_streak != old_streak or best_streak != habit_data['best_streak']:
+            with open(habit_data['path'], 'w', encoding='utf-8') as f:
+                f.write(updated_content)
+            
+            print(f"✓ {habit_name}")
+            print(f"  Current: {old_streak} → {new_streak} days")
+            if best_streak > habit_data['best_streak']:
+                print(f"  🎉 New best: {best_streak} days!")
+            print()
+        else:
+            print(f"✓ {habit_name} (no change: {new_streak} days)")
+            print()
+    
+    print("Done!")
+
+if __name__ == "__main__":
+    target_date = None
+    if len(sys.argv) > 1 and sys.argv[1] == '--date':
+        if len(sys.argv) > 2:
+            target_date = sys.argv[2]
+        else:
+            print("Usage: update-habit-streaks [--date YYYY-MM-DD]")
+            sys.exit(1)
+    
+    try:
+        update_habits(target_date)
+    except Exception as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)

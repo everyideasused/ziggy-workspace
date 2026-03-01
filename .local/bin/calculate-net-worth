@@ -1,0 +1,249 @@
+#!/usr/bin/env python3
+"""
+Net Worth Calculator - Calculates total assets, liabilities, and net worth
+from Account and Bill notes in the vault.
+Usage: calculate-net-worth [--update-hub]
+"""
+
+import sys
+import re
+from pathlib import Path
+from datetime import datetime
+
+VAULT_PATH = Path("/Volumes/ziggy/openclaw-workspace/Pinky & The Brain")
+NOTES_PATH = VAULT_PATH / "Notes"
+FINANCES_HUB = NOTES_PATH / "Finances Hub.md"
+
+def extract_frontmatter(content):
+    """Extract YAML frontmatter from markdown content."""
+    match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
+    if not match:
+        return None
+    
+    frontmatter = {}
+    for line in match.group(1).split('\n'):
+        if ':' in line:
+            key, value = line.split(':', 1)
+            frontmatter[key.strip()] = value.strip().strip('"')
+    return frontmatter
+
+def get_accounts():
+    """Get all active account notes with balances."""
+    accounts = {
+        'cash': [],
+        'savings': [],
+        'investment': [],
+        'property': [],
+        'credit': [],
+        'loan': [],
+        'other': []
+    }
+    
+    for note_path in NOTES_PATH.glob("*.md"):
+        with open(note_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        frontmatter = extract_frontmatter(content)
+        if frontmatter and frontmatter.get('type') == 'account' and frontmatter.get('status') == 'active':
+            account_type = frontmatter.get('account_type', 'other')
+            balance_str = frontmatter.get('balance', '0')
+            
+            try:
+                balance = float(re.sub(r'[^\d.-]', '', balance_str))
+            except ValueError:
+                balance = 0.0
+            
+            account_data = {
+                'name': note_path.stem,
+                'type': account_type,
+                'balance': balance,
+                'institution': frontmatter.get('institution', ''),
+                'balance_date': frontmatter.get('balance_date', '')
+            }
+            
+            # Categorize by type
+            if account_type in ['checking', 'cash']:
+                accounts['cash'].append(account_data)
+            elif account_type in ['savings', 'emergency', 'money-market']:
+                accounts['savings'].append(account_data)
+            elif account_type in ['investment', 'brokerage', 'retirement', '401k', 'ira', 'roth']:
+                accounts['investment'].append(account_data)
+            elif account_type in ['property', 'real-estate', 'home']:
+                accounts['property'].append(account_data)
+            elif account_type in ['credit-card', 'credit']:
+                account_data['balance'] = abs(account_data['balance'])  # Make positive for liability
+                accounts['credit'].append(account_data)
+            elif account_type in ['loan', 'mortgage', 'auto-loan', 'student-loan']:
+                account_data['balance'] = abs(account_data['balance'])  # Make positive for liability
+                accounts['loan'].append(account_data)
+            else:
+                accounts['other'].append(account_data)
+    
+    return accounts
+
+def get_recurring_bills():
+    """Get total monthly recurring bills."""
+    total = 0.0
+    
+    for note_path in NOTES_PATH.glob("*.md"):
+        with open(note_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        frontmatter = extract_frontmatter(content)
+        if frontmatter and frontmatter.get('type') == 'bill' and frontmatter.get('status') == 'active':
+            amount_str = frontmatter.get('amount', '0')
+            frequency = frontmatter.get('frequency', 'monthly')
+            
+            try:
+                amount = float(re.sub(r'[^\d.-]', '', amount_str))
+            except ValueError:
+                amount = 0.0
+            
+            # Convert to monthly
+            if frequency == 'monthly':
+                total += amount
+            elif frequency == 'annual' or frequency == 'yearly':
+                total += amount / 12
+            elif frequency == 'weekly':
+                total += amount * 4.33  # Average weeks per month
+    
+    return total
+
+def calculate_net_worth():
+    """Calculate and display net worth breakdown."""
+    accounts = get_accounts()
+    
+    # Calculate totals
+    cash_total = sum(a['balance'] for a in accounts['cash'])
+    savings_total = sum(a['balance'] for a in accounts['savings'])
+    investment_total = sum(a['balance'] for a in accounts['investment'])
+    property_total = sum(a['balance'] for a in accounts['property'])
+    
+    total_assets = cash_total + savings_total + investment_total + property_total
+    
+    credit_total = sum(a['balance'] for a in accounts['credit'])
+    loan_total = sum(a['balance'] for a in accounts['loan'])
+    
+    total_liabilities = credit_total + loan_total
+    
+    net_worth = total_assets - total_liabilities
+    
+    monthly_bills = get_recurring_bills()
+    
+    # Print report
+    print("=" * 60)
+    print("NET WORTH CALCULATION")
+    print("=" * 60)
+    print(f"As of: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print()
+    
+    print("ASSETS:")
+    print("-" * 60)
+    print(f"  Cash & Checking:        ${cash_total:>15,.2f}")
+    print(f"  Savings & Emergency:    ${savings_total:>15,.2f}")
+    print(f"  Investments & Retirement: ${investment_total:>15,.2f}")
+    print(f"  Property / Assets:      ${property_total:>15,.2f}")
+    print(f"  " + "-" * 56)
+    print(f"  Total Assets:           ${total_assets:>15,.2f}")
+    print()
+    
+    print("LIABILITIES:")
+    print("-" * 60)
+    print(f"  Credit Cards:           ${credit_total:>15,.2f}")
+    print(f"  Loans & Mortgages:      ${loan_total:>15,.2f}")
+    print(f"  " + "-" * 56)
+    print(f"  Total Liabilities:      ${total_liabilities:>15,.2f}")
+    print()
+    
+    print("=" * 60)
+    print(f"NET WORTH:                ${net_worth:>15,.2f}")
+    print("=" * 60)
+    print()
+    
+    print(f"Monthly Recurring Bills:  ${monthly_bills:,.2f}/mo")
+    print()
+    
+    # Account details
+    if accounts['cash'] or accounts['savings'] or accounts['investment'] or accounts['credit'] or accounts['loan']:
+        print("\nAccount Details:")
+        print("-" * 60)
+        
+        for category, accts in [
+            ('Cash & Checking', accounts['cash']),
+            ('Savings & Emergency', accounts['savings']),
+            ('Investments', accounts['investment']),
+            ('Credit Cards', accounts['credit']),
+            ('Loans', accounts['loan']),
+        ]:
+            if accts:
+                print(f"\n{category}:")
+                for acct in accts:
+                    print(f"  • {acct['name']:<30} ${acct['balance']:>12,.2f}")
+        print()
+    
+    return {
+        'assets': total_assets,
+        'liabilities': total_liabilities,
+        'net_worth': net_worth,
+        'cash': cash_total,
+        'savings': savings_total,
+        'investment': investment_total,
+        'property': property_total,
+        'credit': credit_total,
+        'loan': loan_total,
+        'monthly_bills': monthly_bills
+    }
+
+def update_finances_hub(data):
+    """Update the Finances Hub with calculated totals."""
+    if not FINANCES_HUB.exists():
+        print(f"Finances Hub not found at {FINANCES_HUB}")
+        return
+    
+    with open(FINANCES_HUB, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Update the summary table
+    updated_date = datetime.now().strftime('%B %d, %Y')
+    
+    summary_pattern = r'(\| Category \| Total \|.*?\| \*\*Net Worth\*\* \| \*\*\$ —\*\* \|)'
+    summary_replacement = f"""| Category | Total |
+|----------|-------|
+| 🏦 Cash & Checking | ${data['cash']:,.2f} |
+| 💵 Savings & Emergency | ${data['savings']:,.2f} |
+| 📈 Investments & Retirement | ${data['investment']:,.2f} |
+| 🏠 Property / Assets | ${data['property']:,.2f} |
+| **Total Assets** | **${data['assets']:,.2f}** |
+| 💳 Credit Cards | ${data['credit']:,.2f} |
+| 🚗 Loans & Mortgages | ${data['loan']:,.2f} |
+| **Total Liabilities** | **${data['liabilities']:,.2f}** |
+| **Net Worth** | **${data['net_worth']:,.2f}** |"""
+    
+    updated_content = re.sub(summary_pattern, summary_replacement, content, flags=re.DOTALL)
+    
+    # Update last updated date
+    date_pattern = r'\*Last updated: .*\*'
+    date_replacement = f'*Last updated: {updated_date}*'
+    updated_content = re.sub(date_pattern, date_replacement, updated_content)
+    
+    if updated_content != content:
+        with open(FINANCES_HUB, 'w', encoding='utf-8') as f:
+            f.write(updated_content)
+        print(f"✓ Finances Hub updated")
+    else:
+        print("⚠ Could not update Finances Hub (format may have changed)")
+
+if __name__ == "__main__":
+    update_hub = '--update-hub' in sys.argv
+    
+    try:
+        data = calculate_net_worth()
+        
+        if update_hub:
+            print()
+            update_finances_hub(data)
+    except Exception as e:
+        print(f"Error: {e}", file=sys.stderr)
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)

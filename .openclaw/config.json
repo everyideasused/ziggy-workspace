@@ -1,0 +1,5 @@
+{
+  "defaultModel": "openrouter/auto",
+  "mode": "auto",
+  "notes": "Anthropic disabled until 2026-03-01 per user preference; revert planned on 2026-03-01."
+}
