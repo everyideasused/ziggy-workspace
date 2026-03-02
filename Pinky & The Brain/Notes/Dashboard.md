@@ -1,6 +1,6 @@
 ---
 type: database
-area: 
+area: system
 status: active
 tags:
   - system

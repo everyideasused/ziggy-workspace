@@ -9,7 +9,7 @@ tags:
   - draft
 ---
 
-> [[🏠base|🏠]] · [[Ziggy Hub|🤖 Ziggy]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]
 
 ---
 

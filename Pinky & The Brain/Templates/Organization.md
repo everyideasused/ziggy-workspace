@@ -11,7 +11,7 @@ tags:
   - organization
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
 

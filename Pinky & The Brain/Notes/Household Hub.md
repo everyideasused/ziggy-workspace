@@ -15,6 +15,14 @@ tags:
 
 ---
 
+## 🍳 Meal Planning & Recipes
+
+- [[Recipe Index|🍳 Recipe Index]] — Browse all recipes
+- [[Meal Plan - Current Week|📅 This Week's Meal Plan]]
+- [[Grocery Lists|🛒 Grocery Lists]]
+
+---
+
 ## 🎯 Active Projects
 ```dataview
 TABLE WITHOUT ID

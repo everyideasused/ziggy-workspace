@@ -112,6 +112,79 @@ Each State file contains:
 | Can't recall old decisions | Full project history, searchable, linked in Obsidian |
 | Lost continuity across sessions | State file = complete context restoration |
 
+---
+
+## 📓 Obsidian Vault Rules — MANDATORY
+
+**When creating or editing notes in Pinky & The Brain vault, ALWAYS follow these rules.**
+
+### Every Note Must Have
+
+**1. Complete YAML Frontmatter**
+```yaml
+---
+type: [note type]
+area: [work/health/finances/household/interests/relationships/education/system]
+status: [inbox/active/complete/archived]
+tags:
+  - [at least one tag]
+---
+```
+**All four fields required.** No empty values — especially `area:` must be populated.
+
+**2. Navigation Header (First Line After Frontmatter)**
+
+Daily notes (Journal/):
+```
+> [[🏠base|🏠]] · [[YYYY-MM-DD|← Yesterday]] · [📅 Today](obsidian://daily) · [[YYYY-MM-DD|Tomorrow →]]
+```
+
+System notes & Area Hubs:
+```
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
+```
+
+Area-specific notes (most notes):
+```
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Area Hub|Area Hub]]
+```
+Examples: `[[Work Hub|Work Hub]]`, `[[Health Hub|Health Hub]]`, `[[Household Hub|Household Hub]]`
+
+Special context (workout logs):
+```
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+```
+
+**Critical:**
+- ✅ ONLY ONE navigation header per note
+- ✅ ALWAYS use `[📅 Today](obsidian://daily)` for Today link (dynamic)
+- ✅ Area notes link to their area hub (one click back to context)
+- ❌ Never use static dates for Today link
+
+**3. Note Structure**
+```
+---
+frontmatter
+---
+[blank line]
+> navigation header
+[blank line]
+---
+[blank line]
+# Title
+```
+
+### Quick Reference
+
+**When in doubt:** Check `Pinky & The Brain/Notes/Vault Rules - Quick Reference.md`
+
+**Verify compliance:**
+```bash
+/Volumes/ziggy/openclaw-workspace/vault-audit-v2.sh
+```
+
+---
+
 ## Safety
 
 - Don't exfiltrate private data. Ever.

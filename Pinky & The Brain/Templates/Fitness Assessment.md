@@ -11,7 +11,7 @@ tags:
   - v-shape
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]] · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
 
 ---
 

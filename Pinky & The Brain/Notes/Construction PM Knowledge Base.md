@@ -10,7 +10,7 @@ tags:
   - construction-kb
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|💼 Work]] · [[Construction PM Knowledge Base|📚 KB]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]
 
 ---
 

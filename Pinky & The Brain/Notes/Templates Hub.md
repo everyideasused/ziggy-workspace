@@ -1,6 +1,6 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system

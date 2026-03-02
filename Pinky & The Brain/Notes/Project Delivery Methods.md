@@ -11,13 +11,13 @@ tags:
   - construction-kb
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|💼 Work]] · [[Construction PM Knowledge Base|📚 KB]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]
 
 ---
 
 # Project Delivery Methods
 
-> Cross-cutting reference for [[Construction Program Management - Master Reference]]
+> Cross-cutting reference for [[Construction PM Knowledge Base]]
 
 ---
 

@@ -11,13 +11,13 @@ tags:
   - construction-kb
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|💼 Work]] · [[Construction PM Knowledge Base|📚 KB]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]
 
 ---
 
 # Roles, Responsibilities & Timelines — Construction & Closeout (Phases 6-10)
 
-> Operational playbook for [[Construction Program Management - Master Reference]]
+> Operational playbook for [[Construction PM Knowledge Base]]
 > See also: [[Roles, Responsibilities & Timelines — Pre-Construction (Phases 1-5)]]
 
 ---

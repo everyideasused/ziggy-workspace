@@ -10,7 +10,7 @@ tags:
   - v-shape
 ---
 
-> [[🏠base|🏠]] · [[V-Shape Calisthenics KB Program|🏋️ Program Home]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|Health Hub]]
 
 ---
 

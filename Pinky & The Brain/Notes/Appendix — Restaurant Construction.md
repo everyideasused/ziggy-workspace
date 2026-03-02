@@ -13,13 +13,13 @@ tags:
   - construction-kb
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|💼 Work]] · [[Construction PM Knowledge Base|📚 KB]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]
 
 ---
 
 # Appendix — Restaurant Construction
 
-> Industry appendix for [[Construction Program Management - Master Reference]] and [[Sector Profiles — Retail, Commercial, Residential, Civil]]
+> Industry appendix for [[Construction PM Knowledge Base]] and [[Sector Profiles — Retail, Commercial, Residential, Civil]]
 
 ---
 

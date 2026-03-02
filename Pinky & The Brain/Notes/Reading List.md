@@ -7,7 +7,7 @@ tags:
   - reading
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Interests Hub|🧠 Interests]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Interests Hub|Interests Hub]]
 
 ---
 

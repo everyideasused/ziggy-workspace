@@ -8,7 +8,7 @@ tags:
 resource_type: database
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system
@@ -9,7 +9,7 @@ tags:
   - memory
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|🤖 Ziggy]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
 
@@ -186,8 +186,8 @@ After this, you'll see OpenClaw's memory files in Obsidian under `Notes/OpenClaw
 ### For Nathan
 
 1. **Start each session clean.** Paste the Full Prompt + latest Session State. Don't let sessions accumulate context across unrelated tasks.
-2. **Use `/compact` or start fresh** after completing each discrete task (project note creation, weekly review, workout log, etc.).
-3. **End meaningful sessions with "save the session state."** Ziggy creates/updates the Session State note.
+2. **Use `/new` instead of `/compact` to end sessions.** `/new` triggers the auto-save hook (writes Session State + Session Log, zero tokens). `/compact` only compresses context without saving to vault.
+3. **End meaningful sessions:** Use `/new` to auto-save, or explicitly say "save the session state" for manual updates.
 4. **For important conversations, also say "save this as a save state."** Ziggy creates a permanent save-state note.
 
 ### For Ziggy

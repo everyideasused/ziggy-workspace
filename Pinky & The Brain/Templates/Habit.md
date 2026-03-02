@@ -11,7 +11,20 @@ tags:
   - habit
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[<%* 
+const areaHubs = {
+  "health": "Health Hub",
+  "work": "Work Hub",
+  "relationships": "Relationships Hub",
+  "household": "Household Hub",
+  "interests": "Interests Hub",
+  "education": "Education Hub",
+  "finances": "Finances Hub"
+};
+const area = tp.file.frontmatter.area;
+const hub = areaHubs[area] || "Health Hub";
+tR += hub + "|" + hub;
+%>]]
 
 ---
 

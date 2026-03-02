@@ -10,7 +10,7 @@ tags:
   - v-shape
 ---
 
-> [[🏠base|🏠]] · [[V-Shape Calisthenics KB Program|🏋️ Program Home]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|Health Hub]]
 
 ---
 
@@ -51,7 +51,7 @@ tags:
 
 ## The Workouts
 
-> 📖 **Form check:** See [[V-Shape_Exercise_Guide]] for detailed form descriptions, key cues, common mistakes, and video tutorials for every exercise below.
+> 📖 **Form check:** See [[V-Shape Exercise Guide]] for detailed form descriptions, key cues, common mistakes, and video tutorials for every exercise below.
 
 ### Notation Guide
 

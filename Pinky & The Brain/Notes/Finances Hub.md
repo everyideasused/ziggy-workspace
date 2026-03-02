@@ -166,6 +166,6 @@ SORT file.name ASC
 ---
 
 ## 🔗 Quick Links
-- [[Monthly Finance Template]] — *(in Templates)*
+- [[Monthly Finance Review]] template — *(in Templates)*
 - [[Inventory Database]] — Subscription tracking
 - [[Archives Hub]] — Past financial reviews

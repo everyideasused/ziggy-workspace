@@ -110,14 +110,27 @@ def check_invalid_type():
 def check_broken_links():
     """Find broken wiki-links [[Note Name]] that don't resolve."""
     issues = []
+    # Check Notes/ folder AND vault root for link targets
     note_names = {p.stem for p in NOTES_PATH.glob("*.md")}
+    # Also include vault root files (like 🏠base.md)
+    for root_file in VAULT_PATH.glob("*.md"):
+        note_names.add(root_file.stem)
+    # Also include Journal/ files
+    journal_path = VAULT_PATH / "Journal"
+    if journal_path.exists():
+        for journal_file in journal_path.glob("*.md"):
+            note_names.add(journal_file.stem)
     
     for note_path in NOTES_PATH.glob("*.md"):
         with open(note_path, 'r', encoding='utf-8') as f:
             content = f.read()
         
+        # Remove code blocks before scanning for links
+        content_no_code = re.sub(r'```.*?```', '', content, flags=re.DOTALL)
+        content_no_code = re.sub(r'`[^`]+`', '', content_no_code)
+        
         # Find all wiki-links
-        links = re.findall(r'\[\[([^\]|]+)(?:\|[^\]]+)?\]\]', content)
+        links = re.findall(r'\[\[([^\]|]+)(?:\|[^\]]+)?\]\]', content_no_code)
         
         for link in links:
             # Remove any heading anchors
@@ -141,8 +154,9 @@ def check_orphaned_notes():
     note_names = {p.stem: p for p in NOTES_PATH.glob("*.md")}
     inbound_links = {name: 0 for name in note_names}
     
-    # Scan all notes for wiki-links
-    for note_path in NOTES_PATH.glob("*.md"):
+    # Scan all notes AND vault root for wiki-links
+    all_files = list(NOTES_PATH.glob("*.md")) + list(VAULT_PATH.glob("*.md"))
+    for note_path in all_files:
         with open(note_path, 'r', encoding='utf-8') as f:
             content = f.read()
         

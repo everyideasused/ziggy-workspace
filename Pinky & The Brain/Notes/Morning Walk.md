@@ -13,7 +13,7 @@ best_streak: 0
 start_date: 2026-03-02
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|🏛️ Health]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|Health Hub]]
 
 ---
 

@@ -11,13 +11,13 @@ tags:
   - construction-kb
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|💼 Work]] · [[Construction PM Knowledge Base|📚 KB]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]
 
 ---
 
 # Stakeholder Directory
 
-> Cross-cutting reference for all phases of the [[Construction Program Management - Master Reference]]
+> Cross-cutting reference for all phases of the [[Construction PM Knowledge Base]]
 
 ---
 

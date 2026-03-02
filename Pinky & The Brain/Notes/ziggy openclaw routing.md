@@ -1,6 +1,6 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system
@@ -10,7 +10,7 @@ tags:
   - optimization
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|🤖 Ziggy]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
 

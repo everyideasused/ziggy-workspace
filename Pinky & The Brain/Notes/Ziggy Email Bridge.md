@@ -17,7 +17,7 @@ tags:
 next_action: "Verify Proton Mail plan supports Bridge"
 ---
 
-> [[🏠base|🏠]] · [[2026-04-01|📅 Today]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Interests Hub|Interests Hub]]
 
 ---
 

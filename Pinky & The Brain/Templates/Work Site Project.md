@@ -27,7 +27,7 @@ tags:
 next_action: ""
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]] · [[Work Hub|💼 Work]] · [[<% await tp.system.prompt("Link to Client Project note name") %>|🏢 Client]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]] · [[<% await tp.system.prompt("Link to Client Project note name") %>|🏢 Client]]
 
 ---
 

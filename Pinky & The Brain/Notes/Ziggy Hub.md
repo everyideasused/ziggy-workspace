@@ -1,6 +1,6 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system
@@ -74,7 +74,8 @@ SORT file.cday DESC
 > *How Ziggy remembers across sessions. Git save states + staged context injection.*
 
 - [[Ziggy Memory Architecture]] — Full memory system documentation (git, session states, OpenClaw symlink)
-- [[Ziggy Session State]] — Current session state (updated each session for continuity)
+- [[Ziggy Session State]] — Auto-updated session state (written by `/new` hook)
+- [[Ziggy Session Log]] — Running log of all sessions (auto-appended by `/new` hook)
 ```
 
 ---

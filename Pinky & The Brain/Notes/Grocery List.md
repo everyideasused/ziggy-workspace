@@ -9,7 +9,7 @@ tags:
   - shopping
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|🏠 Household]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
 
 ---
 

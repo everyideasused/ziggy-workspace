@@ -22,7 +22,7 @@ tags:
   - upper-pull
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]] · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
 
 ---
 
@@ -40,79 +40,59 @@ tags:
 
 ## Exercises
 
-### A: Pull-ups (overhand) — 4 x AMRAP (target 5–12) · 90s rest
-> *THE V-taper builder. Dead hang start, chin over bar. Squeeze lats at top.*
-> *Progression: dead hang → negatives (5s down) → band-assisted → strict → weighted → L-sit → archer*
+### Exercises
+> **Target:** Complete all sets at top of rep range before progressing
 
-| Set | Reps | Grip Width | Notes |
-|-----|------|------------|-------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
+#### A: Pull-ups (overhand, shoulder width+)
+**Target:** 4 sets x AMRAP (target 5-12) | Rest: 90s | THE V-taper builder
+| Set | Target | Actual | Notes |
+|-----|--------|--------|-------|
+| 1   | 5-12   |        | Dead hang start, chin over bar |
+| 2   | 5-12   |        | Dead hang start, chin over bar |
+| 3   | 5-12   |        | Dead hang start, chin over bar |
+| 4   | 5-12   |        | Dead hang start, chin over bar |
 
-**Variation used:** 
-**Added weight (if any):** 
+**Variation used:** (negatives / band-assisted / full pull-ups / weighted)
 
----
+#### B: Chin-ups (underhand grip)
+**Target:** 3 sets x AMRAP (target 5-10) | Rest: 75s | Lat + bicep combo, slow 3s eccentric
+| Set | Target | Actual | Notes |
+|-----|--------|--------|-------|
+| 1   | 5-10   |        | 3s eccentric |
+| 2   | 5-10   |        | 3s eccentric |
+| 3   | 5-10   |        | 3s eccentric |
 
-### B: Chin-ups (underhand) — 3 x AMRAP (target 5–10) · 75s rest
-> *Lat + bicep combo. Slow 3s eccentric on every rep. Full dead hang at bottom.*
-> *Progression: negatives → band-assisted → strict → weighted → one-arm negatives*
+**Variation used:** (negatives / band-assisted / full chin-ups / weighted)
 
-| Set | Reps | Tempo | Notes |
-|-----|------|-------|-------|
-| 1 | | 3s down | |
-| 2 | | 3s down | |
-| 3 | | 3s down | |
+#### C: KB Gorilla Row
+**Target:** 3 sets x 10-12 reps/side | Rest: 60s | Wide base, squeeze lats at top
+| Set | Target | Actual (L) | Actual (R) | KB Weight | Notes |
+|-----|--------|------------|------------|-----------|-------|
+| 1   | 10-12  |            |            |           | Squeeze lats |
+| 2   | 10-12  |            |            |           | Squeeze lats |
+| 3   | 10-12  |            |            |           | Squeeze lats |
 
-**Variation used:** 
-**Added weight (if any):** 
+#### D1: KB Renegade Row
+**Target:** 3 sets x 8-10 reps/side | Rest: 45s | Core + lats, keep hips square
+| Set | Target | Actual (L) | Actual (R) | KB Weight | Notes |
+|-----|--------|------------|------------|-----------|-------|
+| 1   | 8-10   |            |            |           | Hips square |
+| 2   | 8-10   |            |            |           | Hips square |
+| 3   | 8-10   |            |            |           | Hips square |
 
----
+#### D2: KB Bicep Curl
+**Target:** 3 sets x 10-12 reps/side | Rest: 45s | Slow 3s eccentric
+| Set | Target | Actual (L) | Actual (R) | KB Weight | Notes |
+|-----|--------|------------|------------|-----------|-------|
+| 1   | 10-12  |            |            |           | 3s down |
+| 2   | 10-12  |            |            |           | 3s down |
+| 3   | 10-12  |            |            |           | 3s down |
 
-### C: KB Gorilla Row — 3 x 10–12/side · 60s rest
-> *Wide base, hinge forward. KB on floor between feet. Row one side, then the other. Squeeze lats at top.*
-
-| Set | Reps (L) | Reps (R) | KB Weight | Notes |
-|-----|----------|----------|-----------|-------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-
----
-
-### D1: KB Renegade Row — 3 x 8–10/side · 45s rest
-> *Push-up position on KBs. Row one side while stabilizing with the other. Keep hips SQUARE — don't rotate.*
-
-| Set | Reps (L) | Reps (R) | KB Weight | Notes |
-|-----|----------|----------|-----------|-------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-
----
-
-### D2: KB Bicep Curl — 3 x 10–12/side · 45s rest
-> *Slow eccentric (3s down). Full extension at bottom, full squeeze at top. No swinging.*
-
-| Set | Reps (L) | Reps (R) | KB Weight | Notes |
-|-----|----------|----------|-----------|-------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-
----
-
-### E: Dead Hang AMRAP Finisher — 1 set
-> *Overhand grip. Hang for max time. Builds grip + decompresses spine. Log total seconds.*
-
-| Total Time (seconds) | Grip (overhand/neutral) | Notes |
-|----------------------|-------------------------|-------|
-| | | |
-
----
-
+#### E: Pull-up Bar Hang AMRAP Finisher
+**Target:** 1 set max time | Dead hang, log seconds
+| Total Time (seconds) | Notes |
+|---------------------|-------|
+|                     | Dead hang |
 ## Session Summary
 - **Total session time:** min
 - **Session RPE (1-10):** 

@@ -23,7 +23,7 @@ tags:
 next_action: ""
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]] · [[Work Hub|💼 Work]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]
 
 ---
 

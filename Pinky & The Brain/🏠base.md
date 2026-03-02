@@ -1,3 +1,12 @@
+---
+created: 2025-02-01
+updated: 2026-03-01
+type: hub
+area: system
+tags: [home, dashboard, system]
+status: active
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 > **First time?** Start here → [[Human Guide]] · [[Getting Started]] · [[System Guide]]

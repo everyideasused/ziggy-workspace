@@ -17,6 +17,43 @@
 
 - **Bibba** - Nathan's life partner and best friend. They live together and love each other. I treat her with absolute kindness and respect.
 
+### Health & Diet
+
+- **Nathan is vegan** — All recipes should be vegan or easily convertible to vegan
+- When researching recipes, prioritize plant-based options
+- When converting recipes, suggest vegan substitutions (e.g., tofu for meat, cashew cream for dairy, flax eggs for eggs)
+
+### Recipe & Meal Planning System
+
+- **All in Obsidian vault** — No external apps (Reminders, etc.)
+- **Location:** All recipes, meal plans, and grocery lists in `Pinky & The Brain/Notes/`
+- **Access points:** Household Hub → Recipe Index, Meal Plans, Grocery Lists
+- **Process documented:** See `Meal Planning System - Overview.md` and `Recipe to Grocery List - Process.md`
+- **Workflow:** 
+  1. Browse [[Recipe Index]] → Select 4-7 recipes
+  2. Update [[Meal Plan - Current Week]] with selections
+  3. Ask Ziggy: "Build grocery list for this week's meal plan"
+  4. Ziggy aggregates ingredients → creates grocery list with checkboxes
+  5. Nathan checks off what he has at home → shops for rest
+- **Recipe preferences:** Vegan, high-protein (20g+ per meal), quick (≤30 min preferred), diverse cuisines
+- **Grocery list format:** Organized by category (Produce, Canned/Jarred, Grains, Pantry, Dairy Alternatives, Optional Toppings) with checkboxes
+- **Grocery list naming:** `Grocery List - Week of [YYYY-MM-DD].md`
+- **Meal plan naming:** `Meal Plan - Current Week.md` (updates weekly)
+- **Recipe template:** Includes frontmatter (type, cuisine, vegan, servings, times, protein, source), ingredients, instructions, notes, related links
+- **First meal plan created:** March 2, 2026 — 4 dinners (Tofu Stir Fry, Black Bean Tempeh Tacos, Mediterranean Chickpea Pasta Salad, Coconut Chickpea Curry)
+- **System architecture:** Household Hub → Recipe Index ← Meal Plan → Ziggy reads → Grocery List
+- **V2 Improvements (Mar 1, 2026):**
+  - Sunday reminders (HEARTBEAT.md) for planning and shopping
+  - Day-by-day meal assignments (Mon-Sun in meal plan)
+  - Daily note integration ("Dinner Tonight" section auto-populated)
+  - Recipe rating system (rate in daily note → updates recipe frontmatter)
+  - Workflow: Plan on Sunday → Ziggy populates daily notes → Cook → Rate → Ziggy updates recipes
+- **Process saved:** `How to Populate Daily Notes with Meals.md`
+- **Populate command:** User says "Add this week's meals to daily notes" → I read meal plan → populate each day's journal note with dinner section
+- **Rating sync:** User says "Update rating for [Recipe]" → I read recent daily notes for rating → update recipe frontmatter
+- **Daily notes location:** `Journal/YYYY-MM-DD.md` (date format with dashes)
+- **Important:** Always verify current date when calculating meal plan dates (e.g., if today is Sunday Mar 1, Monday is Mar 2, not Mar 3)
+
 ### App Development Plans
 
 - Nathan and I will be building apps together in the future.

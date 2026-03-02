@@ -1,6 +1,6 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system
@@ -53,11 +53,62 @@ Vault Root/
 ## 📐 Core Rules
 
 ### Rule 1: Every Note Gets a Navigation Header
-The first line of every note is always:
+**The first non-blank line after frontmatter closing `---` must be the navigation header.**
+
+**Format 1: Daily Notes (Journal/)**
 ```
-> [[🏠base|🏠]] · [[YYYY-MM-DD|📅 Today]]
+> [[🏠base|🏠]] · [[2026-03-01|← Yesterday]] · [📅 Today](obsidian://daily) · [[2026-03-03|Tomorrow →]]
 ```
-Daily notes add yesterday/tomorrow links. Work notes add the Work Hub and Client links. This means you are never more than one click from home or today.
+- Yesterday/Tomorrow use static date wikilinks (actual YYYY-MM-DD dates)
+- Today uses dynamic `obsidian://daily` protocol (always opens today's note)
+
+**Format 2: System Notes & Area Hubs**
+```
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
+```
+- System notes (area: system) use simple format
+- Area hub notes (Health Hub, Work Hub, etc.) use simple format
+
+**Format 3: Area-Specific Notes (Most Notes)**
+```
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Area Hub|Area Hub]]
+```
+Examples by area:
+- Work: `> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]`
+- Health: `> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|Health Hub]]`
+- Household: `> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]`
+- Finances: `> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Finances Hub|Finances Hub]]`
+- Relationships: `> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Relationships Hub|Relationships Hub]]`
+- Interests: `> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Interests Hub|Interests Hub]]`
+- Education: `> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Education Hub|Education Hub]]`
+
+**Format 4: Special Context Notes**
+```
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Specific Hub|Context]]
+```
+Example - Workout logs link to program:
+```
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+```
+
+**Critical Rules:**
+- **ONLY ONE navigation header per note** — no duplicates
+- **Always use `[📅 Today](obsidian://daily)`** — never static dates for "Today" link
+- **Area-specific notes link to their area hub** — one click back to context
+- Header appears immediately after frontmatter, before any content
+
+**Structure:**
+```
+---
+frontmatter fields
+---
+[blank line]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Area Hub|Area Hub]]
+[blank line]
+---
+[blank line]
+# Note Title
+``` 
 
 ### Rule 2: Frontmatter Drives Everything
 Every note has YAML frontmatter that tells the system what it is. The key fields are:

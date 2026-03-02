@@ -11,13 +11,13 @@ tags:
   - construction-kb
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|💼 Work]] · [[Construction PM Knowledge Base|📚 KB]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]
 
 ---
 
 # AHJ Research Methodology
 
-> Cross-cutting reference for [[Construction Program Management - Master Reference]] and [[04 - Entitlements & Permitting]]
+> Cross-cutting reference for [[Construction PM Knowledge Base]] and [[04 - Entitlements & Permitting]]
 
 ---
 

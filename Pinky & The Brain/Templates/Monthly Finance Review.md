@@ -12,7 +12,7 @@ tags:
   - monthly-review
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]] · [[Finances Hub|💰 Finances]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Finances Hub|Finances Hub]]
 
 ---
 

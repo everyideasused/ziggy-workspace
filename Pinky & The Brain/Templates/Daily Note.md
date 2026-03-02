@@ -1,13 +1,13 @@
 ---
 type: daily
-area: 
+area: health
 date: <% tp.date.now("YYYY-MM-DD") %>
 status: active
 tags:
   - daily
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD", -1) %>|← Yesterday]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]] · [[<% tp.date.now("YYYY-MM-DD", 1) %>|Tomorrow →]]
+> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD", -1) %>|← Yesterday]] · [📅 Today](obsidian://daily) · [[<% tp.date.now("YYYY-MM-DD", 1) %>|Tomorrow →]]
 
 ---
 
@@ -60,6 +60,21 @@ if (today < programStart) {
 
 tR += workoutText;
 %>
+
+---
+
+## 🍽️ Dinner Tonight
+
+**Planned:** 
+- Recipe: 
+- Prep time: 
+- Protein: 
+
+**Made:** ✅ / ❌
+**Rating (1-5):** ⭐⭐⭐⭐⭐
+
+**Notes:**
+- 
 
 ---
 

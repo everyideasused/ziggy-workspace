@@ -1,13 +1,13 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system
   - ziggy
 ---
 
-> [[🏠base|🏠]] · [[Ziggy Hub|🤖 Ziggy]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
 
@@ -65,7 +65,7 @@ Vault Root/
 ├── 🏠base.md              ← Home hub. Inbox, projects, areas, orphan catcher.
 ├── Journal/                ← Daily notes only. YYYY-MM-DD.md format.
 ├── Notes/                  ← EVERYTHING else. Flat. No sub-folders ever.
-├── Templates/              ← 24 Templater templates. Never edit directly.
+├── Templates/              ← 25 Templater templates. Never edit directly.
 └── Attachments/            ← Images, PDFs, files.
 ```
 
@@ -80,7 +80,7 @@ Vault Root/
 | `Dashboard` | At-a-glance — fitness, habits, tasks, finances, reading |
 | `Getting Started` | Step-by-step setup guide for new installs |
 | `System Guide` | Rules, workflows, settings, taxonomy |
-| `Templates Hub` | All 24 templates and when to use them |
+| `Templates Hub` | All 25 templates and when to use them |
 | `Tags Reference` | Complete tag taxonomy |
 
 **Area Hubs (7):**
@@ -402,19 +402,14 @@ Reps → Sets (cap 4) → Tempo → Rest → Variation → Load
 ### Navigation Quote Block Patterns
 ```markdown
 Hub/static notes:
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 Daily notes (Templater):
-> [[🏠base|🏠]] · [[Yesterday|← Yesterday]] · [[Today|📅 Today]] · [[Tomorrow|Tomorrow →]]
 
 Work notes:
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|💼 Work]] · [[Client Name|🏢 Client]]
 
 Health notes:
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|🏛️ Health]]
 
 Household notes:
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|🏡 Household]]
 ```
 
 ### Common Tasks Reference
@@ -458,6 +453,7 @@ Household notes:
 | "Save the session state" | Create or update [[Ziggy Session State]] with: date, what was worked on, decisions made, files changed, open items, next actions. Keep under 500 words. |
 | "Save this as a save state" | Create a permanent Quick Capture note with `ziggy` + `save-state` tags and comprehensive conversation summary |
 | "Weekly review" | Walk through Weekly Review template sections (now includes fitness, habits, finances, groceries, reading) |
+| "/new" | Triggers auto-save of session state + log entry to vault, then resets context. Zero tokens. Prefer over `/compact`. |
 | "Show me my dashboard" | Reference [[Dashboard]] |
 
 ---
@@ -507,7 +503,7 @@ When Nathan wants to add a new system, workflow, or note type, follow this proce
 6. **Link the hub to 🏠base** if it's a top-level concept
    - Add to the appropriate section (System, Resources, Areas)
 
-- [ ] Session State updated if the extension affects ongoing work
+- [x] Session State updated if the extension affects ongoing work
 
 ### Adding a New Hub/Database Note
 
@@ -549,14 +545,14 @@ Follow the Ziggy Email Bridge Architecture pattern:
 
 ### Checklist: After Any Vault Extension
 
-- [ ] Template created with proper frontmatter schema
-- [ ] Ziggy System Context updated (this document)
-- [ ] Templates Hub updated
-- [ ] Tags Reference updated (if new tags)
-- [ ] Hub/index note created or updated with Dataview queries
-- [ ] 🏠base linked (if top-level)
-- [ ] Getting Started guide updated (template count, notes count, quick reference card)
-- [ ] Weekly Review template updated (if the new system needs a weekly check-in section)
+- [x] Template created with proper frontmatter schema
+- [x] Ziggy System Context updated (this document)
+- [x] Templates Hub updated
+- [x] Tags Reference updated (if new tags)
+- [x] Hub/index note created or updated with Dataview queries
+- [x] 🏠base linked (if top-level)
+- [x] Getting Started guide updated (template count, notes count, quick reference card)
+- [x] Weekly Review template updated (if the new system needs a weekly check-in section)
 
 ---
 

@@ -21,7 +21,7 @@ kb_weight: 16
 next_action: "Take baseline measurements and progress photos"
 ---
 
-> [[🏠base|🏠]] · [[2026-02-28|📅 Today]] · [[Health Hub|🏛️ Health]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|Health Hub]]
 
 ---
 
@@ -106,13 +106,13 @@ Week 2:  Mon=C  Tue=B2  Wed=A  Thu=B1  Fri=C  Sat=B2  Sun=Rest
 
 ## 📈 Weight Tracking
 
-| Week | Date | Weight (lbs) | Change | Rolling 4-Wk Avg | On Track? |
-|------|------|-------------|--------|-------------------|-----------|
-| 0 | 2026-02-28 | | — | — | Baseline |
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
+| Week | Date       | Weight (lbs) | Change | Rolling 4-Wk Avg | On Track? |
+| ---- | ---------- | ------------ | ------ | ---------------- | --------- |
+| 0    | 2026-03-01 | 148          | —      | —                | Baseline  |
+| 1    |            |              |        |                  |           |
+| 2    |            |              |        |                  |           |
+| 3    |            |              |        |                  |           |
+| 4    |            |              |        |                  |           |
 
 ---
 
@@ -134,18 +134,18 @@ Week 2:  Mon=C  Tue=B2  Wed=A  Thu=B1  Fri=C  Sat=B2  Sun=Rest
 
 ## 🏋️ Performance Benchmarks (Update Every 4 Weeks)
 
-| Test | Baseline | Meso 1 | Meso 2 | Meso 3 |
-|------|----------|--------|--------|--------|
-| Max push-ups (1 set) | | | | |
-| Max pike push-ups (1 set) | | | | |
-| Max pull-ups (1 set) | | | | |
-| Max chin-ups (1 set) | | | | |
-| Max BW hip thrusts (1 set) | | | | |
-| KB goblet squat max reps | | | | |
-| KB press max reps/side | | | | |
-| KB swing max reps (1 min) | | | | |
-| Dead hang hold (sec) | | | | |
-| Wall sit hold (sec) | | | | |
+| Test                       | Baseline | Meso 1 | Meso 2 | Meso 3 |
+| -------------------------- | -------- | ------ | ------ | ------ |
+| Max push-ups (1 set)       |          |        |        |        |
+| Max pike push-ups (1 set)  |          |        |        |        |
+| Max pull-ups (1 set)       |          |        |        |        |
+| Max chin-ups (1 set)       |          |        |        |        |
+| Max BW hip thrusts (1 set) |          |        |        |        |
+| KB goblet squat max reps   |          |        |        |        |
+| KB press max reps/side     |          |        |        |        |
+| KB swing max reps (1 min)  |          |        |        |        |
+| Dead hang hold (sec)       |          |        |        |        |
+| Wall sit hold (sec)        |          |        |        |        |
 
 ---
 
@@ -172,7 +172,7 @@ Week 2:  Mon=C  Tue=B2  Wed=A  Thu=B1  Fri=C  Sat=B2  Sun=Rest
 ### 2026-03-01 — Prep Day Checklist
 
 **Morning (fasted, before food/water):**
-- [ ] Weigh in — record in Weight Tracking table above
+- [x] Weigh in — record in Weight Tracking table above
 - [ ] Take all 8 body measurements with flexible tape measure:
   - [ ] Chest (nipple line, arms relaxed at sides)
   - [ ] Shoulders (widest point, arms at sides — have someone help or use a door frame trick)
@@ -207,26 +207,26 @@ Week 2:  Mon=C  Tue=B2  Wed=A  Thu=B1  Fri=C  Sat=B2  Sun=Rest
 - [ ] Record all in the Performance Benchmarks table above
 
 **Equipment Check:**
-- [ ] Pull-up bar installed and solid (test with a dead hang)
-- [ ] Kettlebell ready — confirm weight (16kg / 35lb)
-- [ ] Workout space cleared — enough room for push-ups, swings, lunges
-- [ ] Something to elevate feet on for pike push-ups (chair, bench, step)
-- [ ] Something to elevate rear foot on for Bulgarian split squats (couch, chair)
-- [ ] Something to anchor feet for Nordic curls (couch base, heavy furniture, door)
-- [ ] Timer app or watch for rest periods and finisher holds
-- [ ] Water bottle
+- [x] Pull-up bar installed and solid (test with a dead hang)
+- [x] Kettlebell ready — confirm weight (16kg / 35lb)
+- [x] Workout space cleared — enough room for push-ups, swings, lunges
+- [x] Something to elevate feet on for pike push-ups (chair, bench, step)
+- [x] Something to elevate rear foot on for Bulgarian split squats (couch, chair)
+- [x] Something to anchor feet for Nordic curls (couch base, heavy furniture, door)
+- [x] Timer app or watch for rest periods and finisher holds
+- [x] Water bottle
 
 **Nutrition Prep:**
-- [ ] Stock protein sources for the week (chicken, eggs, Greek yogurt, protein powder, etc.)
+- [x] Stock protein sources for the week (chicken, eggs, Greek yogurt, protein powder, etc.)
 - [ ] Plan rough meal templates hitting 150g+ protein daily
-- [ ] Buy a food scale if you don't have one (helps dial in protein the first few weeks)
-- [ ] Fill water bottle — target 75+ oz daily starting now
+- [x] Buy a food scale if you don't have one (helps dial in protein the first few weeks)
+- [x] Fill water bottle — target 75+ oz daily starting now
 
 **Obsidian Setup:**
-- [ ] Install vault (extract zip, configure Templater/Dataview/Calendar plugins)
-- [ ] Create tomorrow's daily note — verify Templater processes correctly
-- [ ] Test creating a workout note from the Workout Day A template
-- [ ] Verify the V-Shape project note Dataview queries render
+- [x] Install vault (extract zip, configure Templater/Dataview/Calendar plugins)
+- [x] Create tomorrow's daily note — verify Templater processes correctly
+- [x] Test creating a workout note from the Workout Day A template
+- [x] Verify the V-Shape project note Dataview queries render
 - [ ] Review [[V-Shape Exercise Guide]] — focus on Day A exercises:
   - Pike push-up form (head goes FORWARD, not straight down)
   - Wide grip push-up tempo (3s eccentric)

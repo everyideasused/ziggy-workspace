@@ -1,13 +1,13 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system
   - ziggy
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|🤖 Ziggy]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
 

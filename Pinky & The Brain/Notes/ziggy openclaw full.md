@@ -1,6 +1,6 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system
@@ -9,7 +9,7 @@ tags:
   - prompt
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|🤖 Ziggy]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
 
@@ -58,7 +58,7 @@ Vault Root/
 ├── 🏠base.md          ← Home hub. Inbox, orphan catcher, projects, areas.
 ├── Journal/            ← Daily notes only. YYYY-MM-DD.md format.
 ├── Notes/              ← EVERYTHING else. Flat. No sub-folders ever.
-├── Templates/          ← 24 Templater templates. Never edit directly.
+├── Templates/          ← 25 Templater templates. Never edit directly.
 └── Attachments/        ← Images, PDFs, files.
 ```
 

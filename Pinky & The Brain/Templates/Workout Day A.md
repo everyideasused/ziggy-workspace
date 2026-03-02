@@ -22,7 +22,7 @@ tags:
   - upper-push
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]] · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
 
 ---
 
@@ -40,89 +40,67 @@ tags:
 
 ## Exercises
 
-### A1: Pike Push-ups (elevated feet) — 3 x 8–12 · 60s rest
-> *Shoulder builder. Head goes FORWARD and down, not straight down. Full lockout at top.*
-> *Progression: floor pike → feet elevated → wall HSPU negative → wall HSPU*
+### Exercises
+> **Target:** Complete all sets at top of rep range before progressing
 
-| Set | Reps | Tempo | Notes |
-|-----|------|-------|-------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+#### A1: Pike Push-ups (elevated feet)
+**Target:** 3 sets x 8-12 reps | Rest: 60s between sets
+| Set | Target | Actual | Tempo | Notes |
+|-----|--------|--------|-------|-------|
+| 1   | 8-12   |        |       |       |
+| 2   | 8-12   |        |       |       |
+| 3   | 8-12   |        |       |       |
 
-**Variation used:** 
+**Variation used:** (floor pike / feet elevated / wall HSPU negative / wall HSPU)
 
----
+#### A2: Wide Grip Push-ups
+**Target:** 3 sets x 10-15 reps | Rest: 60s | Tempo: 3s eccentric
+| Set | Target | Actual | Tempo | Notes |
+|-----|--------|--------|-------|-------|
+| 1   | 10-15  |        | 3s down |     |
+| 2   | 10-15  |        | 3s down |     |
+| 3   | 10-15  |        | 3s down |     |
 
-### A2: Wide Grip Push-ups — 3 x 10–15 · 60s rest
-> *Pec focus. Hands 1.5x shoulder width. Slow 3s eccentric (lowering).*
-> *Progression: standard → decline → archer*
+**Variation used:** (standard wide / decline wide / archer)
 
-| Set | Reps | Tempo | Notes |
-|-----|------|-------|-------|
-| 1 | | 3s down | |
-| 2 | | 3s down | |
-| 3 | | 3s down | |
+#### B1: KB Floor Press
+**Target:** 3 sets x 10-12 reps/side | Rest: 45s | 2s pause at top
+| Set | Target | Actual (L) | Actual (R) | KB Weight | Notes |
+|-----|--------|------------|------------|-----------|-------|
+| 1   | 10-12  |            |            |           | 2s pause top |
+| 2   | 10-12  |            |            |           | 2s pause top |
+| 3   | 10-12  |            |            |           | 2s pause top |
 
-**Variation used:** 
+#### B2: Diamond Push-ups
+**Target:** 3 sets x 8-12 reps | Rest: 60s
+| Set | Target | Actual | Tempo | Notes |
+|-----|--------|--------|-------|-------|
+| 1   | 8-12   |        |       |       |
+| 2   | 8-12   |        |       |       |
+| 3   | 8-12   |        |       |       |
 
----
+**Variation used:** (standard diamond / deficit / pseudo planche)
 
-### B1: KB Floor Press — 3 x 10–12/side · 45s rest
-> *Pec squeeze at top, 2s pause. Upper arm touches floor each rep.*
+#### C1: KB Halo
+**Target:** 2 sets x 10 reps/direction | Rest: 30s
+| Set | Target | Actual (each direction) | KB Weight | Notes |
+|-----|--------|------------------------|-----------|-------|
+| 1   | 10/dir |                        |           |       |
+| 2   | 10/dir |                        |           |       |
 
-| Set | Reps (L) | Reps (R) | KB Weight | Notes |
-|-----|----------|----------|-----------|-------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+#### C2: KB Overhead Press
+**Target:** 3 sets x 8-10 reps/side | Rest: 60s | Strict form, full lockout
+| Set | Target | Actual (L) | Actual (R) | KB Weight | Notes |
+|-----|--------|------------|------------|-----------|-------|
+| 1   | 8-10   |            |            |           | Full lockout |
+| 2   | 8-10   |            |            |           | Full lockout |
+| 3   | 8-10   |            |            |           | Full lockout |
 
----
-
-### B2: Diamond Push-ups — 3 x 8–12 · 60s rest
-> *Tricep emphasis. Thumbs and index fingers form a diamond. Elbows stay tight to body.*
-> *Progression: standard diamond → deficit → pseudo planche*
-
-| Set | Reps | Tempo | Notes |
-|-----|------|-------|-------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-
-**Variation used:** 
-
----
-
-### C1: KB Halo — 2 x 10/direction · 30s rest
-> *Shoulder mobility + stability. Tight circle around head, keep core braced.*
-
-| Set | Reps (each direction) | KB Weight | Notes |
-|-----|-----------------------|-----------|-------|
-| 1 | | | |
-| 2 | | | |
-
----
-
-### C2: KB Overhead Press — 3 x 8–10/side · 60s rest
-> *Strict form, full lockout. Clean the bell to rack position, press straight up.*
-
-| Set | Reps (L) | Reps (R) | KB Weight | Notes |
-|-----|----------|----------|-----------|-------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-
----
-
-### D: Push-up AMRAP Finisher — 1 set
-> *Any variation. Go until 1-2 reps from failure. Log total reps.*
-
+#### D: Push-up AMRAP Finisher
+**Target:** 1 set AMRAP (any variation) | Log total reps
 | Total Reps | Variation Used | Time (optional) |
 |------------|----------------|-----------------|
-| | | |
-
----
-
+|            |                |                 |
 ## Session Summary
 - **Total session time:** min
 - **Session RPE (1-10):** 

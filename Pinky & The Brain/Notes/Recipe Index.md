@@ -9,11 +9,16 @@ tags:
   - cooking
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|🏠 Household]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
 
 ---
 
 # 🍳 Recipe Index
+
+**Quick Links:**
+- [[Meal Plan - Current Week|📅 This Week's Plan]]
+- [[Grocery Lists|🛒 Grocery Lists]]
+- [[Household Hub|🏠 Household]]
 
 ---
 
@@ -28,6 +33,21 @@ TABLE WITHOUT ID
 	protein AS "Protein (g)"
 FROM "Notes"
 WHERE type = "recipe"
+SORT file.name ASC
+```
+
+---
+
+## 🌱 Vegan Recipes
+
+```dataview
+TABLE WITHOUT ID
+	file.link AS "Recipe",
+	meal_type AS "Meal",
+	protein AS "Protein (g)",
+	prep_time AS "Prep Time"
+FROM "Notes"
+WHERE type = "recipe" AND vegan = true
 SORT file.name ASC
 ```
 

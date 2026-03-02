@@ -12,7 +12,7 @@ tags:
   - health
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|🏛️ Health]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|Health Hub]]
 
 ---
 

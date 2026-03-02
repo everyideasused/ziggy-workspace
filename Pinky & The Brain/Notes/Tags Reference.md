@@ -1,6 +1,6 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system
@@ -20,6 +20,9 @@ tags:
 | `project` | A project with a start, end, and deliverable |
 | `work-project` | An individual construction site/store project |
 | `area-hub` | Hub note for a life area |
+| `database` | Aggregation hub (like Inventory Database, Reading List) |
+| `daily` | Daily journal note |
+| `review` | Weekly or monthly review |
 | `meeting` | Meeting notes |
 | `person` | A person |
 | `organization` | A company, agency, or group |
@@ -27,9 +30,13 @@ tags:
 | `account` | Financial account (bank, card, loan, investment) |
 | `bill` | Recurring payment or bill |
 | `monthly-finance` | Monthly financial review note |
+| `workout` | Training session log (Day A/B1/B2/C) |
+| `assessment` | Fitness mesocycle assessment (every 4 weeks) |
+| `habit` | Trackable recurring habit |
+| `book` | Book (reading or to-read) |
+| `recipe` | Recipe with ingredients and macros |
 | `goal` | A measurable goal |
 | `resource` | Reference material |
-| `database` | Aggregation hub (like Inventory Database) |
 | `note` | General note |
 | `system` | Vault system documentation |
 

@@ -1,6 +1,6 @@
 ---
 type: system
-area: 
+area: system
 status: active
 tags:
   - system
@@ -233,7 +233,6 @@ Your home page (🏠base) has these sections, from top to bottom:
 
 Every note has a navigation line at the very top:
 
-> 🏠 · 📅 Today
 
 - **🏠** = Go home (always)
 - **📅 Today** = Go to today's daily note (always)

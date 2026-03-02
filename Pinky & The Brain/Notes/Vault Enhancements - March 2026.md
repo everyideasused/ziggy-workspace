@@ -1,6 +1,6 @@
 ---
 type: note
-area: 
+area: system
 status: active
 tags:
   - system

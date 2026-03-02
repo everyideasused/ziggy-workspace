@@ -7,7 +7,7 @@ tags:
   - <% await tp.system.prompt("Area tag") %>
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
 

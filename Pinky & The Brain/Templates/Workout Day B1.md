@@ -22,7 +22,7 @@ tags:
   - lower
 ---
 
-> [[🏠base|🏠]] · [[<% tp.date.now("YYYY-MM-DD") %>|📅 Today]] · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
 
 ---
 
@@ -40,83 +40,56 @@ tags:
 
 ## Exercises
 
-### A: KB Goblet Squat — 4 x 12–15 · 60s rest
-> *Deep as possible. Glute squeeze at top. Elbows inside knees at bottom.*
-> *Progression: BW → goblet → pause at bottom → 1.5 reps → heavier KB*
+### Exercises
+> **Target:** Complete all sets at top of rep range before progressing
 
-| Set | Reps | KB Weight | Depth | Notes |
-|-----|------|-----------|-------|-------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
+#### A: KB Goblet Squat
+**Target:** 4 sets x 12-15 reps | Rest: 60s | Deep as possible, glute squeeze at top
+| Set | Target | Actual | KB Weight | Notes |
+|-----|--------|--------|-----------|-------|
+| 1   | 12-15  |        |           | Full depth, squeeze glutes |
+| 2   | 12-15  |        |           | Full depth, squeeze glutes |
+| 3   | 12-15  |        |           | Full depth, squeeze glutes |
+| 4   | 12-15  |        |           | Full depth, squeeze glutes |
 
-**Variation used:** 
+#### B: KB Bulgarian Split Squat
+**Target:** 3 sets x 10-12 reps/side | Rest: 60s | Rear foot elevated
+| Set | Target | Actual (L) | Actual (R) | KB Weight | Notes |
+|-----|--------|------------|------------|-----------|-------|
+| 1   | 10-12  |            |            |           | Rear foot on chair/bench |
+| 2   | 10-12  |            |            |           | Rear foot on chair/bench |
+| 3   | 10-12  |            |            |           | Rear foot on chair/bench |
 
----
+#### C: KB Sumo Deadlift
+**Target:** 3 sets x 12-15 reps | Rest: 60s | Wide stance, squeeze glutes at top
+| Set | Target | Actual | KB Weight | Notes |
+|-----|--------|--------|-----------|-------|
+| 1   | 12-15  |        |           | Squeeze hard at top |
+| 2   | 12-15  |        |           | Squeeze hard at top |
+| 3   | 12-15  |        |           | Squeeze hard at top |
 
-### B: KB Bulgarian Split Squat — 3 x 10–12/side · 60s rest
-> *Rear foot elevated on chair/bench. Lean slight forward torso for more glute. Front knee tracks over toes.*
+#### D1: Bodyweight Hip Thrust (feet elevated)
+**Target:** 3 sets x 15-20 reps | Rest: 45s | Hold top 2s
+| Set | Target | Actual | Weight (if adding KB) | Notes |
+|-----|--------|--------|-----------------------|-------|
+| 1   | 15-20  |        |                       | 2s hold at top |
+| 2   | 15-20  |        |                       | 2s hold at top |
+| 3   | 15-20  |        |                       | 2s hold at top |
 
-| Set | Reps (L) | Reps (R) | KB Weight | Notes |
-|-----|----------|----------|-----------|-------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+#### D2: KB Swing
+**Target:** 3 sets x 15-20 reps | Rest: 60s | Hip hinge power, glute dominant
+| Set | Target | Actual | KB Weight | Notes |
+|-----|--------|--------|-----------|-------|
+| 1   | 15-20  |        |           | Power from hips |
+| 2   | 15-20  |        |           | Power from hips |
+| 3   | 15-20  |        |           | Power from hips |
 
-**Rear foot elevated on:** 
-
----
-
-### C: KB Sumo Deadlift — 3 x 12–15 · 60s rest
-> *Wide stance, toes pointed out. KB hangs between legs. Squeeze glutes HARD at top.*
-
-| Set | Reps | KB Weight | Notes |
-|-----|------|-----------|-------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-
----
-
-### D1: Hip Thrust (feet elevated) — 3 x 15–20 · 45s rest
-> *Hold top 2s. Drive through heels. Full glute squeeze — don't hyperextend lower back.*
-> *Progression: BW both legs → BW single leg → KB on hips → KB single leg*
-
-| Set | Reps | Load | Notes |
-|-----|------|------|-------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-
-**Variation used:** 
-
----
-
-### D2: KB Swing — 3 x 15–20 · 60s rest
-> *Hip hinge power. Arms are ropes — power comes from hips snapping forward. Glute dominant.*
-> *Progression: two-hand → one-hand → heavier KB → snatch*
-
-| Set | Reps | KB Weight | Notes |
-|-----|------|-----------|-------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-
-**Variation used:** 
-
----
-
-### E: Wall Sit Hold — 2 x 30–45s · 30s rest
-> *Finisher. Thighs parallel to floor. Back flat against wall.*
-
-| Set | Time (seconds) | Notes |
-|-----|----------------|-------|
-| 1 | | |
-| 2 | | |
-
----
-
+#### E: Wall Sit Hold Finisher
+**Target:** 2 sets x 30-45s | Rest: 30s | Thighs parallel
+| Set | Target | Actual Time | Notes |
+|-----|--------|-------------|-------|
+| 1   | 30-45s |             | Thighs parallel to floor |
+| 2   | 30-45s |             | Thighs parallel to floor |
 ## Session Summary
 - **Total session time:** min
 - **Session RPE (1-10):** 
