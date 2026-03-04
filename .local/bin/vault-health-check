@@ -10,6 +10,42 @@ import re
 from pathlib import Path
 from datetime import datetime
 
+
+# ── Added by fix-vault-cleanup.py ──
+# Patterns to ignore in broken link detection
+IGNORE_LINK_PATTERNS = [
+    "🏠base",           # Lives in vault root, not Notes/
+    "YYYY-MM-DD",        # Date placeholder in docs
+    "wikilink",          # Example text in docs
+    "wikilinks",         # Example text in docs
+    "double brackets",   # Example text in docs
+    "link it",           # Example text in docs
+    "Area Hub",          # Example text in docs
+    "Project Name",      # Placeholder in docs
+    "Note Name",         # Placeholder in docs
+    "Specific Hub",      # Placeholder in docs
+    "Recipe 1", "Recipe 2", "Recipe 3", "Recipe 4",  # Placeholders
+    "Recipe Name",       # Placeholder
+    "{{date}}",          # Template variable
+    "<% tp.",            # Templater code
+    "due::",             # Dataview task syntax
+    "Pasted image",      # Attachments folder
+    "CFA Nashville",     # Example project name in docs
+]
+IGNORE_FILE_PATTERNS = ["_backup_"]
+# ── End additions ──
+
+def should_ignore_link(link_target, source_file=""):
+    """Check if a broken link should be ignored (placeholder, example, etc.)."""
+    for pattern in IGNORE_LINK_PATTERNS:
+        if pattern in link_target:
+            return True
+    for pattern in IGNORE_FILE_PATTERNS:
+        if pattern in source_file:
+            return True
+    return False
+
+
 VAULT_PATH = Path("/Volumes/ziggy/openclaw-workspace/Pinky & The Brain")
 NOTES_PATH = VAULT_PATH / "Notes"
 
@@ -23,7 +59,7 @@ VALID_STATUSES = ["inbox", "active", "complete", "archived", "retired"]
 VALID_TYPES = [
     "project", "work-project", "area-hub", "meeting", "person", "organization",
     "item", "account", "bill", "monthly-finance", "goal", "resource", "database",
-    "note", "system", "habit", "workout", "assessment", "book", "recipe", "review", "daily"
+    "note", "system", "habit", "workout", "assessment", "book", "recipe", "review", "daily", "meal-plan", "grocery-list", "documentation", "process", "research"
 ]
 
 def extract_frontmatter(content):

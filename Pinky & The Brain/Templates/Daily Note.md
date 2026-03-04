@@ -59,21 +59,62 @@ if (today < programStart) {
 }
 
 tR += workoutText;
+
+// ── Sunday Smoothie Prep Reminder ──
+if (dayOfWeek === 0) {
+    tR += `\n\n---\n\n## 🥤 Sunday Smoothie Prep\n> **Weekly meal prep for [[Ultimate Vegan Micronutrient Smoothie]]** — Batch prep for 5-7 smoothies (~30 min)\n\n**Tasks:**\n- [ ] Make dry mix jar (hemp, sunflower, flax, nooch, spirulina, lecithin, dulse)\n- [ ] Prep 7 frozen fruit bags (banana + kiwi + blueberries per bag)\n- [ ] Cut tofu blocks (600g → 4 portions, store in water)\n- [ ] Restock pantry items (pumpkin, kale, tahini, brazil nuts, soy milk)\n\n**See full prep guide:** [[Ultimate Vegan Micronutrient Smoothie#🗓️ Batch Prep System (Sunday Meal Prep)|Batch Prep System]]`;
+}
 %>
 
 ---
 
 ## 🍽️ Dinner Tonight
 
-**Planned:** 
-- Recipe: 
-- Prep time: 
-- Protein: 
+```dataviewjs
+// Auto-pull today's meal from active meal plan
+const today = dv.current().date;
+const mealPlan = dv.page("Meal Plan - Current Week");
 
-**Made:** ✅ / ❌
+if (!mealPlan) {
+    dv.paragraph("**No active meal plan found.**");
+} else {
+    // Find today's meal from the meal plan's date-tagged list
+    const meals = mealPlan.file.lists.filter(l => {
+        if (!l.date) return false;
+        const mealDate = l.date instanceof Date ? luxon.DateTime.fromJSDate(l.date) : l.date;
+        return mealDate.hasSame(today, 'day');
+    });
+    
+    if (meals.length > 0) {
+        const meal = meals[0];
+        const text = meal.text;
+        
+        // Parse the meal entry (format: **[[Recipe]]** | Cuisine | Time | Protein | Notes)
+        const parts = text.split('|').map(p => p.trim());
+        
+        if (text.includes('_Skipped') || text.includes('skipped')) {
+            dv.paragraph("**Planned:** _No meal scheduled for today_");
+        } else if (parts.length >= 4) {
+            const recipeName = text.match(/\[\[(.*?)\]\]/)?.[1] || "Unknown";
+            const cuisine = parts[1] || "";
+            const time = parts[2] || "";
+            const protein = parts[3] || "";
+            const notes = parts[4] || "";
+            
+            dv.paragraph(`**Planned:**\n- Recipe: [[${recipeName}]]\n- Cuisine: ${cuisine} | Prep time: ${time} | Protein: ${protein}\n- Notes: ${notes}`);
+        } else {
+            dv.paragraph(`**Planned:** ${text}`);
+        }
+    } else {
+        dv.paragraph("**Planned:** _No meal scheduled for today_");
+    }
+}
+```
+
+**Made:** ✅ / ❌  
 **Rating (1-5):** ⭐⭐⭐⭐⭐
 
-**Notes:**
+**Cooking notes:**
 - 
 
 ---
@@ -86,15 +127,28 @@ tR += workoutText;
 ### Scheduled (Due Today)
 ```dataview
 TASK
-FROM "Notes" OR "Journal"
-WHERE !completed AND due AND due = date("<% tp.date.now('YYYY-MM-DD') %>")
+WHERE !completed 
+  AND due 
+  AND due = this.file.day
+SORT priority DESC
 ```
 
 ### Overdue
 ```dataview
 TASK
-FROM "Notes" OR "Journal"
-WHERE !completed AND due AND due < date("<% tp.date.now('YYYY-MM-DD') %>")
+WHERE !completed 
+  AND due 
+  AND due < this.file.day
+SORT due ASC
+```
+
+### Upcoming (Next 7 Days)
+```dataview
+TASK
+WHERE !completed 
+  AND due 
+  AND due > this.file.day 
+  AND due <= this.file.day + dur(7 days)
 SORT due ASC
 ```
 
@@ -129,7 +183,7 @@ SORT file.name ASC
 
 **Today's check-in:**
 - [ ] 💧 Water (75+ oz)
-- [ ] 🥩 Protein (150g+)
+- [ ] 🌯 Protein (150g+)
 - [ ] 😴 Sleep (7+ hrs last night)
 
 ---

@@ -94,7 +94,7 @@ SORT client ASC
 ---
 
 ## 🏋️ Fitness Check-In
-> *How did training go this week? Reference [[V-Shape Calisthenics KB Program]].*
+> *How did training go this week? Reference Workout Program]].*
 
 ### Workouts Completed
 ```dataview
@@ -145,7 +145,7 @@ SORT file.name ASC
 | Habit | Mon | Tue | Wed | Thu | Fri | Sat | Sun | Score |
 |-------|-----|-----|-----|-----|-----|-----|-----|-------|
 | 💧 Water (75+ oz) | | | | | | | | /7 |
-| 🥩 Protein (150g+) | | | | | | | | /7 |
+| 🌯 Protein (150g+) | | | | | | | | /7 |
 | 😴 Sleep (7+ hrs) | | | | | | | | /7 |
 | | | | | | | | | /7 |
 

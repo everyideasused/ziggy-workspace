@@ -32,45 +32,45 @@ tags:
 
 ### Fresh Vegetables
 - [ ] 1 English cucumber
-- [ ] 10 oz cherry or grape tomatoes
-- [ ] 14 oz fresh tomatoes (or 1 can diced)
-- [ ] 2 red onions (1 small, 1 medium)
-- [ ] 1 yellow onion (small)
-- [ ] 2 cups baby spinach
-- [ ] Green onions (1 bunch, need 1/4 cup chopped)
+- [x] 10 oz cherry or grape tomatoes
+- [x] 14 oz fresh tomatoes (or 1 can diced)
+- [x] 2 red onions (1 small, 1 medium)
+- [x] 1 yellow onion (small)
+- [x] 2 cups baby spinach
+- [x] Green onions (1 bunch, need 1/4 cup chopped)
 
 ### Fresh Herbs
-- [ ] Fresh parsley (1 bunch, need ~1/2 cup chopped total)
-- [ ] Fresh mint (1 small bunch, need 2 tbsp) — *optional*
-- [ ] Fresh cilantro (1 bunch) — *optional for curry*
+- [x] Fresh parsley (1 bunch, need ~1/2 cup chopped total)
+- [x] Fresh mint (1 small bunch, need 2 tbsp) — *optional*
+- [x] Fresh cilantro (1 bunch) — *optional for curry*
 
 ### Aromatics
-- [ ] Garlic (2 heads, need ~10-12 cloves total)
-- [ ] Fresh ginger (1 large knob, need 2 tbsp grated)
+- [x] Garlic (2 heads, need ~10-12 cloves total)
+- [x] Fresh ginger (1 large knob, need 2 tbsp grated)
 
 ### Other
-- [ ] 2 limes (1 for curry, 1 for optional toppings)
-- [ ] Avocado (for taco toppings) — *optional*
+- [x] 2 limes (1 for curry, 1 for optional toppings)
+- [x] Avocado (for taco toppings) — *optional*
 
 ---
 
 ## 🥫 Canned & Jarred
 
-- [ ] Extra-firm tofu (14 oz block)
-- [ ] Tempeh (8 oz package)
-- [ ] Chickpeas (3 cans, 15-16 oz each)
-- [ ] Black beans (1 can, 15 oz)
-- [ ] Full-fat coconut milk (1 can, 13.5 oz)
-- [ ] Kalamata olives (1 jar, need 1/2 cup) — *optional*
-- [ ] Tomato paste (1 small can, need 1 tbsp)
+- [x] Extra-firm tofu (14 oz block)
+- [x] Tempeh (8 oz package)
+- [x] Chickpeas (3 cans, 15-16 oz each)
+- [x] Black beans (1 can, 15 oz)
+- [x] Full-fat coconut milk (1 can, 13.5 oz)
+- [x] Kalamata olives (1 jar, need 1/2 cup) — *optional*
+- [x] Tomato paste (1 small can, need 1 tbsp)
 
 ---
 
 ## 🍝 Grains & Pasta
 
-- [ ] Pasta (8 oz farfalle, penne, or rotini) — *use chickpea pasta for extra protein*
-- [ ] Corn tortillas (8 count)
-- [ ] Rice (basmati, white, or brown) — for serving stir fry & curry
+- [x] Pasta (8 oz farfalle, penne, or rotini) — *use chickpea pasta for extra protein*
+- [x] Corn tortillas (8 count)
+- [x] Rice (basmati, white, or brown) — for serving stir fry & curry
 - [ ] Naan bread — *optional, for curry*
 
 ---
@@ -78,57 +78,57 @@ tags:
 ## 🧂 Pantry Staples
 
 ### Oils & Vinegars
-- [ ] Canola oil (or high smoke point oil)
-- [ ] Coconut oil
-- [ ] Extra virgin olive oil (need 1/3 cup)
-- [ ] Sesame oil (1 tbsp)
-- [ ] Seasoned rice vinegar (1/4 cup)
-- [ ] Red wine vinegar (3 tbsp)
+- [x] Canola oil (or high smoke point oil)
+- [x] Coconut oil
+- [x] Extra virgin olive oil (need 1/3 cup)
+- [x] Sesame oil (1 tbsp)
+- [x] Seasoned rice vinegar (1/4 cup)
+- [x] Red wine vinegar (3 tbsp)
 
 ### Sauces & Condiments
-- [ ] Low sodium soy sauce or tamari (need ~3/4 cup total)
-- [ ] Dijon mustard (1 tsp)
-- [ ] Maple syrup (2 tbsp)
-- [ ] Hot sauce — *optional*
+- [x] Low sodium soy sauce or tamari (need ~3/4 cup total)
+- [x] Dijon mustard (1 tsp)
+- [x] Maple syrup (2 tbsp)
+- [x] Hot sauce — *optional*
 
 ### Spices & Seasonings
-- [ ] Garam masala (1½ tbsp)
-- [ ] Curry powder (1 tsp)
-- [ ] Taco seasoning (3 tbsp) — or make your own with: cumin, chili powder, oregano, garlic powder, onion powder, smoked paprika
-- [ ] Ground cumin (1/4 tsp for curry + in taco seasoning)
-- [ ] Dried oregano (1 tsp for pasta dressing + in taco seasoning)
-- [ ] Smoked paprika (for taco seasoning)
-- [ ] Chili powder (for taco seasoning)
-- [ ] Kosher salt
-- [ ] Black pepper
-- [ ] Cornstarch (1 tbsp) or tapioca/arrowroot starch
-- [ ] Coconut flour (2 tsp) — *optional, for curry thickening*
+- [x] Garam masala (1½ tbsp)
+- [x] Curry powder (1 tsp)
+- [x] Taco seasoning (3 tbsp) — or make your own with: cumin, chili powder, oregano, garlic powder, onion powder, smoked paprika
+- [x] Ground cumin (1/4 tsp for curry + in taco seasoning)
+- [x] Dried oregano (1 tsp for pasta dressing + in taco seasoning)
+- [x] Smoked paprika (for taco seasoning)
+- [x] Chili powder (for taco seasoning)
+- [x] Kosher salt
+- [x] Black pepper
+- [x] Cornstarch (1 tbsp) or tapioca/arrowroot starch
+- [x] Coconut flour (2 tsp) — *optional, for curry thickening*
 
 ---
 
 ## 🧀 Dairy Alternatives
 
-- [ ] Vegan feta cheese (1/2-1 cup crumbled) — for pasta salad
-- [ ] Vegan sour cream — *optional, for taco toppings*
-- [ ] Vegan cheese shreds — *optional, for taco toppings*
+- [x] Vegan feta cheese (1/2-1 cup crumbled) — for pasta salad
+- [x] Vegan sour cream — *optional, for taco toppings*
+- [x] Vegan cheese shreds — *optional, for taco toppings*
 
 ---
 
 ## 🌶️ Optional Toppings & Add-Ins
 
 ### For Tacos
-- [ ] Guacamole or extra avocado
-- [ ] Pico de gallo
-- [ ] Pickled jalapeños
-- [ ] Shredded lettuce or red cabbage
+- [x] Guacamole or extra avocado
+- [x] Pico de gallo
+- [x] Pickled jalapeños
+- [x] Shredded lettuce or red cabbage
 - [ ] Chipotle crema
 
 ### For Stir Fry
-- [ ] Sesame seeds
-- [ ] Optional veggies: bell peppers, broccoli, carrots, mushrooms
+- [x] Sesame seeds
+- [x] Optional veggies: bell peppers, broccoli, carrots, mushrooms
 
 ### For Pasta Salad
-- [ ] Sun-dried tomatoes
+- [x] Sun-dried tomatoes
 - [ ] Artichoke hearts
 
 ---

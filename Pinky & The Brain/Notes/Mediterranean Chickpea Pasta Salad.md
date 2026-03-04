@@ -87,6 +87,6 @@ tags:
 ---
 
 ## 🔗 Related
-- [[Grocery List]]
+- [[Grocery Lists]]
 - [[Recipe Index|🍳 Recipes]]
 - Source: `= this.source`

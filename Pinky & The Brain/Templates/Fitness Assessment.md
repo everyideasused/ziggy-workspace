@@ -11,7 +11,7 @@ tags:
   - v-shape
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Workout Program|🏋️ Program]]
 
 ---
 
@@ -95,4 +95,4 @@ SORT date ASC
 
 ---
 
-> *Update the [[V-Shape Calisthenics KB Program]] project note: measurements table, benchmarks table, weight tracking, and mesocycle targets for next cycle.*
+> *Update the Workout Program]] project note: measurements table, benchmarks table, weight tracking, and mesocycle targets for next cycle.*

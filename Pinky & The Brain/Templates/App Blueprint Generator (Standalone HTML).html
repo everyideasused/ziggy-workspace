@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ App Blueprint Generator</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e1a;
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+        .header {
+            border-bottom: 1px solid #1e293b;
+            background: linear-gradient(180deg, rgba(99,102,241,0.06) 0%, transparent 100%);
+            padding: 32px 24px 24px;
+        }
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .header-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .header h1 {
+            font-size: 26px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e2e8f0, #a5b4fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+        .header p {
+            font-size: 14px;
+            color: #64748b;
+            max-width: 600px;
+        }
+        .main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 24px 100px;
+        }
+        .progress-bar {
+            margin-bottom: 32px;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .progress-label {
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .progress-value {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .progress-track {
+            height: 6px;
+            border-radius: 3px;
+            background: #1e293b;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa);
+            transition: width 0.5s ease;
+        }
+        .progress-fill.complete {
+            background: linear-gradient(90deg, #22c55e, #4ade80);
+        }
+        .phase-nav {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .phase-btn {
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid #1e293b;
+            background: rgba(15, 23, 42, 0.6);
+            color: #94a3b8;
+            font-size: 13px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .phase-btn:hover {
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        .phase-btn.active {
+            border: 1.5px solid #6366f1;
+            background: rgba(99, 102, 241, 0.12);
+            color: #a5b4fc;
+            font-weight: 600;
+        }
+        .phase-btn .check { color: #22c55e; font-size: 14px; }
+        .phase-btn .dot { color: #f59e0b; font-size: 11px; }
+        .phase-content h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin: 0 0 6px 0;
+        }
+        .phase-content .description {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 28px;
+        }
+        .section {
+            margin-bottom: 28px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        .section-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+        .required-badge {
+            font-size: 10px;
+            font-weight: 700;
+            color: #f87171;
+            background: rgba(248, 113, 113, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+        }
+        .section-hint {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .section-hint::before {
+            content: "💡 ";
+        }
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1.5px solid #1e293b;
+            background: #0f172a;
+            color: #e2e8f0;
+            font-size: 13px;
+            font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, Consolas, monospace;
+            line-height: 1.7;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        textarea:focus {
+            border-color: #6366f1;
+            background: rgba(99, 102, 241, 0.04);
+        }
+        textarea.has-content {
+            border-color: #334155;
+        }
+        .char-count {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 4px;
+            font-size: 11px;
+            color: #475569;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #1e293b;
+        }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-secondary {
+            border: 1px solid #1e293b;
+            background: transparent;
+            color: #94a3b8;
+        }
+        .btn-secondary:hover:not(:disabled) {
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        .btn-secondary:disabled {
+            color: #334155;
+            cursor: not-allowed;
+        }
+        .btn-primary {
+            border: none;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+        .btn-success {
+            border: none;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #fff;
+            font-weight: 600;
+        }
+        .btn-success:hover {
+            opacity: 0.9;
+        }
+        .footer-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px 24px;
+            background: rgba(10, 14, 26, 0.9);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid #1e293b;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            z-index: 100;
+        }
+        .btn-copy {
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: 1px solid #6366f1;
+            background: rgba(99, 102, 241, 0.1);
+            color: #a5b4fc;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-width: 200px;
+        }
+        .btn-copy:hover {
+            background: rgba(99, 102, 241, 0.2);
+        }
+        .btn-copy.copied {
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            border-color: #22c55e;
+        }
+        .btn-preview {
+            padding: 10px 24px;
+            border-radius: 8px;
+            border: none;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .modal {
+            width: 100%;
+            max-width: 800px;
+            max-height: 85vh;
+            background: #0f172a;
+            border-radius: 16px;
+            border: 1px solid #1e293b;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .modal-btn {
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+        }
+        .modal-btn-copy {
+            background: #6366f1;
+            color: #fff;
+        }
+        .modal-btn-copy.copied {
+            background: #22c55e;
+        }
+        .modal-btn-close {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid #334155;
+        }
+        .modal-content {
+            padding: 24px;
+            overflow: auto;
+            flex: 1;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 12px;
+            line-height: 1.7;
+            color: #cbd5e1;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState, useCallback } = React;
+
+        const PHASES = [
+            {
+                id: "vision",
+                title: "01 — Vision & Core Concept",
+                icon: "💡",
+                description: "Define WHAT you're building and WHY it matters",
+                sections: [
+                    {
+                        id: "elevator_pitch",
+                        label: "Elevator Pitch",
+                        placeholder: "In one sentence: [App Name] helps [target users] to [solve problem] by [unique approach]. Example: 'Splitly helps roommates split shared expenses fairly by automatically tracking purchases and suggesting optimized settlements.'",
+                        hint: "This single sentence guides every architectural decision. Be specific about the user, problem, and mechanism.",
+                        required: true,
+                    },
+                    {
+                        id: "problem_statement",
+                        label: "Problem Statement",
+                        placeholder: "Describe the pain point in detail:\n• Who experiences this problem?\n• How are they currently solving it (workarounds)?\n• What makes current solutions inadequate?\n• What's the cost of NOT solving it (time, money, frustration)?",
+                        hint: "The more visceral and specific the problem, the better the AI agent can prioritize features.",
+                        required: true,
+                    },
+                    {
+                        id: "target_users",
+                        label: "Target User Personas",
+                        placeholder: "Define 1-3 primary personas:\n\nPersona 1: [Name/Role]\n  • Demographics: Age range, tech savviness, context\n  • Goal: What they want to accomplish\n  • Frustration: What blocks them today\n  • Device/Platform preference: Mobile-first? Desktop? Both?\n\nPersona 2: ...",
+                        hint: "Personas drive UI/UX decisions, accessibility requirements, and onboarding flows.",
+                        required: true,
+                    },
+                    {
+                        id: "success_metrics",
+                        label: "Success Metrics (KPIs)",
+                        placeholder: "How will you measure if this app succeeds?\n• Primary metric: (e.g., 'Monthly active users > 1,000 within 3 months')\n• Engagement: (e.g., 'Average session duration > 3 min')\n• Retention: (e.g., 'Day-30 retention > 25%')\n• Business: (e.g., 'Conversion to paid > 5%')",
+                        hint: "KPIs inform what analytics/telemetry to build in from day one.",
+                    },
+                    {
+                        id: "competitive_landscape",
+                        label: "Competitive Landscape",
+                        placeholder: "List 2-4 competitors or alternatives:\n\nCompetitor 1: [Name]\n  • What they do well:\n  • Where they fall short:\n  • Your differentiation:\n\nCompetitor 2: ...",
+                        hint: "Understanding competitors helps the agent avoid building commodity features and focus on differentiators.",
+                    },
+                ],
+            },
+            {
+                id: "features",
+                title: "02 — Feature Specification",
+                icon: "🧩",
+                description: "Define EVERY feature with granular acceptance criteria",
+                sections: [
+                    {
+                        id: "mvp_features",
+                        label: "MVP Features (Must-Have for Launch)",
+                        placeholder: "List each feature with this structure:\n\nFeature 1: [Feature Name]\n  Priority: P0 (launch blocker)\n  User Story: As a [persona], I want to [action] so that [benefit]\n  Acceptance Criteria:\n    ✅ Given [context], when [action], then [expected result]\n    ✅ Given [context], when [action], then [expected result]\n  Edge Cases:\n    ⚠️ What happens if [edge case]?\n    ⚠️ What happens if [edge case]?\n  UI Requirements:\n    • Screen/page needed: [description]\n    • Key interactions: [click, swipe, drag, etc.]\n    • Loading states: [skeleton, spinner, optimistic UI]\n    • Error states: [empty state, error message, retry]\n\nFeature 2: ...",
+                        hint: "Each acceptance criterion becomes a testable unit. The more precise, the fewer iterations needed.",
+                        required: true,
+                    },
+                    {
+                        id: "p1_features",
+                        label: "Post-MVP Features (P1 — Next Sprint)",
+                        placeholder: "Features planned for the next iteration:\n\nFeature: [Name]\n  User Story: As a [persona], I want to [action] so that [benefit]\n  Dependencies: Requires [MVP feature] to be complete\n  Complexity Estimate: Low / Medium / High\n  Notes: [Any architectural considerations to plan for NOW]",
+                        hint: "Defining P1 features now ensures the MVP architecture doesn't paint you into a corner.",
+                    },
+                    {
+                        id: "p2_features",
+                        label: "Future Features (P2 — Roadmap)",
+                        placeholder: "Features for future consideration:\n• [Feature idea] — [brief rationale]\n• [Feature idea] — [brief rationale]\n\nNote any that require architectural planning now (e.g., multi-tenancy, i18n, offline support)",
+                        hint: "Even if not built now, these influence database schema and API design decisions.",
+                    },
+                    {
+                        id: "anti_features",
+                        label: "Anti-Features (Explicitly Out of Scope)",
+                        placeholder: "What this app will NOT do (prevents scope creep):\n• Will NOT support [feature] because [reason]\n• Will NOT integrate with [service] in V1\n• Will NOT handle [edge case] — instead [fallback behavior]",
+                        hint: "Defining boundaries is as important as defining features. This prevents the AI from over-engineering.",
+                    },
+                ],
+            },
+            {
+                id: "ux",
+                title: "03 — User Experience & Flows",
+                icon: "🎨",
+                description: "Map every screen and user journey in detail",
+                sections: [
+                    {
+                        id: "user_flows",
+                        label: "Critical User Flows",
+                        placeholder: "Map the primary journeys step by step:\n\nFlow 1: [Flow Name, e.g., 'New User Onboarding']\n  Step 1: User lands on [page] → sees [what]\n  Step 2: User taps [element] → [what happens]\n  Step 3: System [validates/processes] → [result]\n  Step 4: User is redirected to [where]\n  Happy Path Duration: ~[X] seconds/minutes\n  Error Paths:\n    • If [condition]: show [error], offer [recovery]\n    • If [condition]: redirect to [fallback]\n\nFlow 2: [Core Action Flow]\n  ...",
+                        hint: "Every step becomes a route, component, and API call. Missing steps = missing functionality.",
+                        required: true,
+                    },
+                    {
+                        id: "screen_inventory",
+                        label: "Screen/Page Inventory",
+                        placeholder: "List every distinct screen:\n\nScreen: [Screen Name]\n  Route: /path/to/screen\n  Purpose: [What user accomplishes here]\n  Components:\n    • [Component]: [description & behavior]\n    • [Component]: [description & behavior]\n  Data Displayed: [What data is shown, from where]\n  Actions Available: [What user can do]\n  Navigation: Accessible from [where], leads to [where]\n  Auth Required: Yes/No\n  Responsive Behavior: [How it adapts mobile ↔ desktop]\n\n(Repeat for every screen)",
+                        hint: "This becomes the routing table, component tree, and navigation architecture.",
+                        required: true,
+                    },
+                    {
+                        id: "design_system",
+                        label: "Design Language & Branding",
+                        placeholder: "Visual identity specifications:\n\n• Color Palette:\n  Primary: [hex] — used for [CTAs, headers, etc.]\n  Secondary: [hex] — used for [accents, links]\n  Background: [hex]\n  Surface: [hex] — cards, modals\n  Error: [hex] | Warning: [hex] | Success: [hex]\n\n• Typography:\n  Headings: [font family], weights [400, 600, 700]\n  Body: [font family], size [14-16px base]\n  Mono/Code: [font family]\n\n• Spacing System: 4px base grid / 8px base grid\n• Border Radius: [sharp 0px | subtle 4px | rounded 8px | pill]\n• Shadow Style: [flat | subtle | elevated]\n• Overall Vibe: [e.g., 'Clean & minimal like Linear' or 'Warm & friendly like Notion']\n• Dark Mode: Required / Nice-to-have / Not needed\n\n• Iconography: [Lucide / Heroicons / Phosphor / Custom]\n• Illustration Style: [if applicable]",
+                        hint: "Concrete design tokens eliminate ambiguity and produce consistent UI from the AI agent.",
+                    },
+                    {
+                        id: "accessibility",
+                        label: "Accessibility Requirements",
+                        placeholder: "Accessibility standards:\n• WCAG Level: AA (recommended minimum) / AAA\n• Keyboard Navigation: Full keyboard support required? [Yes/No]\n• Screen Reader: ARIA labels on all interactive elements? [Yes/No]\n• Color Contrast: Minimum 4.5:1 for text, 3:1 for large text\n• Motion: Respect prefers-reduced-motion? [Yes/No]\n• Font Scaling: Support up to 200% zoom? [Yes/No]\n• Focus Indicators: Visible focus rings on all interactive elements\n• Language: Primary language [en] / RTL support needed? [Yes/No]",
+                        hint: "Accessibility is legally required in many jurisdictions and expands your user base by ~15-20%.",
+                    },
+                ],
+            },
+            {
+                id: "architecture",
+                title: "04 — Technical Architecture",
+                icon: "🏗️",
+                description: "Define the technical stack and system design",
+                sections: [
+                    {
+                        id: "tech_stack",
+                        label: "Technology Stack",
+                        placeholder: "Specify preferred technologies (or write 'Agent's choice' for any):\n\n• Frontend Framework: [React / Next.js / Vue / Svelte / React Native / Flutter]\n• Styling: [Tailwind CSS / CSS Modules / Styled Components / Shadcn/UI]\n• State Management: [React Context / Zustand / Redux Toolkit / Jotai]\n• Backend Framework: [Next.js API Routes / Express / FastAPI / Django / Go]\n• Database: [PostgreSQL / MySQL / MongoDB / Supabase / PlanetScale]\n• ORM: [Prisma / Drizzle / SQLAlchemy / TypeORM]\n• Authentication: [NextAuth / Clerk / Supabase Auth / Auth0 / Firebase Auth]\n• File Storage: [S3 / Cloudflare R2 / Supabase Storage / Uploadthing]\n• Hosting: [Vercel / AWS / Railway / Fly.io / Cloudflare Pages]\n• CI/CD: [GitHub Actions / GitLab CI / Vercel Auto-deploy]\n• Monitoring: [Sentry / LogRocket / Datadog / Axiom]\n• Analytics: [PostHog / Mixpanel / Plausible / Google Analytics]\n• Email: [Resend / SendGrid / AWS SES / Postmark]\n• Payments: [Stripe / Lemon Squeezy / Paddle]",
+                        hint: "Be opinionated here — vague choices lead to inconsistent architecture. If unsure, specify constraints instead (e.g., 'must be serverless').",
+                        required: true,
+                    },
+                    {
+                        id: "data_model",
+                        label: "Data Model & Schema",
+                        placeholder: "Define every entity and relationship:\n\nEntity: User\n  Fields:\n    - id: UUID (PK, auto-generated)\n    - email: string (unique, indexed, required)\n    - name: string (required, max 100 chars)\n    - avatar_url: string (nullable)\n    - role: enum ['user', 'admin'] (default: 'user')\n    - created_at: timestamp (auto)\n    - updated_at: timestamp (auto)\n  Relationships:\n    - has_many: Posts\n    - has_many: Comments\n  Indexes:\n    - email (unique)\n    - created_at (for sorting)\n\nEntity: Post\n  ...\n\nSoft Deletes: [Yes/No — which entities?]\nAudit Log: [Yes/No — which actions to log?]",
+                        hint: "This becomes the database migration files. Missing fields = missing features. Include EVERY field, even obvious ones.",
+                        required: true,
+                    },
+                    {
+                        id: "api_design",
+                        label: "API Endpoints & Contracts",
+                        placeholder: "Define every API endpoint:\n\nEndpoint Group: Authentication\n\n  POST /api/auth/register\n    Request Body: { email: string, password: string, name: string }\n    Validation: email format, password min 8 chars with complexity\n    Response 201: { user: UserObject, token: string }\n    Response 400: { error: 'validation_error', details: [...] }\n    Response 409: { error: 'email_exists' }\n    Rate Limit: 5 requests/minute per IP\n\n  POST /api/auth/login\n    ...\n\nAPI Style: REST / GraphQL / tRPC\nVersioning: URL (/v1/) / Header / None for V1\nPagination: Cursor-based / Offset-based",
+                        hint: "Every endpoint becomes a route handler. Every request/response shape becomes a TypeScript type. Every error becomes a handler.",
+                        required: true,
+                    },
+                    {
+                        id: "system_architecture",
+                        label: "System Architecture & Infrastructure",
+                        placeholder: "Architectural patterns and infrastructure:\n\n• Architecture Pattern: [Monolith / Microservices / Serverless / Modular Monolith]\n• Rendering Strategy: [SSR / SSG / CSR / ISR / Hybrid — specify per page]\n• Caching Strategy:\n  - Browser: [Cache-Control headers, service worker]\n  - CDN: [Static assets, API responses]\n  - Application: [Redis / in-memory — what to cache]\n  - Database: [Query caching, connection pooling]\n\n• Background Jobs: [Queue system for emails, image processing, etc.]\n• File Upload Flow: [Client → Presigned URL → S3 → CDN]\n• Search: [PostgreSQL full-text / Elasticsearch / Algolia / Meilisearch]\n• Real-time: [WebSockets / SSE / Polling — for what features?]\n\n• Scalability Considerations:\n  - Expected initial load: [X users, Y requests/min]\n  - Growth plan: [horizontal scaling triggers]",
+                        hint: "This prevents the AI from making monolithic choices that break at scale, or over-engineering for 10 users.",
+                    },
+                ],
+            },
+            {
+                id: "security",
+                title: "05 — Security & Compliance",
+                icon: "🔒",
+                description: "Non-negotiable security requirements for production readiness",
+                sections: [
+                    {
+                        id: "auth_security",
+                        label: "Authentication & Authorization",
+                        placeholder: "Authentication requirements:\n\n• Auth Method: [Email/Password / OAuth (which providers?) / Magic Link / Passkeys]\n• MFA: [Required / Optional / Not needed] — Method: [TOTP / SMS / Email]\n• Session Management:\n  - Token type: [JWT / Session cookie / Both]\n  - Access token expiry: [15 min recommended]\n  - Refresh token expiry: [7-30 days]\n  - Concurrent sessions: [Allow multiple / Single session]\n\n• Password Policy:\n  - Minimum length: [12+ recommended]\n  - Complexity: [uppercase, lowercase, number, symbol requirements]\n  - Breach checking: [HaveIBeenPwned API integration?]\n\n• Authorization Model:\n  - RBAC Roles: [List roles and permissions]\n  - Resource-level permissions: [Owner can edit, viewers can read, etc.]",
+                        hint: "Auth is the #1 attack vector. Every detail here prevents a security incident.",
+                        required: true,
+                    },
+                    {
+                        id: "data_security",
+                        label: "Data Security & Privacy",
+                        placeholder: "Data protection requirements:\n\n• Encryption:\n  - At rest: [AES-256 for database / S3 SSE]\n  - In transit: [TLS 1.3 minimum, HSTS]\n\n• PII Handling:\n  - What PII is collected: [email, name, address, phone, etc.]\n  - Storage: [Where, how long, encryption method]\n  - Deletion: [Right to erasure flow, cascade behavior]\n\n• Input Validation:\n  - SQL injection prevention: [parameterized queries]\n  - XSS prevention: [output encoding, CSP headers]\n  - CSRF protection: [token-based / SameSite cookies]",
+                        hint: "Security is not a feature — it's a requirement. Every item here should be implemented, not optional.",
+                        required: true,
+                    },
+                    {
+                        id: "compliance",
+                        label: "Regulatory Compliance",
+                        placeholder: "Applicable regulations:\n\n• GDPR (if serving EU users):\n  - Cookie consent banner: [Yes/No]\n  - Privacy policy: [URL or 'needs creation']\n  - Data breach notification: [72-hour process]\n\n• CCPA (if serving California users):\n  - 'Do Not Sell' option: [Yes/No]\n\n• SOC 2: [Required? Type I or II?]\n• HIPAA: [If handling health data — BAA required]\n• PCI DSS: [If handling payment cards directly]\n• COPPA: [If users under 13]",
+                        hint: "Compliance violations carry massive fines. Identify requirements early to architect correctly.",
+                    },
+                ],
+            },
+            {
+                id: "quality",
+                title: "06 — Quality & Testing",
+                icon: "✅",
+                description: "Testing strategy and quality gates for release readiness",
+                sections: [
+                    {
+                        id: "testing_strategy",
+                        label: "Testing Strategy",
+                        placeholder: "Define the testing pyramid:\n\n• Unit Tests:\n  - Coverage target: [80%+ recommended]\n  - Framework: [Jest / Vitest / pytest]\n  - What to test: [Business logic, utilities, data transformations]\n\n• Integration Tests:\n  - Framework: [Supertest / pytest / Playwright API testing]\n  - What to test: [API endpoints, database operations, auth flows]\n\n• End-to-End Tests:\n  - Framework: [Playwright / Cypress]\n  - Critical paths:\n    ✅ User registration → login → core action → logout\n    ✅ Payment flow (if applicable)\n\n• Performance Tests:\n  - Load testing: [k6 / Artillery — target: X requests/sec]\n  - Core Web Vitals: LCP < 2.5s, FID < 100ms, CLS < 0.1\n  - Bundle size budget: [< 200KB initial JS]",
+                        hint: "Tests are the safety net that lets the AI iterate confidently. Specify what matters most to test.",
+                        required: true,
+                    },
+                    {
+                        id: "error_handling",
+                        label: "Error Handling & Resilience",
+                        placeholder: "Error handling strategy:\n\n• API Error Format:\n  {\n    error: string (machine-readable code),\n    message: string (human-readable),\n    details?: array (field-level errors),\n    request_id: string (for debugging)\n  }\n\n• Error Categories:\n  - Validation errors (400): Show inline field errors\n  - Auth errors (401/403): Redirect to login / show access denied\n  - Rate limited (429): Show retry-after countdown\n  - Server errors (500): Show generic error + report to Sentry\n\n• Retry Strategy:\n  - Idempotent requests: Auto-retry with exponential backoff\n  - Max retries: 3",
+                        hint: "Users judge apps by how they handle failure. Good error handling = professional product.",
+                    },
+                    {
+                        id: "ci_cd",
+                        label: "CI/CD & Deployment Pipeline",
+                        placeholder: "Deployment pipeline:\n\n• CI Pipeline (on every PR):\n  1. Lint (ESLint + Prettier)\n  2. Type check (TypeScript strict)\n  3. Unit tests\n  4. Integration tests\n  5. Security scan\n\n• CD Pipeline (on merge to main):\n  1. Run full test suite\n  2. Deploy to staging\n  3. Run E2E tests against staging\n  4. Deploy to production\n\n• Feature Flags: [LaunchDarkly / Unleash / Custom / None]",
+                        hint: "A solid pipeline catches bugs before users do and enables confident, frequent deployments.",
+                    },
+                ],
+            },
+            {
+                id: "operations",
+                title: "07 — Operations & Launch",
+                icon: "🚀",
+                description: "Everything needed for production operations and go-live",
+                sections: [
+                    {
+                        id: "environment_config",
+                        label: "Environment Variables & Secrets",
+                        placeholder: "List ALL environment variables needed:\n\n# Database\nDATABASE_URL=         # PostgreSQL connection string\n\n# Authentication\nJWT_SECRET=           # 256-bit random string\n\n# External Services\nSTRIPE_SECRET_KEY=    # Stripe API secret key\nRESEND_API_KEY=       # Email service API key\n\n# Monitoring\nSENTRY_DSN=           # Error tracking DSN\n\nSecrets Management: [Vercel env / AWS Secrets Manager / Doppler / Vault]",
+                        hint: "Missing a single env var = broken deployment. List everything, including ones for third-party services.",
+                        required: true,
+                    },
+                    {
+                        id: "monitoring",
+                        label: "Monitoring & Alerting",
+                        placeholder: "Production monitoring setup:\n\n• Error Tracking:\n  - Tool: [Sentry]\n  - Alert on: Error rate > [X]/min\n\n• Application Metrics:\n  - Response times (p50, p95, p99)\n  - Error rates by endpoint\n  - Active users (real-time)\n\n• Alerting Rules:\n  🔴 Critical: Site down, DB unreachable\n  🟡 Warning: High error rate, slow responses\n\n• On-Call: [Rotation schedule / Single owner / Not needed for V1]",
+                        hint: "You can't fix what you can't see. Monitoring is your production safety net.",
+                    },
+                    {
+                        id: "launch_checklist",
+                        label: "Pre-Launch Checklist",
+                        placeholder: "Final checks before going live:\n\n🔒 Security:\n  □ SSL certificate installed and auto-renewing\n  □ Security headers configured (CSP, HSTS)\n  □ Rate limiting active on all public endpoints\n  □ Dependency vulnerabilities addressed\n\n📧 Transactional:\n  □ Email templates tested\n  □ Email deliverability verified (SPF, DKIM, DMARC)\n\n📊 Analytics:\n  □ Event tracking implemented for key actions\n\n🚀 Infrastructure:\n  □ Production environment provisioned\n  □ Database backups configured\n  □ Monitoring and alerting active",
+                        hint: "This checklist is your launch confidence. Every unchecked item is a risk.",
+                    },
+                ],
+            },
+        ];
+
+        function ProgressBar({ phases, formData }) {
+            const totalFields = phases.reduce(
+                (sum, phase) => sum + phase.sections.filter((s) => s.required).length,
+                0
+            );
+            const filledFields = phases.reduce(
+                (sum, phase) =>
+                    sum + phase.sections.filter((s) => s.required && formData[s.id]?.trim()).length,
+                0
+            );
+            const percentage = totalFields > 0 ? Math.round((filledFields / totalFields) * 100) : 0;
+
+            return (
+                <div className="progress-bar">
+                    <div className="progress-header">
+                        <span className="progress-label">Blueprint Completion</span>
+                        <span className="progress-value" style={{ color: percentage === 100 ? '#22c55e' : '#e2e8f0' }}>
+                            {filledFields}/{totalFields} required fields — {percentage}%
+                        </span>
+                    </div>
+                    <div className="progress-track">
+                        <div 
+                            className={`progress-fill ${percentage === 100 ? 'complete' : ''}`}
+                            style={{ width: `${percentage}%` }}
+                        />
+                    </div>
+                </div>
+            );
+        }
+
+        function SectionField({ section, value, onChange }) {
+            const handleChange = (e) => {
+                onChange(section.id, e.target.value);
+            };
+
+            return (
+                <div className="section">
+                    <div className="section-header">
+                        <label className="section-label">{section.label}</label>
+                        {section.required && <span className="required-badge">REQUIRED</span>}
+                    </div>
+                    {section.hint && <p className="section-hint">{section.hint}</p>}
+                    <textarea
+                        value={value || ""}
+                        onChange={handleChange}
+                        placeholder={section.placeholder}
+                        rows={12}
+                        className={value?.trim() ? "has-content" : ""}
+                    />
+                    <div className="char-count">{value?.length || 0} chars</div>
+                </div>
+            );
+        }
+
+        function AppBlueprintGenerator() {
+            const [formData, setFormData] = useState({});
+            const [activePhase, setActivePhase] = useState("vision");
+            const [showPreview, setShowPreview] = useState(false);
+            const [copySuccess, setCopySuccess] = useState(false);
+
+            const handleChange = useCallback((id, value) => {
+                setFormData((prev) => ({ ...prev, [id]: value }));
+            }, []);
+
+            const activePhaseData = PHASES.find((p) => p.id === activePhase);
+
+            const generateMarkdown = () => {
+                let md = `# 🏗️ Application Blueprint\n`;
+                md += `### Generated: ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}\n\n`;
+                md += `---\n\n`;
+                md += `> **INSTRUCTIONS FOR AI CODING AGENT:** This document is a complete specification for building a production-ready application. Follow each section sequentially. Every field marked REQUIRED must be implemented.\n\n`;
+                md += `---\n\n`;
+
+                PHASES.forEach((phase) => {
+                    const hasContent = phase.sections.some((s) => formData[s.id]?.trim());
+                    if (!hasContent) return;
+
+                    md += `## ${phase.icon} ${phase.title}\n`;
+                    md += `*${phase.description}*\n\n`;
+
+                    phase.sections.forEach((section) => {
+                        const value = formData[section.id]?.trim();
+                        if (!value) return;
+
+                        md += `### ${section.label}${section.required ? " ⚠️ REQUIRED" : ""}\n`;
+                        if (section.hint) md += `> ${section.hint}\n\n`;
+                        md += `\`\`\`\n${value}\n\`\`\`\n\n`;
+                    });
+
+                    md += `---\n\n`;
+                });
+
+                md += `## 📋 Implementation Order\n\n`;
+                md += `\`\`\`\n`;
+                md += `Phase 1: Project Setup\n`;
+                md += `  → Initialize repo with chosen tech stack\n`;
+                md += `  → Configure linting, formatting, TypeScript strict mode\n`;
+                md += `  → Set up CI pipeline (lint + type-check + test)\n`;
+                md += `  → Configure environment variables\n\n`;
+                md += `Phase 2: Data Layer\n`;
+                md += `  → Define database schema from Data Model section\n`;
+                md += `  → Create migration files\n`;
+                md += `  → Implement ORM models with validation\n\n`;
+                md += `Phase 3: Authentication\n`;
+                md += `  → Implement auth system per Security section\n`;
+                md += `  → Set up session management\n`;
+                md += `  → Write auth integration tests\n\n`;
+                md += `Phase 4: Core API\n`;
+                md += `  → Build API endpoints from API Design section\n`;
+                md += `  → Implement input validation on every endpoint\n`;
+                md += `  → Write API integration tests\n\n`;
+                md += `Phase 5: Frontend Foundation\n`;
+                md += `  → Set up routing from Screen Inventory\n`;
+                md += `  → Implement design system (colors, typography, components)\n`;
+                md += `  → Create reusable UI components\n\n`;
+                md += `Phase 6: Feature Implementation\n`;
+                md += `  → Build MVP features in priority order (P0 first)\n`;
+                md += `  → Add loading, error, and empty states\n`;
+                md += `  → Write E2E tests for critical user flows\n\n`;
+                md += `Phase 7: Security Hardening\n`;
+                md += `  → Implement rate limiting\n`;
+                md += `  → Configure security headers (CSP, HSTS, etc.)\n`;
+                md += `  → Run OWASP Top 10 checklist\n\n`;
+                md += `Phase 8: Production Readiness\n`;
+                md += `  → Set up monitoring and alerting\n`;
+                md += `  → Configure production infrastructure\n`;
+                md += `  → Run pre-launch checklist\n`;
+                md += `  → Deploy to staging → E2E tests → Production\n`;
+                md += `\`\`\`\n\n`;
+                md += `---\n*End of Application Blueprint*\n`;
+
+                return md;
+            };
+
+            const handleCopy = () => {
+                const md = generateMarkdown();
+                navigator.clipboard.writeText(md).then(() => {
+                    setCopySuccess(true);
+                    setTimeout(() => setCopySuccess(false), 2500);
+                });
+            };
+
+            const currentIndex = PHASES.findIndex((p) => p.id === activePhase);
+
+            return (
+                <div>
+                    <div className="header">
+                        <div className="header-content">
+                            <div className="header-title">
+                                <div className="header-icon">⚡</div>
+                                <h1>App Blueprint Generator</h1>
+                            </div>
+                            <p>Transform your app idea into a complete, AI-agent-ready technical specification. Fill in each section to generate a blueprint that any coding agent can execute.</p>
+                        </div>
+                    </div>
+
+                    <div className="main">
+                        <ProgressBar phases={PHASES} formData={formData} />
+                        
+                        <div className="phase-nav">
+                            {PHASES.map((phase) => {
+                                const isActive = activePhase === phase.id;
+                                const requiredSections = phase.sections.filter((s) => s.required);
+                                const filledRequired = requiredSections.filter((s) => formData[s.id]?.trim()).length;
+                                const isComplete = requiredSections.length > 0 && filledRequired === requiredSections.length;
+                                const hasContent = phase.sections.some((s) => formData[s.id]?.trim());
+
+                                return (
+                                    <button
+                                        key={phase.id}
+                                        className={`phase-btn ${isActive ? "active" : ""}`}
+                                        onClick={() => setActivePhase(phase.id)}
+                                    >
+                                        <span>{phase.icon}</span>
+                                        <span>{phase.title.split(" — ")[1]}</span>
+                                        {isComplete && <span className="check">✓</span>}
+                                        {!isComplete && hasContent && <span className="dot">●</span>}
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        {activePhaseData && (
+                            <div className="phase-content">
+                                <h2>{activePhaseData.icon} {activePhaseData.title}</h2>
+                                <p className="description">{activePhaseData.description}</p>
+
+                                {activePhaseData.sections.map((section) => (
+                                    <SectionField
+                                        key={section.id}
+                                        section={section}
+                                        value={formData[section.id]}
+                                        onChange={handleChange}
+                                    />
+                                ))}
+
+                                <div className="nav-buttons">
+                                    <button
+                                        className="btn btn-secondary"
+                                        onClick={() => currentIndex > 0 && setActivePhase(PHASES[currentIndex - 1].id)}
+                                        disabled={currentIndex === 0}
+                                    >
+                                        ← Previous Phase
+                                    </button>
+                                    {currentIndex < PHASES.length - 1 ? (
+                                        <button
+                                            className="btn btn-primary"
+                                            onClick={() => setActivePhase(PHASES[currentIndex + 1].id)}
+                                        >
+                                            Next Phase →
+                                        </button>
+                                    ) : (
+                                        <button className="btn btn-success" onClick={() => setShowPreview(true)}>
+                                            🚀 Generate Blueprint
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="footer-bar">
+                        <button 
+                            className={`btn-copy ${copySuccess ? "copied" : ""}`}
+                            onClick={handleCopy}
+                        >
+                            {copySuccess ? "✅ Copied to Clipboard!" : "📋 Copy Blueprint as Markdown"}
+                        </button>
+                        <button className="btn-preview" onClick={() => setShowPreview(!showPreview)}>
+                            {showPreview ? "Hide Preview" : "👁️ Preview Blueprint"}
+                        </button>
+                    </div>
+
+                    {showPreview && (
+                        <div className="modal-overlay" onClick={(e) => e.target === e.currentTarget && setShowPreview(false)}>
+                            <div className="modal">
+                                <div className="modal-header">
+                                    <h3>📄 Blueprint Preview (Markdown)</h3>
+                                    <div className="modal-actions">
+                                        <button 
+                                            className={`modal-btn modal-btn-copy ${copySuccess ? "copied" : ""}`}
+                                            onClick={handleCopy}
+                                        >
+                                            {copySuccess ? "Copied!" : "Copy"}
+                                        </button>
+                                        <button className="modal-btn modal-btn-close" onClick={() => setShowPreview(false)}>
+                                            ✕
+                                        </button>
+                                    </div>
+                                </div>
+                                <pre className="modal-content">{generateMarkdown()}</pre>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<AppBlueprintGenerator />);
+    </script>
+</body>
+</html>

@@ -110,11 +110,12 @@ Vault Root/
 | `Ziggy System Context` | This document |
 | `Ziggy Email Bridge` | Email automation project (starts April) |
 | `Ziggy Email Bridge Architecture` | Technical spec for Smartsheet→Obsidian pipeline |
+| `Ziggy Agent Registry` | Agent profiles, dispatch rules, vault references |
 
 **Fitness System:**
 | Note | Purpose |
 |------|---------|
-| `V-Shape Calisthenics KB Program` | Active project — program overview, measurements, benchmarks |
+| `Workout Program` | Active project — program overview, measurements, benchmarks |
 | `V-Shape Program` | Full program reference — exercises, progression, nutrition |
 | `V-Shape Exercise Guide` | Form cues, common mistakes, video links |
 | `V-Shape Daily Logs` | Legacy log template reference |
@@ -153,6 +154,11 @@ Every note has YAML frontmatter. These fields drive all Dataview queries. **When
 | `work-project` | Individual construction site/store project | Work Site Project.md |
 | `area-hub` | Life area hub note | Area Hub.md |
 | `database` | Aggregation hub note (Inventory, Reading List, etc.) | Manual |
+| `meal-plan` | Weekly meal plan |
+| `grocery-list` | Grocery/shopping list |
+| `documentation` | System or process documentation |
+| `process` | Workflow or process reference |
+| `research` | Research outputs and analysis |
 | `daily` | Daily journal note | Daily Note.md (auto-applied) |
 | `review` | Weekly or monthly review | Weekly Review.md |
 | `meeting` | Meeting notes | Meeting.md |
@@ -442,7 +448,7 @@ Household notes:
 | "Add a task for [date]" | `- [ ] Task [due:: YYYY-MM-DD]` in the relevant note |
 | "What's on my plate this week" | Query tasks due this week |
 | **Food & Household** | |
-| "Add [item] to grocery list" | Add checkbox to right section in [[Grocery List]] |
+| "Add [item] to grocery list" | Add checkbox to right section in [[Grocery Lists]] |
 | "Save this recipe" | Create Recipe note with ingredients, macros. Auto-appears in [[Recipe Index]] |
 | **Reading** | |
 | "I'm reading [book] by [author]" | Create Book note with `status: active`. Auto-shows in [[Reading List]] |
@@ -525,7 +531,7 @@ When Nathan wants to add a new system, workflow, or note type, follow this proce
 2. The rotation schedule is hardcoded in `Templates/Daily Note.md` JavaScript
 3. To change the rotation, edit the `schedule` object in the Daily Note template
 4. To add a new day type, create a new template and add it to the schedule
-5. Update `V-Shape Calisthenics KB Program.md` with the new schedule
+5. Update `Workout Program.md` with the new schedule
 
 ### Adding a New Area of Life
 
@@ -538,6 +544,7 @@ When Nathan wants to add a new system, workflow, or note type, follow this proce
 ### Connecting a New External System
 
 Follow the Ziggy Email Bridge Architecture pattern:
+| `Ziggy Agent Registry` | Agent profiles, dispatch rules, vault references |
 1. Document the architecture in a resource note
 2. Create a project note to track implementation
 3. Define the data flow: External System → Trigger → Parser → Vault Updater

@@ -1,0 +1,124 @@
+#!/bin/bash
+VAULT="/Volumes/ziggy/openclaw-workspace/Pinky & The Brain"
+NOTES="$VAULT/Notes"
+JOURNAL="$VAULT/Journal"
+RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[0;33m'
+BLUE='\033[0;34m'; CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
+REF_DATE="${1:-$(date +%Y-%m-%d)}"
+DOW=$(date -j -f "%Y-%m-%d" "$REF_DATE" "+%u" 2>/dev/null || date -d "$REF_DATE" "+%u" 2>/dev/null)
+MON_OFFSET=$((DOW - 1))
+SUN_OFFSET=$((7 - DOW))
+WEEK_START=$(date -j -v-${MON_OFFSET}d -f "%Y-%m-%d" "$REF_DATE" "+%Y-%m-%d" 2>/dev/null || date -d "$REF_DATE - $MON_OFFSET days" "+%Y-%m-%d" 2>/dev/null)
+WEEK_END=$(date -j -v+${SUN_OFFSET}d -f "%Y-%m-%d" "$REF_DATE" "+%Y-%m-%d" 2>/dev/null || date -d "$REF_DATE + $SUN_OFFSET days" "+%Y-%m-%d" 2>/dev/null)
+echo ""
+echo -e "${BOLD}============================================${NC}"
+echo -e "${BOLD}  📋 WEEKLY REVIEW PREP${NC}"
+echo -e "${BOLD}  Week of $WEEK_START → $WEEK_END${NC}"
+echo -e "${BOLD}============================================${NC}"
+echo ""
+echo -e "${CYAN}🏋️  WORKOUTS THIS WEEK${NC}"
+echo "---"
+workout_count=0; total_rpe=0; rpe_count=0
+for f in "$NOTES"/*.md; do
+  [ ! -f "$f" ] && continue
+  grep -q "^type: workout" "$f" 2>/dev/null || continue
+  fname=$(basename "$f" .md)
+  note_date=$(echo "$fname" | grep -o "^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}" 2>/dev/null)
+  [ -z "$note_date" ] && note_date=$(grep "^date:" "$f" | head -1 | sed 's/date: //' | tr -d ' "' 2>/dev/null)
+  [ -z "$note_date" ] && continue
+  if [[ "$note_date" > "$WEEK_START" || "$note_date" == "$WEEK_START" ]] && [[ "$note_date" < "$WEEK_END" || "$note_date" == "$WEEK_END" ]]; then
+    workout=$(grep "^workout:" "$f" | head -1 | sed 's/workout: //' | tr -d '"')
+    rpe=$(grep "^session_rpe:" "$f" | head -1 | sed 's/session_rpe: //' | tr -d ' ')
+    weight=$(grep "^bodyweight:" "$f" | head -1 | sed 's/bodyweight: //' | tr -d ' ')
+    protein=$(grep "^protein_hit:" "$f" | head -1 | sed 's/protein_hit: //' | tr -d ' "')
+    water=$(grep "^water_hit:" "$f" | head -1 | sed 's/water_hit: //' | tr -d ' "')
+    printf "  %-12s  %-30s  RPE:%-4s  Weight:%-6s  P:%-4s  W:%s\n" "$note_date" "$workout" "$rpe" "$weight" "$protein" "$water"
+    workout_count=$((workout_count + 1))
+    if [ -n "$rpe" ] && [ "$rpe" -gt 0 ] 2>/dev/null; then
+      total_rpe=$((total_rpe + rpe)); rpe_count=$((rpe_count + 1))
+    fi
+  fi
+done
+[ $workout_count -eq 0 ] && echo "  (No workout notes found for this week)"
+echo ""; echo -e "  ${GREEN}Sessions: $workout_count / 6${NC}"
+[ $rpe_count -gt 0 ] && echo "  Avg RPE: $((total_rpe / rpe_count))"
+echo ""
+echo -e "${CYAN}🔁 HABIT STREAKS${NC}"; echo "---"
+for f in "$NOTES"/*.md; do
+  [ ! -f "$f" ] && continue
+  grep -q "^type: habit" "$f" 2>/dev/null || continue
+  status=$(grep "^status:" "$f" | head -1 | sed 's/status: //')
+  [ "$status" = "active" ] || continue
+  name=$(basename "$f" .md)
+  streak=$(grep "^streak:" "$f" | head -1 | sed 's/streak: //')
+  best=$(grep "^best_streak:" "$f" | head -1 | sed 's/best_streak: //')
+  freq=$(grep "^frequency:" "$f" | head -1 | sed 's/frequency: //')
+  printf "  %-25s  streak:%-4s  best:%-4s  (%s)\n" "$name" "$streak" "$best" "$freq"
+done
+echo ""
+echo -e "${RED}⚠️  OVERDUE TASKS${NC}"; echo "---"
+today=$(date +%Y-%m-%d)
+while IFS= read -r line; do
+  due=$(echo "$line" | grep -o '\[due:: [0-9-]*\]' | grep -o '[0-9-]*')
+  if [ -n "$due" ] && [[ "$due" < "$today" ]]; then
+    file=$(echo "$line" | cut -d: -f1)
+    task=$(echo "$line" | sed 's/.*\- \[ \] //' | sed 's/ \[due::.*//') 
+    printf "  ${RED}%s${NC}  %s  (%s)\n" "$due" "$task" "$(basename "$file" .md)"
+  fi
+done < <(grep -rn "\- \[ \].*\[due::" "$NOTES" "$JOURNAL" 2>/dev/null)
+echo ""
+echo -e "${BLUE}📅 TASKS DUE NEXT WEEK${NC}"; echo "---"
+NEXT_MON=$(date -j -v+$((8 - DOW))d -f "%Y-%m-%d" "$REF_DATE" "+%Y-%m-%d" 2>/dev/null || date -d "$REF_DATE + $((8 - DOW)) days" "+%Y-%m-%d" 2>/dev/null)
+NEXT_SUN=$(date -j -v+$((14 - DOW))d -f "%Y-%m-%d" "$REF_DATE" "+%Y-%m-%d" 2>/dev/null || date -d "$REF_DATE + $((14 - DOW)) days" "+%Y-%m-%d" 2>/dev/null)
+while IFS= read -r line; do
+  due=$(echo "$line" | grep -o '\[due:: [0-9-]*\]' | grep -o '[0-9-]*')
+  if [ -n "$due" ] && [[ "$due" > "$NEXT_MON" || "$due" == "$NEXT_MON" ]] && [[ "$due" < "$NEXT_SUN" || "$due" == "$NEXT_SUN" ]]; then
+    file=$(echo "$line" | cut -d: -f1)
+    task=$(echo "$line" | sed 's/.*\- \[ \] //' | sed 's/ \[due::.*//') 
+    printf "  %s  %s  (%s)\n" "$due" "$task" "$(basename "$file" .md)"
+  fi
+done < <(grep -rn "\- \[ \].*\[due::" "$NOTES" "$JOURNAL" 2>/dev/null)
+echo ""
+echo -e "${YELLOW}📥 INBOX ITEMS${NC}"; echo "---"
+for f in "$NOTES"/*.md; do
+  [ ! -f "$f" ] && continue
+  grep -q "^status: inbox" "$f" 2>/dev/null || continue
+  name=$(basename "$f" .md)
+  type=$(grep "^type:" "$f" | head -1 | sed 's/type: //')
+  printf "  %-40s  [%s]\n" "$name" "$type"
+done
+echo ""
+echo -e "${CYAN}🚧 ACTIVE PROJECTS${NC}"; echo "---"
+for f in "$NOTES"/*.md; do
+  [ ! -f "$f" ] && continue
+  grep -q "^type: project" "$f" 2>/dev/null || continue
+  status=$(grep "^status:" "$f" | head -1 | sed 's/status: //')
+  [ "$status" = "active" ] || continue
+  name=$(basename "$f" .md)
+  area=$(grep "^area:" "$f" | head -1 | sed 's/area: //')
+  health=$(grep "^health:" "$f" | head -1 | sed 's/health: //')
+  next=$(grep "^next_action:" "$f" | head -1 | sed 's/next_action: //' | tr -d '"')
+  case "$health" in
+    green) hc="${GREEN}";;
+    yellow) hc="${YELLOW}";;
+    red) hc="${RED}";;
+    *) hc="${NC}";;
+  esac
+  printf "  %-35s  ${hc}%-8s${NC}  [%s]  %s\n" "$name" "$health" "$area" "$next"
+done
+echo ""
+echo -e "${CYAN}📚 CURRENTLY READING${NC}"; echo "---"
+for f in "$NOTES"/*.md; do
+  [ ! -f "$f" ] && continue
+  grep -q "^type: book" "$f" 2>/dev/null || continue
+  status=$(grep "^status:" "$f" | head -1 | sed 's/status: //')
+  [ "$status" = "active" ] || continue
+  name=$(basename "$f" .md)
+  author=$(grep "^author:" "$f" | head -1 | sed 's/author: //' | tr -d '"')
+  progress=$(grep "^progress:" "$f" | head -1 | sed 's/progress: //' | tr -d '"')
+  printf "  %-30s  by %-20s  (%s)\n" "$name" "$author" "$progress"
+done
+echo ""
+echo -e "${BOLD}============================================${NC}"
+echo -e "${BOLD}  Ready for weekly review.${NC}"
+echo -e "${BOLD}============================================${NC}"

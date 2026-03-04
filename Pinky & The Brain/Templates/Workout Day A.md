@@ -22,7 +22,7 @@ tags:
   - upper-push
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Workout Program|🏋️ Program]]
 
 ---
 
@@ -45,61 +45,68 @@ tags:
 
 #### A1: Pike Push-ups (elevated feet)
 **Target:** 3 sets x 8-12 reps | Rest: 60s between sets
-| Set | Target | Actual | Tempo | Notes |
-|-----|--------|--------|-------|-------|
-| 1   | 8-12   |        |       |       |
-| 2   | 8-12   |        |       |       |
-| 3   | 8-12   |        |       |       |
+
+| Set | Target Reps | Actual Reps | Tempo | Notes |
+| :-- | :---------- | :---------- | :---- | :---- |
+| 1   | 8-12        |             |       |       |
+| 2   | 8-12        |             |       |       |
+| 3   | 8-12        |             |       |       |
 
 **Variation used:** (floor pike / feet elevated / wall HSPU negative / wall HSPU)
 
 #### A2: Wide Grip Push-ups
 **Target:** 3 sets x 10-15 reps | Rest: 60s | Tempo: 3s eccentric
-| Set | Target | Actual | Tempo | Notes |
-|-----|--------|--------|-------|-------|
-| 1   | 10-15  |        | 3s down |     |
-| 2   | 10-15  |        | 3s down |     |
-| 3   | 10-15  |        | 3s down |     |
+
+| Set | Target Reps | Actual Reps | Tempo     | Notes |
+| :-- | :---------- | :---------- | :-------- | :---- |
+| 1   | 10-15       |             | 3s down   |       |
+| 2   | 10-15       |             | 3s down   |       |
+| 3   | 10-15       |             | 3s down   |       |
 
 **Variation used:** (standard wide / decline wide / archer)
 
 #### B1: KB Floor Press
 **Target:** 3 sets x 10-12 reps/side | Rest: 45s | 2s pause at top
-| Set | Target | Actual (L) | Actual (R) | KB Weight | Notes |
-|-----|--------|------------|------------|-----------|-------|
-| 1   | 10-12  |            |            |           | 2s pause top |
-| 2   | 10-12  |            |            |           | 2s pause top |
-| 3   | 10-12  |            |            |           | 2s pause top |
+
+| Set | Target Reps | Actual (L) | Actual (R) | KB Weight | Notes          |
+| :-- | :---------- | :--------- | :--------- | :-------- | :------------- |
+| 1   | 10-12       |            |            |           | 2s pause top   |
+| 2   | 10-12       |            |            |           | 2s pause top   |
+| 3   | 10-12       |            |            |           | 2s pause top   |
 
 #### B2: Diamond Push-ups
 **Target:** 3 sets x 8-12 reps | Rest: 60s
-| Set | Target | Actual | Tempo | Notes |
-|-----|--------|--------|-------|-------|
-| 1   | 8-12   |        |       |       |
-| 2   | 8-12   |        |       |       |
-| 3   | 8-12   |        |       |       |
+
+| Set | Target Reps | Actual Reps | Tempo | Notes |
+| :-- | :---------- | :---------- | :---- | :---- |
+| 1   | 8-12        |             |       |       |
+| 2   | 8-12        |             |       |       |
+| 3   | 8-12        |             |       |       |
 
 **Variation used:** (standard diamond / deficit / pseudo planche)
 
 #### C1: KB Halo
 **Target:** 2 sets x 10 reps/direction | Rest: 30s
-| Set | Target | Actual (each direction) | KB Weight | Notes |
-|-----|--------|------------------------|-----------|-------|
-| 1   | 10/dir |                        |           |       |
-| 2   | 10/dir |                        |           |       |
+
+| Set | Target Reps | Actual (each direction) | KB Weight | Notes |
+| :-- | :---------- | :---------------------- | :-------- | :---- |
+| 1   | 10/dir      |                         |           |       |
+| 2   | 10/dir      |                         |           |       |
 
 #### C2: KB Overhead Press
 **Target:** 3 sets x 8-10 reps/side | Rest: 60s | Strict form, full lockout
-| Set | Target | Actual (L) | Actual (R) | KB Weight | Notes |
-|-----|--------|------------|------------|-----------|-------|
-| 1   | 8-10   |            |            |           | Full lockout |
-| 2   | 8-10   |            |            |           | Full lockout |
-| 3   | 8-10   |            |            |           | Full lockout |
+
+| Set | Target Reps | Actual (L) | Actual (R) | KB Weight | Notes        |
+| :-- | :---------- | :--------- | :--------- | :-------- | :----------- |
+| 1   | 8-10        |            |            |           | Full lockout |
+| 2   | 8-10        |            |            |           | Full lockout |
+| 3   | 8-10        |            |            |           | Full lockout |
 
 #### D: Push-up AMRAP Finisher
 **Target:** 1 set AMRAP (any variation) | Log total reps
+
 | Total Reps | Variation Used | Time (optional) |
-|------------|----------------|-----------------|
+| :--------- | :------------- | :-------------- |
 |            |                |                 |
 ## Session Summary
 - **Total session time:** min

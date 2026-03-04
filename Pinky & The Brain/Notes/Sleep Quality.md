@@ -30,5 +30,5 @@ Sleep is when muscles repair and grow. Below 7 hours consistently = compromised 
 ---
 
 ## 🔗 Related
-- [[V-Shape Calisthenics KB Program]]
+- Workout Program]]
 - [[Health Hub]]

@@ -53,7 +53,7 @@ SORT file.name ASC
 
 ---
 
-## 🥩 High-Protein Recipes
+## 🌯 High-Protein Recipes
 > *150g+ protein per day target for bulking*
 
 ```dataview

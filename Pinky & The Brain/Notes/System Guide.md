@@ -88,7 +88,7 @@ Examples by area:
 ```
 Example - Workout logs link to program:
 ```
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Workout Program|🏋️ Program]]
 ```
 
 **Critical Rules:**
@@ -156,6 +156,11 @@ For work items, always include `client_id` and `project_id` in frontmatter so yo
 | `goal` | Goal.md | A measurable goal |
 | `resource` | Resource.md | Reference material, guides, articles |
 | `database` | *(manual)* | Hub notes that aggregate data (like Inventory) |
+| `meal-plan` | Weekly meal plan |
+| `grocery-list` | Grocery/shopping list |
+| `documentation` | System or process documentation |
+| `process` | Workflow or process reference |
+| `research` | Research outputs and analysis |
 | `note` | Quick Capture.md | General note / inbox capture |
 | `system` | *(manual)* | System documentation (like this guide) |
 

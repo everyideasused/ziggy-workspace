@@ -1,0 +1,289 @@
+#!/usr/bin/env python3
+"""
+Vault Health Check - Scans Pinky & The Brain vault for common issues
+Usage: vault-health-check [--fix]
+"""
+
+import os
+import sys
+import re
+from pathlib import Path
+from datetime import datetime
+
+VAULT_PATH = Path("/Volumes/ziggy/openclaw-workspace/Pinky & The Brain")
+NOTES_PATH = VAULT_PATH / "Notes"
+
+# Required frontmatter fields
+REQUIRED_FIELDS = ["type", "area", "status", "tags"]
+
+# Valid status values
+VALID_STATUSES = ["inbox", "active", "complete", "archived", "retired"]
+
+# Valid type values
+VALID_TYPES = [
+    "project", "work-project", "area-hub", "meeting", "person", "organization",
+    "item", "account", "bill", "monthly-finance", "goal", "resource", "database",
+    "note", "system", "habit", "workout", "assessment", "book", "recipe", "review", "daily", "meal-plan", "grocery-list", "documentation", "process", "research"
+]
+
+def extract_frontmatter(content):
+    """Extract YAML frontmatter from markdown content."""
+    match = re.match(r'^---\n(.*?)\n---', content, re.DOTALL)
+    if not match:
+        return None
+    
+    frontmatter = {}
+    for line in match.group(1).split('\n'):
+        if ':' in line:
+            key, value = line.split(':', 1)
+            frontmatter[key.strip()] = value.strip()
+    return frontmatter
+
+def check_missing_frontmatter():
+    """Find notes missing required frontmatter fields."""
+    issues = []
+    
+    for note_path in NOTES_PATH.glob("*.md"):
+        with open(note_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        frontmatter = extract_frontmatter(content)
+        
+        if frontmatter is None:
+            issues.append({
+                'file': note_path.name,
+                'issue': 'No frontmatter block',
+                'severity': 'high'
+            })
+            continue
+        
+        missing = [field for field in REQUIRED_FIELDS if field not in frontmatter]
+        if missing:
+            issues.append({
+                'file': note_path.name,
+                'issue': f"Missing fields: {', '.join(missing)}",
+                'severity': 'high'
+            })
+    
+    return issues
+
+def check_invalid_status():
+    """Find notes with invalid status values."""
+    issues = []
+    
+    for note_path in NOTES_PATH.glob("*.md"):
+        with open(note_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        frontmatter = extract_frontmatter(content)
+        if frontmatter and 'status' in frontmatter:
+            status = frontmatter['status'].strip('"\'')
+            if status and status not in VALID_STATUSES:
+                issues.append({
+                    'file': note_path.name,
+                    'issue': f"Invalid status: '{status}' (valid: {', '.join(VALID_STATUSES)})",
+                    'severity': 'medium'
+                })
+    
+    return issues
+
+def check_invalid_type():
+    """Find notes with invalid type values."""
+    issues = []
+    
+    for note_path in NOTES_PATH.glob("*.md"):
+        with open(note_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        frontmatter = extract_frontmatter(content)
+        if frontmatter and 'type' in frontmatter:
+            note_type = frontmatter['type'].strip('"\'')
+            if note_type and note_type not in VALID_TYPES:
+                issues.append({
+                    'file': note_path.name,
+                    'issue': f"Invalid type: '{note_type}' (might be intentional)",
+                    'severity': 'low'
+                })
+    
+    return issues
+
+def check_broken_links():
+    """Find broken wiki-links [[Note Name]] that don't resolve."""
+    issues = []
+    # Check Notes/ folder AND vault root for link targets
+    note_names = {p.stem for p in NOTES_PATH.glob("*.md")}
+    # Also include vault root files (like 🏠base.md)
+    for root_file in VAULT_PATH.glob("*.md"):
+        note_names.add(root_file.stem)
+    # Also include Journal/ files
+    journal_path = VAULT_PATH / "Journal"
+    if journal_path.exists():
+        for journal_file in journal_path.glob("*.md"):
+            note_names.add(journal_file.stem)
+    
+    for note_path in NOTES_PATH.glob("*.md"):
+        with open(note_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Remove code blocks before scanning for links
+        content_no_code = re.sub(r'```.*?```', '', content, flags=re.DOTALL)
+        content_no_code = re.sub(r'`[^`]+`', '', content_no_code)
+        
+        # Find all wiki-links
+        links = re.findall(r'\[\[([^\]|]+)(?:\|[^\]]+)?\]\]', content_no_code)
+        
+        for link in links:
+            # Remove any heading anchors
+            link_target = link.split('#')[0].strip()
+            
+            # Check if target exists
+            if link_target and link_target not in note_names:
+                # Skip if it looks like a date (YYYY-MM-DD)
+                if not re.match(r'^\d{4}-\d{2}-\d{2}$', link_target):
+                    issues.append({
+                        'file': note_path.name,
+                        'issue': f"Broken link: [[{link_target}]]",
+                        'severity': 'medium'
+                    })
+    
+    return issues
+
+def check_orphaned_notes():
+    """Find notes with no inbound links (except system notes and hubs)."""
+    issues = []
+    note_names = {p.stem: p for p in NOTES_PATH.glob("*.md")}
+    inbound_links = {name: 0 for name in note_names}
+    
+    # Scan all notes AND vault root for wiki-links
+    all_files = list(NOTES_PATH.glob("*.md")) + list(VAULT_PATH.glob("*.md"))
+    for note_path in all_files:
+        with open(note_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        links = re.findall(r'\[\[([^\]|]+)(?:\|[^\]]+)?\]\]', content)
+        for link in links:
+            link_target = link.split('#')[0].strip()
+            if link_target in inbound_links:
+                inbound_links[link_target] += 1
+    
+    # Find orphans
+    for name, count in inbound_links.items():
+        if count == 0:
+            note_path = note_names[name]
+            with open(note_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            frontmatter = extract_frontmatter(content)
+            if frontmatter:
+                note_type = frontmatter.get('type', '').strip('"\'')
+                # Skip system notes, hubs, and templates
+                if note_type in ['system', 'area-hub', 'database']:
+                    continue
+            
+            issues.append({
+                'file': note_path.name,
+                'issue': 'No inbound links (orphaned)',
+                'severity': 'low'
+            })
+    
+    return issues
+
+def check_old_inbox_items():
+    """Find inbox items older than 7 days."""
+    issues = []
+    cutoff = datetime.now().timestamp() - (7 * 24 * 60 * 60)
+    
+    for note_path in NOTES_PATH.glob("*.md"):
+        with open(note_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        frontmatter = extract_frontmatter(content)
+        if frontmatter and frontmatter.get('status', '').strip('"\'') == 'inbox':
+            created_time = note_path.stat().st_ctime
+            if created_time < cutoff:
+                age_days = int((datetime.now().timestamp() - created_time) / (24 * 60 * 60))
+                issues.append({
+                    'file': note_path.name,
+                    'issue': f"Inbox item {age_days} days old (process it!)",
+                    'severity': 'medium'
+                })
+    
+    return issues
+
+def generate_report():
+    """Generate vault health report."""
+    print("=" * 60)
+    print("VAULT HEALTH CHECK")
+    print("=" * 60)
+    print(f"Vault: {VAULT_PATH}")
+    print(f"Scan time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print()
+    
+    all_issues = []
+    
+    # Run checks
+    checks = [
+        ("Missing/Incomplete Frontmatter", check_missing_frontmatter),
+        ("Invalid Status Values", check_invalid_status),
+        ("Invalid Type Values", check_invalid_type),
+        ("Broken Wiki-Links", check_broken_links),
+        ("Old Inbox Items", check_old_inbox_items),
+        ("Orphaned Notes", check_orphaned_notes),
+    ]
+    
+    for check_name, check_func in checks:
+        print(f"Checking: {check_name}...")
+        issues = check_func()
+        all_issues.extend(issues)
+        
+        if issues:
+            print(f"  ⚠️  Found {len(issues)} issue(s)")
+        else:
+            print(f"  ✓ All clear")
+        print()
+    
+    # Summary
+    print("=" * 60)
+    print(f"SUMMARY: {len(all_issues)} total issues found")
+    print("=" * 60)
+    print()
+    
+    if all_issues:
+        # Group by severity
+        high = [i for i in all_issues if i['severity'] == 'high']
+        medium = [i for i in all_issues if i['severity'] == 'medium']
+        low = [i for i in all_issues if i['severity'] == 'low']
+        
+        if high:
+            print(f"🔴 HIGH PRIORITY ({len(high)}):")
+            for issue in high[:10]:  # Show first 10
+                print(f"   - {issue['file']}: {issue['issue']}")
+            if len(high) > 10:
+                print(f"   ... and {len(high) - 10} more")
+            print()
+        
+        if medium:
+            print(f"🟡 MEDIUM PRIORITY ({len(medium)}):")
+            for issue in medium[:10]:
+                print(f"   - {issue['file']}: {issue['issue']}")
+            if len(medium) > 10:
+                print(f"   ... and {len(medium) - 10} more")
+            print()
+        
+        if low:
+            print(f"🟢 LOW PRIORITY ({len(low)}):")
+            print(f"   {len(low)} issues (run with --details to see all)")
+            print()
+    else:
+        print("✅ Vault is healthy! No issues found.")
+        print()
+    
+    return len(all_issues)
+
+if __name__ == "__main__":
+    try:
+        issue_count = generate_report()
+        sys.exit(0 if issue_count == 0 else 1)
+    except Exception as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(2)

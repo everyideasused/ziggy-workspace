@@ -169,7 +169,7 @@ You usually don't have to write this yourself. Templates fill it in. But here's 
 | Log a workout | New note → Workout Day [A/B1/B2/C] template |
 | Jot a quick thought | New note → Quick Capture template |
 | Schedule a task for a specific day | Write: `- [ ] Task name [due:: 2026-03-15]` |
-| Add a grocery item | Open [[Grocery List]] → add checkbox to right section |
+| Add a grocery item | Open [[Grocery Lists]] → add checkbox to right section |
 | Save a recipe | New note → Recipe template |
 | Start reading a book | New note → Book template (set status: active) |
 | Save a book for later | New note → Book template (set status: inbox) |
@@ -287,7 +287,7 @@ Every daily note automatically shows which workout you should do that day based 
 
 ### Every 4 Weeks: Assessment
 
-Create a Fitness Assessment note from the template. Test your maxes, take measurements, compare to last time. The [[V-Shape Calisthenics KB Program]] project note has tables for tracking everything over time.
+Create a Fitness Assessment note from the template. Test your maxes, take measurements, compare to last time. The Workout Program]] project note has tables for tracking everything over time.
 
 ---
 

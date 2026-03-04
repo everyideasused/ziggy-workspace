@@ -110,4 +110,5 @@ LIMIT 10
 
 # 🤖 ZIGGY
 - [[Ziggy Hub]] — AI conversation saves, research drafts, notes in progress
+- [[Agent Registry]] — Specialized agents, their roles, and how they work together
 - [[Ziggy Drafts]] — Active drafts being worked on with Claude

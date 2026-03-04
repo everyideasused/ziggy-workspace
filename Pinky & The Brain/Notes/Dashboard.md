@@ -168,5 +168,5 @@ WHERE type = "book" AND status = "active"
 - [[Work Hub|💼 Work]]
 - [[Health Hub|🏛️ Health]]
 - [[Finances Hub|💰 Finances]]
-- [[Grocery List|🛒 Grocery]]
+- [[Grocery Lists|🛒 Grocery]]
 - [[Recipe Index|🍳 Recipes]]

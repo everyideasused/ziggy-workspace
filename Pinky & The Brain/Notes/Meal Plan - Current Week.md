@@ -25,25 +25,11 @@ tags:
 
 ## 🍽️ This Week's Dinners
 
-### Monday, March 2
-- [ ] **Recipe:** [[Tofu Stir Fry]]
-- **Cuisine:** Asian | **Prep time:** 20 min | **Protein:** 12g
-- **Notes:** Quick weeknight meal, serve with rice
-
-### Tuesday, March 3
-- [ ] **Recipe:** [[Black Bean Tempeh Tacos]]
-- **Cuisine:** Mexican | **Prep time:** 30 min | **Protein:** 10g per taco
-- **Notes:** Make extra for leftovers
-
-### Wednesday, March 4
-- [ ] **Recipe:** [[Mediterranean Chickpea Pasta Salad]]
-- **Cuisine:** Mediterranean | **Prep time:** 30 min | **Protein:** 13g
-- **Notes:** Can be served cold, great for meal prep
-
-### Thursday, March 5
-- [ ] **Recipe:** [[Coconut Chickpea Curry]]
-- **Cuisine:** Indian | **Prep time:** 45 min | **Protein:** 7g + rice
-- **Notes:** One-pot, don't skip the lime!
+- [date:: 2026-03-02] **[[Tofu Stir Fry]]** | Asian | 20 min | 12g protein | Quick weeknight meal, serve with rice
+- [date:: 2026-03-03] _Skipped - meal pushed to Wednesday_
+- [date:: 2026-03-04] **[[Black Bean Tempeh Tacos]]** | Mexican | 30 min | 10g per taco | Make extra for leftovers
+- [date:: 2026-03-05] **[[Mediterranean Chickpea Pasta Salad]]** | Mediterranean | 30 min | 13g protein | Can be served cold, great for meal prep
+- [date:: 2026-03-06] **[[Coconut Chickpea Curry]]** | Indian | 45 min | 7g + rice | One-pot, don't skip the lime!
 
 ---
 

@@ -10,85 +10,358 @@ tags:
   - optimization
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|🤖 Ziggy]]
 
 ---
 
-# OpenClaw Model Routing Guide for Ziggy
+# OpenClaw Model Routing & Escalation Guide
 
-## Setup
+*Last updated: 2026-03-04*
 
-Two system prompt files:
-- **ziggy_openclaw_full.md** (~350 lines) — Full vault knowledge, construction PM expertise, all frontmatter schemas
-- **ziggy_openclaw_lite.md** (~35 lines) — Basic context, workout schedule, task rules
+---
 
-## Recommended Routing
+## Architecture Overview
 
-### Route to Cloud API (Sonnet) + Full Prompt
-Use for anything that touches vault structure, creates notes, or requires deep reasoning:
+Ziggy runs on **Haiku 4.5** as the default model (cheap, fast, handles 85-90% of queries). When a task exceeds Haiku's capabilities, Ziggy escalates by spawning a **sub-agent** on a more powerful model. The sub-agent runs in isolation, completes the task, and announces the result back to the conversation.
 
-- Creating or editing vault notes (any type)
-- Work strategy and client advisory
-- Weekly/monthly reviews
-- Fitness analysis and mesocycle assessments
-- Financial reviews and budget analysis
-- Extending the vault (new templates, new systems)
-- Complex multi-step tasks
-- "Help me think about..." questions
-- Anything involving frontmatter schemas
-- Construction lifecycle advisory (reference the KB)
+This is native OpenClaw functionality — no custom middleware needed.
 
-**Estimated tokens per call:** ~4,000 input (system prompt) + query + response
-**Estimated cost:** ~$0.01-0.03 per call at Sonnet pricing
+```
+Nathan sends message via Telegram
+        ↓
+  Haiku-Ziggy receives it (~$0.007/msg)
+        ↓
+  ┌─────────────────────────────────────────────┐
+  │ Can I handle this directly?                 │
+  │                                             │
+  │ YES (85-90% of messages)                    │
+  │   → Respond directly on Haiku              │
+  │                                             │
+  │ NO — needs more power                       │
+  │   → Classify: Sonnet or Opus?              │
+  │   → Spawn sub-agent with model override    │
+  │   → Sub-agent completes task               │
+  │   → Result announces back to conversation  │
+  └─────────────────────────────────────────────┘
+```
 
-### Route to Local Model (Ollama) + Lite Prompt
-Use for quick, self-contained queries that don't need vault conventions:
+---
 
-- "What workout is today?" (just needs the rotation math)
-- Quick math or calculations
+## The Three-Tier Model
+
+### Tier 1: Haiku 4.5 (Default — handles directly)
+
+**Cost:** $1/$5 per MTok → ~$0.007/message
+**Use for:** Everything that doesn't explicitly need escalation.
+
+Examples:
+- "What workout is today?" → rotation math, done
+- "Add eggs to the grocery list" → simple vault edit
+- "What's my protein target?" → KB lookup
+- "How's the weather?" → quick answer
+- Casual conversation, brainstorming, simple questions
+- "Explain [construction concept]" → general knowledge
+- Quick math, unit conversions, schedules
+- Habit check-ins, water/sleep logging
+- Reading simple vault notes back to Nathan
+- Simple note creation with standard frontmatter
+
+### Tier 2: Sonnet 4.5 (Sub-agent escalation)
+
+**Cost:** $3/$15 per MTok → ~$0.021/message
+**Use for:** Tasks that need reliable reasoning, synthesis, or structured output quality beyond Haiku.
+
+Escalation triggers — spawn sub-agent with Sonnet when Nathan asks for:
+- **Vault note creation with complex frontmatter** — new work projects, financial reviews, meeting notes with cross-references
+- **Weekly/monthly reviews** — multi-section analysis across fitness, finances, work, habits
+- **Construction advisory** — strategic thinking about clients, AHJs, risk, project phasing
+- **Financial analysis** — budget reviews, spending pattern analysis, account reconciliation
+- **Fitness analysis** — mesocycle assessments, progression recommendations, trend analysis
+- **Multi-step reasoning** — "Help me think about...", planning, strategy, decision frameworks
+- **Web research synthesis** — travel planning, product comparisons, vendor research
+- **Vault system extensions** — new templates, new Dataview queries, schema modifications
+- **Long-form writing** — drafts, proposals, reports (non-code)
+- **Email bridge architecture** — Smartsheet integration logic, parser design
+
+### Tier 3: Opus 4.6 (Sub-agent escalation — premium)
+
+**Cost:** $5/$25 per MTok → ~$0.031/message
+**Use for:** Tasks where getting it right the first time saves more than the premium costs, or where output quality has real consequences.
+
+Escalation triggers — spawn sub-agent with Opus when Nathan asks for:
+- **Code generation** — writing hooks, scripts, automations, app builds, TypeScript handlers
+- **Complex multi-system analysis** — cross-project portfolio analysis, multi-client risk assessment
+- **Professional deliverables** — client-facing documents, proposals, presentations content
+- **Architectural decisions** — vault redesigns, system integration planning, data model changes
+- **Debugging** — troubleshooting OpenClaw config, hook failures, integration issues
+- **Compound tasks** — "analyze my spending across all accounts, identify patterns, and propose a revised budget"
+- **Long-context reasoning** — tasks requiring sustained coherence across large amounts of information
+
+**Why Opus earns its premium:** Opus produces better output in fewer iterations. If Sonnet takes 3 back-and-forths to get code right, Opus typically nails it in 1. Three Sonnet messages ($0.063) costs more than one Opus message ($0.031). Opus also uses fewer tokens per task — up to 65% fewer on complex coding tasks — which further closes the price gap.
+
+---
+
+## Decision Heuristic
+
+```
+Message received → Haiku processes
+
+Step 1: Is this a simple lookup, casual chat, or single-fact answer?
+  YES → Handle directly on Haiku. Done.
+  NO  → Continue.
+
+Step 2: Does it involve code, debugging, architecture, or professional deliverables?
+  YES → Spawn sub-agent on OPUS.
+  NO  → Continue.
+
+Step 3: Does it need multi-step reasoning, analysis, complex vault work, or synthesis?
+  YES → Spawn sub-agent on SONNET.
+  NO  → Handle directly on Haiku. Done.
+```
+
+When in doubt, start with Haiku. If the response quality is clearly insufficient, Nathan can say "escalate this" or "use Opus for this" and Ziggy spawns a sub-agent to redo it.
+
+---
+
+## OpenClaw Configuration
+
+### 1. Primary Model (already set)
+
+In `~/.openclaw/openclaw.json`, the primary model is Haiku:
+```json
+{
+  "models": {
+    "primary": "anthropic/claude-haiku-4-5-20251001"
+  }
+}
+```
+
+### 2. Default Sub-Agent Model
+
+Set the default sub-agent model to Groq (free tier) so even accidental spawns cost nothing:
+```json
+{
+  "agents": {
+    "defaults": {
+      "subagents": {
+        "model": "groq/llama-3.3-70b-versatile",
+        "runTimeoutSeconds": 120
+      }
+    }
+  }
+}
+```
+
+### 3. Model Strings for Escalation
+
+| Tier | Model String | Cost (in/out per MTok) |
+|------|-------------|----------------------|
+| Default | `anthropic/claude-haiku-4-5-20251001` | $1 / $5 |
+| Tier 2 | `anthropic/claude-sonnet-4-5-20250929` | $3 / $15 |
+| Tier 3 | `anthropic/claude-opus-4-6` | $5 / $25 |
+| Sub-agent default | `groq/llama-3.3-70b-versatile` | Free |
+| Local fallback | `qwen3:14b` (via Ollama/vLLM) | Free |
+
+### 4. Fallback Chain
+
+If the primary provider fails, OpenClaw falls back through:
+```
+Haiku 4.5 → Sonnet 4.6 → Groq Llama 70B → Gemini → Kimi → qwen3:14b (local)
+```
+
+This is for provider outages only — not for quality-based routing.
+
+---
+
+## Sub-Agent Spawn Commands
+
+### From Ziggy's System Prompt (automatic)
+
+Ziggy uses the `sessions_spawn` tool internally when escalating:
+
+```
+# Sonnet escalation
+sessions_spawn(
+  task: "Create a weekly review note covering fitness, finances, and work projects",
+  model: "anthropic/claude-sonnet-4-5-20250929",
+  label: "weekly-review"
+)
+
+# Opus escalation
+sessions_spawn(
+  task: "Write a TypeScript hook that logs message complexity scores",
+  model: "anthropic/claude-opus-4-6",
+  label: "code-gen"
+)
+```
+
+### Manual Override (Nathan via Telegram)
+
+Nathan can also manually spawn sub-agents:
+```
+/subagents spawn main "Write the vault-session-save hook in TypeScript" --model anthropic/claude-opus-4-6
+```
+
+Or tell Ziggy directly:
+- "Use Opus for this"
+- "Escalate to Sonnet"
+- "This needs the big model"
+
+---
+
+## Escalation Protocol for AGENTS.md / System Prompt
+
+Add this section to `ziggy_openclaw_full.md`:
+
+```markdown
+## MODEL ESCALATION
+
+You run on Haiku by default. Most tasks you handle directly. For tasks that need
+more capability, you spawn a sub-agent on a stronger model.
+
+### When to escalate to Sonnet
+Use sessions_spawn with model "anthropic/claude-sonnet-4-5-20250929" for:
+- Complex vault note creation (work projects, financial reviews, meeting notes)
+- Weekly/monthly reviews and multi-section analysis
+- Construction strategy and advisory
+- Financial or fitness trend analysis
+- Multi-step reasoning and planning
+- Web research synthesis
+- Vault system extensions (templates, schemas, Dataview)
+- Long-form writing (non-code)
+
+### When to escalate to Opus
+Use sessions_spawn with model "anthropic/claude-opus-4-6" for:
+- Code generation (hooks, scripts, automations, apps)
+- Debugging and troubleshooting
+- Professional deliverables (client-facing quality)
+- Architectural decisions and system design
+- Compound multi-part tasks
+- Anything where getting it right on the first try matters more than speed
+
+### When to stay on Haiku
+- Simple lookups (workout schedule, nutrition targets, habit status)
+- Casual conversation and brainstorming
+- Quick math, conversions, schedules
+- Reading notes back, simple edits
+- Grocery list updates, basic note creation
 - General knowledge questions
-- "What should I eat for dinner?" (general advice, not creating a recipe note)
-- Casual conversation
-- Simple reminders or brainstorming
-- "Explain [construction concept]" (general, not vault-specific)
-- Summarizing text you paste in
 
-**Estimated tokens per call:** ~500 input (system prompt) + query + response
-**Estimated cost:** $0 (local)
+### Manual override
+If Nathan says "escalate this", "use Opus", "use Sonnet", or "this needs more power",
+spawn a sub-agent on the requested model. If Nathan says "redo this on Opus",
+re-run the previous task as a sub-agent on Opus.
 
-### Decision Heuristic
-```
-Does it create, edit, or reference a vault note?
-  YES → Cloud + Full Prompt
-  NO  → Does it need deep reasoning or construction expertise?
-    YES → Cloud + Full Prompt
-    NO  → Local + Lite Prompt
+### Cost awareness
+Always choose the cheapest model that can do the job well. When unsure, try Haiku first.
+A failed Haiku attempt + Sonnet retry still costs less than going straight to Opus for
+everything.
 ```
 
-## Recommended Local Models (Mac Mini M4, 16GB RAM)
+---
 
-| Model | Size | Good For | Speed |
-|-------|------|----------|-------|
-| Llama 3.1 8B | 4.7 GB | General Q&A, quick math, casual | Fast |
-| Mistral 7B | 4.1 GB | Structured outputs, following instructions | Fast |
-| Qwen 2.5 7B | 4.4 GB | Reasoning, code, structured data | Fast |
-| Phi-3 mini | 2.3 GB | Ultra-light, simple queries | Very fast |
+## Agent-Specific Model Mapping
 
-For the lite prompt, any of these will perform well. The prompt is small enough to leave most of the context window for your query.
+For the 8-agent dispatch system, here's which model each persona should use:
 
-## Monthly Cost Estimate
+| Agent | Persona | Default Tier | Escalation Tier | Rationale |
+|-------|---------|-------------|----------------|-----------|
+| **Ziggy** | Dispatch / Chief of Staff | Haiku | Sonnet | Classification + simple tasks |
+| **Atlas** | Construction PM | Haiku | Sonnet | KB-driven advisory, vault work |
+| **Ledger** | Finance | Haiku | Sonnet | KB lookups, monthly reviews need Sonnet |
+| **Hammer** | Builder / GC | Haiku | Sonnet | KB-driven, trade knowledge |
+| **Iron** | Fitness | Haiku | Sonnet | Simple lookups, analysis needs Sonnet |
+| **Sage** | Nutrition | Haiku | — | Recipe/grocery queries, rarely complex |
+| **Spin** | Music / Casual | Haiku | — | Low-stakes, conversational |
+| **Compass** | Travel | Haiku | Sonnet | Needs web search + synthesis |
+| **Forge** | Engineering | Haiku | **Opus** | Code generation always needs Opus |
 
-Assuming 80% of queries route local, 20% to cloud:
-- ~30 queries/day × 30 days = 900/month
-- 720 local ($0) + 180 cloud (~$0.02 avg) = ~$3.60/month
-- Well under your $20/month budget
+Note: "Default Tier" is what the agent handles directly. "Escalation Tier" is what gets spawned as a sub-agent when the task exceeds the default. Forge should almost always escalate to Opus — code quality is its entire purpose.
 
-Even at 50/50 split: 450 cloud × $0.02 = ~$9/month
+---
 
-## OpenClaw Configuration Notes
+## Cost Projections
 
-1. Set the full prompt as the default system prompt for your Ziggy agent
-2. Create a second agent profile called "Ziggy Lite" with the lite prompt for local routing
-3. Or if OpenClaw supports model routing rules, configure:
-   - Keywords triggering cloud: "create note", "vault", "frontmatter", "project note", "meeting notes", "weekly review", "save this", "draft", "recipe note", "book note", "habit note", "assessment"
-   - Default: local model
+### Assumptions
+- 30 messages/day average
+- 900 messages/month
+
+### Conservative Estimate (current routing)
+
+| Tier | % of Messages | Messages/mo | Cost/msg | Monthly |
+|------|--------------|-------------|----------|---------|
+| Haiku (direct) | 85% | 765 | $0.007 | $5.36 |
+| Sonnet (sub-agent) | 10% | 90 | $0.021 | $1.89 |
+| Opus (sub-agent) | 5% | 45 | $0.031 | $1.40 |
+| **Total** | | **900** | | **$8.65/mo** |
+
+### Aggressive Local Routing (future optimization)
+
+If local models handle simple queries (Iron, Sage, Spin routed to qwen3:14b):
+
+| Tier | % of Messages | Messages/mo | Cost/msg | Monthly |
+|------|--------------|-------------|----------|---------|
+| Local (qwen3:14b) | 40% | 360 | $0.00 | $0.00 |
+| Haiku (direct) | 45% | 405 | $0.007 | $2.84 |
+| Sonnet (sub-agent) | 10% | 90 | $0.021 | $1.89 |
+| Opus (sub-agent) | 5% | 45 | $0.031 | $1.40 |
+| **Total** | | **900** | | **$6.13/mo** |
+
+### Comparison
+
+| Configuration | Monthly Cost | vs Target ($60) |
+|--------------|-------------|----------------|
+| Before (100% Sonnet) | ~$120 | 2x over |
+| After Haiku switch only | ~$10-15 | Under budget |
+| With sub-agent routing | ~$8.65 | 86% under |
+| With local routing added | ~$6.13 | 90% under |
+
+---
+
+## System Prompt Files
+
+Two system prompt files remain:
+- **ziggy_openclaw_full.md** (~350 lines + escalation protocol) — Full vault knowledge, construction PM expertise, all frontmatter schemas, model escalation rules
+- **ziggy_openclaw_lite.md** (~35 lines) — Basic context, workout schedule, task rules (used by local model fallback)
+
+---
+
+## Monitoring & Tuning
+
+### Message Hook for Analytics (Optional)
+
+A `message:received` hook can log every inbound message for cost analysis. This doesn't route — it observes:
+
+```
+~/.openclaw/hooks/message-cost-logger/
+├── HOOK.md     # events: ["message:received", "message:sent"]
+└── handler.ts  # Logs message length, timestamp, channel to a CSV
+```
+
+Use this data to validate routing assumptions (is 85% really going to Haiku? Are Opus escalations producing better results?).
+
+### Manual Tuning Signals
+
+- If Nathan frequently says "escalate this" after a Haiku response → widen Sonnet triggers
+- If Sonnet sub-agents are producing the same quality as Haiku → tighten Sonnet triggers
+- If Opus is being spawned for simple code snippets → add a complexity threshold
+- Check `/subagents list` periodically to see spawn frequency and costs
+
+---
+
+## Quick Reference Card
+
+| Nathan Says | Model | How |
+|------------|-------|-----|
+| "What workout today?" | Haiku | Direct |
+| "Add milk to grocery" | Haiku | Direct |
+| "What's 425°F in Celsius?" | Haiku | Direct |
+| "Help me think about the Starbucks timeline" | Sonnet | Sub-agent |
+| "Do my weekly review" | Sonnet | Sub-agent |
+| "Write a hook to auto-tag messages" | Opus | Sub-agent |
+| "Create a monthly finance review" | Sonnet | Sub-agent |
+| "Debug why my vault-session-save isn't firing" | Opus | Sub-agent |
+| "Draft a client update email" | Sonnet | Sub-agent |
+| "Build me an expense tracking app" | Opus | Sub-agent |
+| "Use Opus for this" | Opus | Manual override |
+| "Redo this on Sonnet" | Sonnet | Manual override |

@@ -150,7 +150,7 @@ Do these tests in order. If any fail, go back to Step 3 and check the relevant s
 - The template should process — Templater prompts should appear, dates should fill in
 
 ### Test 5: Dataview queries work
-- Open `Notes/V-Shape Calisthenics KB Program.md`
+- Open `Notes/Workout Program.md`
 - Scroll to the bottom — the "Recent Workouts" and "Assessments" sections should show rendered Dataview blocks (empty results is fine)
 - **If you see raw ````dataview` code blocks instead:** Dataview is not enabled. Go back to Step 3C.
 
@@ -242,7 +242,7 @@ When starting a conversation with any AI assistant (Claude, local Ollama model, 
 
 For specialized topics, also paste:
 - **Work questions:** The relevant client/project notes
-- **Fitness questions:** `V-Shape Calisthenics KB Program.md`
+- **Fitness questions:** `Workout Program.md`
 - **Financial questions:** `Finances Hub.md`
 - **Email bridge project:** `Ziggy Email Bridge Architecture.md`
 
@@ -314,7 +314,7 @@ For specialized topics, also paste:
 | Ziggy System Context | Complete vault reference for AI assistants |
 | Ziggy Email Bridge | Email integration project (starts April) |
 | Ziggy Email Bridge Architecture | Technical architecture doc |
-| V-Shape Calisthenics KB Program | Fitness project — the active program |
+| Workout Program | Fitness project — the active program |
 | V-Shape Program | Full program reference (exercises, progression, nutrition) |
 | V-Shape Exercise Guide | Form cues and video links for every exercise |
 | V-Shape Daily Logs | Log template reference (legacy — use day-specific templates) |
@@ -348,7 +348,7 @@ For specialized topics, also paste:
 | Start reading a book | New note → Book template (`status: active`) |
 | Save a book for later | New note → Book template (`status: inbox`) |
 | Save a recipe | New note → Recipe template |
-| Grocery shopping | Open [[Grocery List]], check items off as you buy |
+| Grocery shopping | Open [[Grocery Lists]], check items off as you buy |
 | Find a recipe | Open [[Recipe Index]] |
 | Find anything | Cmd+O (quick switcher) or Cmd+Shift+F (search) |
 | Go home | Click 🏠 in any note's nav bar |

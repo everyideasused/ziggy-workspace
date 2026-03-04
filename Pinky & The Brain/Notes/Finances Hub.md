@@ -130,6 +130,43 @@ SORT file.name ASC
 
 ---
 
+## 📚 Financial Knowledge Base
+> *Personal finance advisory intelligence. Ziggy references these for financial guidance.*
+
+### Master Reference
+- [[Personal Finance Knowledge Base]] — Start here. Lifecycle model, priority waterfall, advisory principles.
+
+### Core Domains
+```dataview
+TABLE WITHOUT ID
+	file.link AS "Topic",
+	resource_type AS "Type"
+FROM "Notes"
+WHERE type = "resource" AND area = "finances" AND contains(tags, "finance-kb")
+SORT file.name ASC
+```
+
+### Quick Access
+| Priority | Domain | Note |
+|----------|--------|------|
+| 🔴 | Budgeting & Cash Flow | [[Budgeting & Cash Flow Management]] |
+| 🔴 | Debt & Credit | [[Debt Strategy & Credit Management]] |
+| 🟡 | Emergency Fund & Savings | [[Emergency Fund & Savings Architecture]] |
+| 🟡 | Investment Strategy | [[Investment Strategy & Portfolio Theory]] |
+| 🟢 | Retirement Planning | [[Retirement Planning & Optimization]] |
+| 🟢 | Tax Optimization | [[Tax Planning & Optimization]] |
+| 🟢 | Insurance & Risk | [[Insurance & Risk Management - Personal]] |
+| — | Behavioral Finance | [[Behavioral Finance & Decision Frameworks]] |
+| — | Finding an Advisor | [[Financial Advisor Selection & Fiduciary Standards]] |
+| — | Milestones & Benchmarks | [[Financial Planning Milestones & Benchmarks]] |
+
+### System
+- [[Financial Advisor Prompt]] — Ledger's financial advisory configuration
+- [[Ledger Session State]] — Ledger agent's working memory
+- [[Agent Registry]] — Full agent architecture (Ledger = financial advisor)
+
+---
+
 ## 🏷️ Budget Categories Reference
 
 ### Income Categories
@@ -169,3 +206,4 @@ SORT file.name ASC
 - [[Monthly Finance Review]] template — *(in Templates)*
 - [[Inventory Database]] — Subscription tracking
 - [[Archives Hub]] — Past financial reviews
+- [[Personal Finance Knowledge Base]] — Financial advisory knowledge base

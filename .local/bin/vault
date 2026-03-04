@@ -1,0 +1,218 @@
+#!/bin/bash
+# ============================================================
+# Ziggy Vault Toolkit
+# Quick commands for reading, searching, and querying the vault
+# ============================================================
+
+VAULT="/Volumes/ziggy/openclaw-workspace/Pinky & The Brain"
+NOTES="$VAULT/Notes"
+JOURNAL="$VAULT/Journal"
+TEMPLATES="$VAULT/Templates"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m'
+
+usage() {
+    echo "Ziggy Vault Toolkit"
+    echo ""
+    echo "READ:    vault read <name>  |  vault today  |  vault yesterday  |  vault session  |  vault agents"
+    echo "SEARCH:  vault search <kw>  |  vault find <kw>  |  vault type <t>  |  vault area <a>  |  vault tag <t>"
+    echo "QUERY:   vault recent <type> [n]  |  vault overdue  |  vault due [date]  |  vault inbox"
+    echo "         vault habits  |  vault workouts [n]"
+    echo "WRITE:   vault write <name>  |  vault append <name>  (reads from stdin)"
+}
+
+cmd_read() {
+    local name="$1"
+    [ -z "$name" ] && { echo "Usage: vault read <note name>"; return 1; }
+    local file="$NOTES/$name.md"
+    if [ -f "$file" ]; then cat "$file"; return 0; fi
+    local matches
+    matches=$(find "$NOTES" "$JOURNAL" -name "*.md" -iname "*${name}*" 2>/dev/null)
+    local count
+    count=$(echo "$matches" | grep -c "." 2>/dev/null)
+    if [ "$count" -eq 0 ] || [ -z "$matches" ]; then
+        echo "No note found matching: $name"
+        return 1
+    elif [ "$count" -eq 1 ]; then
+        echo -e "${BLUE}Found: $(basename "$matches" .md)${NC}"
+        echo "---"
+        cat "$matches"
+    else
+        echo -e "${YELLOW}Multiple matches for '$name':${NC}"
+        echo "$matches" | while read -r f; do echo "  $(basename "$f" .md)"; done
+    fi
+}
+
+cmd_today() {
+    local file="$JOURNAL/$(date +%Y-%m-%d).md"
+    [ -f "$file" ] && cat "$file" || echo "No daily note for today ($(date +%Y-%m-%d))"
+}
+
+cmd_yesterday() {
+    local d
+    d=$(date -v-1d +%Y-%m-%d 2>/dev/null || date -d "yesterday" +%Y-%m-%d 2>/dev/null)
+    local file="$JOURNAL/$d.md"
+    [ -f "$file" ] && cat "$file" || echo "No daily note for yesterday ($d)"
+}
+
+cmd_session() { cat "$NOTES/Ziggy Session State.md" 2>/dev/null || echo "Session State not found."; }
+cmd_agents() { cat "$NOTES/Agent Registry.md" 2>/dev/null || echo "Agent Registry not found."; }
+
+cmd_search() {
+    local kw="$1"
+    [ -z "$kw" ] && { echo "Usage: vault search <keyword>"; return 1; }
+    echo -e "${BLUE}Searching for: $kw${NC}"
+    echo "---"
+    grep -rni --include="*.md" -C 2 "$kw" "$NOTES" "$JOURNAL" 2>/dev/null | sed "s|$VAULT/||g" | head -60
+    local c
+    c=$(grep -rli --include="*.md" "$kw" "$NOTES" "$JOURNAL" 2>/dev/null | wc -l | tr -d ' ')
+    echo -e "\n${GREEN}Found in $c note(s)${NC}"
+}
+
+cmd_find() {
+    local kw="$1"
+    [ -z "$kw" ] && { echo "Usage: vault find <keyword>"; return 1; }
+    find "$NOTES" "$JOURNAL" -name "*.md" -iname "*${kw}*" 2>/dev/null | sed "s|$VAULT/||g" | sort
+}
+
+cmd_type() {
+    local t="$1"
+    [ -z "$t" ] && { echo "Usage: vault type <type>"; return 1; }
+    grep -rl "^type: $t" "$NOTES" 2>/dev/null | while read -r f; do
+        local s; s=$(grep "^status:" "$f" | head -1 | sed 's/status: //')
+        printf "  %-40s [%s]\n" "$(basename "$f" .md)" "$s"
+    done | sort
+}
+
+cmd_area() {
+    local a="$1"
+    [ -z "$a" ] && { echo "Usage: vault area <area>"; return 1; }
+    grep -rl "^area: $a" "$NOTES" 2>/dev/null | while read -r f; do
+        local s; s=$(grep "^status:" "$f" | head -1 | sed 's/status: //')
+        if [ "$s" = "active" ] || [ "$s" = "inbox" ]; then
+            local t; t=$(grep "^type:" "$f" | head -1 | sed 's/type: //')
+            printf "  %-40s [%s] (%s)\n" "$(basename "$f" .md)" "$t" "$s"
+        fi
+    done | sort
+}
+
+cmd_tag() {
+    local tag="$1"
+    [ -z "$tag" ] && { echo "Usage: vault tag <tag>"; return 1; }
+    grep -rl "  - $tag" "$NOTES" 2>/dev/null | while read -r f; do
+        printf "  %s\n" "$(basename "$f" .md)"
+    done | sort
+}
+
+cmd_recent() {
+    local t="$1"; local n="${2:-5}"
+    [ -z "$t" ] && { echo "Usage: vault recent <type> [count]"; return 1; }
+    grep -rl "^type: $t" "$NOTES" 2>/dev/null | while read -r f; do
+        local m; m=$(stat -f "%m" "$f" 2>/dev/null || stat -c "%Y" "$f" 2>/dev/null)
+        echo "$m|$f"
+    done | sort -rn | head -"$n" | while IFS='|' read -r m f; do
+        local d; d=$(date -r "$m" +%Y-%m-%d 2>/dev/null || date -d "@$m" +%Y-%m-%d 2>/dev/null)
+        printf "  %-40s (%s)\n" "$(basename "$f" .md)" "$d"
+    done
+}
+
+cmd_overdue() {
+    local today; today=$(date +%Y-%m-%d)
+    echo -e "${RED}Overdue tasks (as of $today):${NC}"
+    grep -rn "\- \[ \].*\[due::" "$NOTES" "$JOURNAL" 2>/dev/null | while read -r line; do
+        local due; due=$(echo "$line" | grep -o '\[due:: [0-9-]*\]' | grep -o '[0-9-]*')
+        if [ -n "$due" ] && [[ "$due" < "$today" ]]; then
+            local file; file=$(echo "$line" | cut -d: -f1 | sed "s|$VAULT/||g")
+            local task; task=$(echo "$line" | cut -d: -f3- | sed 's/^[ ]*//')
+            echo -e "  ${RED}$due${NC} | $(basename "$file" .md) | $task"
+        fi
+    done | sort
+}
+
+cmd_due() {
+    local d="${1:-$(date +%Y-%m-%d)}"
+    echo -e "${BLUE}Tasks due on $d:${NC}"
+    grep -rn "\- \[ \].*\[due:: $d\]" "$NOTES" "$JOURNAL" 2>/dev/null | while read -r line; do
+        local file; file=$(echo "$line" | cut -d: -f1 | sed "s|$VAULT/||g")
+        local task; task=$(echo "$line" | cut -d: -f3- | sed 's/^[ ]*//')
+        echo "  $(basename "$file" .md) | $task"
+    done
+}
+
+cmd_inbox() {
+    echo -e "${YELLOW}Inbox items:${NC}"
+    grep -rl "^status: inbox" "$NOTES" 2>/dev/null | while read -r f; do
+        local t; t=$(grep "^type:" "$f" | head -1 | sed 's/type: //')
+        printf "  %-40s [%s]\n" "$(basename "$f" .md)" "$t"
+    done | sort
+}
+
+cmd_habits() {
+    echo -e "${GREEN}Active habits:${NC}"
+    grep -rl "^type: habit" "$NOTES" 2>/dev/null | while read -r f; do
+        local s; s=$(grep "^status:" "$f" | head -1 | sed 's/status: //')
+        if [ "$s" = "active" ]; then
+            local streak; streak=$(grep "^streak:" "$f" | head -1 | sed 's/streak: //')
+            local best; best=$(grep "^best_streak:" "$f" | head -1 | sed 's/best_streak: //')
+            local freq; freq=$(grep "^frequency:" "$f" | head -1 | sed 's/frequency: //')
+            printf "  %-25s streak: %-4s best: %-4s (%s)\n" "$(basename "$f" .md)" "$streak" "$best" "$freq"
+        fi
+    done
+}
+
+cmd_workouts() {
+    local n="${1:-7}"
+    echo -e "${GREEN}Last $n workouts:${NC}"
+    grep -rl "^type: workout" "$NOTES" 2>/dev/null | while read -r f; do
+        local m; m=$(stat -f "%m" "$f" 2>/dev/null || stat -c "%Y" "$f" 2>/dev/null)
+        echo "$m|$f"
+    done | sort -rn | head -"$n" | while IFS='|' read -r m f; do
+        local w; w=$(grep "^workout:" "$f" | head -1 | sed 's/workout: //' | tr -d '"')
+        local r; r=$(grep "^session_rpe:" "$f" | head -1 | sed 's/session_rpe: //')
+        local bw; bw=$(grep "^bodyweight:" "$f" | head -1 | sed 's/bodyweight: //')
+        local d; d=$(date -r "$m" +%Y-%m-%d 2>/dev/null || date -d "@$m" +%Y-%m-%d 2>/dev/null)
+        printf "  %-12s %-30s RPE:%-4s Weight:%s\n" "$d" "$w" "$r" "$bw"
+    done
+}
+
+cmd_write() {
+    local name="$1"
+    [ -z "$name" ] && { echo "Usage: echo 'content' | vault write <note name>"; return 1; }
+    cat > "$NOTES/$name.md"
+    echo -e "${GREEN}Written: Notes/$name.md${NC}"
+}
+
+cmd_append() {
+    local name="$1"
+    [ -z "$name" ] && { echo "Usage: echo 'content' | vault append <note name>"; return 1; }
+    [ ! -f "$NOTES/$name.md" ] && { echo "Note not found: $name"; return 1; }
+    cat >> "$NOTES/$name.md"
+    echo -e "${GREEN}Appended to: Notes/$name.md${NC}"
+}
+
+case "${1:-}" in
+    read)       shift; cmd_read "$@" ;;
+    today)      cmd_today ;;
+    yesterday)  cmd_yesterday ;;
+    session)    cmd_session ;;
+    agents)     cmd_agents ;;
+    search)     shift; cmd_search "$@" ;;
+    find)       shift; cmd_find "$@" ;;
+    type)       shift; cmd_type "$@" ;;
+    area)       shift; cmd_area "$@" ;;
+    tag)        shift; cmd_tag "$@" ;;
+    recent)     shift; cmd_recent "$@" ;;
+    overdue)    cmd_overdue ;;
+    due)        shift; cmd_due "$@" ;;
+    inbox)      cmd_inbox ;;
+    habits)     cmd_habits ;;
+    workouts)   shift; cmd_workouts "$@" ;;
+    write)      shift; cmd_write "$@" ;;
+    append)     shift; cmd_append "$@" ;;
+    help|--help|-h|"")  usage ;;
+    *)          echo "Unknown command: $1"; usage ;;
+esac

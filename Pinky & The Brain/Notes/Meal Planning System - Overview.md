@@ -36,11 +36,11 @@ All in: `Pinky & The Brain/Notes/`
 
 | What | Link |
 |------|------|
-| **Recipe Index** | [[Recipe Index\|🍳 Browse All Recipes]] |
-| **Current Meal Plan** | [[Meal Plan - Current Week\|📅 This Week]] |
-| **Grocery Lists** | [[Grocery Lists\|🛒 All Lists]] |
-| **Household Hub** | [[Household Hub\|🏠 Hub]] |
-| **Process Docs** | [[Recipe to Grocery List - Process\|📋 How It Works]] |
+| **Recipe Index** | [[Recipe Index|🍳 Browse All Recipes]] |
+| **Current Meal Plan** | [[Meal Plan - Current Week|📅 This Week]] |
+| **Grocery Lists** | [[Grocery Lists|🛒 All Lists]] |
+| **Household Hub** | [[Household Hub|🏠 Hub]] |
+| **Process Docs** | [[Recipe to Grocery List - Process|📋 How It Works]] |
 
 ---
 

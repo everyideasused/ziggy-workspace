@@ -29,7 +29,8 @@
   "syntax_highlighting": true,
   "syntax_highlighting_mobile": false,
   "enabled_templates_hotkeys": [
-    "Templates/Quick Capture.md"
+    "Templates/Quick Capture.md",
+    "Templates/Meeting.md"
   ],
   "startup_templates": [
     ""

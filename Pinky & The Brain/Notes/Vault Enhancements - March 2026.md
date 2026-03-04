@@ -24,11 +24,11 @@ Completed: March 1, 2026 03:37 CST
 
 ### 1. V-Shape Health Area Assignment
 **Status:** Already complete  
-**Details:** V-Shape Calisthenics KB Program already has `area: health` in frontmatter and appears in Health Hub queries.
+**Details:** Workout Program already has `area: health` in frontmatter and appears in Health Hub queries.
 
 ### 2. Grocery List Database
 **Status:** ✅ Complete  
-**Location:** `[[Grocery List]]`  
+**Location:** `[[Grocery Lists]]`  
 **Details:**
 - Created database note with categorized shopping sections
 - Includes categories: Produce, Dairy, Meat, Bakery, Pantry, Frozen, Beverages, Condiments, Household, Pet, Health

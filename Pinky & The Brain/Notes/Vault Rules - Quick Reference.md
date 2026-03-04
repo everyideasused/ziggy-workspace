@@ -58,7 +58,7 @@ Examples:
 
 **Special context (workout logs):**
 ```
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[V-Shape Calisthenics KB Program|🏋️ Program]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Workout Program|🏋️ Program]]
 ```
 
 **Critical:**
@@ -122,6 +122,11 @@ Content starts here...
 | `note` | General notes |
 | `system` | System documentation |
 | `database` | Database hubs |
+| `meal-plan` | Weekly meal plan |
+| `grocery-list` | Grocery/shopping list |
+| `documentation` | System or process documentation |
+| `process` | Workflow or process reference |
+| `research` | Research outputs and analysis |
 
 ---
 

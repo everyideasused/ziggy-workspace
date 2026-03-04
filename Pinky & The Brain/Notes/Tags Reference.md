@@ -21,6 +21,11 @@ tags:
 | `work-project` | An individual construction site/store project |
 | `area-hub` | Hub note for a life area |
 | `database` | Aggregation hub (like Inventory Database, Reading List) |
+| `meal-plan` | Weekly meal plan |
+| `grocery-list` | Grocery/shopping list |
+| `documentation` | System or process documentation |
+| `process` | Workflow or process reference |
+| `research` | Research outputs and analysis |
 | `daily` | Daily journal note |
 | `review` | Weekly or monthly review |
 | `meeting` | Meeting notes |

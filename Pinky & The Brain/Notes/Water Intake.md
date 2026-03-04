@@ -30,5 +30,5 @@ Hydration directly impacts workout performance, recovery, and cognitive function
 ---
 
 ## 🔗 Related
-- [[V-Shape Calisthenics KB Program]]
+- Workout Program]]
 - [[Health Hub]]

@@ -16,5 +16,14 @@
       ],
       "key": "S"
     }
+  ],
+  "templater-obsidian:create-Templates/Meeting.md": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "M"
+    }
   ]
 }

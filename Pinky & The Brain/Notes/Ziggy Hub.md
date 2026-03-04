@@ -20,6 +20,7 @@ tags:
 > *This is Ziggy's brain. Paste this into any new AI conversation for full vault awareness.*
 
 - [[Ziggy System Context]] — **Complete vault schema, rules, frontmatter specs, and behavioral instructions**
+- [[Agent Registry]] — **Specialized agents, their roles, scope, and how they connect to the vault**
 - [[Ziggy Email Bridge Architecture]] — **Smartsheet → Proton Mail → Obsidian pipeline**
 
 ---

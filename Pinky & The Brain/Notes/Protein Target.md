@@ -16,7 +16,7 @@ tags:
 
 ---
 
-# 🥩 Protein Target
+# 🌯 Protein Target
 
 **Frequency:** daily | **Target/day:** 1 | **Started:** 2026-03-01
 **Current streak:** 0 | **Best streak:** 0
@@ -30,5 +30,5 @@ Protein is the primary driver of muscle growth. Hitting 150g+ daily (scaling to 
 ---
 
 ## 🔗 Related
-- [[V-Shape Calisthenics KB Program]]
+- Workout Program]]
 - [[Health Hub]]

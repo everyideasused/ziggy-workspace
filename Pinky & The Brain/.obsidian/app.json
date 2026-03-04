@@ -27,5 +27,6 @@
   "newFileFolderPath": "Notes",
   "attachmentFolderPath": "Attachments",
   "openBehavior": "file:🏠base",
-  "defaultViewMode": "preview"
+  "defaultViewMode": "preview",
+  "propertiesInDocument": "hidden"
 }
