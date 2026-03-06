@@ -1,164 +1,221 @@
 ---
-type: database
+type: recipe-index
 area: household
 status: active
 tags:
-  - household
-  - database
-  - recipe
-  - cooking
+  - recipes
+  - vegan
+  - meal-planning
 ---
 
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
 
 ---
 
-# 🍳 Recipe Index
+# 🌱 Vegan Recipe Index
 
-**Quick Links:**
-- [[Meal Plan - Current Week|📅 This Week's Plan]]
-- [[Grocery Lists|🛒 Grocery Lists]]
-- [[Household Hub|🏠 Household]]
+Complete collection of **43 plant-based, high-protein recipes** organized for the V-Shape Calisthenics lean bulk program.
 
 ---
 
-## 📊 All Recipes
+## 📊 Quick Stats
 
-```dataview
-TABLE WITHOUT ID
-	file.link AS "Recipe",
-	cuisine AS "Cuisine",
-	meal_type AS "Meal",
-	prep_time AS "Prep",
-	protein AS "Protein (g)"
-FROM "Notes"
-WHERE type = "recipe"
-SORT file.name ASC
-```
+- **Total Recipes:** 43
+- **Breakfast:** 11
+- **Lunch:** 2  
+- **Dinner:** 14
+- **Snacks/Bowls:** 16
+- **All recipes:** 100% vegan, protein-focused
 
 ---
 
-## 🌱 Vegan Recipes
+## 🌅 Breakfast (11)
 
-```dataview
-TABLE WITHOUT ID
-	file.link AS "Recipe",
-	meal_type AS "Meal",
-	protein AS "Protein (g)",
-	prep_time AS "Prep Time"
-FROM "Notes"
-WHERE type = "recipe" AND vegan = true
-SORT file.name ASC
-```
-
----
-
-## 🌯 High-Protein Recipes
-> *150g+ protein per day target for bulking*
-
-```dataview
-TABLE WITHOUT ID
-	file.link AS "Recipe",
-	protein AS "Protein (g)",
-	prep_time AS "Prep Time"
-FROM "Notes"
-WHERE type = "recipe" AND protein >= 30
-SORT protein DESC
-```
+| Recipe | Protein | Time | Meal-Prep |
+|--------|---------|------|-----------|
+| [[Recipe - Black Bean Breakfast Burrito\|Black Bean Breakfast Burrito]] | High | 15 min | ✅ |
+| [[Recipe - Chickpea Flour Omelette\|Chickpea Flour Omelette]] | Good | 10 min | ❌ |
+| [[Recipe - High-Protein Açaí Bowl\|High-Protein Açaí Bowl]] | High | 5 min | ❌ |
+| [[Recipe - Mocha Protein Chia Pudding\|Mocha Protein Chia Pudding]] | Good | 5 min | ✅ |
+| [[Recipe - Overnight Oats with Chia\|Overnight Oats with Chia]] | Good | 5 min | ✅ |
+| [[Recipe - Overnight Protein Oats\|Overnight Protein Oats]] | High | 5 min | ✅ |
+| [[Recipe - PB Banana Protein Smoothie\|PB Banana Protein Smoothie]] | High | 5 min | ❌ |
+| [[Recipe - Protein Pancakes\|Protein Pancakes]] | High | 15 min | ✅ |
+| [[Recipe - Protein Smoothie\|Protein Smoothie]] | High | 5 min | ❌ |
+| [[Recipe - Quinoa Breakfast Bowl\|Quinoa Breakfast Bowl]] | Good | 15 min | ✅ |
+| [[Recipe - Savory Lentil Breakfast Bowl\|Savory Lentil Breakfast Bowl]] | High | 20 min | ✅ |
+| [[Recipe - Tempeh Bacon Avocado Toast\|Tempeh Bacon Avocado Toast]] | High | 10 min | ❌ |
 
 ---
 
-## ⚡ Quick Meals
-> *30 minutes or less prep + cook time*
+## 🥗 Lunch (2)
 
-```dataview
-TABLE WITHOUT ID
-	file.link AS "Recipe",
-	total_time AS "Total Time",
-	protein AS "Protein (g)"
-FROM "Notes"
-WHERE type = "recipe" AND total_time <= 30
-SORT total_time ASC
-```
+| Recipe | Protein | Time | Meal-Prep |
+|--------|---------|------|-----------|
+| [[Recipe - Falafel Wrap with Tahini Sauce\|Falafel Wrap]] | High | 20 min | ❌ |
+| [[Recipe - Quinoa Stuffed Peppers\|Quinoa Stuffed Peppers]] | Good | 30 min | ✅ |
 
 ---
 
-## 🌅 Breakfast
+## 🍽️ Dinner (14)
 
-```dataview
-LIST
-FROM "Notes"
-WHERE type = "recipe" AND meal_type = "breakfast"
-SORT file.name ASC
-```
+| Recipe | Cuisine | Protein | Time | Freezer |
+|--------|---------|---------|------|---------|
+| [[Recipe - Black Bean & Sweet Potato Tacos\|Black Bean & Sweet Potato Tacos]] | Mexican | High | 25 min | ❌ |
+| [[Recipe - Black Bean Burrito Bowl\|Black Bean Burrito Bowl]] | Mexican | High | 20 min | ✅ |
+| [[Recipe - Chickpea & Vegetable Stir-Fry\|Chickpea & Vegetable Stir-Fry]] | Asian | Good | 20 min | ❌ |
+| [[Recipe - Chickpea Curry with Quinoa\|Chickpea Curry with Quinoa]] | Indian | High | 25 min | ✅ |
+| [[Recipe - Crispy Tofu Stir-Fry Bowl\|Crispy Tofu Stir-Fry Bowl]] | Asian | High | 20 min | ❌ |
+| [[Recipe - Lentil Bolognese\|Lentil Bolognese]] | Italian | High | 30 min | ✅ |
+| [[Recipe - Marinated Tempeh Steaks with Greens\|Tempeh Steaks with Greens]] | American | High | 25 min | ❌ |
+| [[Recipe - Red Lentil & Spinach Dal\|Red Lentil & Spinach Dal]] | Indian | Good | 25 min | ✅ |
+| [[Recipe - Tempeh Taco Bowl\|Tempeh Taco Bowl]] | Mexican | High | 20 min | ✅ |
+| [[Recipe - Thai Green Curry\|Thai Green Curry]] | Thai | Good | 25 min | ❌ |
+| [[Recipe - Thai Peanut Noodles\|Thai Peanut Noodles]] | Thai | Good | 20 min | ❌ |
+| [[Recipe - Tofu & Black Bean Enchiladas\|Tofu & Black Bean Enchiladas]] | Mexican | High | 30 min | ✅ |
+| [[Recipe - Tofu Scramble Power Bowl\|Tofu Scramble Power Bowl]] | American | High | 15 min | ✅ |
+| [[Recipe - Vegetarian Lentil Pasta\|Vegetarian Lentil Pasta]] | Italian | Good | 25 min | ✅ |
+| [[Recipe - White Bean Minestrone\|White Bean Minestrone]] | Italian | High | 35 min | ✅ |
 
-## 🍽️ Lunch
+---
 
-```dataview
-LIST
-FROM "Notes"
-WHERE type = "recipe" AND meal_type = "lunch"
-SORT file.name ASC
-```
+## 🥨 Snacks, Bowls & Sides (16)
 
-## 🍴 Dinner
+| Recipe | Type | Protein | Time | Freezer |
+|--------|------|---------|------|---------|
+| [[Recipe - Almonds & Fruit Mix\|Almonds & Fruit Mix]] | Snack | Good | 2 min | ❌ |
+| [[Recipe - Chickpea Hummus Plate\|Chickpea Hummus Plate]] | Snack | Good | 10 min | ❌ |
+| [[Recipe - Crispy Chickpea Snack\|Crispy Chickpea Snack]] | Snack | Good | 25 min | ✅ |
+| [[Recipe - Hemp Seed Buddha Bowl\|Hemp Seed Buddha Bowl]] | Bowl | High | 15 min | ❌ |
+| [[Recipe - Hummus with Veggie Sticks\|Hummus with Veggie Sticks]] | Snack | Good | 15 min | ❌ |
+| [[Recipe - Lentil & Walnut Energy Bars\|Lentil & Walnut Energy Bars]] | Bar | Good | 30 min | ✅ |
+| [[Recipe - Lentil & Walnut Meatballs\|Lentil & Walnut Meatballs]] | Dinner | High | 30 min | ✅ |
+| [[Recipe - Peanut Butter Energy Balls\|Peanut Butter Energy Balls]] | Snack | Good | 15 min | ✅ |
+| [[Recipe - Protein Energy Balls\|Protein Energy Balls]] | Snack | Good | 15 min | ✅ |
+| [[Recipe - Protein Trail Mix\|Protein Trail Mix]] | Snack | Good | 5 min | ❌ |
+| [[Recipe - Protein-Packed Buddha Bowl\|Protein-Packed Buddha Bowl]] | Bowl | High | 20 min | ❌ |
+| [[Recipe - Roasted Chickpea Snack Mix\|Roasted Chickpea Snack Mix]] | Snack | Good | 25 min | ✅ |
+| [[Recipe - Soba Noodle & Edamame Salad\|Soba Noodle & Edamame Salad]] | Salad | High | 15 min | ❌ |
+| [[Recipe - Tofu & Seaweed Snack Bites\|Tofu & Seaweed Snack Bites]] | Snack | Good | 10 min | ❌ |
 
-```dataview
-LIST
-FROM "Notes"
-WHERE type = "recipe" AND meal_type = "dinner"
-SORT file.name ASC
-```
+---
 
-## 🍪 Snacks & Sides
+## 🎯 Quick Filters
 
-```dataview
-LIST
-FROM "Notes"
-WHERE type = "recipe" AND (meal_type = "snack" OR meal_type = "side")
-SORT file.name ASC
-```
+### High Protein (30g+) 💪
+- Black Bean Breakfast Burrito
+- PB Banana Protein Smoothie
+- Protein Pancakes
+- Protein Smoothie
+- Savory Lentil Breakfast Bowl
+- Falafel Wrap with Tahini Sauce
+- Black Bean & Sweet Potato Tacos
+- Black Bean Burrito Bowl
+- Chickpea Curry with Quinoa
+- Crispy Tofu Stir-Fry Bowl
+- Lentil Bolognese
+- Marinated Tempeh Steaks
+- Tempeh Taco Bowl
+- Tofu & Black Bean Enchiladas
+- Tofu Scramble Power Bowl
+- Hemp Seed Buddha Bowl
+- Lentil & Walnut Meatballs
+- Protein-Packed Buddha Bowl
+- Soba Noodle & Edamame Salad
+- White Bean Minestrone
+
+### Quick (≤10 min) ⚡
+- High-Protein Açaí Bowl
+- Mocha Protein Chia Pudding
+- Overnight Oats with Chia
+- Overnight Protein Oats
+- PB Banana Protein Smoothie
+- Protein Smoothie
+- Almonds & Fruit Mix
+- Protein Trail Mix
+
+### Meal-Prep Friendly 📦
+All recipes marked ✅ above—batch cook on Sunday for the week.
+
+### Freezer-Friendly ❄️
+- Black Bean Breakfast Burrito
+- Mocha Protein Chia Pudding
+- Overnight Oats with Chia
+- Overnight Protein Oats
+- Protein Pancakes
+- Quinoa Breakfast Bowl
+- Savory Lentil Breakfast Bowl
+- Quinoa Stuffed Peppers
+- Black Bean Burrito Bowl
+- Chickpea Curry with Quinoa
+- Lentil Bolognese
+- Red Lentil & Spinach Dal
+- Tempeh Taco Bowl
+- Tofu & Black Bean Enchiladas
+- Tofu Scramble Power Bowl
+- Vegetarian Lentil Pasta
+- White Bean Minestrone
+- Crispy Chickpea Snack
+- Lentil & Walnut Energy Bars
+- Lentil & Walnut Meatballs
+- Peanut Butter Energy Balls
+- Protein Energy Balls
+- Roasted Chickpea Snack Mix
 
 ---
 
 ## 🌍 By Cuisine
 
-### Mexican
-```dataview
-LIST FROM "Notes" WHERE type = "recipe" AND cuisine = "mexican"
-```
+**Mexican (6):**
+Black Bean Breakfast Burrito, Black Bean & Sweet Potato Tacos, Black Bean Burrito Bowl, Tempeh Taco Bowl, Tofu & Black Bean Enchiladas, Tofu Scramble Power Bowl
 
-### Italian
-```dataview
-LIST FROM "Notes" WHERE type = "recipe" AND cuisine = "italian"
-```
+**Asian (4):**
+Chickpea & Vegetable Stir-Fry, Crispy Tofu Stir-Fry Bowl, Soba Noodle & Edamame Salad, PB Banana Protein Smoothie
 
-### Asian
-```dataview
-LIST FROM "Notes" WHERE type = "recipe" AND cuisine = "asian"
-```
+**Indian (2):**
+Chickpea Curry with Quinoa, Red Lentil & Spinach Dal
 
-### American
-```dataview
-LIST FROM "Notes" WHERE type = "recipe" AND cuisine = "american"
-```
+**Italian (3):**
+Lentil Bolognese, Vegetarian Lentil Pasta, White Bean Minestrone, Chickpea Hummus Plate
 
----
+**Thai (2):**
+Thai Green Curry, Thai Peanut Noodles
 
-## 📝 Recipe Notes
-> *Meal planning tips, substitutions, cooking techniques*
+**American (4):**
+Chickpea Flour Omelette, Protein Pancakes, Marinated Tempeh Steaks with Greens, Tofu Scramble Power Bowl
 
-```dataview
-LIST
-FROM "Notes"
-WHERE area = "household" AND contains(tags, "cooking") AND type = "note"
-SORT file.cday DESC
-LIMIT 10
-```
+**Middle Eastern (1):**
+Falafel Wrap with Tahini Sauce
+
+**Bowls/Smoothies (11):**
+Açaí Bowl, Chia Pudding, Overnight Oats, Protein Oats, Quinoa Breakfast Bowl, Savory Lentil Breakfast Bowl, Buddha Bowls, Energy Balls, Smoothies, Snack Mixes
 
 ---
 
-## 🔗 Quick Links
-- [[Grocery List|🛒 Grocery List]]
-- [[Household Hub|🏠 Household Hub]]
-- Use the **Recipe** template to add a new recipe
+## 📋 Meal Planning Templates
+
+### High-Protein Day Targeting 150g+
+**Breakfast:** Tofu Scramble Power Bowl (35g)  
+**Lunch:** Falafel Wrap (30g)  
+**Snack:** Peanut Butter Energy Balls (12g)  
+**Dinner:** Lentil Bolognese (35g)  
+**Snack:** Protein Smoothie (30g)  
+**Total:** ~142g
+
+### Quick Workday (≤20 min per meal)
+**Breakfast:** Overnight Protein Oats (5 min prep)  
+**Lunch:** Tempeh Taco Bowl (20 min)  
+**Dinner:** Chickpea Curry with Quinoa (25 min)  
+**Snacks:** Almonds & Fruit Mix, Protein Trail Mix
+
+### Meal Prep Sunday (Freezer-friendly batch)
+1. Black Bean Breakfast Burritos (freeze individually)
+2. Lentil Bolognese (freezer containers)
+3. Protein Pancakes (freeze, reheat in toaster)
+4. Lentil & Walnut Energy Bars (fridge/freezer)
+5. Roasted Chickpea Snack Mix (pantry + snack bags)
+
+---
+
+_Last Updated: 2026-03-05_  
+_All recipes: 100% vegan, high-protein, supporting lean bulk 150→180 lbs_

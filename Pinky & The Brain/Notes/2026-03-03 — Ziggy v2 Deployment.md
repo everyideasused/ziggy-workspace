@@ -11,7 +11,7 @@ tags:
   - agents
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|🤖 Ziggy]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|Ziggy Hub]]
 
 ---
 
@@ -69,7 +69,7 @@ Nathan asks a question
 
 ## 2. v2 System Prompt
 
-**File:** `Notes/ziggy_openclaw_full.md`
+**File:** `Notes/ziggy openclaw full.md`
 
 ### Key Features
 
@@ -278,16 +278,16 @@ vault-weekly-prep              ✅ Success
 
 ## Files Changed
 
-| File | Changes |
-|------|---------|
-| `Agent Registry.md` | **Created** — 37KB, 6 agent profiles |
-| `ziggy_openclaw_full.md` | **Already existed** — referenced as v2 prompt |
-| `AGENTS.md` | **Updated** — v2 prompt reference, PM KB commands, smart routing, memory dedup |
-| `TOOLS.md` | **Updated** — vault toolkit section with full command reference |
-| `Ziggy Hub.md` | **Updated** — linked Agent Registry |
-| `🏠base.md` | **Updated** — linked Agent Registry |
-| `.local/bin/vault-weekly-prep` | **Created and fixed** — bash script for weekly review prep |
-| `~/.openclaw/openclaw.json` | **Auto-updated** — heartbeat interval 30m → 1h |
+| File                           | Changes                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------ |
+| `Agent Registry.md`            | **Created** — 37KB, 6 agent profiles                                           |
+| `ziggy openclaw full.md`       | **Already existed** — referenced as v2 prompt                                  |
+| `AGENTS.md`                    | **Updated** — v2 prompt reference, PM KB commands, smart routing, memory dedup |
+| `TOOLS.md`                     | **Updated** — vault toolkit section with full command reference                |
+| `Ziggy Hub.md`                 | **Updated** — linked Agent Registry                                            |
+| `🏠base.md`                    | **Updated** — linked Agent Registry                                            |
+| `.local/bin/vault-weekly-prep` | **Created and fixed** — bash script for weekly review prep                     |
+| `~/.openclaw/openclaw.json`    | **Auto-updated** — heartbeat interval 30m → 1h                                 |
 
 ---
 
@@ -303,7 +303,7 @@ vault-weekly-prep              ✅ Success
 
 ## Open Items
 
-- [ ] Nathan needs to update OpenClaw system prompt config to point to `ziggy_openclaw_full.md`
+- [ ] Nathan needs to update OpenClaw system prompt config to point to `ziggy openclaw full.md`
 - [ ] Test agent dispatch in real usage (Atlas for construction, Iron for fitness, Sage for meals)
 - [ ] Monitor token costs over next week to validate 83% savings target
 - [ ] Consider creating agent-specific session state notes when agents are actively used
@@ -347,7 +347,7 @@ vault-weekly-prep              ✅ Success
 ## Related Notes
 
 - [[Agent Registry]] — Full agent profiles and routing logic
-- [[ziggy_openclaw_full]] — v2 system prompt
+- [[ziggy openclaw full]] — v2 system prompt
 - [[Ziggy Session State]] — Current session continuity
 - [[Ziggy Hub]] — AI conversation archive
 

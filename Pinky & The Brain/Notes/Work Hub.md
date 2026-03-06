@@ -89,7 +89,38 @@ LIMIT 10
 
 ---
 
-## 🔗 Quick Links
+## 📚 Knowledge Bases
+
+### Construction PM Advisor (Atlas)
 - [[Construction PM Knowledge Base]] — Full construction lifecycle reference (28 notes)
+- **System Config:** [[Construction PM Advisor Prompt]] (Ziggy's route target for construction questions)
+
+### Carpenter & GC Advisor (Hammer)
+- [[Carpenter and General Contractor - Master Reference]] — Craft and execution KB (14 notes)
+
+#### Hammer's Advisory Framework
+> *Building science, framing, finish carpentry, materials, codes, trades, estimating, tools, quality, safety. When construction management meets craft execution.*
+
+| Priority         | Domain                | Reference Note                                    |
+| ---------------- | --------------------- | ------------------------------------------------- |
+| 🔴 **CRITICAL**  | Building Science      | [[Building Science Fundamentals]]                 |
+| 🔴 **CRITICAL**  | Framing & Structure   | [[Framing & Structural Carpentry]]                |
+| 🟡 **IMPORTANT** | Codes & Inspection    | [[Building Codes & Inspection Readiness]]         |
+| 🟡 **IMPORTANT** | Materials & Fasteners | [[Materials & Fasteners Reference]]               |
+| 🟢 **OPTIMIZE**  | Finish Carpentry      | [[Finish Carpentry & Trim Work]]                  |
+| 🟢 **OPTIMIZE**  | Estimating            | [[Estimating & Takeoffs]]                         |
+| 🟢 **OPTIMIZE**  | Trade Coordination    | [[Trade Coordination & Subcontractor Management]] |
+| —                | Construction Sequence | [[Residential Construction Sequencing]]           |
+| —                | Quality Control       | [[Common Defects & Quality Control]]              |
+| —                | Tools & Equipment     | [[Tools & Equipment Reference]]                   |
+| —                | Safety                | [[Construction Safety & OSHA Residential]]        |
+| —                | PM-to-Builder Bridge  | [[PM-to-Builder Translation Guide]]               |
+
+**System Config:** [[Carpenter Advisor Prompt]] (Ziggy's route target for carpentry/GC questions)
+
+---
+
+## 🔗 Quick Links
 - **Smartsheet PMO:** *(paste your Smartsheet workspace URL here)*
 - [[Tags Reference]] — Tag conventions for work items
+- [[Ziggy Hub]] — Session notes and drafts

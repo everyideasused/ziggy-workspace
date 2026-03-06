@@ -136,29 +136,35 @@ SORT file.name ASC
 ### Master Reference
 - [[Personal Finance Knowledge Base]] — Start here. Lifecycle model, priority waterfall, advisory principles.
 
-### Core Domains
+### Knowledge Base Topics
+> *All finance-kb tagged notes organized by domain. Click any link to dive into that topic.*
+
 ```dataview
 TABLE WITHOUT ID
 	file.link AS "Topic",
 	resource_type AS "Type"
 FROM "Notes"
-WHERE type = "resource" AND area = "finances" AND contains(tags, "finance-kb")
+WHERE (type = "resource" OR type = "database") AND area = "finances" AND contains(tags, "finance-kb")
 SORT file.name ASC
 ```
 
-### Quick Access
-| Priority | Domain | Note |
-|----------|--------|------|
-| 🔴 | Budgeting & Cash Flow | [[Budgeting & Cash Flow Management]] |
-| 🔴 | Debt & Credit | [[Debt Strategy & Credit Management]] |
-| 🟡 | Emergency Fund & Savings | [[Emergency Fund & Savings Architecture]] |
-| 🟡 | Investment Strategy | [[Investment Strategy & Portfolio Theory]] |
-| 🟢 | Retirement Planning | [[Retirement Planning & Optimization]] |
-| 🟢 | Tax Optimization | [[Tax Planning & Optimization]] |
-| 🟢 | Insurance & Risk | [[Insurance & Risk Management - Personal]] |
-| — | Behavioral Finance | [[Behavioral Finance & Decision Frameworks]] |
-| — | Finding an Advisor | [[Financial Advisor Selection & Fiduciary Standards]] |
-| — | Milestones & Benchmarks | [[Financial Planning Milestones & Benchmarks]] |
+**Total KB notes:** `= length(filter(dv.pages('"Notes"').tags, t => contains(t, "finance-kb")))`
+
+### Ledger's Advisory Framework
+> *Financial priority waterfall — where to focus next. Used by Ledger agent to give stage-appropriate advice.*
+
+| Stage | Priority | Domain | Reference Note | When to Focus |
+|-------|----------|--------|-----------------|---|
+| 1️⃣ | 🔴 **CRITICAL** | Cash Flow & Budgeting | [[Budgeting & Cash Flow Management]] | Establish positive surplus |
+| 2️⃣ | 🔴 **CRITICAL** | Debt & Credit | [[Debt Strategy & Credit Management]] | High-interest debt exists |
+| 3️⃣ | 🟡 **IMPORTANT** | Emergency Fund | [[Emergency Fund & Savings Architecture]] | Fund < 3-6 months expenses |
+| 4️⃣ | 🟡 **IMPORTANT** | Investment Foundation | [[Investment Strategy & Portfolio Theory]] | Employer match captured, looking to invest |
+| 5️⃣ | 🟢 **OPTIMIZE** | Retirement Planning | [[Retirement Planning & Optimization]] | 401k/IRA set up, want to model future |
+| 6️⃣ | 🟢 **OPTIMIZE** | Tax Efficiency | [[Tax Planning & Optimization]] | Want to minimize tax burden |
+| 7️⃣ | 🟢 **OPTIMIZE** | Insurance & Risk | [[Insurance & Risk Management - Personal]] | Coverage gaps or over-insuring |
+| — | — | Behavioral Finance | [[Behavioral Finance & Decision Frameworks]] | When emotions are driving decisions |
+| — | — | Finding an Advisor | [[Financial Advisor Selection & Fiduciary Standards]] | Ready to hire a human CFP/CPA |
+| — | — | Benchmarks & Milestones | [[Financial Planning Milestones & Benchmarks]] | "Am I on track?" questions |
 
 ### System
 - [[Financial Advisor Prompt]] — Ledger's financial advisory configuration

@@ -201,5 +201,5 @@ rating: 4.5
 
 - [[Meal Plan - Current Week|📅 This Week]]
 - [[Recipe Index|🍳 Recipes]]
-- [[Household Hub|🏠 Household]]
+- [[Household Hub|Household Hub]]
 - [[Meal Planning System - Overview|📋 System Overview]]

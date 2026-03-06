@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Check if compiled dist exists
+if [ ! -f "$SCRIPT_DIR/dist/index.js" ]; then
+  echo "sage-grocery: Building TypeScript..."
+  cd "$SCRIPT_DIR"
+  npx tsc
+fi
+
+# Run the CLI
+node "$SCRIPT_DIR/dist/index.js" "$@"

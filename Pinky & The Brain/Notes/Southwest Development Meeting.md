@@ -12,6 +12,10 @@ tags:
   - meeting
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Work Hub|Work Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---

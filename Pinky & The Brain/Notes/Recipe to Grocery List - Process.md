@@ -204,5 +204,5 @@ tags:
 
 ## 🔗 Related
 - [[Recipe Index|🍳 Recipes]]
-- [[Household Hub|🏠 Household]]
+- [[Household Hub|Household Hub]]
 - [[Grocery List - Week of Mar 2]] (example)

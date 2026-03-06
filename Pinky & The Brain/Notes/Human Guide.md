@@ -7,6 +7,10 @@ tags:
   - guide
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---

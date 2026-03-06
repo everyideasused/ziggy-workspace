@@ -9,7 +9,7 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 
 All my files live on the external SSD. Collaboration happens through Obsidian Sync.
 
-## Obsidian - Pinky & The Brain Vault
+## Obsidian - Pinky & The Brain Vault (aka: Pinky)
 
 **Vault location:** `/Volumes/ziggy/openclaw-workspace/Pinky & The Brain/`  
 **Shared via:** Obsidian Sync + NoteDiscovery web at https://pkm.mouthygeese.com  
@@ -110,16 +110,19 @@ vault append "Note Name"      # Append to a note (reads from stdin)
 
 ### Agent Dispatch Integration
 
-When routing to specialized agents (Atlas, Iron, Sage, Spin, Compass, Forge), I use vault toolkit to pull only the domain-specific notes they need:
+When routing to specialized agents, I use vault toolkit to pull only the domain-specific notes they need:
 
 | Agent | Typical Commands |
 |-------|-----------------|
 | **Atlas** | `vault tag "construction-kb"`, `vault read "AHJ Research Methodology"` |
+| **Tally** | `vault tag "estimating-kb"`, `vault read "Tally — Construction Estimator Knowledge Base"` |
 | **Iron** | `vault read "Workout Program"`, `vault workouts 7`, `vault habits` |
 | **Sage** | `vault read "Meal Plan - Current Week"`, `vault recent recipe 10` |
 | **Spin** | `vault area interests`, `vault tag "music"` |
 | **Compass** | `vault tag "travel"`, `vault search "Jazz Fest"` |
 | **Forge** | `vault tag "app-development"`, `vault read "Ziggy Email Bridge Architecture"` |
+| **Ledger** | `vault tag "finance"`, `vault search "budget"`, `vault search "debt"` |
+| **Hammer** | `vault tag "carpentry"`, `vault tag "building-science"` |
 
 ### PATH Setup
 
@@ -212,41 +215,237 @@ See `Notes/System Guide.md` for complete rules.
 
 **Command:** `~/.local/bin/ziggy-spotify` (custom wrapper using spotipy)
 **Auth:** OAuth complete (token cached at `~/.openclaw/spotify_cache.json`)
-**Status:** ✅ Fully operational
+**Status:** ✅ Fully operational (v2 — tracks, albums, playlists, podcasts)
 
 ### Available Devices
-- 🔊 **House** (AVR/Wiim Ultra) — Primary speaker
+- 🔊 **Deck** — Deck speaker
+  - Spotify ID: `364fcf0cb3a61043a81f930b70ac904757a6fb12`
+  - Shows as "Deck (AVR)" in device list
+- 🏠 **House** — House speaker (Wiim Ultra)
+  - Spotify ID: `fccb3c03cefb2fb15e41b0169b28f006ffb073bd`
+  - Shows as "House (AVR)" in device list
 - 💻 **ziggy's Mac mini** — Computer output
+  - Shows as "ziggy's Mac mini (Computer)" in device list
 
-### Voice Commands via OpenClaw
-| Say this... | Result |
-|-------------|--------|
-| "ziggy play [song] on House" | Plays on House speaker |
-| "ziggy pause music" | Pauses |
-| "ziggy next track" | Skips forward |
-| "ziggy volume 50 on House" | Sets volume |
+### Play Commands — Full Support
 
-### CLI Commands
+**Play Individual Track:**
 ```bash
-~/.local/bin/ziggy-spotify devices                    # List devices
-~/.local/bin/ziggy-spotify play "Still Alive"         # Play on active device
-~/.local/bin/ziggy-spotify play "Song" --device "House"  # Play on specific device
-~/.local/bin/ziggy-spotify pause/next/previous        # Playback controls
-~/.local/bin/ziggy-spotify volume 75                  # Volume 0-100
-~/.local/bin/ziggy-spotify status                     # Current song info
+~/.local/bin/ziggy-spotify play "Cocaine and Lexapro" --track
+~/.local/bin/ziggy-spotify play "Still Alive" --track --device "House"
+```
+
+**Play Full Album (Includes Compilations):**
+```bash
+~/.local/bin/ziggy-spotify play "OK Computer" --album
+~/.local/bin/ziggy-spotify play "Thriller" --album --device "House"
+```
+
+**Play Playlist:**
+```bash
+~/.local/bin/ziggy-spotify play "Lofi Study"
+~/.local/bin/ziggy-spotify play "lo-fi beats" --device "House"
+```
+
+**Play Podcast (Latest Episode):**
+```bash
+~/.local/bin/ziggy-spotify play "Joe Rogan Experience" --podcast
+~/.local/bin/ziggy-spotify play "Joe Rogan" --show --device "House"
+```
+
+**Default Behavior (No Flag):**
+- Searches playlists first
+- Falls back to track search if no playlist found
+```bash
+~/.local/bin/ziggy-spotify play "Still Alive"
+```
+
+### Search Commands — Full Support
+
+**Search Individual Tracks:**
+```bash
+~/.local/bin/ziggy-spotify search track "Cocaine and Lexapro"
+```
+
+**Search Albums (Includes Compilations):**
+```bash
+~/.local/bin/ziggy-spotify search album "Thriller"
+```
+
+**Search Playlists:**
+```bash
+~/.local/bin/ziggy-spotify search playlist "workout"
+~/.local/bin/ziggy-spotify search "lo-fi"  # Defaults to playlist
+```
+
+**Search Podcasts:**
+```bash
+~/.local/bin/ziggy-spotify search podcast "Joe Rogan Experience"
+~/.local/bin/ziggy-spotify search show "The Daily"
+```
+
+### Playback Control
+
+```bash
+~/.local/bin/ziggy-spotify devices                    # List available devices
+~/.local/bin/ziggy-spotify pause                      # Pause playback
+~/.local/bin/ziggy-spotify next                       # Next track
+~/.local/bin/ziggy-spotify previous                   # Previous track
+~/.local/bin/ziggy-spotify status                     # Show current playback
+~/.local/bin/ziggy-spotify volume 75                  # Set volume 0-100
+```
+
+### Flag Combinations
+
+You can combine `--device` with content type flags:
+```bash
+~/.local/bin/ziggy-spotify play "Still Alive" --track --device "House"
+~/.local/bin/ziggy-spotify play "Thriller" --album --device "ziggy's Mac mini"
+~/.local/bin/ziggy-spotify play "Joe Rogan Experience" --podcast --device "House"
 ```
 
 ### How to Add More Devices
 1. Device must support **Spotify Connect** (Wiim, Sonos, Alexa, etc.)
 2. Open Spotify app on the device (to make it visible)
 3. Run `ziggy-spotify devices` to see it
-4. Use exact device name in commands
+4. Use exact device name **or ID** in commands
+   - If device has friendly name: use that (e.g., `"House"`, `"Deck"`, `"ziggy's Mac mini"`)
+   - If device shows as ID only: use the full ID
+   - Note: Some devices only show friendly names when active
 
 ### Troubleshooting
 - **No devices found:** Open Spotify app on Mac Mini or target device
 - **Auth expired:** Script auto-refreshes token
 - **Device not responding:** Check if device is active in Spotify app
+- **Wrong result found:** Use specific flags (`--track`, `--album`, `--podcast`) to force content type
 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
+---
+
+## Browser Automation
+
+**Command:** `openclaw browser`
+**Status:** ✅ Fully operational (Chromium, Playwright-backed)
+**Available to:** Ziggy, Atlas, Tally, Compass, Forge, Spin, Hammer
+
+The browser is a **shared resource** — one instance, one active tab at a time. Always close when done.
+
+### 🔒 Security Policy — PUBLIC RESEARCH ONLY
+
+**CRITICAL RULE: No private or client data ever enters a browser session.**
+
+- ✅ **Allowed:** Public research (building codes, cost indices, docs, event listings, general lookups)
+- ❌ **Forbidden:** Client project data, permit details, estimate values, project names, site addresses, GC names, any PII, financial data
+
+**If browser work requires client/project data:**
+1. Agent identifies what's needed
+2. Agent routes to Ziggy for review
+3. Ziggy sanitizes request → presents to Nathan
+4. Nathan performs manually if approved
+
+**Why:** Browser state is shared. URLs, form inputs, cookies, search history can leak data. Keep the vault air-gapped from web sessions.
+
+**Ledger has NO browser access** — financial work is vault-only unless Nathan explicitly opens a URL.
+
+### Core Workflow (AI-Optimized)
+
+```bash
+# 1. Open a page
+openclaw browser open https://example.com
+
+# 2. Get snapshot (accessibility tree with refs)
+openclaw browser snapshot --efficient
+
+# 3. Interact using refs from snapshot
+openclaw browser click 12           # Click ref e12
+openclaw browser type 23 "query"    # Type into ref e23
+openclaw browser fill --fields '[{"ref":"5","value":"hello"}]'
+
+# 4. Re-snapshot after page changes
+openclaw browser snapshot --efficient
+
+# 5. Always close when done
+openclaw browser close
+```
+
+### Snapshot Options
+
+```bash
+openclaw browser snapshot                    # Full tree (default)
+openclaw browser snapshot --efficient        # Compact — best for AI use
+openclaw browser snapshot --interactive      # Interactive elements only
+openclaw browser snapshot --format aria      # Raw accessibility tree
+openclaw browser snapshot --limit 200        # Cap nodes
+```
+
+**Use `--efficient` by default.** It reduces token size significantly while keeping all actionable refs.
+
+### Navigation & Content
+
+```bash
+openclaw browser navigate https://new-url.com   # Navigate current tab
+openclaw browser open https://url.com           # New tab
+openclaw browser screenshot                     # Capture screenshot
+openclaw browser screenshot --full-page         # Full page capture
+openclaw browser get text                       # Get page text (after snapshot)
+openclaw browser wait --text "Loaded"           # Wait for content
+openclaw browser wait --load networkidle        # Wait for network
+openclaw browser press Enter                    # Press key
+openclaw browser scroll down                    # Scroll
+```
+
+### Status & Lifecycle
+
+```bash
+openclaw browser status     # Check if running
+openclaw browser start      # Start browser (auto-starts on first use)
+openclaw browser stop       # Stop browser
+openclaw browser tabs       # List open tabs
+openclaw browser close      # Close current tab
+```
+
+### Agent Use Cases
+
+| Agent | When to Use Browser | Example Tasks |
+|-------|--------------------|--------------| 
+| **Ziggy** | General research, fact lookup, anything without a dedicated tool | "Look up X", "What's the current price of Y" |
+| **Atlas** | Public AHJ research, general jurisdiction rules, public code references | Building code sites, general AHJ methodology (NO client-specific permit portals) |
+| **Tally** | Public cost databases, general material pricing, regional indices | RSMeans online, public material data (NO client project estimates) |
+| **Compass** | Flight search, hotel lookup, restaurant research, venue details, event info | Google Flights, Airbnb, Yelp, venue websites |
+| **Forge** | Docs lookup, GitHub PRs/issues (when `gh` CLI isn't enough), package registries, Stack Overflow | MDN docs, npm package pages, GitHub web UI |
+| **Spin** | Concert listings, setlist.fm, artist pages, streaming links, event details | Setlist.fm, Bandsintown, venue sites |
+| **Hammer** | Material specs, building codes, tool research, public supplier catalogs | Building code sites, material data sheets, Home Depot/Lowe's (NO client project details) |
+
+### Rules
+
+1. **Always `openclaw browser close` when done** — shared resource, don't leave tabs open
+2. **Use `--efficient` snapshot** — smaller output, same refs
+3. **Snapshot before interacting** — refs change on navigation, always re-snapshot after page loads
+4. **Prefer existing tools first** — use `web_search`/`web_fetch` for simple lookups; only use browser when you need to interact with a page (login, fill form, click through, scrape dynamic content)
+5. **Don't browse speculatively** — only open the browser when Nathan's request requires it
+
+### When NOT to Use Browser
+
+- Simple factual lookups → use `web_search` tool (faster, cheaper)
+- Fetching a static URL → use `web_fetch` tool
+- GitHub issues/PRs → use `gh` CLI skill
+- Spotify → use `ziggy-spotify` CLI
+- Vault content → use `vault` toolkit
+
+### Troubleshooting
+
+```bash
+# Browser not responding
+openclaw browser stop && openclaw browser start
+
+# Check what's running
+openclaw browser status
+openclaw browser tabs
+
+# Snapshot returning nothing
+openclaw browser wait --load networkidle
+openclaw browser snapshot --efficient
+```
+

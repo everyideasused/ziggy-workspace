@@ -20,6 +20,10 @@ protein: 4
 source: https://munchingwithmariyah.com/sesame-cabbage-salad/
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Recipe Index|Recipe Index]]
 
 ---

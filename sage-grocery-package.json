@@ -1,0 +1,40 @@
+{
+  "name": "sage-grocery",
+  "version": "1.0.0",
+  "description": "CLI tool to aggregate groceries from meal plans in Obsidian vault",
+  "main": "dist/index.js",
+  "bin": {
+    "sage-grocery": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts",
+    "dev": "ts-node src/index.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "grocery",
+    "meal-plan",
+    "obsidian",
+    "aggregation"
+  ],
+  "author": "Nathan & Forge",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}

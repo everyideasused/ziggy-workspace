@@ -23,6 +23,8 @@ tags:
   - one-pan
 ---
 
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
 
 ---

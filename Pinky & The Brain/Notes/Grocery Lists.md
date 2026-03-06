@@ -59,7 +59,7 @@ SORT week_of DESC
 
 - [[Recipe Index|🍳 Browse Recipes]]
 - [[Meal Plan - Current Week|📅 This Week's Plan]]
-- [[Household Hub|🏠 Household]]
+- [[Household Hub|Household Hub]]
 - [[Recipe to Grocery List - Process|📋 Process Docs]]
 
 ---

@@ -33,3 +33,7 @@ WHERE contains(file.outlinks, this.file.link)
 SORT file.cday DESC
 LIMIT 10
 ```
+
+---
+
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>

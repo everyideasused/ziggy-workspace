@@ -39,7 +39,7 @@ All in: `Pinky & The Brain/Notes/`
 | **Recipe Index** | [[Recipe Index|🍳 Browse All Recipes]] |
 | **Current Meal Plan** | [[Meal Plan - Current Week|📅 This Week]] |
 | **Grocery Lists** | [[Grocery Lists|🛒 All Lists]] |
-| **Household Hub** | [[Household Hub|🏠 Hub]] |
+| **Household Hub** | [[Household Hub|Household Hub]] |
 | **Process Docs** | [[Recipe to Grocery List - Process|📋 How It Works]] |
 
 ---
@@ -189,6 +189,6 @@ One comprehensive grocery list with checkboxes, organized by aisle.
 - [[Recipe Index|🍳 Recipes]]
 - [[Meal Plan - Current Week|📅 This Week]]
 - [[Grocery Lists|🛒 Lists]]
-- [[Household Hub|🏠 Hub]]
+- [[Household Hub|Household Hub]]
 - [[Recipe to Grocery List - Process|📋 Grocery List Process]]
 - [[How to Populate Daily Notes with Meals|📝 Daily Notes Process]]

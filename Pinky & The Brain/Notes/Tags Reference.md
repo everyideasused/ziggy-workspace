@@ -6,6 +6,10 @@ tags:
   - system
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
@@ -44,6 +48,7 @@ tags:
 | `resource` | Reference material |
 | `note` | General note |
 | `system` | Vault system documentation |
+| `agent-profile` | Specialized agent profile (Atlas, Sage, Iron, etc.) |
 
 ## Frontmatter `area` Values
 > *Which life area does this belong to?*

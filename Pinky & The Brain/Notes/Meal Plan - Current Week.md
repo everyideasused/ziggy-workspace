@@ -53,5 +53,5 @@ tags:
 ## 🔗 Related
 
 - [[Recipe Index|🍳 Recipes]]
-- [[Household Hub|🏠 Household]]
+- [[Household Hub|Household Hub]]
 - [[Recipe to Grocery List - Process|📋 Process Documentation]]

@@ -147,4 +147,4 @@ tags:
 
 ## 🔗 Related
 - [[Recipe Index|🍳 Recipes]]
-- [[Household Hub|🏠 Household]]
+- [[Household Hub|Household Hub]]

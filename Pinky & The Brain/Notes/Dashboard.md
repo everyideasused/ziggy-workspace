@@ -7,6 +7,10 @@ tags:
   - database
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
@@ -165,8 +169,8 @@ WHERE type = "book" AND status = "active"
 ## 🔗 Quick Links
 - [📅 Today](obsidian://daily)
 - [[🏠base|🏠 Home]]
-- [[Work Hub|💼 Work]]
-- [[Health Hub|🏛️ Health]]
-- [[Finances Hub|💰 Finances]]
+- [[Work Hub|Work Hub]]
+- [[Health Hub|Health Hub]]
+- [[Finances Hub|Finances Hub]]
 - [[Grocery Lists|🛒 Grocery]]
 - [[Recipe Index|🍳 Recipes]]

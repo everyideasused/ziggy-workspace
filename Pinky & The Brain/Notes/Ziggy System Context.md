@@ -7,6 +7,10 @@ tags:
   - ziggy
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
@@ -101,8 +105,10 @@ Vault Root/
 | `Reading List` | Currently reading, finished, want-to-read |
 | `Recipe Index` | Recipes by category, high-protein filter |
 | `Grocery List` | Running grocery list by store section |
+| `Personal Finance Knowledge Base` | Financial advisory KB — lifecycle model, priority waterfall, decision frameworks (Ledger agent's authority) |
+| `Carpenter and General Contractor - Master Reference` | Builder/GC KB — building science, framing, finish carpentry, materials, codes, trades, estimating, tools, quality, safety (Hammer agent's authority) |
 
-**Ziggy-Specific:**
+**Ziggy-Specific & Agents:**
 | Note | Purpose |
 |------|---------|
 | `Ziggy Hub` | AI conversation saves, research, drafts |
@@ -110,7 +116,13 @@ Vault Root/
 | `Ziggy System Context` | This document |
 | `Ziggy Email Bridge` | Email automation project (starts April) |
 | `Ziggy Email Bridge Architecture` | Technical spec for Smartsheet→Obsidian pipeline |
-| `Ziggy Agent Registry` | Agent profiles, dispatch rules, vault references |
+| `Agent Registry` | Full agent architecture, profiles, dispatch rules, KB references |
+| `Sage Agent Profile` | Chef & Nutritionist — meal planning, recipes, nutrition, macro tracking |
+| `Sage Advisor Prompt` | Sage agent system prompt and operational guidelines |
+| `Sage Session State` | Sage agent's working memory (meal planning domain-scoped) |
+| `Sage Nutrition & Culinary Knowledge Base` | Sage's KB — recipes, meal planning system, nutrition optimization |
+| `Financial Advisor Prompt` | Ledger agent configuration and advisory principles |
+| `Ledger Session State` | Ledger agent's working memory (financial domain-scoped) |
 
 **Fitness System:**
 | Note | Purpose |

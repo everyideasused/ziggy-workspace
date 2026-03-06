@@ -1,9 +1,12 @@
 ---
 created: 2025-02-01
 updated: 2026-03-01
-type: hub
+type: area-hub
 area: system
-tags: [home, dashboard, system]
+tags:
+  - home
+  - dashboard
+  - system
 status: active
 ---
 
@@ -111,4 +114,4 @@ LIMIT 10
 # 🤖 ZIGGY
 - [[Ziggy Hub]] — AI conversation saves, research drafts, notes in progress
 - [[Agent Registry]] — Specialized agents, their roles, and how they work together
-- [[Ziggy Drafts]] — Active drafts being worked on with Claude
+- [[Ziggy Drafts]] — Active drafts being worked on

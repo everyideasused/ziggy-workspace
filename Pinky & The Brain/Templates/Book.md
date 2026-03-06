@@ -59,4 +59,6 @@ tags:
 ## ⭐ Final Thoughts
 > *Fill in when finished. Update `rating` (1-5), `progress` to "100%", `finished` date, and `status` to "complete" in frontmatter.*
 
+---
 
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>

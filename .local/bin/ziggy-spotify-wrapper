@@ -1,0 +1,49 @@
+#!/bin/bash
+# ziggy-spotify-wrapper — Spotify-only execution wrapper for Spin agent
+# Security: Only allows Spotify-related commands, rejects all others
+
+set -euo pipefail
+
+# Allowed base commands
+ALLOWED_CMDS=("ziggy-spotify" "spogo" "spotify_player")
+
+# Function to check if a command is allowed
+is_allowed() {
+    local cmd="$1"
+    for allowed in "${ALLOWED_CMDS[@]}"; do
+        if [[ "$cmd" == "$allowed" ]]; then
+            return 0
+        fi
+    done
+    return 1
+}
+
+# Validate input
+if [[ $# -eq 0 ]]; then
+    echo "❌ Error: No command provided" >&2
+    echo "Usage: ziggy-spotify-wrapper <spotify-command> [args...]" >&2
+    exit 1
+fi
+
+# Extract the base command (handle full paths)
+RAW_CMD="$1"
+BASE_CMD=$(basename "$RAW_CMD")
+
+# Check if command is in allowed list
+if ! is_allowed "$BASE_CMD"; then
+    echo "❌ Security Error: Command '$BASE_CMD' is not allowed" >&2
+    echo "Allowed commands: ${ALLOWED_CMDS[*]}" >&2
+    exit 1
+fi
+
+# Reject dangerous patterns
+DANGEROUS_PATTERNS=(';' '|' '&&' '||' '`' '$(' ')' '>' '<' '&' '\n')
+for pattern in "${DANGEROUS_PATTERNS[@]}"; do
+    if [[ "$*" == *"$pattern"* ]]; then
+        echo "❌ Security Error: Command contains dangerous characters" >&2
+        exit 1
+    fi
+done
+
+# Execute the command
+exec ~/.local/bin/ziggy-spotify "${@:1}"

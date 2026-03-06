@@ -36,3 +36,7 @@ tags:
 > *Brief notes that help Ziggy pick up where we left off without re-explaining.*
 
 - 
+
+---
+
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>

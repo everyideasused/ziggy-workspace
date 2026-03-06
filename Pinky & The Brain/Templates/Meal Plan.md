@@ -86,3 +86,7 @@ tags:
 - [[Recipe Index|🍳 Recipes]]
 - [[Household Hub|Household Hub]]
 - Grocery List: [[Grocery List - Week of <% tp.date.now("YYYY-MM-DD") %>]]
+
+---
+
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>

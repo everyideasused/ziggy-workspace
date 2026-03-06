@@ -207,4 +207,8 @@ SORT file.name ASC
 ## 🌙 End of Day
 - **Energy today (1-5):** 
 - **One win:** 
-- **One thing to improve:** 
+- **One thing to improve:**
+
+---
+
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %> 

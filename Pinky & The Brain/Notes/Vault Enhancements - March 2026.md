@@ -9,6 +9,10 @@ tags:
 created: 2026-03-01
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
@@ -238,8 +242,8 @@ When you ask Ziggy to:
 - [[Grocery List|🛒 Grocery]]
 - [[Recipe Index|🍳 Recipes]]
 - [[Dashboard|📊 Dashboard]]
-- [[Finances Hub|💰 Finances]]
-- [[Health Hub|🏛️ Health]]
+- [[Finances Hub|Finances Hub]]
+- [[Health Hub|Health Hub]]
 - [[Vault Health Check Script|Script Location]]
 - [[Habit Streak Updater|Script Location]]
 - [[Net Worth Calculator|Script Location]]

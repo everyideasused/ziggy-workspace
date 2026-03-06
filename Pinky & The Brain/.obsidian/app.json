@@ -28,5 +28,6 @@
   "attachmentFolderPath": "Attachments",
   "openBehavior": "file:🏠base",
   "defaultViewMode": "preview",
-  "propertiesInDocument": "hidden"
+  "propertiesInDocument": "visible",
+  "showLineNumber": false
 }

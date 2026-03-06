@@ -8,6 +8,10 @@ tags:
   - rules
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
@@ -30,8 +34,7 @@ tags:
 ---
 ```
 
-**All four fields required:** `type`, `area`, `status`, `tags`  
-**No empty values** — especially `area:` must have a value
+All four fields required: type, area, status, tags No empty values — area: must always have a value. Use area: system for vault system notes.
 
 ---
 
@@ -102,31 +105,32 @@ Content starts here...
 
 ## 🏷️ Type Values
 
-| Type | Use For |
-|------|---------|
-| `daily` | Daily notes (Journal/) |
-| `project` | Any project |
-| `work-project` | Construction site/client project |
-| `area-hub` | Area hub notes (Work Hub, Health Hub, etc.) |
-| `meeting` | Meeting notes |
-| `person` | People |
-| `organization` | Companies/agencies |
-| `item` | Physical items/subscriptions |
-| `account` | Financial accounts |
-| `bill` | Recurring bills |
-| `habit` | Habit tracking |
-| `goal` | Goals |
-| `resource` | Reference material |
-| `recipe` | Recipes |
-| `workout` | Workout logs |
-| `note` | General notes |
-| `system` | System documentation |
-| `database` | Database hubs |
-| `meal-plan` | Weekly meal plan |
-| `grocery-list` | Grocery/shopping list |
-| `documentation` | System or process documentation |
-| `process` | Workflow or process reference |
-| `research` | Research outputs and analysis |
+| Type            | Use For                                     |
+| --------------- | ------------------------------------------- |
+| `daily`         | Daily notes (Journal/)                      |
+| `project`       | Any project                                 |
+| `work-project`  | Construction site/client project            |
+| `area-hub`      | Area hub notes (Work Hub, Health Hub, etc.) |
+| `meeting`       | Meeting notes                               |
+| `person`        | People                                      |
+| `organization`  | Companies/agencies                          |
+| `item`          | Physical items/subscriptions                |
+| `account`       | Financial accounts                          |
+| `bill`          | Recurring bills                             |
+| `habit`         | Habit tracking                              |
+| `goal`          | Goals                                       |
+| `resource`      | Reference material                          |
+| `recipe`        | Recipes                                     |
+| `workout`       | Workout logs                                |
+| `note`          | General notes                               |
+| `system`        | System documentation                        |
+| `database`      | Database hubs                               |
+| `meal-plan`     | Weekly meal plan                            |
+| `grocery-list`  | Grocery/shopping list                       |
+| `documentation` | System or process documentation             |
+| `process`       | Workflow or process reference               |
+| `research`      | Research outputs and analysis               |
+| system          | Vault configuration files and rules         |
 
 ---
 

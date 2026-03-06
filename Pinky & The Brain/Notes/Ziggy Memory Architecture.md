@@ -9,6 +9,10 @@ tags:
   - memory
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
@@ -140,9 +144,9 @@ Instead of relying on OpenClaw's built-in memory, Ziggy writes a **Session State
 3. Git auto-commits it within 10 minutes
 
 **Start of next session:**
-1. Nathan pastes the Ziggy OpenClaw Full Prompt (always — this is the brain)
-2. Nathan pastes the latest Session State note (short-term memory)
-3. If deeper context is needed, Nathan references specific vault notes
+1. OpenClaw loads Ziggy's system prompt automatically (`ziggy_openclaw_full.md`) — no manual paste needed
+2. Ziggy runs `vault session` to read the latest Session State for continuity
+3. Vault notes are read on demand with `vault read "[Note Name]"` — nothing injected upfront
 
 **This is staged memory retrieval.** Ziggy gets what matters NOW, backed by a structured archive it can request when needed. No context window bloat.
 
@@ -185,7 +189,7 @@ After this, you'll see OpenClaw's memory files in Obsidian under `Notes/OpenClaw
 
 ### For Nathan
 
-1. **Start each session clean.** Paste the Full Prompt + latest Session State. Don't let sessions accumulate context across unrelated tasks.
+1. **Start each session clean.** OpenClaw loads the system prompt automatically. Let Ziggy run `vault session` at the start to pick up context. Don't accumulate context across unrelated tasks — use `/new` to end sessions cleanly.
 2. **Use `/new` instead of `/compact` to end sessions.** `/new` triggers the auto-save hook (writes Session State + Session Log, zero tokens). `/compact` only compresses context without saving to vault.
 3. **End meaningful sessions:** Use `/new` to auto-save, or explicitly say "save the session state" for manual updates.
 4. **For important conversations, also say "save this as a save state."** Ziggy creates a permanent save-state note.
@@ -223,15 +227,15 @@ After this, you'll see OpenClaw's memory files in Obsidian under `Notes/OpenClaw
 - Cost per message: $0.01-$0.06 (Sonnet)
 - Monthly (30 queries/day): $9-$54
 
-### After (staged context injection)
-- System prompt: ~4,000 tokens
-- Session State injection: ~750 tokens
-- Fresh session context: 1,000-5,000 tokens
-- Every message: ~5,750-9,750 input tokens
-- Cost per message: ~$0.002
-- Monthly (30 queries/day): ~$1.80
+### After (v2 — Haiku default + on-demand vault reads)
+- Default model: Haiku (free for local, ~$0.001/message cloud)
+- Context load: ~200-500 tokens (vault read on demand)
+- Every message: ~700-1,500 input tokens
+- Cost per message: ~$0.001 or less
+- Monthly (30 queries/day): ~$3-5
 
-**Estimated savings: 70-95%**
+**Estimated savings vs. v1 undisciplined: 83%+**
+
 
 ---
 

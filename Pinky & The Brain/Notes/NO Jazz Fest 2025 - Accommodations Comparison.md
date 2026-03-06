@@ -8,6 +8,10 @@ related: [[New Orleans Jazz Fest 2025 - Accommodations]]
 status: active
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Interests Hub|Interests Hub]]
+
+---
+
 # 🎷 Jazz Fest 2025: French Quarter Accommodations
 ## Travel Agent Comparison for Nathan
 

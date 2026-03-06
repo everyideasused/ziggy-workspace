@@ -138,3 +138,7 @@ WHERE type = "goal" AND area = "finances" AND status = "active"
 ---
 
 *Previous: [[<% tp.date.now("YYYY-MM", -30) %> Finances]] · Next: [[<% tp.date.now("YYYY-MM", 30) %> Finances]]*
+
+---
+
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>

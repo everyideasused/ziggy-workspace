@@ -24,6 +24,8 @@ tags:
   - freezer-friendly
 ---
 
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
 
 ---

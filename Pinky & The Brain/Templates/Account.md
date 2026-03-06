@@ -61,3 +61,7 @@ tags:
 
 ## 🔗 Related
 - [[Finances Hub]]
+
+---
+
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>

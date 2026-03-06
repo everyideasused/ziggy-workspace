@@ -21,6 +21,12 @@ tags:
 - [[Meal Plan - Current Week|📅 This Week's Meal Plan]]
 - [[Grocery Lists|🛒 Grocery Lists]]
 
+### 👩‍🍳 Sage — Chef & Nutritionist Agent
+
+- [[Sage Agent Profile|Agent Profile]] — Full agent scope and capabilities
+- [[Sage Session State|📊 Sage Session State]] — Current meal planning context
+- [[Sage Nutrition & Culinary Knowledge Base|📚 Knowledge Base]] — Recipes, nutrition, meal planning system
+
 ---
 
 ## 🎯 Active Projects

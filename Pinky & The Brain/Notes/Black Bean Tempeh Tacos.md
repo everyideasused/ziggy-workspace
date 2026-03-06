@@ -23,6 +23,8 @@ tags:
   - high-protein
 ---
 
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
 
 ---

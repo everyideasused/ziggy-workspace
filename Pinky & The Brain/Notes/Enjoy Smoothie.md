@@ -58,6 +58,6 @@ Update `streak` in frontmatter when you check in. Reset to 0 if you miss more th
 ## 🔗 Related
 
 - [[Ultimate Vegan Micronutrient Smoothie|🥤 Recipe & Prep Guide]]
-- [[Health Hub|💪 Health Hub]]
+- [[Health Hub|Health Hub]]
 - [[V-Shape Program|🏋️ Workout Program]]
 - Prep day: **Sundays** (batch prep smoothie ingredients for the week)

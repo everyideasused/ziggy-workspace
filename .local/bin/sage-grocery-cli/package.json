@@ -1,0 +1,18 @@
+{
+  "name": "sage-grocery-cli",
+  "version": "0.1.0",
+  "description": "CLI tool for auto-generating grocery lists from meal plans",
+  "main": "dist/index.js",
+  "bin": {
+    "sage-grocery": "./bin/sage-grocery"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "test": "node dist/index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

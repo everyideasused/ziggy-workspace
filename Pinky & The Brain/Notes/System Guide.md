@@ -7,6 +7,10 @@ tags:
   - guide
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
@@ -391,6 +395,37 @@ Tags supplement frontmatter — use them for cross-cutting concerns that don't f
 | `#research` | Research outputs |
 | `#review` | Weekly/monthly reviews |
 | `#system` | Vault system documentation |
+
+---
+
+## 📝 Agent Authorship Rule
+
+**Every file or document created by Ziggy or any sub-agent MUST include an authorship footnote.**
+
+**Format:**
+```markdown
+---
+Created by: [Agent Name] · AI: [Model Name]
+---
+```
+
+**Placement:** At the end of the document (after all content, before navigation header if one exists at bottom).
+
+**Examples:**
+- `Created by: Ziggy · AI: anthropic/claude-sonnet-4-6`
+- `Created by: Atlas · AI: anthropic/claude-sonnet-4-6`
+- `Created by: Forge · AI: openrouter/moonshotai/kimi-k2.5`
+
+**Applies to:**
+- All markdown notes in `Notes/`
+- All daily notes in `Journal/`
+- All templates in `Templates/`
+- Any vault documentation
+
+**When creating files:**
+1. Include the required frontmatter (`type`, `area`, `status`, `tags`)
+2. Add content
+3. End with the authorship footer
 
 ---
 

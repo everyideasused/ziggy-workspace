@@ -10,7 +10,7 @@ tags:
   - session-state
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Finances Hub|💰 Finances]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Finances Hub|Finances Hub]]
 
 ---
 

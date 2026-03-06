@@ -30,6 +30,10 @@ tags:
 
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|Health Hub]]
+
+---
+
 # 🥤 Ultimate Vegan Micronutrient Smoothie
 
 **24 out of 24 essential micronutrients at 100%+ Daily Value.**  
@@ -276,8 +280,8 @@ This smoothie achieves 24/24 essential micronutrients at 100%+ DV through strate
 
 ## 🔗 Related
 
-- [[Household Hub|🏠 Household Hub]]
-- [[Health Hub|💪 Health Hub]]
+- [[Household Hub|Household Hub]]
+- [[Health Hub|Health Hub]]
 - [[Recipe Index|🍳 All Recipes]]
 - [[Enjoy Smoothie|🔁 Daily Habit]]
 - [[Grocery Lists|🛒 Grocery Lists]]

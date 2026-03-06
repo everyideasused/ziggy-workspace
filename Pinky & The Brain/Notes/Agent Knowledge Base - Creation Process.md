@@ -10,7 +10,7 @@ tags:
   - process
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|🤖 Ziggy]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|Ziggy Hub]]
 
 ---
 
@@ -38,16 +38,17 @@ A knowledge base turns a chatbot into a specialist.
 
 ### Current Agent Status
 
-| Agent | Level | KB Status |
-|-------|-------|-----------|
-| Atlas | 3 | Construction PM KB — 28 notes, full lifecycle |
-| Ledger | 2 | Personal Finance KB — 12 notes, full lifecycle |
-| Iron | 1.5 | V-Shape program docs exist, no structured domain KB |
-| Sage | 1.5 | Meal planning workflow exists, no nutrition science KB |
-| Spin | 1 | No KB — general model knowledge only |
-| Compass | 1 | No KB — relies on web search |
-| Forge | 1.5 | Project-specific docs exist, no architecture patterns KB |
-| Hammer | 2 | Carpenter & GC KB — 14 notes, full craft/execution domain |
+| Agent | Level | KB Status | Phase 4 Integration |
+|-------|-------|-----------|-------------------|
+| Ziggy | ✅ Active | System context | N/A |
+| Atlas | 3 | Construction PM KB — 28 notes, full lifecycle | ✅ Complete |
+| Ledger | 2 | Personal Finance KB — 12 notes, full lifecycle | ✅ Complete |
+| Hammer | 2 | Carpenter & GC KB — 14 notes, full craft/execution domain | ✅ Complete |
+| Iron | 1.5 | V-Shape program docs exist, no structured domain KB | Pending |
+| Sage | 1.5 | Meal planning workflow exists, no nutrition science KB | Pending |
+| Spin | 1 | No KB — general model knowledge only | Pending |
+| Compass | 1 | No KB — relies on web search | Pending |
+| Forge | 1.5 | Project-specific docs exist, no architecture patterns KB | Pending |
 
 *Update this table as KBs are built.*
 

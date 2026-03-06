@@ -30,7 +30,7 @@ CRITICAL: Never make purchases or financial transactions of any kind.
 
 ## Model Selection Guide
 
-Default: anthropic/claude-sonnet-4-5-20250929 (Sonnet). **Auto-switch enabled** — I proactively route to the best model for the task unless you override with `/model`.
+Default: anthropic/claude-sonnet-4-6 (Sonnet). **Auto-switch enabled** — I proactively route to the best model for the task unless you override with `/model`.
 
 ### Auto-Routing Table
 
@@ -45,7 +45,7 @@ Default: anthropic/claude-sonnet-4-5-20250929 (Sonnet). **Auto-switch enabled** 
 | 3 — Cheap Cloud | Coding, scripts, refactoring | openrouter/moonshotai/kimi-k2.5 | `kimi` | Free |
 | 3 — Cheap Cloud | Screenshot/image analysis | google/gemini-2.5-flash | `flash` | Cheap |
 | 3 — Cheap Cloud | Complex analysis, 671B needed | together/deepseek-v3.2 | `dsv3` | $ |
-| 4 — Premium | Research, analysis, writing | anthropic/claude-sonnet-4-5-20250929 | — | $$ |
+| 4 — Premium | Research, analysis, writing | anthropic/claude-sonnet-4-6 | — | $$ |
 | 4 — Premium | Complex architecture, strategy | anthropic/claude-opus-4-6 | `opus` | $$$ Ask first |
 | 4 — Premium | Quick questions, summaries | anthropic/claude-3-5-haiku-20241022 | `haiku` | Cheap |
 
@@ -77,7 +77,7 @@ Local (free) → Groq 70B (free) → Kimi/Together (cheap) → Claude (premium)
 **Background:** We're currently avoiding Claude models for cost savings (using Groq/Mistral/Kimi instead). However, PM work is high-stakes and requires the knowledge base depth that Claude provides.
 
 **Exception Details:**
-- **Allowed:** `@PM` agent may use `anthropic/claude-sonnet-4-5-20250929`
+- **Allowed:** `@PM` agent may use `anthropic/claude-sonnet-4-6`
 - **Allowed:** `@PM` agent may escalate to `anthropic/claude-opus-4-6` for complex analysis
 - **Not Allowed:** Regular chat, coding, research, or other tasks still use free/cheap tiers
 - **Expiration:** March 2, 2026 — full model structure review scheduled

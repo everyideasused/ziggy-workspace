@@ -7,6 +7,10 @@ tags:
   - guide
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
@@ -265,7 +269,7 @@ For specialized topics, also paste:
 
 ## What's In This Vault
 
-### 24 Templates
+### 25 Templates
 | Template | Creates | Use When |
 |----------|---------|----------|
 | Daily Note | `daily` | Auto-applied to journal notes |
@@ -292,8 +296,9 @@ For specialized topics, also paste:
 | Fitness Assessment | `assessment` | Every 4 weeks |
 | Resource | `resource` | Reference material to save |
 | Quick Capture | `note` | Fast inbox capture |
+| Session State |` system `| End-of-session summary for Ziggy continuity |
 
-### 29 Pre-Built Notes
+### 34 Pre-Built Notes
 | Note | What It Does |
 |------|-------------|
 | 🏠base | Home dashboard — inbox, orphan catcher, projects, areas, resources |
@@ -326,6 +331,11 @@ For specialized topics, also paste:
 | Templates Hub | When to use each template |
 | Tags Reference | Complete tag taxonomy |
 | Archives Hub | Browse archived and completed items |
+| Agent Registry | specialized agents, roles, dispatch rules |
+| Ziggy Memory Architecture | memory system documentation |
+| Human Guide | plain-English usage guide |
+| Vault Rules - Quick Reference | fast lookup for vault standards |
+| Ziggy Session Log | running log of all sessions |
 
 ---
 

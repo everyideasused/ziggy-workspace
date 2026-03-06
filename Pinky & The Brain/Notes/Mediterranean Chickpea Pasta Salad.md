@@ -24,6 +24,8 @@ tags:
   - no-cook
 ---
 
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
 
 ---

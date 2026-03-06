@@ -241,4 +241,4 @@ WHERE type = "recipe" AND rating >= 4
 - [[Meal Planning System - Overview|📋 System Overview]]
 - [[Meal Plan - Current Week|📅 This Week]]
 - [[Recipe Index|🍳 Recipes]]
-- [[Household Hub|🏠 Household]]
+- [[Household Hub|Household Hub]]

@@ -9,6 +9,10 @@ tags:
   - prompt
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[System Hub|System Hub]]
+
+---
+
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 ---
@@ -69,8 +73,8 @@ Vault Root/
 **System:** 🏠base, Dashboard, Getting Started, Human Guide, System Guide, Templates Hub, Tags Reference
 **Area Hubs (7):** Work Hub, Health Hub, Finances Hub, Household Hub, Interests Hub, Relationships Hub, Education Hub
 **Databases:** Inventory Database, Reading List, Recipe Index, Grocery List, Construction PM Knowledge Base
-**Ziggy:** Ziggy Hub, Ziggy Drafts, Ziggy System Context, Ziggy Email Bridge, Ziggy Email Bridge Architecture
-**Fitness:** Workout Program, V-Shape Program, V-Shape Exercise Guide, V-Shape Daily Logs
+**Ziggy:** Ziggy Hub, Ziggy Drafts, Ziggy System Context, Ziggy Email Bridge, Ziggy Email Bridge Architecture, Ziggy Agent Registry
+**Fitness:** Workout Program, V-Shape Program, V-Shape Exercise Guide, V-Shape Daily Logs (legacy)
 **Habits:** Water Intake (75+ oz daily), Protein Target (150g+ daily), Sleep Quality (7+ hrs daily)
 
 ---
@@ -195,7 +199,7 @@ Reference these notes when advising on construction topics. They contain detaile
 2. Include ALL required frontmatter (type, area, status, tags) + specialized fields
 3. First line = navigation quote block:
    - Static notes: `> [[🏠base|🏠]] · [📅 Today](obsidian://daily)`
-   - Add area hub links for context: `· [[Work Hub|💼 Work]]`
+   - Add area hub links for context: `· [[Work Hub|Work Hub]]`
 4. Use `[[wikilinks]]` liberally
 5. Save in `Notes/` (or `Journal/` for daily notes)
 
@@ -261,7 +265,7 @@ If Nathan asks you to write, generate, create, fix, debug, refactor, or review c
 - Anything that produces a code block as the primary output
 
 **Professional deliverables → Sonnet minimum.**
-If Nathan asks for output that will be seen by clients, colleagues, or anyone outside the conversation, you MUST use sessions_spawn with model "anthropic/claude-sonnet-4-5-20250929". This includes:
+If Nathan asks for output that will be seen by clients, colleagues, or anyone outside the conversation, you MUST use sessions_spawn with model "anthropic/claude-sonnet-4-6". This includes:
 - Client-facing emails, proposals, or reports
 - Work documents or presentations content
 - Anything Nathan describes as "professional", "formal", or "client-ready"
@@ -307,7 +311,7 @@ Tell Nathan you're escalating: "Spawning a sub-agent on Opus for this — one mo
 
 ## RULES — NEVER VIOLATE
 
-1. Never create folders in Notes/. Everything flat. Frontmatter organizes.
+1. Never create folders in Notes/. Everything flat. Frontmatter organizes. Exception: Notes/Fitness/Logs/ is allowed for workout log files.
 2. Never create notes without frontmatter.
 3. Never duplicate Smartsheet data. Reference by ID, think strategically.
 4. Never forget the navigation quote block.

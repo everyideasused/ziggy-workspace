@@ -8,6 +8,10 @@ related: []
 status: active
 ---
 
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Interests Hub|Interests Hub]]
+
+---
+
 # New Orleans Jazz Fest 2025 — French Quarter Accommodations
 
 **Trip Details:**

@@ -10,7 +10,7 @@ tags:
   - optimization
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|🤖 Ziggy]]
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Ziggy Hub|Ziggy Hub]]
 
 ---
 
@@ -66,7 +66,7 @@ Examples:
 - Reading simple vault notes back to Nathan
 - Simple note creation with standard frontmatter
 
-### Tier 2: Sonnet 4.5 (Sub-agent escalation)
+### Tier 2: Sonnet 4.6 (Sub-agent escalation)
 
 **Cost:** $3/$15 per MTok → ~$0.021/message
 **Use for:** Tasks that need reliable reasoning, synthesis, or structured output quality beyond Haiku.
@@ -154,13 +154,13 @@ Set the default sub-agent model to Groq (free tier) so even accidental spawns co
 
 ### 3. Model Strings for Escalation
 
-| Tier | Model String | Cost (in/out per MTok) |
-|------|-------------|----------------------|
-| Default | `anthropic/claude-haiku-4-5-20251001` | $1 / $5 |
-| Tier 2 | `anthropic/claude-sonnet-4-5-20250929` | $3 / $15 |
-| Tier 3 | `anthropic/claude-opus-4-6` | $5 / $25 |
-| Sub-agent default | `groq/llama-3.3-70b-versatile` | Free |
-| Local fallback | `qwen3:14b` (via Ollama/vLLM) | Free |
+| Tier              | Model String                          | Cost (in/out per MTok) |
+| ----------------- | ------------------------------------- | ---------------------- |
+| Default           | `anthropic/claude-haiku-4-5-20251001` | $1 / $5                |
+| Tier 2            | `anthropic/claude-sonnet-4-5-20250929` | $3 / $15               |
+| Tier 3            | `anthropic/claude-opus-4-6`           | $5 / $25               |
+| Sub-agent default | `groq/llama-3.3-70b-versatile`        | Free                   |
+| Local fallback    | `qwen3:14b` (via Ollama/vLLM)         | Free                   |
 
 ### 4. Fallback Chain
 
