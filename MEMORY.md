@@ -74,36 +74,17 @@
   - Smartsheet: enterprise PMO — programs, sites, Gantt, budgets, dashboards
   - Intake questionnaire still in vault but may not be needed now
 
-### Pinky & The Brain — PKM System
+### Pinky & The Brain — Web Access & Infra
 
 - **URL:** https://pkm.mouthygeese.com (NoteDiscovery web) + Obsidian Desktop
-- **Preferred Model:** Kimi (openrouter/moonshotai/kimi-k2.5) — stay on free model for cost savings, fine for PKM/task work
-- **Discord #pkm channel:** Always use Kimi (cost savings)
-- **Platform:** NoteDiscovery (web access) + Obsidian (desktop/power user)
 - **Password:** suxvIm-nipnod-sygro0
-- **Vault location:** `/Volumes/ziggy/openclaw-workspace/Pinky & The Brain/`
 - **Docker container:** `notediscovery` on port 8000
 - **Tunnel:** cloudflared `affine-pkm-tunnel` → pkm.mouthygeese.com → localhost:8000
-- **Ziggy access:** Direct filesystem read/write (Obsidian vault) + NoteDiscovery REST API (web)
-  - Files: Read/write markdown directly at vault path
-  - API: `curl -b "session=..." http://localhost:8000/api/notes/{path}` (GET/POST/DELETE)
-  - Login: `POST /login` with form data `password=...` returns session cookie
+- **API access:** `curl -b "session=..." http://localhost:8000/api/notes/{path}` (GET/POST/DELETE)
+- **Login:** `POST /login` with form data `password=...` returns session cookie
+- **Remaining infra:** cloudflared LaunchAgent auto-start still needs fixing (won't survive reboot)
 
-**Forever Notes-inspired Structure:**
-- **Philosophy:** Simple, modular, grows with you. One Home note links to all Hubs
-- **✱ Home** — Landing page with live Dataview dashboards (opens on startup)
-- **📓 Journal** — Daily reflection hub with Dataview auto-listing
-- **🧠 Knowledge / 💝 Relationships / 🏠 Household / 💪 Health / 💰 Finances / 👔 Professional** — Six Area Hubs with bi-directional links
-- **🎯 Goals / 📋 Projects / ✅ Actions** — Action layer Hubs
-- **📥 Inbox** — Quick capture zone (via Dataview in Home, notes tagged status: inbox)
-- **📚 Resources** — Reference library (notes in Notes/ folder tagged appropriately)
-- **📦 Archives** — Completed work (status: archived)
-- **Folder structure (AUTHORITATIVE):** See `System Guide.md` — 4 root folders only: `🏠base.md`, `Journal/`, `Notes/`, `Templates/`, `Attachments/`
-- **Daily notes:** In `Journal/` folder with format `YYYY-MM-DD.md` (dashes, not dots)
-- **All other notes:** In `Notes/` flat folder (no subfolders)
-- **Vault rules:** Every note needs frontmatter (type, area, status, tags). See `System Guide.md` for complete rules
-
-**Obsidian Plugins Installed:**
+**Obsidian Plugins & Macros:**
 - **Dataview** — Auto-updating queries in Home/Hubs (most important)
 - **Tasks** — Task tracking with completion
 - **Templater** — Dynamic templates with variables
@@ -123,43 +104,6 @@
 - **Quick Capture** → One-keystroke inbox dump to Notes/ (status: inbox)
 - **New Journal Entry** → Creates dated note in Journal/ folder (YYYY-MM-DD.md format)
 - **Go Home** → Returns to 🏠base
-
-**Templates:**
-- **Daily Note** — Full journal with morning/evening prompts, metrics
-- **Project Template** — Status, milestones, actions, definition of done
-- **Area Note** — Simple linked note for any area
-
-**Inbox workflow:** Nathan drops items in 📥 Inbox (web or desktop). Ziggy processes and routes to right Hub/location.
-
-**Remaining infra:** cloudflared LaunchAgent auto-start still needs fixing (won't survive reboot)
-
-### 🚨 CRITICAL VAULT RULES (Added Mar 6, 2026)
-
-**1. NEVER add files to the vault without frontmatter and navigation headers.**
-
-Every file MUST include:
-- **Frontmatter** (type, area, status, tags)
-- **Navigation header** (`> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Hub|Hub]]`)
-
-**When importing KB modules or external content:**
-- DO NOT import raw files directly
-- ADD frontmatter + nav header BEFORE writing to vault
-- Use vault structure from System Guide.md
-
-**Lesson learned:** March 5, 2026 — Imported 26 Tally KB files without frontmatter during rapid deployment. Required cleanup script on March 6. Never again.
-
-**2. Hub naming MUST match actual hub filenames.**
-
-**Actual hub files (no emoji in filename):**
-- `Health Hub.md`, `Work Hub.md`, `Household Hub.md`, `Interests Hub.md`, `Finances Hub.md`, `Relationships Hub.md`, `Education Hub.md`, `Archives Hub.md`, `Ziggy Hub.md`
-
-**Navigation headers:**
-- Correct: `[[Health Hub|Health Hub]]` or just `[[Health Hub]]`
-- Incorrect: `[[💪 Health Hub|Health Hub]]`, `[[Health Hub|💪 Health Hub]]`, `[[Household Hub|🏠 Household]]`
-
-**Rule:** Emoji in note titles/headers is fine (decorative). Emoji in wiki-link targets or display text is wrong — use actual hub filenames.
-
-**Lesson learned:** March 6, 2026 — I created inconsistent hub links with emoji during agent deployments. Fixed 35 files. Hub filenames = source of truth for links.
 
 ### Fitness & Workout Tracking System
 
@@ -217,28 +161,3 @@ Every file MUST include:
 - Agent policy in exec-approvals.json (`policy: "allow"`)
 - Command on security allowlist (via `openclaw approvals allowlist add`)
 
-### Browser Automation Capabilities
-
-**Tested:** March 6, 2026 — setlist.fm navigation to fetch Turnpike Troubadours setlist
-
-**What works:**
-- ✅ Open pages, search, navigate, interact with forms
-- ✅ Basic page snapshots and screenshots
-- ✅ Click, type, wait for loading
-
-**What has limitations:**
-- ⚠️ Dynamic content sites (setlist.fm) — content loads via JavaScript, readability extraction misses actual data
-- ⚠️ Some sites timeout on complex pages
-- ⚠️ Anti-bot measures (403, captcha) on sites like jambase.com, concerty.com
-
-**Best use cases:**
-- Public research (building codes, cost databases, documentation)
-- Static content sites
-- Form submissions when API unavailable
-
-**Not ideal for:**
-- Sites with heavy JavaScript rendering
-- Sites with anti-bot protection
-- When API exists (use API instead)
-
-**Security note:** Browser = public research only. Never use for client/project data. See TOOLS.md security policy.
