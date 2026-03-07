@@ -238,7 +238,7 @@ tags:
 5. **Update vault documentation** (if new types or tags were introduced):
    - `[[Tags Reference]]`
    - `[[System Guide]]` type taxonomy
-   - `[[Vault Rules - Quick Reference]]` type table
+   - `[[System Guide]]` type table
    - `[[Ziggy System Context]]` type taxonomy
    - `vault-health-check` valid types list
 

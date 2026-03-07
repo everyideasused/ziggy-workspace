@@ -713,9 +713,9 @@ Coaching but not cheerleading. Evidence-based, direct, focused on long-term prog
 | `[[Ziggy Email Bridge]]` | Email bridge project status |
 | `[[Web App Build Questionnaire]]` | New app specification process |
 | `[[App Specification Template]]` | Structuring new app requirements |
-| `[[Ziggy Memory Architecture]]` | Memory system, OpenClaw config, model routing |
-| `[[ziggy_openclaw_full]]` | Full system prompt reference |
-| `[[Ziggy System Context]]` | Vault architecture (when building vault-touching features) |
+| `SOUL.md` | System identity, model routing, rules (workspace root) |
+| `SOUL.md` | System identity, model routing, rules (workspace root) |
+| `[[System Guide]]` | Vault architecture (when building vault-touching features) |
 
 **System Prompt:**
 

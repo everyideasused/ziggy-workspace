@@ -16,7 +16,7 @@ tags:
 ---
 
 # 🚀 Getting Started
-## From Zero to Operational — Do This First
+## From Zero to Operational - Do This First
 
 ---
 
@@ -29,13 +29,13 @@ tags:
 4. Open the `obsidian_vault/` folder inside the zip
 5. Copy **everything** from inside `obsidian_vault/` into your vault's root folder
 6. You should see `🏠base.md`, `Journal/`, `Notes/`, `Templates/`, `Attachments/` at the top level
-7. Reopen the vault in Obsidian — all files should appear in the sidebar
+7. Reopen the vault in Obsidian - all files should appear in the sidebar
 
 ### If migrating from an existing vault:
-1. **Keep your `.obsidian/` folder** — it holds your plugin configs, themes, and hotkeys
+1. **Keep your `.obsidian/` folder** - it holds your plugin configs, themes, and hotkeys
 2. Move any notes you want to keep into a temporary folder outside the vault
 3. Delete everything else (except `.obsidian/`)
-4. Follow steps 3–7 above
+4. Follow steps 3-7 above
 5. Move your kept notes back into `Notes/`
 6. Add proper frontmatter to any migrated notes (see [[System Guide]] for required fields)
 
@@ -53,7 +53,7 @@ Open Settings → Community Plugins → Browse
 
 **2. Dataview**
 - Install and enable
-- This powers every query on every hub note — project lists, workout history, habit tables, financial dashboards, task rollups
+- This powers every query on every hub note - project lists, workout history, habit tables, financial dashboards, task rollups
 
 **3. Calendar**
 - Install and enable
@@ -62,14 +62,14 @@ Open Settings → Community Plugins → Browse
 ### Obsidian Git (recommended)
 - Install from Community Plugins
 - Enables automatic version control with GitHub backup
-- Auto-commits and pushes every 10 minutes — offsite backup + rollback safety net
-- See [[Ziggy Memory Architecture]] for full configuration
+- Auto-commits and pushes every 10 minutes - offsite backup + rollback safety net
+- See SOUL.md for full configuration
 
 ### Recommended (not required but significantly improves experience):
 
-**4. Homepage** — Auto-opens `🏠base` when you launch Obsidian
-**5. Quick Add** — Faster note creation with template picker (Cmd+P alternative)
-**6. Periodic Notes** — Better weekly note support for weekly reviews
+**4. Homepage** - Auto-opens `🏠base` when you launch Obsidian
+**5. Quick Add** - Faster note creation with template picker (Cmd+P alternative)
+**6. Periodic Notes** - Better weekly note support for weekly reviews
 
 ---
 
@@ -102,7 +102,7 @@ This is the critical step. **Do all of these or the vault won't function correct
   - Folder: `Journal`
   - Template: `Templates/Daily Note`
 
-> **Why this matters:** When you click a date link like `[[2026-03-15]]` and that note doesn't exist, Obsidian creates it in `Journal/` (because of the Daily Notes setting). Templater then sees a new file was created in `Journal/` and auto-applies the Daily Note template. This is what gives you a fully rendered daily note with the correct workout, tasks, habits, and navigation — instead of a blank file.
+> **Why this matters:** When you click a date link like `[[2026-03-15]]` and that note doesn't exist, Obsidian creates it in `Journal/` (because of the Daily Notes setting). Templater then sees a new file was created in `Journal/` and auto-applies the Daily Note template. This is what gives you a fully rendered daily note with the correct workout, tasks, habits, and navigation - instead of a blank file.
 
 ### 3C: Dataview Settings
 
@@ -113,7 +113,7 @@ This is the critical step. **Do all of these or the vault won't function correct
 ### 3D: Calendar Settings
 
 **Settings → Community Plugins → Calendar:**
-- Should use the Daily Notes settings automatically — no extra config needed
+- Should use the Daily Notes settings automatically - no extra config needed
 
 ### 3E: Homepage Settings (if installed)
 
@@ -129,14 +129,14 @@ Do these tests in order. If any fail, go back to Step 3 and check the relevant s
 
 ### Test 1: Home page loads
 - Open `🏠base.md`
-- You should see the Dataview queries rendering (they'll show "No results" since the vault is new — that's fine)
+- You should see the Dataview queries rendering (they'll show "No results" since the vault is new - that's fine)
 - The `[📅 Today](obsidian://daily)` link should be clickable
 
 ### Test 2: Daily note creates correctly
 - Click the `[📅 Today](obsidian://daily)` link on `🏠base`
 - A new note should appear in `Journal/` named with today's date
 - **Check that Templater processed it:**
-  - The date in the `#` heading should show the actual day name and date (e.g., "Saturday, February 28, 2026") — NOT raw Templater code like `<% tp.date.now(...) %>`
+  - The date in the `#` heading should show the actual day name and date (e.g., "Saturday, February 28, 2026") - NOT raw Templater code like `<% tp.date.now(...) %>`
   - The workout section should show either "Rest Day" (Sunday) or the correct workout day, or "Program starts March 2nd" (before the program starts)
   - The navigation links at the top should show actual dates
 - **If you see raw `<%` code instead:** Templater is not configured correctly. Go back to Step 3B.
@@ -151,11 +151,11 @@ Do these tests in order. If any fail, go back to Step 3 and check the relevant s
 - It should land in `Notes/`
 - Open the command palette (Cmd+P) → Type "Templater" → Select "Templater: Insert Template"
 - Pick any template (try "Quick Capture")
-- The template should process — Templater prompts should appear, dates should fill in
+- The template should process - Templater prompts should appear, dates should fill in
 
 ### Test 5: Dataview queries work
 - Open `Notes/Workout Program.md`
-- Scroll to the bottom — the "Recent Workouts" and "Assessments" sections should show rendered Dataview blocks (empty results is fine)
+- Scroll to the bottom - the "Recent Workouts" and "Assessments" sections should show rendered Dataview blocks (empty results is fine)
 - **If you see raw ````dataview` code blocks instead:** Dataview is not enabled. Go back to Step 3C.
 
 ### Test 6: Workout auto-detection works
@@ -196,14 +196,14 @@ Do these tests in order. If any fail, go back to Step 3 and check the relevant s
 2. Open command palette (Cmd+P) → "Templater: Insert Template"
 3. Pick the right template for what you're creating
 4. Fill in the Templater prompts
-5. Done — the note auto-appears in the right hub based on its frontmatter
+5. Done - the note auto-appears in the right hub based on its frontmatter
 
 ### Quick Capture (Phone or On The Go)
 1. Create a new note
 2. Apply the **Quick Capture** template
 3. Write your thought
 4. It auto-lands in your inbox on `🏠base` because `status: inbox`
-5. Process it later — assign a proper type, area, and status
+5. Process it later - assign a proper type, area, and status
 
 ### Scheduling a Task for a Future Date
 Write this anywhere in any note:
@@ -227,7 +227,7 @@ That task will show up on the March 10th daily note under "Scheduled (Due Today)
 If you want the vault on your MacBook, iPhone, and Mac Mini:
 
 1. Install Syncthing on Mac Mini and MacBook (syncthing.net)
-2. Install Möbius Sync on iPhone (App Store — Syncthing client for iOS)
+2. Install Möbius Sync on iPhone (App Store - Syncthing client for iOS)
 3. Share the vault folder between all devices
 4. Install Obsidian on each device and open the synced vault folder
 5. Plugin settings sync with the vault (they're in `.obsidian/`)
@@ -256,10 +256,10 @@ For specialized topics, also paste:
 
 | Problem | Fix |
 |---------|-----|
-| Daily note shows raw `<% ... %>` code | Templater not configured. Check Step 3B — enable "Trigger on new file creation" and set folder template for `Journal/` |
+| Daily note shows raw `<% ... %>` code | Templater not configured. Check Step 3B - enable "Trigger on new file creation" and set folder template for `Journal/` |
 | Dataview queries show code blocks instead of tables | Dataview not enabled or JS queries off. Check Step 3C |
 | Workout section shows JavaScript code | Dataview JavaScript Queries not enabled. Step 3C |
-| Clicking date links creates blank notes | Templater folder template not set. Step 3B — map `Journal/` to `Daily Note` template |
+| Clicking date links creates blank notes | Templater folder template not set. Step 3B - map `Journal/` to `Daily Note` template |
 | New notes land in vault root instead of Notes/ | Files & Links → Default location not set to `Notes`. Step 3A |
 | Templates don't show Templater prompts | Templater plugin not installed or enabled. Step 2 |
 | Hub notes show "No results" | This is normal for a new vault. Results appear as you create notes with proper frontmatter |
@@ -296,15 +296,15 @@ For specialized topics, also paste:
 | Fitness Assessment | `assessment` | Every 4 weeks |
 | Resource | `resource` | Reference material to save |
 | Quick Capture | `note` | Fast inbox capture |
-| Session State |` system `| End-of-session summary for Ziggy continuity |
+| Session State |` system `| End-of-session summary for Ziggy continuity |
 
 ### 34 Pre-Built Notes
 | Note | What It Does |
 |------|-------------|
-| 🏠base | Home dashboard — inbox, orphan catcher, projects, areas, resources |
-| Dashboard | Weekly at-a-glance — fitness, habits, tasks, finances, reading |
-| Work Hub | PMO command center — all clients and projects |
-| Finances Hub | Financial dashboard — accounts, bills, budgets |
+| 🏠base | Home dashboard - inbox, orphan catcher, projects, areas, resources |
+| Dashboard | Weekly at-a-glance - fitness, habits, tasks, finances, reading |
+| Work Hub | PMO command center - all clients and projects |
+| Finances Hub | Financial dashboard - accounts, bills, budgets |
 | Health Hub | Fitness, nutrition, health habits |
 | Household Hub | Home, garden, grocery, recipes |
 | Interests Hub | Hobbies, reading, philosophy, creative |
@@ -319,10 +319,10 @@ For specialized topics, also paste:
 | Ziggy System Context | Complete vault reference for AI assistants |
 | Ziggy Email Bridge | Email integration project (starts April) |
 | Ziggy Email Bridge Architecture | Technical architecture doc |
-| Workout Program | Fitness project — the active program |
+| Workout Program | Fitness project - the active program |
 | V-Shape Program | Full program reference (exercises, progression, nutrition) |
 | V-Shape Exercise Guide | Form cues and video links for every exercise |
-| V-Shape Daily Logs | Log template reference (legacy — use day-specific templates) |
+| V-Shape Daily Logs | Log template reference (legacy - use day-specific templates) |
 | Water Intake | Habit: daily water tracking |
 | Protein Target | Habit: daily protein tracking |
 | Sleep Quality | Habit: daily sleep tracking |
@@ -331,11 +331,11 @@ For specialized topics, also paste:
 | Templates Hub | When to use each template |
 | Tags Reference | Complete tag taxonomy |
 | Archives Hub | Browse archived and completed items |
-| Agent Registry | specialized agents, roles, dispatch rules |
-| Ziggy Memory Architecture | memory system documentation |
-| Human Guide | plain-English usage guide |
-| Vault Rules - Quick Reference | fast lookup for vault standards |
-| Ziggy Session Log | running log of all sessions |
+| Agent Registry | specialized agents, roles, dispatch rules |
+| SOUL.md | Identity, routing, rules (workspace root) |
+| Human Guide | plain-English usage guide |
+| System Guide | Complete vault rules and standards |
+| Ziggy Session Log | running log of all sessions |
 
 ---
 
@@ -367,4 +367,4 @@ For specialized topics, also paste:
 
 ---
 
-*Once you've completed Steps 1–5, you're operational. Everything else is learning by doing. The system is designed to be self-documenting — explore the hub notes, click the links, and let the queries show you how it all connects.*
+*Once you've completed Steps 1-5, you're operational. Everything else is learning by doing. The system is designed to be self-documenting - explore the hub notes, click the links, and let the queries show you how it all connects.*

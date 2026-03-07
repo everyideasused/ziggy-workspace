@@ -74,7 +74,7 @@ SORT file.cday DESC
 ## 🧠 Memory Architecture
 > *How Ziggy remembers across sessions. Git save states + staged context injection.*
 
-- [[Ziggy Memory Architecture]] — Full memory system documentation (git, session states, OpenClaw symlink)
+- SOUL.md — Identity, model routing, rules (workspace root)
 - [[Ziggy Session State]] — Auto-updated session state (written by `/new` hook)
 - [[Ziggy Session Log]] — Running log of all sessions (auto-appended by `/new` hook)
 ```

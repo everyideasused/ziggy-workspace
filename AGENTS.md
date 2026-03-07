@@ -23,7 +23,7 @@ Don't ask permission. Just do it.
 
 - **System Prompt v2:** `Pinky & The Brain/Notes/ziggy_openclaw_full.md`
 - **Agent Registry (authoritative):** `Pinky & The Brain/Notes/Agent Registry.md`
-- **Vault Rules:** `Pinky & The Brain/Notes/Vault Rules - Quick Reference.md`
+- **Vault Rules:** `Pinky & The Brain/Notes/System Guide.md`
 - **System Guide:** `Pinky & The Brain/Notes/System Guide.md`
 
 Read these on demand. Don't pre-load unless you need them.

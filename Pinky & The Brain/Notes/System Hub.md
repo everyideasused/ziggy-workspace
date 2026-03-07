@@ -24,7 +24,7 @@ tags:
 | Note | Purpose |
 |------|---------|
 | [[System Guide]] | Complete vault rules and structure |
-| [[Vault Rules - Quick Reference]] | Quick reference for vault standards |
+| [[System Guide]] | Complete vault rules and standards |
 | [[Tags Reference]] | Tag taxonomy and usage |
 | [[Vault Enhancements - March 2026]] | Recent improvements |
 
@@ -46,7 +46,7 @@ tags:
 |------|---------|
 | [[Ziggy Hub]] | Main Ziggy hub |
 | [[Ziggy System Context]] | System context and capabilities |
-| [[Ziggy Memory Architecture]] | How memory works |
+| SOUL.md | Identity, routing, rules (workspace root) |
 | [[Ziggy Session Log]] | Session history |
 | [[Ziggy Drafts]] | Work in progress |
 | [[ziggy openclaw full]] | Full system prompt |
