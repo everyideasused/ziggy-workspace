@@ -11,10 +11,6 @@ tags:
 
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
-
----
-
 # 🤖 Ziggy System Context
 ## Everything Ziggy Needs to Operate Inside This Vault
 
@@ -26,7 +22,7 @@ tags:
 
 Nathan is a program manager at a construction consulting firm. He specializes in retail and restaurant construction project management across the full lifecycle — real estate acquisition, permitting, design, construction, closeout, and TIA payments. He manages 4-6 active clients with 10-25 total projects at any time, serving chains like Chick-fil-A, Starbucks, Target, Panera, and REI across multiple states.
 
-Outside of work: Calisthenics + kettlebell training (V-Shape lean bulk program, 150→180 lbs), gardening (raised bed, Zone 7a, root vegetables), self-hosted AI/tech (Mac Mini M4, Ollama, Syncthing, cost-optimized model routing), personal knowledge management (this vault).
+Outside of work: Calisthenics + kettlebell training (Nathan 170@12 — Kettlebell Calisthenics Program, 147.7→170 lbs @ 12% BF), gardening (raised bed, Zone 7a, root vegetables), self-hosted AI/tech (Mac Mini M4, Ollama, Syncthing, cost-optimized model routing), personal knowledge management (this vault).
 
 ---
 
@@ -128,9 +124,9 @@ Vault Root/
 | Note | Purpose |
 |------|---------|
 | `Workout Program` | Active project — program overview, measurements, benchmarks |
-| `V-Shape Program` | Full program reference — exercises, progression, nutrition |
-| `V-Shape Exercise Guide` | Form cues, common mistakes, video links |
-| `V-Shape Daily Logs` | Legacy log template reference |
+| `Nathan 170@12 — Kettlebell Calisthenics Program` | Full program reference — exercises, progression, nutrition |
+| `Nathan 170@12 — Exercise Guide` | Form cues, common mistakes, video links |
+| `Iron_Sessions/` | Workout log folder — training logs by date |
 
 **Habit Notes (3 active):**
 | Note | Frequency | Target |
@@ -210,7 +206,7 @@ For books: inbox (want to read) → active (reading) → complete (finished)
 **Frontmatter fields** = structured data for Dataview filtering (`type: project`, `client_id: CLT-001`, `health: green`)
 **Tags** = broad categorization for cross-cutting search (`#work`, `#ziggy`, `#v-shape`)
 
-Both can coexist. If Dataview needs to filter on it → frontmatter. If it's for human browsing → tags.
+Tags vs. Frontmatter: Both can coexist. If Dataview needs to filter on it → frontmatter. If it's for human browsing → tags.
 
 ---
 
@@ -359,12 +355,12 @@ These surface on the daily note for that date. They roll into "Overdue" if misse
 ## 7. DAILY NOTE SYSTEM
 
 ### Workout Auto-Detection
-The daily note template contains JavaScript that calculates the workout day based on the date and the V-Shape program's alternating 2-week rotation starting March 2, 2026.
+The daily note template contains JavaScript that calculates the workout day based on the date and the Nathan 170@12 program schedule starting March 9, 2026.
 
-**Rotation:**
+**Schedule:**
 ```
-Week 1: Mon=A  Tue=B1  Wed=C  Thu=B2  Fri=A  Sat=B1  Sun=Rest
-Week 2: Mon=C  Tue=B2  Wed=A  Thu=B1  Fri=C  Sat=B2  Sun=Rest
+Weekday:    Mon         Tue              Wed         Thu              Fri         Sat/Sun
+Workout:    Lower       Conditioning     Upper       Conditioning     Full Body   Rest
 ```
 
 The daily note shows one of: "Program starts March 2nd" (pre-start), "Rest Day" (Sundays), or the full workout info with template name and muscle focus.
@@ -379,10 +375,10 @@ Any `[[YYYY-MM-DD]]` wikilink opens or creates that day's daily note. Clicking a
 
 ## 8. FITNESS SYSTEM
 
-### V-Shape Program
-6 days/week, 30-minute sessions, alternating upper/lower split, 4-week mesocycles.
-Goal: 150 lbs → 180 lbs lean bulk over 12-18 months.
-Equipment: bodyweight + single kettlebell (starting 16kg) + pull-up bar.
+### Nathan 170@12 Program
+M/W/F strength (30 min), T/Th conditioning (30 min), Sat/Sun rest. 36 weeks, 3 phases.
+Goal: 147.7 lbs → 170 lbs @ 12% BF.
+Equipment: bodyweight + kettlebells + pull-up bar.
 
 ### Workout Templates
 4 day-specific templates (Day A, B1, B2, C) with all exercises pre-loaded: target sets/reps, form cues, progression ladders. Nathan just fills in numbers.
@@ -445,7 +441,7 @@ Household notes:
 | "Help me think about [project]" | Think strategically; remind operational updates go to Smartsheet |
 | "What's my status on [client]" | Reference project notes; suggest checking Smartsheet for live data |
 | **Fitness** | |
-| "What workout is today" | Check V-Shape rotation based on current date and week parity |
+| "What workout is today" | Check 170@12 rotation based on current date |
 | "Log my workout" | Create Workout note with day-specific frontmatter |
 | "How's my fitness going" | Query recent workouts for RPE trends, weight trend, protein compliance |
 | "Mesocycle assessment" | Create Fitness Assessment note; compare to previous benchmarks |

@@ -11,10 +11,6 @@ tags:
 
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
-
----
-
 # ⚙️ System Guide
 ## How This Vault Works
 
