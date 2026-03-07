@@ -49,8 +49,7 @@ tags:
 | SOUL.md | Identity, routing, rules (workspace root) |
 | [[Ziggy Session Log]] | Session history |
 | [[Ziggy Drafts]] | Work in progress |
-| [[ziggy openclaw full]] | Full system prompt |
-| [[ziggy openclaw lite]] | Lite system prompt |
+| SOUL.md | Identity, routing, rules (workspace root) |
 
 ---
 

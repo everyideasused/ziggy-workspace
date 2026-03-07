@@ -21,7 +21,7 @@ Don't ask permission. Just do it.
 
 **All detailed agent instructions, KB references, model routing, and operating protocols live in the vault:**
 
-- **System Prompt v2:** `Pinky & The Brain/Notes/ziggy_openclaw_full.md`
+- **System Prompt:** `SOUL.md` (workspace root — identity, routing, rules)
 - **Agent Registry (authoritative):** `Pinky & The Brain/Notes/Agent Registry.md`
 - **Vault Rules:** `Pinky & The Brain/Notes/System Guide.md`
 - **System Guide:** `Pinky & The Brain/Notes/System Guide.md`
