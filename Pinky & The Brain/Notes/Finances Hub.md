@@ -167,7 +167,7 @@ SORT file.name ASC
 | — | — | Benchmarks & Milestones | [[Financial Planning Milestones & Benchmarks]] | "Am I on track?" questions |
 
 ### System
-- [[Financial Advisor Prompt]] — Ledger's financial advisory configuration
+- [[Ledger Agent Profile]] — Ledger's financial advisory configuration
 - [[Ledger Session State]] — Ledger agent's working memory
 - [[Agent Registry]] — Full agent architecture (Ledger = financial advisor)
 

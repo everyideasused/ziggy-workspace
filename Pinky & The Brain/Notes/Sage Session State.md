@@ -52,7 +52,7 @@ Sage is fully configured as Nathan's vegan chef and PhD-level nutritionist. The 
 - [x] [[Anti-Inflammatory Vegan Nutrition]] — Phytonutrients, oxidative stress, recovery nutrition
 
 ### Agent Configuration
-- [x] [[Sage Advisor Prompt]] — Communication style, identity, escalation triggers
+- [x] [[Sage Agent Profile]] — Communication style, identity, escalation triggers
 - [x] [[Sage Nutrition & Culinary Knowledge Base]] — Master index and domain model
 
 ---
@@ -245,7 +245,7 @@ Sage is fully configured as Nathan's vegan chef and PhD-level nutritionist. The 
 
 ## Related Resources
 
-- [[Sage Advisor Prompt]] — Configuration + communication style
+- [[Sage Agent Profile]] — Configuration + communication style
 - [[Sage Nutrition & Culinary Knowledge Base]] — Master index
 - [[Nashville Vegan Restaurant Favorites]] — Local dining spots, weekly specials, go-to orders
 - [[Agent Registry]] — Full agent registry with all agents

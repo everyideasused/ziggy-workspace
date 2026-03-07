@@ -641,7 +641,7 @@ Nathan says something
 | `[[Common Defects & Quality Control]]` | Defect identification, severity, inspection checklists |
 | `[[Construction Safety & OSHA Residential]]` | Safety requirements, PPE, fall protection |
 | `[[PM-to-Builder Translation Guide]]` | When question bridges PM and builder perspectives |
-| `[[Builder Advisor Prompt]]` | Agent communication configuration |
+| `[[Hammer Agent Profile]]` | Agent communication configuration |
 
 **System Prompt:** See [[Hammer Agent Profile]]
 

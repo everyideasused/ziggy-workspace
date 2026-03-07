@@ -87,7 +87,7 @@ tags:
 
 | Note | Purpose |
 |------|---------|
-| [[Sage Advisor Prompt]] | Agent configuration — how Sage thinks and responds |
+| [[Sage Agent Profile]] | Agent configuration — how Sage thinks and responds |
 
 ---
 

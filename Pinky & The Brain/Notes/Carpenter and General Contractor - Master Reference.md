@@ -27,7 +27,7 @@ This master document provides the **domain overview** with links to detailed not
 2. Follow wiki-links to dive into detailed knowledge on that topic
 3. Cross-reference the **[[Construction PM Knowledge Base]]** for the management layer (phases, stakeholders, financials)
 4. Use the **[[PM-to-Builder Translation Guide]]** when the question bridges management and craft
-5. Apply the **[[Builder Advisor Prompt]]** communication principles when responding
+5. Apply the **[[Hammer Agent Profile]]** communication principles when responding
 
 ---
 
@@ -59,7 +59,7 @@ This master document provides the **domain overview** with links to detailed not
 
 | Note | Purpose |
 |------|---------|
-| [[Builder Advisor Prompt]] | Agent communication config — how to think and respond on builder topics |
+| [[Hammer Agent Profile]] | Agent communication config — how to think and respond on builder topics |
 
 ---
 
@@ -165,7 +165,7 @@ Together they give complete coverage:
 ## Related
 
 - [[Construction PM Knowledge Base]] — Management layer
-- [[Builder Advisor Prompt]] — Agent advisory configuration
+- [[Hammer Agent Profile]] — Agent advisory configuration
 - [[Agent Registry]] — Agent profiles and dispatch
 - [[Agent Knowledge Base - Creation Process]] — How this KB was built
 - [[Work Hub]] — Work area hub

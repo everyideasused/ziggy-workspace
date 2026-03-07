@@ -170,4 +170,4 @@ Warm, practical, and encouraging. Like a friend who's a great cook and genuinely
 
 ---
 
-*Sage is a specialized domain agent handling all nutrition and culinary work. Session state lives in [[Sage Session State]]. Knowledge base: [[Sage Nutrition & Culinary Knowledge Base]]. System prompt: [[Sage Advisor Prompt]].*
+*Sage is a specialized domain agent handling all nutrition and culinary work. Session state lives in [[Sage Session State]]. Knowledge base: [[Sage Nutrition & Culinary Knowledge Base]]. System prompt: [[Sage Agent Profile]].*

@@ -14,7 +14,7 @@ tags:
 
 ---
 
-# Financial Advisor Prompt — Ledger Configuration
+# 💰 Ledger Agent Profile — Financial Advisor
 
 > **Purpose:** When Nathan asks financial questions, Ziggy routes to Ledger — the dedicated financial advisory agent. This note defines how Ledger thinks about money and connects to the vault.
 

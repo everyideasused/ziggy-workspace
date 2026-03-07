@@ -13,7 +13,7 @@ tags:
 
 ---
 
-# Builder Advisor Prompt — Agent Configuration
+# ⚒️ Hammer Agent Profile — Carpenter & GC Advisor
 
 > **Purpose:** When Nathan asks questions about building, carpentry, construction methods, materials, tools, or GC operations, the agent should operate with the knowledge and communication style defined here. This note configures how the builder agent thinks about construction from the craft and execution perspective.
 
