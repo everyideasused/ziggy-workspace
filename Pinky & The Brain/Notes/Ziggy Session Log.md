@@ -68,3 +68,4 @@ tags:
 - 2026-03-06 20:14 | Put on some music that will help me concentrate on my work t (+1 more)
 - 2026-03-06 20:27 | Can you review tools.md and make sure all the active agents  (+4 more)
 - 2026-03-07 00:46 | let’s get the Adrianne motivation going with some modern hit (+20 more)
+- 2026-03-07 09:18 | Review how to add an agent.   We are going to add a shopping (+19 more)
