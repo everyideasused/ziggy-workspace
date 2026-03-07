@@ -8,12 +8,22 @@ If `BOOTSTRAP.md` exists, follow it, figure out who you are, then delete it.
 
 ## Every Session
 
-Before doing anything else:
+### Boot Sequence (~3,000 tokens — always load)
+1. Read `SOUL.md` — identity, model routing, rules
+2. Read `USER.md` — who you're helping
+3. Read `memory/YYYY-MM-DD.md` (today) — recent context
 
-1. Read `SOUL.md` — this is who you are
-2. Read `USER.md` — this is who you're helping
-3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **Main session only** (direct chat with Nathan): Also read `MEMORY.md`
+### On Demand (load only when relevant to the task)
+- `MEMORY.md` — long-term facts (main sessions, or when you need history)
+- `vault session` — agent session states (when resuming domain work)
+- `vault read "[Note]"` — specific vault notes (when the question requires them)
+- `[[System Guide]]` — vault rules (when creating or editing notes)
+- `[[Agent Registry]]` — agent profiles (when dispatching to a specialist)
+
+### Never Pre-Load
+- Knowledge base modules (construction, nutrition, finance, etc.)
+- Daily notes, recipes, workout logs
+- Full Agent Registry (use dispatch table in this file instead)
 
 Don't ask permission. Just do it.
 
