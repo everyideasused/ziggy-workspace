@@ -321,9 +321,6 @@ You can combine `--device` with content type flags:
 
 ---
 
-Add whatever helps you do your job. This is your cheat sheet.
----
-
 ## Browser Automation
 
 **Command:** `openclaw browser`
@@ -449,3 +446,92 @@ openclaw browser wait --load networkidle
 openclaw browser snapshot --efficient
 ```
 
+---
+
+## Cart — Shopping Assistant
+
+**Command:** Vault-based (TypeScript tooling in `cart.ts`, `cart-memory.ts`)
+**Status:** ✅ Deployed 2026-03-06
+**Model:** Local (qwen3:14b) default, Cloud (Sonnet) for complex analysis
+
+### What It Does
+
+Purchase research, price comparison, deal hunting, subscription audits, and buying recommendations. Think of Cart as your deal-savvy friend who always checks unit pricing, stacks coupons, and knows when to buy winter coats (March, not December).
+
+### Knowledge Base (11 Modules, 161 KB)
+
+| Module | Focus | Key Value |
+|--------|-------|-----------|
+| 01 — Groceries & Food | Store tiers, unit pricing | Save $2,800-3,600/year |
+| 02 — Travel & Experiences | Flight timing, points, hotels | $1,200 saved per trip |
+| 03 — Promo Codes & Coupons | Honey, Rakuten, stacking | Extra 5-20% off |
+| 04 — Subscriptions & Digital | Audits, cancellation scripts | $360/year per $30/mo service |
+| 05 — Vehicles | True cost to own, negotiation | Avoid $5,000+ mistakes |
+| 06 — Home Services | 3-bid rule, vetting | Quality contractors |
+| 07 — Insurance & Financial | Comparison shopping | Better coverage, lower rates |
+| 08 — Education & Development | ROI analysis, free alternatives | Avoid worthless certifications |
+| 09 — Health & Medical | In-network, HSA optimization | Lower healthcare costs |
+| 10 — Real Estate/Wedding/Kids | Major life purchases | Timing + depreciation math |
+| 11 — Seasonal & Luxury | Black Friday reality, outlet myths | Buy winter coats in March |
+
+### Dispatch Triggers
+
+- buy, purchase, deal, coupon, price, compare, subscription
+- discount, save money, where to buy, is this a good price
+
+### Core Principles (From KB)
+
+1. **Unit pricing wins** — Always compare per-unit cost, never sticker price
+2. **Stack everything** — Coupons + cashback + promo codes + points
+3. **Timing matters** — Flights 6-8 weeks, cars end-of-quarter, coats in March
+4. **Audit subscriptions quarterly** — $30/month × 12 = $360/year
+5. **Three bids minimum** — Home services, contractors
+6. **Calculate total cost of ownership** — Not just purchase price
+
+### Integration with Other Agents
+
+| Purchase Type | Coordination |
+|---------------|--------------|
+| Grocery optimization | Sage (meal planning) |
+| Travel booking | Compass (execution) |
+| Home services contractors | Hammer (craft layer) |
+| Construction materials | Tally (estimating) |
+| Budget impact | Ledger (financial) |
+
+### Memory System
+
+- **CART_MEMORY.md:** Purchase calibration, brand performance, deal quality
+- **Cart Session State.md:** Active price watches, pending recommendations
+- **Cart_Sessions/:** Dated shopping session logs
+
+### TypeScript Tooling
+
+```bash
+# KB retrieval by keyword
+npx ts-node cart.ts kb groceries
+npx ts-node cart.ts travel
+
+# Unit price calculation
+npx ts-node cart.ts unit 12.99 24 oz
+
+# Deal comparison
+npx ts-node cart.ts deal 199.99 149.99
+
+# Subscription impact
+npx ts-node cart.ts sub 29.99
+
+# Full context (memory + KB + sessions)
+npx ts-node cart.ts context
+```
+
+### Output Formats
+
+| Purchase Size | Format |
+|---------------|--------|
+| Under $100 | Quick recommendation (3-5 bullets) |
+| $100-500 | Comparison matrix (options + trade-offs) |
+| Over $500 | Research brief (timing + TCO + alternatives) |
+
+---
+
+Add whatever helps you do your job. This is your cheat sheet.

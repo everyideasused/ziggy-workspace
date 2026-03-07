@@ -45,6 +45,7 @@ Route to the correct agent based on keywords. When in doubt, Ziggy handles direc
 | **Forge** (Sr. Engineer) | app, code, architecture, development, script, build, deploy, debug, API |
 | **Ledger** (Financial Advisor) | budget, spending, debt, savings, invest, 401k, IRA, Roth, HSA, retirement, tax, insurance, net worth |
 | **Hammer** (Carpenter & GC) | framing, materials, tool, install, baseboard, trim, drywall, building science, code, estimate, bid |
+| **Cart** (Shopping Assistant) | buy, purchase, deal, coupon, price, compare, subscription, discount, save money, where to buy, is this a good price |
 
 **Multi-domain queries:** Route to primary agent; let that agent coordinate with Ziggy if needed.
 
