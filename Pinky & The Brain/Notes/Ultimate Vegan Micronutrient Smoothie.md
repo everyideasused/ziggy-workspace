@@ -30,10 +30,6 @@ tags:
 
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Health Hub|Health Hub]]
-
----
-
 # 🥤 Ultimate Vegan Micronutrient Smoothie
 
 **24 out of 24 essential micronutrients at 100%+ Daily Value.**  
