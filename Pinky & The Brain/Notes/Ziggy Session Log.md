@@ -69,3 +69,4 @@ tags:
 - 2026-03-06 20:27 | Can you review tools.md and make sure all the active agents  (+4 more)
 - 2026-03-07 00:46 | let’s get the Adrianne motivation going with some modern hit (+20 more)
 - 2026-03-07 09:18 | Review how to add an agent.   We are going to add a shopping (+19 more)
+- 2026-03-07 11:02 | did you get all the way through phase 10 (+1 more)

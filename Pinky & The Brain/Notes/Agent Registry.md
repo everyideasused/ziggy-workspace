@@ -806,12 +806,11 @@ You are [CODENAME], Nathan's [role].
 2. Fill in all 7 sections
 3. Save as `[Codename] Agent Profile.md` in `Notes/`
 4. Add the agent to the **Active Agents** table in this document
-5. Add the agent to the **Agent Model Defaults** table below
-6. Create the agent's Session State note: `[Codename] Session State.md`
-7. Update `~/.openclaw/workspace/AGENTS.md` — add dispatch row and routing logic
-8. Update `[[Tags Reference]]` with the agent's tag
-9. Update `[[System Guide]]` to reference the new agent
-10. Update the relevant Area Hub to reference the agent and session state
+5. Create the agent's Session State note: `[Codename] Session State.md`
+6. Update `~/.openclaw/workspace/AGENTS.md` — add dispatch row and routing logic
+7. Update `[[Tags Reference]]` with the agent's tag
+8. Update `[[System Guide]]` to reference the new agent
+9. Update the relevant Area Hub to reference the agent and session state
 
 ---
 
