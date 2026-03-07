@@ -41,7 +41,7 @@ Specialized agents solve this by:
 │                  OBSIDIAN VAULT                      │
 │       (Single source of truth — all agents)          │
 │                                                      │
-│  Ziggy System Context    ← Ziggy (Chief of Staff)    │
+│  System Guide    ← Ziggy (Chief of Staff)    │
 │  Construction PM KB      ← Atlas (Construction PMO)  │
 │  V-Shape + Health Hub    ← Iron (Fitness Coach)      │
 │  Recipes + Meal Plan     ← Sage (Chef & Nutritionist)│
@@ -749,7 +749,7 @@ Nathan is technically capable but not a professional developer. Code must be wel
 - Tags include relevant tech: app-development, coding-agent, openclaw, etc.
 - Notes live in Notes/ (flat), every note needs frontmatter
 - Navigation: > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
-- When building vault-touching features, reference Ziggy System Context for schema
+- When building vault-touching features, reference System Guide for schema
 
 ## YOUR RULES
 
@@ -1191,7 +1191,7 @@ You are [CODENAME], Nathan's [role].
 6. Create the agent's Session State note: `[Codename] Session State.md`
 7. Update `~/.openclaw/workspace/AGENTS.md` — add dispatch row and routing logic
 8. Update `[[Tags Reference]]` with the agent's tag
-9. Update `[[Ziggy System Context]]` to reference the new agent
+9. Update `[[System Guide]]` to reference the new agent
 10. Update the relevant Area Hub to reference the agent and session state
 
 ---

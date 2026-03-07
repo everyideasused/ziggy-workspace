@@ -239,7 +239,7 @@ If you want the vault on your MacBook, iPhone, and Mac Mini:
 
 When starting a conversation with any AI assistant (Claude, local Ollama model, etc.):
 
-1. Open `Notes/Ziggy System Context.md`
+1. Open `Notes/System Guide.md`
 2. Copy the entire contents
 3. Paste it into the beginning of your AI conversation
 4. Ziggy now understands your full vault structure, frontmatter schema, naming conventions, and how to create properly formatted notes
@@ -316,7 +316,7 @@ For specialized topics, also paste:
 | Grocery List | Running grocery list by store section |
 | Ziggy Hub | AI saves, drafts, system context |
 | Ziggy Drafts | Active AI-assisted work in progress |
-| Ziggy System Context | Complete vault reference for AI assistants |
+| System Guide | Complete vault reference for AI assistants |
 | Ziggy Email Bridge | Email integration project (starts April) |
 | Ziggy Email Bridge Architecture | Technical architecture doc |
 | Workout Program | Fitness project - the active program |
@@ -363,7 +363,7 @@ For specialized topics, also paste:
 | Find anything | Cmd+O (quick switcher) or Cmd+Shift+F (search) |
 | Go home | Click 🏠 in any note's nav bar |
 | Go to today | Click 📅 Today in any note's nav bar |
-| Give Ziggy context | Copy Ziggy System Context.md into the conversation |
+| Give Ziggy context | Copy System Guide.md into the conversation |
 
 ---
 

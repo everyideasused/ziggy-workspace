@@ -34,7 +34,7 @@ tags:
 
 - ✅ Forge runs on Cloud (Sonnet) for high-complexity work; Local (Qwen) for definitions/explanations
 - ✅ 38KB comprehensive KB covering system design, languages, debugging, code quality, leadership, business mindset, and reference patterns
-- ✅ Vault reference notes: `[[Ziggy Email Bridge Architecture]]`, `[[App Specification Template]]`, `[[Ziggy System Context]]`
+- ✅ Vault reference notes: `[[Ziggy Email Bridge Architecture]]`, `[[App Specification Template]]`, `[[System Guide]]`
 - ✅ Scope established: app dev, backend, infra, automation, self-hosted services; does NOT handle non-technical domains
 
 ---
@@ -43,7 +43,7 @@ tags:
 
 1. **First app project assignment** — When Nathan specifies an app using the questionnaire, Forge begins implementation
 2. **Email Bridge V1** — Scheduled to start April 2026; Forge will lead development
-3. **Vault-touching features** — Will reference `[[Ziggy System Context]]` for schema compliance
+3. **Vault-touching features** — Will reference `[[System Guide]]` for schema compliance
 
 ---
 

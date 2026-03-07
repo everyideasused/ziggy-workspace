@@ -45,7 +45,7 @@ tags:
 | Note | Purpose |
 |------|---------|
 | [[Ziggy Hub]] | Main Ziggy hub |
-| [[Ziggy System Context]] | System context and capabilities |
+| [[System Guide]] | System context and capabilities |
 | SOUL.md | Identity, routing, rules (workspace root) |
 | [[Ziggy Session Log]] | Session history |
 | [[Ziggy Drafts]] | Work in progress |

@@ -239,7 +239,7 @@ tags:
    - `[[Tags Reference]]`
    - `[[System Guide]]` type taxonomy
    - `[[System Guide]]` type table
-   - `[[Ziggy System Context]]` type taxonomy
+   - `[[System Guide]]` type taxonomy
    - `vault-health-check` valid types list
 
 ### Phase 5: Verification (10 min)
@@ -346,7 +346,7 @@ Copy this checklist when starting a new KB build:
 - [[Agent Registry]] — Full agent profiles and dispatch logic
 - [[Construction PM Knowledge Base]] — Example KB (Level 3)
 - [[Personal Finance Knowledge Base]] — Example KB (Level 2)
-- [[Ziggy System Context]] — Vault architecture reference
+- [[System Guide]] — Vault architecture reference
 - [[System Guide]] — Vault conventions and type taxonomy
 
 ---

@@ -301,7 +301,7 @@ Ziggy is your AI assistant. Ziggy knows how your vault works and can help you cr
 
 ### How To Give Ziggy Context
 
-1. Open the note called [[Ziggy System Context]]
+1. Open the note called [[System Guide]]
 2. Copy the entire contents
 3. Paste it at the start of your AI conversation
 4. Now Ziggy knows your vault structure, rules, and conventions
@@ -394,4 +394,4 @@ Your vault needs exactly 3 community plugins to work.
 
 ---
 
-*For detailed technical setup instructions, see [[Getting Started]]. For vault rules and conventions, see [[System Guide]]. For AI instructions, see [[Ziggy System Context]].*
+*For detailed technical setup instructions, see [[Getting Started]]. For vault rules and conventions, see [[System Guide]]. For AI instructions, see [[System Guide]].*

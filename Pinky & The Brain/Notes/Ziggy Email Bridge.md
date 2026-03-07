@@ -243,7 +243,7 @@ next_action: "Verify Proton Mail plan supports Bridge"
 
 ## 🔗 Related
 - **Architecture:** [[Ziggy Email Bridge Architecture]]
-- **Ziggy System:** [[Ziggy System Context]]
+- **Ziggy System:** [[System Guide]]
 - **Work PMO:** [[Work Hub]]
 - **Mac Mini Setup:** *(create a note for this when ready)*
 - **Area:** [[Interests Hub]] (self-hosted tech)
