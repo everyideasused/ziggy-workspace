@@ -30,11 +30,8 @@ tags:
 | **Bill** | New recurring payment or bill | `bill` |
 | **Monthly Finance Review** | First of each month — full financial check-in | `monthly-finance` |
 | **Goal** | Setting a new measurable goal | `goal` |
-| **Workout Day A** | Upper Push day (pecs, shoulders, triceps) | `workout` |
-| **Workout Day B1** | Lower day — glute/quad focus | `workout` |
-| **Workout Day B2** | Lower day — posterior chain/glute focus | `workout` |
-| **Workout Day C** | Upper Pull + Arms day (back, biceps) | `workout` |
-| **Fitness Assessment** | Every 4 weeks — mesocycle review | `assessment` |
+| **Meal Plan** | Sunday meal planning — select week's recipes | `meal-plan` |
+| **Fitness Assessment** | Every 4 weeks — program review | `assessment` |
 | **Habit** | New recurring habit to track daily/weekly | `habit` |
 | **Book** | Start reading or add to reading list | `book` |
 | **Recipe** | Save a recipe with ingredients and macros | `recipe` |
@@ -47,3 +44,20 @@ tags:
 3. Type "Templater: Insert template"
 4. Select the template you want
 5. Fill in the prompts that appear
+
+---
+
+## Quick Create Setup (for Buttons on Daily Note)
+
+The daily note has Quick Create buttons at the bottom. One-time setup:
+
+1. Install **Buttons** plugin (Community Plugins → search "Buttons")
+2. Install **QuickAdd** plugin if not already installed
+3. In QuickAdd settings, create two **Template** choices:
+   - **Quick Capture** → template: `Templates/Quick Capture.md`, folder: `Notes`
+   - **New Meeting** → template: `Templates/Meeting.md`, folder: `Notes`
+4. Buttons auto-wire to these QuickAdd choices via command names
+
+---
+
+Created by: Ziggy · AI: anthropic/claude-sonnet-4-5-20250929

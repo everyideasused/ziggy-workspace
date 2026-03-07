@@ -11,17 +11,13 @@ tags:
 
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily)
-
----
-
 # 📊 Dashboard
+> *Trends and big-picture metrics. For today's tasks and habits, use your [[<% tp.date.now("YYYY-MM-DD") %>|daily note]].*
 
 ---
 
-## 🏋️ Fitness This Week
+## 🏋️ Training Trend (Last 2 Weeks)
 
-### Recent Workouts
 ```dataview
 TABLE WITHOUT ID
 	file.link AS "Session",
@@ -31,7 +27,7 @@ TABLE WITHOUT ID
 FROM "Notes"
 WHERE type = "workout"
 SORT date DESC
-LIMIT 7
+LIMIT 10
 ```
 
 ### Body Composition Trend
@@ -41,20 +37,20 @@ TABLE WITHOUT ID
 	mesocycle AS "Meso",
 	date AS "Date"
 FROM "Notes"
-WHERE type = "assessment" AND contains(tags, "v-shape")
+WHERE type = "assessment"
 SORT date DESC
 LIMIT 4
 ```
 
 ---
 
-## 🔁 Habit Streaks
+## 🔁 Habit Streaks — Leaderboard
 
 ```dataview
 TABLE WITHOUT ID
 	file.link AS "Habit",
-	streak AS "🔥 Streak",
-	best_streak AS "Best",
+	streak AS "🔥 Current",
+	best_streak AS "🏆 Best",
 	frequency AS "Freq"
 FROM "Notes"
 WHERE type = "habit" AND status = "active"
@@ -63,42 +59,24 @@ SORT streak DESC
 
 ---
 
-## ✅ Tasks
+## 🎯 All Active Goals
 
-### Due Today
-```dataviewjs
-const today = dv.date("today");
-dv.taskList(
-	dv.pages('"Notes" or "Journal"').file.tasks
-		.where(t => !t.completed && t.due && t.due.equals(today))
-		.sort(t => t.due, 'asc')
-);
-```
-
-### Overdue
-```dataviewjs
-const today = dv.date("today");
-dv.taskList(
-	dv.pages('"Notes" or "Journal"').file.tasks
-		.where(t => !t.completed && t.due && t.due < today)
-		.sort(t => t.due, 'asc')
-);
-```
-
-### Upcoming (Next 7 Days)
-```dataviewjs
-const today = dv.date("today");
-const nextWeek = dv.date("today").plus({days: 7});
-dv.taskList(
-	dv.pages('"Notes" or "Journal"').file.tasks
-		.where(t => !t.completed && t.due && t.due > today && t.due <= nextWeek)
-		.sort(t => t.due, 'asc')
-);
+```dataview
+TABLE WITHOUT ID
+	file.link AS "Goal",
+	area AS "Area",
+	metric AS "Metric",
+	current_value AS "Now",
+	target_value AS "Target",
+	health AS "Health"
+FROM "Notes"
+WHERE type = "goal" AND status = "active"
+SORT area ASC, health ASC
 ```
 
 ---
 
-## 🚧 Project Health
+## 🚧 Project Health — Full Portfolio
 
 ```dataview
 TABLE WITHOUT ID
@@ -125,7 +103,7 @@ TABLE WITHOUT ID
 FROM "Notes"
 WHERE type = "monthly-finance"
 SORT file.name DESC
-LIMIT 3
+LIMIT 6
 ```
 
 ### Bills Due Soon
@@ -162,6 +140,30 @@ TABLE WITHOUT ID
 	progress AS "Progress"
 FROM "Notes"
 WHERE type = "book" AND status = "active"
+```
+
+---
+
+## ⏱️ Hours This Week
+
+```dataviewjs
+const today = dv.date("today");
+const weekStart = today.minus({days: today.weekday - 1});
+const weekEnd = weekStart.plus({days: 6});
+
+const dailyNotes = dv.pages('"Journal"')
+    .where(p => p.date && p.date >= weekStart && p.date <= weekEnd && p.hours);
+
+if (dailyNotes.length > 0) {
+    const totalHours = dailyNotes.values.reduce((sum, p) => sum + (p.hours || 0), 0);
+    dv.table(
+        ["Date", "Hours", "Client"],
+        dailyNotes.sort(p => p.date).map(p => [p.file.link, p.hours, p.work_client || "—"])
+    );
+    dv.paragraph(`**Total: ${totalHours} hrs**`);
+} else {
+    dv.paragraph("_No hours logged yet this week._");
+}
 ```
 
 ---

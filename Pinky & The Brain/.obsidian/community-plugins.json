@@ -5,5 +5,7 @@
   "periodic-notes",
   "quickadd",
   "homepage",
-  "obsidian-git"
+  "obsidian-git",
+  "obsidian-tasks-plugin",
+  "buttons"
 ]

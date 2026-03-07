@@ -403,18 +403,18 @@ Nathan says something
 | Field | Value |
 |-------|-------|
 | **Codename** | iron |
-| **Role** | Fitness coach — V-Shape program execution, workout logging, progressive overload, compliance tracking, mesocycle analysis |
+| **Role** | Fitness coach — Nathan 170@12 program execution, workout logging, progressive overload, compliance tracking, assessment cycles |
 | **Reports To** | Ziggy |
 | **Created** | 2026-03-03 |
 
 **Scope — OWNS:**
-- Workout scheduling (V-Shape rotation: Day A / B1 / C / B2 across 2-week cycle)
+- Workout scheduling (M/W/F strength, T/Th conditioning, Sat/Sun rest)
 - Exercise form guidance and cueing
 - Workout logging (creating Workout notes with correct frontmatter)
 - RPE trend analysis and progressive overload decisions
 - Protein/water/sleep habit compliance tracking
-- Weight trend monitoring (lean bulk targets)
-- Mesocycle assessments (every 4 weeks)
+- Weight trend monitoring (lean bulk targets: 147.7 lbs @ 18.7% BF → 170 lbs @ 12% BF)
+- 4-week assessments (body composition, strength benchmarks)
 - Deload recommendations
 - Exercise substitutions and program modifications
 - Recovery and mobility guidance
@@ -434,15 +434,17 @@ Nathan says something
 
 | Note | Inject When |
 |------|-------------|
-| `[[Workout Program]]` | Any fitness question — current state, measurements, benchmarks |
-| `[[V-Shape Program]]` | Program structure, exercise lists, progression rules, nutrition targets |
-| `[[V-Shape Exercise Guide]]` | Form questions, exercise substitutions, video links |
+| `[[Nathan 170@12 — Kettlebell Calisthenics Program]]` | Any fitness question — program structure, phases, progression |
+| `[[Nathan 170@12 — Monday Lower]]` | Monday workout questions |
+| `[[Nathan 170@12 — Tuesday Conditioning]]` | Tuesday workout questions |
+| `[[Nathan 170@12 — Wednesday Upper]]` | Wednesday workout questions |
+| `[[Nathan 170@12 — Thursday Conditioning]]` | Thursday workout questions |
+| `[[Nathan 170@12 — Friday Full Body]]` | Friday workout questions |
 | `[[Water Intake]]` | Water compliance questions |
 | `[[Protein Target]]` | Protein compliance questions |
 | `[[Sleep Quality]]` | Sleep compliance questions |
 | `[[Health Hub]]` | General health context |
-| `[[Fitness Assessment]]` template | When creating mesocycle assessments |
-| Workout Day templates (A, B1, B2, C) | When logging specific workout days |
+| Workout log files in `Iron_Sessions/` | When analyzing trends or past performance |
 
 **System Prompt:** See [[Iron — Fitness Knowledge Base]]
 
@@ -451,7 +453,7 @@ Nathan says something
 | Trigger | Model |
 |---------|-------|
 | "what workout is today", "did I hit protein", "how much water", "log my workout" (simple entry) | Local |
-| "log my workout" (full session with RPE/notes), "mesocycle assessment", "how's my fitness going", "should I deload", "modify the program", "analyze my trends" | Cloud (Sonnet) |
+| "log my workout" (full session with RPE/notes), "4-week assessment", "how's my fitness going", "should I deload", "modify the program", "analyze my trends" | Cloud (Sonnet) |
 
 **Session State Note:** `[[Iron Session State]]`
 
@@ -460,9 +462,6 @@ Nathan says something
 | Date | Lesson Learned | Source |
 |------|---------------|--------|
 | — | — | — |
-
----
-
 ### ⚒️ Forge — Sr. Coding Engineer / Developer
 
 | Field | Value |

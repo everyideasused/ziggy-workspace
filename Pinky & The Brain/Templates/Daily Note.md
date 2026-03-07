@@ -1,6 +1,6 @@
 ---
 type: daily
-area: health
+area: system
 date: <% tp.date.now("YYYY-MM-DD") %>
 status: active
 tags:
@@ -13,56 +13,94 @@ tags:
 
 # <% tp.date.now("dddd, MMMM D, YYYY") %>
 
+<%*
+// ── Catch-Up Nudge ──
+const yesterdayStr = tp.date.now("YYYY-MM-DD", -1);
+const yesterdayFile = tp.file.find_tfile(yesterdayStr);
+if (yesterdayFile) {
+    const content = await app.vault.read(yesterdayFile);
+    const uncheckedHabits = (content.match(/- \[ \] [💧🌯😴🚶📖📊📧🔄📅⏱️]/g) || []).length;
+    if (uncheckedHabits > 3) {
+        tR += `\n> [!warning] Yesterday has ${uncheckedHabits} unchecked habits → [[${yesterdayStr}|Review yesterday]]\n`;
+    }
+}
+%>
+
+---
+
+# 🌿 Life
+
+---
+
+## 🔁 Daily Habits
+
+**Morning**
+- [ ] 🚶 Morning Walk — [[Morning Walk|tracker]]
+- [ ] 💧 Water started (75+ oz goal) — [[Water Intake|tracker]]
+
+**Evening**
+- [ ] 📖 Read 30 min — [[Read 30 Minutes|tracker]]
+- [ ] 🌯 Protein (150g+) — [[Protein Target|tracker]]
+- [ ] 😴 Sleep (7+ hrs last night) — [[Sleep Quality|tracker]]
+
+```dataview
+TABLE WITHOUT ID
+	file.link AS "Habit",
+	streak AS "🔥",
+	frequency AS "Freq"
+FROM "Notes"
+WHERE type = "habit" AND status = "active" AND area != "work"
+SORT file.name ASC
+```
+
 ---
 
 <%*
-// ── Workout Schedule Calculator ──
-// Program starts Mon Mar 2, 2026. Alternating 2-week rotation.
-// Week 1: Mon=A Tue=B1 Wed=C Thu=B2 Fri=A Sat=B1 Sun=Rest
-// Week 2: Mon=C Tue=B2 Wed=A Thu=B1 Fri=C Sat=B2 Sun=Rest
-
-const programStart = new Date(2026, 2, 2); // Mar 2, 2026
-const today = new Date(tp.date.now("YYYY"), tp.date.now("MM") - 1, tp.date.now("DD"));
-const dayOfWeek = today.getDay(); // 0=Sun, 1=Mon...6=Sat
+// ── Nathan 170@12 Workout Calculator ──
+const programStart = new Date(2026, 2, 10);
+const todayDate = new Date(tp.date.now("YYYY"), tp.date.now("MM") - 1, tp.date.now("DD"));
+const dayOfWeek = todayDate.getDay();
 
 let workoutText = "";
 
-if (today < programStart) {
-    workoutText = "## 🏋️ Workout\n> **Program starts March 2nd.** Rest and prep today.";
-} else if (dayOfWeek === 0) {
-    workoutText = "## 🏋️ Workout\n> **🟢 Rest Day** — Walk, stretch, mobility. No training today.";
+if (todayDate < programStart) {
+    workoutText = "## 🏋️ Workout\n> **Program starts March 10th.** Rest and prep this weekend.\n> See: [[Nathan 170@12 — Kettlebell Calisthenics Program|Program Overview]] · [[Nathan 170@12 — Exercise Library|Exercise Library]]";
+} else if (dayOfWeek === 0 || dayOfWeek === 6) {
+    workoutText = "## 🏋️ Workout\n> **🟢 Rest Day** — Walk, stretch, mobility. No training today.\n> [[Nathan 170@12 — Kettlebell Calisthenics Program|Program Overview]]";
 } else {
-    const diffDays = Math.floor((today - programStart) / (1000 * 60 * 60 * 24));
-    const weekInCycle = Math.floor(diffDays / 7) % 2; // 0 = Week 1, 1 = Week 2
+    const diffDays = Math.floor((todayDate - programStart) / (1000 * 60 * 60 * 24));
+    const weekNum = Math.floor(diffDays / 7) + 1;
+    const phase = weekNum <= 12 ? 1 : weekNum <= 24 ? 2 : 3;
+    const phaseWeek = weekNum <= 12 ? weekNum : weekNum <= 24 ? weekNum - 12 : weekNum - 24;
 
     const schedule = {
-        0: { // Week 1 (even weeks)
-            1: { day: "A", name: "Upper Push", template: "Workout Day A", focus: "Pecs · Shoulders · Triceps" },
-            2: { day: "B1", name: "Lower (Glute/Quad)", template: "Workout Day B1", focus: "Glutes · Quads" },
-            3: { day: "C", name: "Upper Pull + Arms", template: "Workout Day C", focus: "Back Width · Biceps" },
-            4: { day: "B2", name: "Lower (Posterior Chain)", template: "Workout Day B2", focus: "Glutes · Hamstrings" },
-            5: { day: "A", name: "Upper Push", template: "Workout Day A", focus: "Pecs · Shoulders · Triceps" },
-            6: { day: "B1", name: "Lower (Glute/Quad)", template: "Workout Day B1", focus: "Glutes · Quads" },
-        },
-        1: { // Week 2 (odd weeks)
-            1: { day: "C", name: "Upper Pull + Arms", template: "Workout Day C", focus: "Back Width · Biceps" },
-            2: { day: "B2", name: "Lower (Posterior Chain)", template: "Workout Day B2", focus: "Glutes · Hamstrings" },
-            3: { day: "A", name: "Upper Push", template: "Workout Day A", focus: "Pecs · Shoulders · Triceps" },
-            4: { day: "B1", name: "Lower (Glute/Quad)", template: "Workout Day B1", focus: "Glutes · Quads" },
-            5: { day: "C", name: "Upper Pull + Arms", template: "Workout Day C", focus: "Back Width · Biceps" },
-            6: { day: "B2", name: "Lower (Posterior Chain)", template: "Workout Day B2", focus: "Glutes · Hamstrings" },
-        }
+        1: { name: "Lower Strength", template: "Nathan 170@12 — Monday Lower", focus: "Glutes · Quads · Hamstrings · Hip Hinge", emoji: "🦵" },
+        2: { name: "Conditioning + Pull", template: "Nathan 170@12 — Tuesday Conditioning", focus: "Walk/Run · Pull-up Work", emoji: "🫀" },
+        3: { name: "Upper Strength", template: "Nathan 170@12 — Wednesday Upper", focus: "Chest · Shoulders · Arms · Back", emoji: "💪" },
+        4: { name: "Conditioning + Mobility", template: "Nathan 170@12 — Thursday Conditioning", focus: "Walk/Run · Skill Work", emoji: "🫀" },
+        5: { name: "Full Body", template: "Nathan 170@12 — Friday Full Body", focus: "Total Body · Kettlebell Complexes", emoji: "🔥" },
     };
 
-    const w = schedule[weekInCycle][dayOfWeek];
-    workoutText = `## 🏋️ Workout — Day ${w.day}: ${w.name}\n> *${w.focus}*\n> Create session note from template: **${w.template}**\n\n- **Session note:** [[${tp.date.now("YYYY-MM-DD")} Workout]]\n- **Bodyweight:** lbs\n- **Protein hit?** ✅ / ❌`;
+    const w = schedule[dayOfWeek];
+    workoutText = `## 🏋️ Workout — ${w.emoji} ${w.name}
+> *Phase ${phase} · Week ${phaseWeek} · ${w.focus}*
+> Template: [[${w.template}|View Workout →]]
+
+- **Session note:** [[${tp.date.now("YYYY-MM-DD")} Workout]]
+- **Bodyweight:** lbs
+- **Protein hit?** ✅ / ❌`;
 }
 
 tR += workoutText;
 
-// ── Sunday Smoothie Prep Reminder ──
 if (dayOfWeek === 0) {
-    tR += `\n\n---\n\n## 🥤 Sunday Smoothie Prep\n> **Weekly meal prep for [[Ultimate Vegan Micronutrient Smoothie]]** — Batch prep for 5-7 smoothies (~30 min)\n\n**Tasks:**\n- [ ] Make dry mix jar (hemp, sunflower, flax, nooch, spirulina, lecithin, dulse)\n- [ ] Prep 7 frozen fruit bags (banana + kiwi + blueberries per bag)\n- [ ] Cut tofu blocks (600g → 4 portions, store in water)\n- [ ] Restock pantry items (pumpkin, kale, tahini, brazil nuts, soy milk)\n\n**See full prep guide:** [[Ultimate Vegan Micronutrient Smoothie#🗓️ Batch Prep System (Sunday Meal Prep)|Batch Prep System]]`;
+    tR += `\n\n---\n\n## 🥤 Sunday Smoothie Prep
+> Batch prep for [[Ultimate Vegan Micronutrient Smoothie|smoothies]] (~30 min)
+
+- [ ] Make dry mix jar (hemp, sunflower, flax, nooch, spirulina, lecithin, dulse)
+- [ ] Prep 7 frozen fruit bags (banana + kiwi + blueberries per bag)
+- [ ] Cut tofu blocks (600g → 4 portions, store in water)
+- [ ] Restock pantry items (pumpkin, kale, tahini, brazil nuts, soy milk)`;
 }
 %>
 
@@ -71,14 +109,12 @@ if (dayOfWeek === 0) {
 ## 🍽️ Dinner Tonight
 
 ```dataviewjs
-// Auto-pull today's meal from active meal plan
 const today = dv.current().date;
 const mealPlan = dv.page("Meal Plan - Current Week");
 
 if (!mealPlan) {
     dv.paragraph("**No active meal plan found.**");
 } else {
-    // Find today's meal from the meal plan's date-tagged list
     const meals = mealPlan.file.lists.filter(l => {
         if (!l.date) return false;
         const mealDate = l.date instanceof Date ? luxon.DateTime.fromJSDate(l.date) : l.date;
@@ -86,22 +122,14 @@ if (!mealPlan) {
     });
     
     if (meals.length > 0) {
-        const meal = meals[0];
-        const text = meal.text;
-        
-        // Parse the meal entry (format: **[[Recipe]]** | Cuisine | Time | Protein | Notes)
+        const text = meals[0].text;
         const parts = text.split('|').map(p => p.trim());
         
         if (text.includes('_Skipped') || text.includes('skipped')) {
             dv.paragraph("**Planned:** _No meal scheduled for today_");
         } else if (parts.length >= 4) {
             const recipeName = text.match(/\[\[(.*?)\]\]/)?.[1] || "Unknown";
-            const cuisine = parts[1] || "";
-            const time = parts[2] || "";
-            const protein = parts[3] || "";
-            const notes = parts[4] || "";
-            
-            dv.paragraph(`**Planned:**\n- Recipe: [[${recipeName}]]\n- Cuisine: ${cuisine} | Prep time: ${time} | Protein: ${protein}\n- Notes: ${notes}`);
+            dv.paragraph(`**Planned:**\n- Recipe: [[${recipeName}]]\n- ${parts[1]} | ${parts[2]} | ${parts[3]}\n- ${parts[4] || ""}`);
         } else {
             dv.paragraph(`**Planned:** ${text}`);
         }
@@ -112,103 +140,283 @@ if (!mealPlan) {
 ```
 
 **Made:** ✅ / ❌  
-**Rating (1-5):** ⭐⭐⭐⭐⭐
-
+**Rating (1-5):** ⭐⭐⭐⭐⭐  
 **Cooking notes:**
 - 
 
 ---
 
-## ✅ Tasks
+## ✅ Life Tasks
 
 ### Today
 - [ ] 
 
-### Scheduled (Due Today)
-```dataview
-TASK
-WHERE !completed 
-  AND due 
-  AND due = this.file.day
-SORT priority DESC
+### Due Today (Personal)
+```tasks
+not done
+due on <% tp.date.now("YYYY-MM-DD") %>
+path does not include Templates
+path does not include Work Hub
+path does not include Work Client
+path does not include Work Site
+short mode
 ```
 
-### Overdue
-```dataview
-TASK
-WHERE !completed 
-  AND due 
-  AND due < this.file.day
-SORT due ASC
+### Overdue (Personal)
+```tasks
+not done
+due before <% tp.date.now("YYYY-MM-DD") %>
+path does not include Templates
+path does not include Work Hub
+path does not include Work Client
+path does not include Work Site
+short mode
 ```
 
-### Upcoming (Next 7 Days)
-```dataview
-TASK
-WHERE !completed 
-  AND due 
-  AND due > this.file.day 
-  AND due <= this.file.day + dur(7 days)
-SORT due ASC
-```
-
-<%*
-// Show weekly preview on Mondays
-const dayCheck = new Date(tp.date.now("YYYY"), tp.date.now("MM") - 1, tp.date.now("DD")).getDay();
-if (dayCheck === 1) {
-    tR += `### 📋 This Week at a Glance
-\`\`\`dataview
-TASK
-FROM "Notes" OR "Journal"
-WHERE !completed AND due AND due >= date("${tp.date.now('YYYY-MM-DD')}") AND due <= date("${tp.date.now('YYYY-MM-DD', 7)}")
-SORT due ASC
-\`\`\`
-`;
-}
-%>
+> [!abstract]- 📅 Personal Tasks — This Week
+> ```tasks
+> not done
+> due after <% tp.date.now("YYYY-MM-DD") %>
+> due before <% tp.date.now("YYYY-MM-DD", 8) %>
+> path does not include Templates
+> path does not include Work Hub
+> path does not include Work Client
+> path does not include Work Site
+> short mode
+> ```
 
 ---
 
-## 🔁 Habits
+> [!note]- 🎯 Active Goals
+> ```dataview
+> TABLE WITHOUT ID
+> 	file.link AS "Goal",
+> 	metric AS "Metric",
+> 	current_value AS "Now",
+> 	target_value AS "Target",
+> 	health AS "Health"
+> FROM "Notes"
+> WHERE type = "goal" AND status = "active" AND area != "work"
+> SORT health ASC
+> ```
+
+---
+
+## 📝 Life Notes
+> *Anything personal — capture it, tag it, process later.*
+
+
+
+---
+---
+
+# 💼 Work
+
+---
+
+## 🔁 Work Habits
+
+**Morning**
+- [ ] 📅 Review calendar for the day
+- [ ] 📊 Check Smartsheet dashboard
+- [ ] 📧 Process email / clear inbox
+
+**End of Day**
+- [ ] 🔄 Update project statuses
+- [ ] ⏱️ Log hours / time tracking
 
 ```dataview
 TABLE WITHOUT ID
 	file.link AS "Habit",
-	streak AS "Current Streak",
+	streak AS "🔥",
 	frequency AS "Freq"
 FROM "Notes"
-WHERE type = "habit" AND status = "active"
+WHERE type = "habit" AND status = "active" AND area = "work"
 SORT file.name ASC
 ```
 
-**Today's check-in:**
-- [ ] 💧 Water (75+ oz)
-- [ ] 🌯 Protein (150g+)
-- [ ] 😴 Sleep (7+ hrs last night)
+---
+
+## 📅 Today's Meetings
+
+```dataview
+TABLE WITHOUT ID
+	file.link AS "Meeting",
+	client AS "Client",
+	meeting_type AS "Type"
+FROM "Notes"
+WHERE type = "meeting" AND date = this.file.day
+SORT file.name ASC
+```
+
+---
+
+## ✅ Work Tasks
+
+### Today
+- [ ] 
+
+### Due Today (Work)
+```tasks
+not done
+due on <% tp.date.now("YYYY-MM-DD") %>
+path does not include Templates
+(path includes Work) OR (description includes #work)
+short mode
+```
+
+### Overdue (Work)
+```tasks
+not done
+due before <% tp.date.now("YYYY-MM-DD") %>
+path does not include Templates
+(path includes Work) OR (description includes #work)
+short mode
+```
+
+---
+
+## 🚦 Project Pulse
+
+```dataview
+TABLE WITHOUT ID
+	file.link AS "Project",
+	client AS "Client",
+	health AS "Health",
+	next_action AS "Next"
+FROM "Notes"
+WHERE (type = "project" OR type = "work-project") 
+  AND area = "work" 
+  AND (health = "yellow" OR health = "red") 
+  AND status = "active"
+SORT health ASC
+```
 
 ---
 
 ## 💼 Work Log
-> *Quick summary of client/project work today. Link to project notes.*
 
-| Client | Project | What I Did | Hours |
-|--------|---------|-----------|-------|
+| Time | Client | Project | What I Did |
+|------|--------|---------|-----------|
 | | | | |
 
----
-
-## 📝 Notes
-> *Anything else on your mind. Capture it, tag it, process it later.*
-
-
+**Total hours today:** [hours:: ]  
+**Primary client:** [work_client:: ]
 
 ---
 
-## 🌙 End of Day
-- **Energy today (1-5):** 
+> [!abstract]- 📅 Work Tasks & Milestones — This Week
+> **Tasks due this week:**
+> ```tasks
+> not done
+> due after <% tp.date.now("YYYY-MM-DD") %>
+> due before <% tp.date.now("YYYY-MM-DD", 8) %>
+> path does not include Templates
+> (path includes Work) OR (description includes #work)
+> short mode
+> ```
+> 
+> **Project milestones this week:**
+> ```dataview
+> TABLE WITHOUT ID
+> 	file.link AS "Project",
+> 	client AS "Client",
+> 	phase AS "Phase",
+> 	next_action AS "Next Action"
+> FROM "Notes"
+> WHERE (type = "project" OR type = "work-project") 
+>   AND area = "work" 
+>   AND status = "active"
+>   AND target_date 
+>   AND target_date >= this.file.day 
+>   AND target_date <= this.file.day + dur(7 days)
+> SORT target_date ASC
+> ```
+
+> [!note]- 🎯 Work Goals
+> ```dataview
+> TABLE WITHOUT ID
+> 	file.link AS "Goal",
+> 	metric AS "Metric",
+> 	current_value AS "Now",
+> 	target_value AS "Target",
+> 	health AS "Health"
+> FROM "Notes"
+> WHERE type = "goal" AND status = "active" AND area = "work"
+> SORT health ASC
+> ```
+
+---
+
+## 📝 Work Notes
+> *Meeting follow-ups, action items, decisions — capture now, file later.*
+
+
+
+---
+---
+
+# 🌙 End of Day
+
+<%*
+const yday = tp.date.now("YYYY-MM-DD", -1);
+tR += `> [!success]- ✅ Yesterday's Wins ([[${yday}]])
+> \`\`\`tasks
+> done on ${yday}
+> short mode
+> \`\`\`
+`;
+%>
+
+- **Energy (1-5):** 
 - **One win:** 
-- **One thing to improve:**
+- **One thing to improve:** 
 
 ---
 
-<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %> 
+## ⚡ Quick Create
+
+```button
+name 📝 Quick Capture
+type command
+action QuickAdd: Quick Capture
+color default
+```
+
+```button
+name 🤝 New Meeting
+type command
+action QuickAdd: New Meeting
+color default
+```
+
+---
+
+<%*
+// ── Recurring Review Triggers ──
+// Monday: create weekly review task for Sunday
+if (dayOfWeek === 1) {
+    const nextSunday = tp.date.now("YYYY-MM-DD", 6);
+    tR += `- [ ] 📋 Weekly Review [due:: ${nextSunday}] #review\n`;
+}
+
+// First of month: create monthly finance review task
+const dayOfMonth = parseInt(tp.date.now("DD"));
+if (dayOfMonth === 1) {
+    const reviewBy = tp.date.now("YYYY-MM-DD", 7);
+    tR += `- [ ] 💰 Monthly Finance Review [due:: ${reviewBy}] #finance-review\n`;
+}
+
+// Every 4th Monday of program: fitness assessment
+const progStart = new Date(2026, 2, 10);
+if (todayDate >= progStart && dayOfWeek === 1) {
+    const d = Math.floor((todayDate - progStart) / (1000 * 60 * 60 * 24));
+    const wk = Math.floor(d / 7) + 1;
+    if (wk % 4 === 0) {
+        const assessBy = tp.date.now("YYYY-MM-DD", 4);
+        tR += `- [ ] 🏋️ Fitness Assessment — Mesocycle ${wk / 4} [due:: ${assessBy}] #assessment\n`;
+    }
+}
+%>
+
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>

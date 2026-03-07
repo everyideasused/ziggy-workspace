@@ -74,6 +74,20 @@ Every few days: read recent daily files → distill learnings → update `MEMORY
 
 ---
 
+## Daily Note Conventions (v2 — March 7, 2026)
+
+The daily note is now split into **Life** and **Work** sections. When creating or editing daily notes:
+
+1. **Type is always `daily`** — never `journal`, never anything else
+2. **Area is `system`** — daily notes span all areas, not just health
+3. **Habits are AM/PM ordered** — morning habits first, evening habits second
+4. **Work hours use inline fields** — `[hours:: ]` and `[work_client:: ]` at bottom of work log
+5. **Task queries use Tasks plugin** — `tasks` code blocks, not Dataview, in daily/weekly templates
+6. **Review triggers are automatic** — Monday creates weekly review task, 1st creates finance review task
+7. **Goals surface on daily note** — collapsed callouts, one for Life and one for Work
+
+---
+
 ## Heartbeats
 
 Default prompt: Read `HEARTBEAT.md` if it exists. Follow it strictly. If nothing needs attention, reply `HEARTBEAT_OK`.

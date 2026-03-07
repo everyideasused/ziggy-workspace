@@ -138,6 +138,49 @@ See `Pinky & The Brain/Notes/System Guide.md` for complete vault conventions (fo
 
 ---
 
+## Tasks Plugin (Obsidian)
+
+**Status:** ✅ Installed (March 7, 2026)
+**Purpose:** Advanced task management — recurring tasks, done dates, better queries
+
+The daily note and weekly review use `tasks` code blocks for task queries. These coexist with Dataview `[due::]` inline fields.
+
+### Key Queries (used in daily note)
+```
+# Tasks due on a specific date
+```tasks
+not done
+due on 2026-03-15
+short mode
+```
+
+# Tasks completed on a date (Yesterday's Wins)
+```tasks
+done on 2026-03-14
+short mode
+```
+
+# Overdue tasks
+```tasks
+not done
+due before today
+short mode
+```
+
+# Recurring task example
+- [ ] Weekly Review 📅 2026-03-15 🔁 every week
+```
+
+### Vault Toolkit Updates
+When Nathan says:
+| Nathan Says... | I Do... |
+|---|---|
+| "What did I get done yesterday?" | Check daily note's "Yesterday's Wins" section or `vault yesterday` |
+| "How many hours this week?" | Check Dashboard or weekly review (reads `[hours::]` from daily notes) |
+| "Create a recurring task" | Use Tasks plugin format: `📅 YYYY-MM-DD 🔁 every [interval]` |
+
+---
+
 ## Spotify Control
 
 **Command:** `~/.local/bin/ziggy-spotify` (custom wrapper using spotipy)

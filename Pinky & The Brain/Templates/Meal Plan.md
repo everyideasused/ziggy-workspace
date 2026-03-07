@@ -21,54 +21,33 @@ tags:
 
 ## 🍽️ This Week's Dinners
 
-### Monday, <% tp.date.now("MMMM D", 0) %>
-- [ ] **Recipe:** [[]]
-- **Prep time:** min
-- **Protein:** g
-- **Notes:** 
+<%*
+// Generate date-tagged list items that the daily note dinner query can read
+// Format: [date:: YYYY-MM-DD] **[[Recipe]]** | Cuisine | Time | Protein | Notes
+const dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+let output = "";
 
-### Tuesday, <% tp.date.now("MMMM D", 1) %>
-- [ ] **Recipe:** [[]]
-- **Prep time:** min
-- **Protein:** g
-- **Notes:** 
+// Calculate Monday of this week
+const today = new Date(tp.date.now("YYYY"), tp.date.now("MM") - 1, tp.date.now("DD"));
+const dayOfWeek = today.getDay(); // 0=Sun
+const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
 
-### Wednesday, <% tp.date.now("MMMM D", 2) %>
-- [ ] **Recipe:** [[]]
-- **Prep time:** min
-- **Protein:** g
-- **Notes:** 
+for (let i = 0; i < 7; i++) {
+    const dateStr = tp.date.now("YYYY-MM-DD", mondayOffset + i);
+    const dayName = dayNames[i];
+    output += `- [date:: ${dateStr}] **[[]]** | cuisine | prep time | protein | ${dayName} notes\n`;
+}
 
-### Thursday, <% tp.date.now("MMMM D", 3) %>
-- [ ] **Recipe:** [[]]
-- **Prep time:** min
-- **Protein:** g
-- **Notes:** 
+tR += output;
+%>
 
-### Friday, <% tp.date.now("MMMM D", 4) %>
-- [ ] **Recipe:** [[]]
-- **Prep time:** min
-- **Protein:** g
-- **Notes:** 
-
-### Saturday, <% tp.date.now("MMMM D", 5) %>
-- [ ] **Recipe:** [[]]
-- **Prep time:** min
-- **Protein:** g
-- **Notes:** 
-
-### Sunday, <% tp.date.now("MMMM D", 6) %>
-- [ ] **Recipe:** [[]]
-- **Prep time:** min
-- **Protein:** g
-- **Notes:** 
+> [!info] How to fill this in
+> Replace each `**[[]]**` with a recipe link like `**[[Tofu Stir Fry]]**` and fill in the details after each `|` separator. The daily note's "Dinner Tonight" section reads this format automatically. Use `_Skipped_` for nights with no planned meal.
 
 ---
 
 ## 📝 Notes
 
-- 
-- 
 - 
 
 ---

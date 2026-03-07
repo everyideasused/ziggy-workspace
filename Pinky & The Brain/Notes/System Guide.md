@@ -246,12 +246,14 @@ Process inbox items during your daily check-in or weekly review. Don't let thing
 | **Templater** | Powers all templates with prompts and date logic | Template folder: `Templates/` |
 | **Dataview** | Powers all dynamic queries on hub notes | Enable JavaScript queries |
 | **Calendar** | Visual calendar linked to daily notes | Daily notes folder: `Journal/` |
+| **Tasks** | Task queries with done dates, recurring tasks | Global filter: blank; Done date: ON |
+| **Buttons** | Quick Create buttons on daily note | No config needed |
+| **QuickAdd** | Fast note creation from templates | Choices: Quick Capture, New Meeting |
 
 ### Recommended Additional Plugins
 | Plugin | Purpose |
 |--------|---------|
 | **Periodic Notes** | Weekly note support (for weekly reviews) |
-| **Quick Add** | Faster note creation with template selection |
 | **Homepage** | Auto-open `🏠base` on launch |
 
 ---
@@ -283,75 +285,98 @@ Process inbox items during your daily check-in or weekly review. Don't let thing
 
 ## ✅ Task Management
 
-Tasks live where the work lives — in daily notes, project notes, and anywhere else. Dataview pulls scheduled ones to the right daily note.
+Tasks live where the work lives — in daily notes, project notes, and anywhere else. Two query systems work together.
+
+### Two Query Systems
+
+**Dataview** (`[due:: YYYY-MM-DD]` inline fields) — used on hub notes and project pages for area-based filtering.
+
+**Tasks plugin** (`tasks` code blocks) — used on the daily note and weekly review for done dates, recurring tasks, and short mode display.
+
+Both systems read the same tasks. You can write due dates in either format:
+- `- [ ] Task [due:: 2026-03-15]` — Dataview style (original)
+- `- [ ] Task 📅 2026-03-15` — Tasks plugin style (also valid)
 
 ### Two Types of Checkboxes
 
 **1. Simple to-dos (no due date)**
-```markdown
+```
 - [ ] Buy groceries
 - [ ] Review the exercise guide
 ```
-These stay LOCAL to the note where you wrote them. They never appear on any daily note. Use these for checklists, prep lists, brainstorm items, and anything that doesn't need to surface on a specific day.
+These stay LOCAL to the note where you wrote them. They never appear on any daily note.
 
 **2. Scheduled tasks (with due date)**
-```markdown
-- [ ] Call the electrician about the outlet [due:: 2026-03-10]
-- [ ] Submit Q2 report to client [due:: 2026-04-01] [[CFA Nashville]]
 ```
-These surface on the daily note for that date under "Scheduled (Due Today)." If you miss the date, they roll into "Overdue" on every subsequent daily note until checked off.
+- [ ] Call the electrician [due:: 2026-03-10]
+- [ ] Submit report 📅 2026-03-10
+```
+These surface on the daily note for that date. If missed, they roll into "Overdue."
 
-**The rule is simple:** No `[due::]` = stays where you wrote it. Has `[due::]` = shows up on that day's daily note.
+### Recurring Tasks (NEW)
 
-### How to Create Scheduled Tasks
-Add `[due:: YYYY-MM-DD]` to any checkbox anywhere in the vault:
-```markdown
-- [ ] Task text [due:: 2026-03-15]
-- [ ] Task with project link [due:: 2026-03-15] [[Project Name]]
+The Tasks plugin supports recurring tasks:
+```
+- [ ] Weekly Review 📅 2026-03-15 🔁 every week
+- [ ] Monthly Finance Review 📅 2026-04-01 🔁 every month
+```
+When you check off a recurring task, it auto-creates the next occurrence.
+
+The daily note also auto-generates review triggers:
+- **Monday** → creates a Weekly Review task due Sunday
+- **1st of month** → creates a Monthly Finance Review task
+- **Every 4th Monday** of the fitness program → creates a Fitness Assessment task
+
+### Work Hours Tracking
+
+Daily notes include inline fields at the bottom of the Work Log:
+```
+**Total hours today:** [hours:: 3.5]
+**Primary client:** [work_client:: CFA]
 ```
 
-The `[due:: YYYY-MM-DD]` is a Dataview inline field. The format must be exact — `YYYY-MM-DD` with the double colon and spaces.
-
-### Where Scheduled Tasks Show Up
-- **Daily note → "Scheduled (Due Today)"** — all uncompleted tasks where `[due:: today]`
-- **Daily note → "Overdue"** — all uncompleted tasks where `[due::]` is before today
-- **Monday daily note → "This Week at a Glance"** — all tasks due this week (Mondays only)
-- **The original note** — the task always stays visible where you wrote it too
+These are aggregated by the Weekly Review and Dashboard using dataviewjs queries. Fill them in at end of day.
 
 ### Task Workflow
-1. Quick to-dos with no specific deadline → write in today's daily note under "Today" (no due date needed)
-2. Tasks due on a specific day → add `[due:: YYYY-MM-DD]` — it'll show up on that day
-3. Tasks tied to a project → write them in the project note with a due date — they appear on both the project and the daily note
-4. Overdue tasks roll forward automatically until completed
-5. Complete a task → check the box wherever it lives — it disappears from all queries
-
-### What Does NOT Show Up on Daily Notes
-- Prep checklists in project notes (no due dates)
-- Implementation phase tasks (no due dates unless you explicitly schedule them)
-- Any checkbox that is just a local checklist item
+1. Quick to-dos → write in daily note (no due date)
+2. Tasks due on a specific day → add `[due:: YYYY-MM-DD]`
+3. Tasks tied to a project → write in project note with due date
+4. Overdue tasks roll forward automatically
+5. Complete a task → check the box → it disappears from queries and shows in "Yesterday's Wins"
 
 ---
 
 ## 🔁 Habit Tracking
 
-Habits are tracked as `type: habit` notes with their own template.
-
 ### How Habits Work
-1. Create a habit note from the **Habit** template (e.g., "Morning Walk", "Read 30 Minutes")
-2. Set frequency (daily, weekdays, 3x/week, etc.) and target per day
-3. The daily note shows a Dataview table of your active habits with current streaks
-4. Default habit checkboxes (water, protein, sleep) are built into every daily note
-5. Custom habits show in the Dataview table — check them off manually in the daily note
-6. Update the `streak` field in the habit note's frontmatter as you go
-7. To add a new habit: tell Ziggy or create from Habit template
+1. Create a habit note from the **Habit** template
+2. Set frequency and target per day
+3. The daily note has two habit systems that work together:
+   - **Hardcoded checkboxes** — core habits with emoji prefixes, ordered AM/PM
+   - **Dataview table** — pulls all active habit notes with streak data
+4. The `update-habit-streaks` script calculates streaks by matching checkbox text to habit notes
 
-### Telling Ziggy to Add a Habit
-Just say: "I want to start reading 30 minutes a day" and Ziggy will create a Habit note with:
-- `type: habit`, `frequency: daily`, `target_per_day: 1`
-- The habit auto-appears in every daily note's habit table
+### The Habit Contract
 
----
+The streak script matches daily note checkbox text to habit note filenames. This mapping must stay in sync:
 
+| Checkbox Text | Habit Note | Area | Time |
+|---|---|---|---|
+| 🚶 Morning Walk | `Morning Walk.md` | health | AM |
+| 💧 Water started | `Water Intake.md` | health | AM |
+| 📖 Read 30 min | `Read 30 Minutes.md` | interests | PM |
+| 🌯 Protein (150g+) | `Protein Target.md` | health | PM |
+| 😴 Sleep (7+ hrs last night) | `Sleep Quality.md` | health | PM |
+
+Work habits (📅📊📧🔄⏱️) are not streak-tracked by default.
+
+### Adding a New Habit
+1. Create a Habit note from template
+2. Add a matching checkbox line to the Daily Note template
+3. Add the mapping to the Habit Contract table above
+4. The streak script picks it up automatically
+
+Or just tell Ziggy: "I want to start meditating for 10 minutes daily" — and Ziggy handles all three steps.
 
 ---
 
@@ -578,3 +603,7 @@ calculate-net-worth --update-hub    # Display + update Finances Hub
 3. **Leaving status as inbox forever.** Process inbox in weekly review at minimum.
 4. **Duplicating Smartsheet data in Obsidian.** Obsidian is your THINKING layer. Smartsheet is your DATA layer. Don't copy spreadsheet rows into Obsidian — link to them and write about them.
 5. **Not linking.** When in doubt, `[[link it]]`. Links are free and backlinks are gold.
+
+---
+
+Created by: Ziggy · AI: anthropic/claude-sonnet-4-6

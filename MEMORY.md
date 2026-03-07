@@ -161,3 +161,28 @@
 - Agent policy in exec-approvals.json (`policy: "allow"`)
 - Command on security allowlist (via `openclaw approvals allowlist add`)
 
+
+### System Update — March 7, 2026: Daily Note v2 + Go Live
+
+**What changed:**
+- Daily note redesigned with Life/Work split, AM/PM habits, Yesterday's Wins, Goals, catch-up nudge
+- Tasks plugin installed — daily note and weekly review use `tasks` code blocks alongside Dataview
+- Buttons plugin installed — Quick Create buttons (Quick Capture, New Meeting) on daily note
+- Meal Plan template fixed — now generates [date::] format the dinner query reads
+- Dashboard repurposed — removed daily task queries (those live on daily note only), added goals and hours aggregation
+- Weekly Review updated — added Goals section, Tasks plugin queries, hours aggregation
+- Work hours tracked via inline fields `[hours::]` and `[work_client::]` — aggregated in weekly review and Dashboard
+- Recurring review triggers: Monday→weekly review, 1st→finance review, every 4th Monday→fitness assessment
+- Habit tracking contract documented in SOUL.md — exact checkbox text ↔ habit note mapping
+- All daily notes use `type: daily` (not `type: journal`) — enforced going forward
+- Daily note `area` changed from `health` to `system` (spans all areas)
+
+**Plugin stack after update:**
+- Templater (existing)
+- Dataview (existing)
+- Calendar (existing)
+- QuickAdd (existing — added Quick Capture + New Meeting choices)
+- Tasks (NEW — recurring tasks, done dates)
+- Buttons (NEW — quick create on daily note)
+- Periodic Notes (recommended)
+- Homepage (recommended)

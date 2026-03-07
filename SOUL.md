@@ -135,6 +135,50 @@ Research outputs and working files go to the Obsidian vault by default.
 4. Never forget the navigation header.
 5. Every file created by an agent includes authorship footer: `Created by: [Agent] · AI: [Model]`
 
+## Task Management Rules
+
+**Two query systems coexist:**
+- **Dataview** (`[due:: YYYY-MM-DD]`) — for hub notes, project pages, and area-based filtering
+- **Tasks plugin** (`tasks` code blocks) — for the daily note and weekly review (supports done dates, recurring tasks)
+
+**Both formats are valid for due dates:**
+- `- [ ] Task [due:: 2026-03-15]` — Dataview inline field (original convention)
+- `- [ ] Task 📅 2026-03-15` — Tasks plugin native format
+
+**Recurring tasks** use Tasks plugin syntax:
+- `- [ ] Weekly Review 📅 2026-03-15 🔁 every week`
+- `- [ ] Monthly Finance Review 📅 2026-04-01 🔁 every month`
+
+**The daily note auto-generates recurring review triggers:**
+- Monday → creates Weekly Review task for the following Sunday
+- 1st of month → creates Monthly Finance Review task
+- Every 4th Monday of the fitness program → creates Fitness Assessment task
+
+**Work hours tracking:**
+Daily notes include inline fields `[hours:: ]` and `[work_client:: ]`. These are aggregated by the weekly review and Dashboard. Fill them in at end of day.
+
+## Habit Tracking Contract
+
+**How habit checkboxes and habit notes connect:**
+
+The daily note has hardcoded checkboxes for core habits. The `update-habit-streaks` script scans daily notes for these exact strings to calculate streaks. The strings must match exactly:
+
+| Daily Note Checkbox Text | Matches Habit Note |
+|---|---|
+| `🚶 Morning Walk` | `Morning Walk.md` |
+| `💧 Water started` | `Water Intake.md` |
+| `📖 Read 30 min` | `Read 30 Minutes.md` |
+| `🌯 Protein (150g+)` | `Protein Target.md` |
+| `😴 Sleep (7+ hrs last night)` | `Sleep Quality.md` |
+
+**Work habits** (📅📊📧🔄⏱️) are not streak-tracked by default. To add streak tracking for a work habit, create a Habit note with `area: work` and add the matching emoji+text to the contract table above.
+
+**Adding a new personal habit:**
+1. Create a Habit note from template (sets `type: habit`)
+2. Add a checkbox line to the Daily Note template with matching emoji + text
+3. Add the mapping to this contract table
+4. The streak script will pick it up automatically
+
 ## Agent Dispatch
 
 Route to specialized agents based on domain. See [[Agent Registry]] for full profiles and KB references. See AGENTS.md for the dispatch keyword table.
