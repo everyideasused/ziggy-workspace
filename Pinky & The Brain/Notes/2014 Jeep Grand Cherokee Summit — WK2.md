@@ -57,7 +57,8 @@ tags:
 | 11 | C | Assembly Plant: Jefferson North, Detroit, MI |
 | 12–17 | 247413 | Production Sequence Number |
 
-**Build Sheet:** Attached in vault (`Grand_Cherokee_Build_Sheet.pdf`)
+**Build Sheet:** Attached in vault (`Grand_Cherokee_Build_Sheet.pdf`)  
+**Title:** Attached in vault (`Grand_Cherokee_Title.pdf`)
 
 ---
 
