@@ -98,7 +98,32 @@ Spin is fully operational with a comprehensive 14-module knowledge base spanning
 
 ---
 
+## Workflow Optimization (March 9, 2026)
+
+**Decision:** Split music operations between Ziggy and Spin based on complexity:
+
+| Task Type | Handler | Reason |
+|-----------|---------|--------|
+| Simple playback (search + play single playlist/artist) | **Ziggy direct** | Fast (10s), linear, no sub-agent overhead |
+| Playlist curation (multi-source, taste-driven, sequencing) | **Spin sub-agent** | Complex, requires KB + taste profile + decision-making |
+
+**Why:** March 9 timeout incident — Spin took 2+ min and 23k tokens trying to search/evaluate/play acoustic covers. Simple operations don't need sub-agent orchestration.
+
+**New workflow:**
+1. **Immediate playback needs** → Ziggy handles directly with `ziggy-spotify` CLI
+2. **Curated playlists/queues** → Spin builds during playback (no music gap), Ziggy executes playback
+3. **Complex requests** ("playlist for dinner party", "discover artists like X + Y") → Spin with extended timeout
+
+**Benefit:** Fast response for simple requests, preserve Spin for what it does best (curation + taste learning).
+
+---
+
 ## Learning Log
+
+**2026-03-09 — Workflow Optimization**
+- Identified timeout issue with simple playback tasks routed to Spin
+- Established split workflow: Ziggy for direct playback, Spin for curation during playback
+- Updated Session State with new operational pattern
 
 **2026-03-04 — Phase 4 Deployment**
 - Completed full knowledge base (14 modules, 102 KB)
