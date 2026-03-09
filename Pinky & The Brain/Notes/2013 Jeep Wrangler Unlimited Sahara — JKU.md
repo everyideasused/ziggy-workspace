@@ -60,6 +60,7 @@ tags:
 | 12–17 | 560395 | Production Sequence Number |
 
 **Build Sheet:** Attached in vault (`Wrangler_Build_Sheet.pdf`)  
+**Title:** Attached in vault (`Wrangler_Title.pdf`)  
 **Destination Zone:** 66 (Orlando, Florida)
 
 ---
