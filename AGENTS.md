@@ -56,6 +56,8 @@ Route to the correct agent based on keywords. When in doubt, Ziggy handles direc
 | **Ledger** (Financial Advisor) | budget, spending, debt, savings, invest, 401k, IRA, Roth, HSA, retirement, tax, insurance, net worth |
 | **Hammer** (Carpenter & GC) | framing, materials, tool, install, baseboard, trim, drywall, building science, code, estimate, bid |
 | **Cart** (Shopping Assistant) | buy, purchase, deal, coupon, price, compare, subscription, discount, save money, where to buy, is this a good price |
+| **Wrench** (Mechanic) | car, vehicle, engine, mechanic, repair, oil change, tire, brake, diagnostic, check engine, won't start, transmission, clutch, battery, alternator, AC, coolant, leak, noise |
+| **Prism** (Physics Educator) | physics, explain, how does, why does, relativity, quantum, energy, force, wave, particle, mechanics, thermodynamics, electromagnetism, optics, astronomy, cosmology, conservation, inertia, gravity |
 
 **Multi-domain queries:** Route to primary agent; let that agent coordinate with Ziggy if needed.
 
@@ -127,7 +129,7 @@ Full routing table: `Pinky & The Brain/Notes/Agent Registry.md`
 | Tier | Model | Use When |
 |------|-------|----------|
 | Local (free) | `vllm/qwen3:14b` | Default — fitness, nutrition, music, trades, finance basics |
-| Cloud | `anthropic/claude-sonnet-4-6` | Construction, travel, engineering, complex analysis, vault note creation |
+| Cloud | `anthropic/claude-sonnet-4-5-20250929` | Construction, travel, engineering, complex analysis, vault note creation |
 | Escalation | `anthropic/claude-opus-4-6` | Ask first — critical decisions only |
 
 **Goal:** 70%+ queries on local. Budget: <$10/month.
@@ -148,11 +150,33 @@ Created by: [Agent Name] · AI: [Model Name]
 **Placement:** At the end of the document (after all content).
 
 **Examples:**
-- `Created by: Ziggy · AI: anthropic/claude-sonnet-4-6`
-- `Created by: Atlas · AI: anthropic/claude-sonnet-4-6`
+- `Created by: Ziggy · AI: anthropic/claude-sonnet-4-5-20250929`
+- `Created by: Atlas · AI: anthropic/claude-sonnet-4-5-20250929`
 - `Created by: Forge · AI: openrouter/moonshotai/kimi-k2.5`
 
 **Applies to:** All markdown notes, documents, code files, configs — anything created by an AI agent.
+
+---
+
+## Project Task Scheduling Rule
+
+**Every project created (`type: project` or `type: work-project`) MUST include tasks with due dates.**
+
+**Required elements:**
+1. **Task checkboxes** with Tasks plugin format: `- [ ] Task description 📅 YYYY-MM-DD`
+2. **At least one milestone or deadline** with a specific date
+3. **Organized by phase or timeline** (e.g., "Phase 1 — Kickoff", "Week of March 8")
+
+**Why:** Tasks with due dates automatically surface on daily notes. Projects without dated tasks become invisible and stagnate.
+
+**Template enforcement:** The Project.md template includes a "🎯 Project Tasks" section with example structure. Use it.
+
+**Quality check:** After creating a project, verify:
+- [ ] Does it have at least 3 tasks with specific due dates?
+- [ ] Are tasks organized by phase or timeline?
+- [ ] Will the first task appear on today's or tomorrow's daily note?
+
+If any answer is "no," fix before marking the project complete.
 
 ---
 

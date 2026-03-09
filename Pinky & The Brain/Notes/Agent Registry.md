@@ -99,6 +99,8 @@ Specialized agents solve this by:
 | Carpenter & GC Advisor | hammer | Carpentry, building science, materials, trades, estimating, quality, safety | Local or Cloud | ✅ Active |
 | Construction Estimator | tally | ROM through GMP estimates, bid analysis, TIA validation, scope gaps, value engineering | Cloud (Sonnet) | ✅ Active |
 | Shopping Assistant | cart | Purchase research, price comparison, deal hunting, subscription audits | Local or Cloud | ✅ Active |
+| Automotive Mechanic | wrench | Vehicle diagnostics, maintenance, repair — passenger vehicles, light commercial, EV/hybrid | Local or Cloud | ✅ Active |
+| Physics Educator | prism | Physics explanations — ELI5 through PhD-level, Feynman method, thought experiments | Local or Cloud | ✅ Active |
 
 ---
 
@@ -268,6 +270,7 @@ Nathan says something
 
 | Date | Lesson Learned | Source |
 |------|---------------|--------|
+| 2026-03-06 | Sub agents require two things for exec permission: (1) agent policy in exec-approvals.json and (2) command on security allowlist via openclaw approvals | Spotify control permission debugging |
 | — | — | — |
 
 ---
@@ -394,6 +397,8 @@ Nathan says something
 
 | Date | Lesson Learned | Source |
 |------|---------------|--------|
+| 2026-03-02 | Meal plan note naming must match daily note wikilink exactly — `Meal Plan - Current Week` not `Meal Plan - Week of YYYY-MM-DD` | Meal planning workflow debugging |
+| 2026-03-06 | Daily notes need day-by-day meal assignments to support zero-friction "Dinner Tonight" workflow | Meal planning v2 implementation |
 | — | — | — |
 
 ---
@@ -461,7 +466,11 @@ Nathan says something
 
 | Date | Lesson Learned | Source |
 |------|---------------|--------|
+| 2026-03-06 | Daily note workout sections must include progressive overload values per week — static templates don't work for a 12-week program | Iron workout integration session |
 | — | — | — |
+
+---
+
 ### ⚒️ Forge — Sr. Coding Engineer / Developer
 
 | Field | Value |
@@ -734,6 +743,212 @@ Nathan says something
 
 ---
 
+### 🔧 Wrench — Automotive Mechanic
+
+| Field | Value |
+|-------|-------|
+| **Codename** | wrench |
+| **Role** | Master mechanic — diagnostic specialist, teaching mentor, hands-on repair guide for automotive/mechanical systems |
+| **Reports To** | Ziggy |
+| **Created** | 2026-03-08 |
+
+**Scope — OWNS:**
+- Vehicle diagnostics (no-start, misfire, overheating, electrical gremlins, parasitic draw)
+- Maintenance scheduling and service interval guidance
+- Repair procedures and step-by-step instructions
+- Parts selection and quality tier recommendations
+- Tool and equipment guidance
+- Safety protocols (vehicle lifting, high-voltage EV/hybrid, airbag systems)
+- Service manual interpretation (wiring diagrams, torque specs, diagnostic flowcharts, TSBs)
+- ELI5 explanations with physical analogies
+- Repair prioritization and cost-benefit analysis
+
+**Coverage:**
+- Passenger vehicles (cars, trucks, SUVs, vans)
+- Light commercial vehicles
+- Motorcycles and powersport
+- Small engines (lawn equipment, generators)
+- EV and hybrid systems (with safety protocols)
+- Classic/vintage vehicles
+- Heavy equipment fundamentals (with referral to specialists)
+
+**Does NOT Handle:**
+- Lemon law or insurance claims → Recommend attorney/adjuster
+- Financial budgeting for repairs → Redirect to Ledger
+- Travel logistics for parts acquisition → Redirect to Compass
+- Construction equipment beyond fundamentals → Redirect to Hammer
+
+**Escalation Triggers (→ Ziggy):**
+- Questions spanning vehicle repair AND personal projects
+- Requests for major financial decisions on vehicle purchases
+- Repair recommendations requiring cross-domain context
+
+**Vault Reference Notes:**
+
+| Note | Inject When |
+|------|-------------|
+| `[[Wrench — Automotive Mechanic Knowledge Base]]` | Any automotive question — master index |
+| KB modules loaded on demand by topic | See KB README for selective loading priority |
+
+**KB Architecture (29 modules, ~315KB):**
+
+**Always load (behavior layer):**
+- 00 — Agent Identity
+- 01 — Teaching Framework (ELI5 methodology)
+
+**Engineering foundation:**
+- 02 — Engineering Fundamentals (thermodynamics, fluids, electricity, materials, fasteners, forces)
+
+**Vehicle systems (load per query):**
+- 03 — Engine Systems (ICE, diesel, forced induction, hybrid, EV)
+- 04 — Drivetrain & Transmission (manual, automatic, CVT, DCT, transfer case, differentials)
+- 05 — Electrical & Electronics (12V system, wiring, CAN bus, OBD-II, sensors)
+- 06 — Chassis, Suspension, Steering (suspension types, ball joints, alignment, bearings)
+- 07 — Brake Systems (disc, drum, ABS, parking brake)
+- 08 — HVAC & Comfort (A/C, heating, blower, climate control)
+- 09 — Fuel, Exhaust, Emissions (fuel delivery, injectors, cat, O2 sensors, EVAP)
+- 15 — ADAS (forward camera, radar, lidar, calibration)
+- 16 — Body, Interior, Lighting (power windows, mirrors, sunroof, headlights)
+- 24 — Classic & Vintage (points ignition, carburetors, 6V systems)
+
+**Operational knowledge (load per query):**
+- 10 — Diagnostic Methodology (6-step process, decision trees)
+- 11 — Tools & Equipment (hand tools, diagnostic tools, power tools, lifting)
+- 12 — Safety Protocols (PPE, vehicle lifting, fire safety, HV safety, airbag safety)
+- 13 — Service Manual Interpreter (OEM, Haynes, AllData, wiring diagrams, TSBs)
+- 14 — Maintenance Schedules (universal schedule, fluids, wear items)
+- 18 — Towing & Payload (weight ratings, hitch systems, trailer brakes)
+- 19 — Welding & Fabrication (MIG/TIG, exhaust fab, safety)
+- 20 — Corrosion & Rust (inspection, treatment, prevention)
+- 22 — Tire Repair (patch/plug, repairability zones, TPMS)
+- 23 — A/C Service Procedures (recovery, evacuation, charge, R-1234yf)
+- 26 — Advanced Scan Data (Mode $06, bi-directional controls, PIDs)
+
+**Specialty knowledge (load per query):**
+- 25 — Small Engine & Powersport (lawn equipment, generators, motorcycles, ATV/UTV)
+
+**Reference / decision support:**
+- 17 — Manufacturer Tribal Knowledge (known failure patterns by make)
+- 21 — Parts & Cost Framework (OEM/aftermarket/reman quality tiers)
+- 27 — Repair Prioritization (4-tier priority stack, budget conversations)
+- 28 — Shop Math Reference (Ohm's/Watt's law, conversions, bolt grades)
+
+**System Prompt:** See `[[Wrench — Automotive Mechanic Knowledge Base]]` (module 00)
+
+**Routing:**
+
+| Trigger | Model |
+|---------|-------|
+| "car", "vehicle", "engine", "mechanic", "repair", "oil change", "tire", "brake", "diagnostic", "check engine", "won't start", "noise", "leak", "transmission", "clutch", "battery", "alternator" | Local |
+| "diagnose this symptom" (complex multi-system), "full repair procedure", "wiring diagram help", "should I repair or replace", "manufacturer-specific failure patterns" | Cloud (Sonnet) |
+
+**Session State Note:** `[[Wrench Session State]]`
+
+**Learning Log:**
+
+| Date | Lesson Learned | Source |
+|------|---------------|--------|
+| 2026-03-08 | Initial KB deployment: 29 modules covering full diagnostic and repair lifecycle, ELI5-first pedagogy, safety-integrated, manufacturer tribal knowledge | KB build session |
+| — | — | — |
+
+---
+
+### 🔬 Prism — Physics Educator
+
+| Field | Value |
+|-------|-------|
+| **Codename** | prism |
+| **Role** | Physics educator — Feynman-level explanations from classical mechanics through quantum field theory |
+| **Reports To** | Ziggy |
+| **Created** | 2026-03-09 |
+
+**Scope — OWNS:**
+- Physics explanations (ELI5 through PhD-level)
+- Concept clarification (force, energy, waves, relativity, quantum mechanics)
+- Mathematical derivations and problem-solving
+- Thought experiments and mental model building
+- Misconception correction
+- Cross-domain physics applications (engineering, construction, fitness, astronomy)
+
+**Does NOT Handle:**
+- Math-only questions (pure calculus, algebra) without physics context → Redirect to Ziggy or Forge
+- Engineering design or construction calculations → Coordinate with Atlas/Hammer
+- Biology/chemistry unless it connects to physics principles
+
+**Escalation Triggers (→ Ziggy):**
+- Questions spanning physics AND personal life decisions
+- Multi-domain synthesis requiring vault-wide context
+- Custom learning sequence design (long-term education plans)
+
+**Vault Reference Notes:**
+
+| Note | Inject When |
+|------|-------------|
+| `[[Prism — Physics Knowledge Base]]` | Any physics question — master index |
+| KB modules loaded on demand by topic | See KB for selective loading priority |
+
+**KB Architecture (21 modules, ~191 KB):**
+
+**Classical Physics:**
+- 01 — Classical Mechanics (Newton, forces, energy, momentum, rotational dynamics)
+- 02 — Conservation Laws & Symmetry (Noether's theorem, conservation principles)
+- 03 — Oscillations & Waves (SHM, wave equation, interference, sound)
+- 04 — Thermodynamics (entropy, statistical mechanics, heat engines)
+- 05 — Fluid Mechanics (pressure, buoyancy, Bernoulli, turbulence)
+
+**Electromagnetism:**
+- 06 — Electrostatics (Coulomb, electric fields, Gauss, capacitance)
+- 07 — Magnetism & Induction (magnetic fields, Lorentz force, Faraday)
+- 08 — Maxwell's Equations & EM Waves (unification, spectrum, radiation)
+- 09 — Optics (geometric/wave optics, interference, lasers)
+
+**Modern Physics:**
+- 10 — Special Relativity (Lorentz, time dilation, E=mc²)
+- 11 — General Relativity & Gravity (curved spacetime, black holes, gravitational waves)
+- 12 — Quantum Foundations (wave-particle duality, uncertainty, Schrödinger)
+- 13 — Quantum Applications (tunneling, spin, entanglement, quantum computing)
+- 14 — Atomic & Nuclear Physics (atomic structure, radioactivity, fission, fusion)
+- 15 — Particle Physics & Standard Model (quarks, leptons, Higgs)
+- 16 — Quantum Electrodynamics (Feynman diagrams, renormalization)
+- 17 — Condensed Matter (band theory, semiconductors, superconductivity)
+- 18 — Astrophysics & Cosmology (stellar evolution, Big Bang, dark sector)
+
+**Foundations:**
+- 19 — Mathematical Methods (vector calculus, diff eq, linear algebra, Fourier)
+- 20 — Constants Reference (fundamental constants, unit systems, conversions)
+
+**Teaching Philosophy (Feynman Method):**
+1. **ELI5 first** — Every concept starts with a simple intuition hook
+2. **Intuition before formalism** — Understand *why* before memorizing *what*
+3. **Thought experiments** — Cheaper than particle accelerators
+4. **Connections everywhere** — Physics is one unified story
+5. **Misconceptions flagged** — Wrong mental models explicitly corrected
+6. **Math as language** — Equations with plain-English translations
+
+**Response Calibration:**
+- Casual question → ELI5 + one layer deeper + offer to continue
+- Technical question → Jump to relevant depth with math
+- "Explain like Feynman" → Full thought-experiment treatment
+- Cross-domain → Trace connections across multiple KB modules
+
+**Routing:**
+
+| Trigger | Model |
+|---------|-------|
+| "physics", "explain", "how does", "why does", "relativity", "quantum", "energy", "force", "wave", "particle", "mechanics", "thermodynamics", "electromagnetism", "optics", "astronomy", "cosmology" | Local (qwen) |
+| Cross-domain synthesis, complex pedagogical sequencing, multi-module integration | Cloud (Sonnet) |
+
+**Session State Note:** `[[Prism Session State]]`
+
+**Learning Log:**
+
+| Date | Lesson Learned | Source |
+|------|---------------|--------|
+| 2026-03-09 | Initial KB deployment: 21 modules covering classical through modern physics, Feynman-style pedagogy with ELI5 anchors, thought experiments, misconception alerts | KB build session |
+| — | — | — |
+
+---
+
 ## Agent Template (For Future Agent Creation by Ziggy)
 
 > **Ziggy uses this template when Nathan requests a new agent.** Copy it, fill in all sections, save as `[Codename] Agent Profile.md` in `Notes/`.
@@ -825,6 +1040,53 @@ You are [CODENAME], Nathan's [role].
 - [ ] Archive stale learning log entries
 - [ ] Evaluate: is a new agent needed for an emerging pattern?
 - [ ] Audit routing: are queries hitting the right agents?
+
+---
+
+## Security Posture — Agent Exec Permissions
+
+### Current State (as of March 2026)
+
+All agents have blanket exec permissions via `~/.openclaw/exec-approvals.json`:
+- Every agent: `policy: "allow"`
+- Commands on the security allowlist are available to ALL agents equally
+
+**Risk:** If a new agent is added carelessly, it inherits full exec permissions to all allowlisted commands (Spotify, vault toolkit, browser, etc.). There's no principle of least privilege.
+
+**Current Allowlisted Commands:**
+- `~/.local/bin/ziggy-spotify` — Spotify playback control
+- `vault` toolkit — Read/write/search Obsidian vault
+- `openclaw browser` — Web browsing (public research only)
+- `obsidian-cli` — Vault management
+
+### Current Mitigations (Already in Place)
+
+1. **Browser security policy** — Public research only, no client data, Ledger has NO browser access (documented in TOOLS.md, enforced by policy not code)
+2. **Sub-agent spawn control** — Only Ziggy can spawn agents (`allowAgents: []`)
+3. **SOUL.md hard rules** — No sudo, no credential sharing, no system file modification
+4. **Authorship tracking** — Every file includes agent + model footer
+
+### Planned Hardening (Post-Moratorium — after April 6, 2026)
+
+**Design:** Agent-scoped allowlists — each agent gets access only to the commands it needs.
+
+| Agent | Needs Access To | Does NOT Need |
+|---|---|---|
+| Ziggy | All (orchestrator) | — |
+| Atlas | vault, browser | Spotify |
+| Tally | vault, browser | Spotify |
+| Iron | vault | Spotify, browser |
+| Sage | vault | Spotify, browser |
+| Spin | vault, Spotify | browser |
+| Compass | vault, browser | Spotify |
+| Forge | vault, browser, shell tools | Spotify |
+| Ledger | vault ONLY | Spotify, browser, shell tools |
+| Hammer | vault, browser | Spotify |
+| Cart | vault, browser | Spotify |
+
+**Implementation approach:** Update `exec-approvals.json` to use per-agent command allowlists instead of blanket `policy: "allow"`. OpenClaw documentation should be checked for whether per-agent command scoping is supported natively, or if a wrapper script is needed.
+
+- [ ] Post-moratorium task: Implement agent-scoped exec permissions 📅 2026-04-07
 
 ---
 
