@@ -1,11 +1,20 @@
-# Atomic & Nuclear Physics
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - atomic
+  - nuclear
+  - radioactivity
+  - fission
+  - fusion
+  - spectroscopy
+kb: prism
+module: 14-atomic-nuclear-physics.md
+---
 
----
-tags: [physics, atomic, nuclear, radioactivity, fission, fusion, spectroscopy]
-eli5-summary: Atoms have shells of electrons that determine chemistry, and nuclei held together by the strongest force in nature that can release enormous energy.
-prerequisites: [quantum-foundations, quantum-applications, electrostatics]
-leads-to: [particle-physics, astrophysics-cosmology]
----
+# Atomic & Nuclear Physics
 
 ## The Big Picture
 

@@ -1,12 +1,17 @@
-# Physics Knowledge Base — Ziggy Agent Instructions
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - agent-config
+  - ziggy
+  - knowledge-base
+kb: prism
+module: 00-agent-instructions.md
+---
 
----
-tags: [physics, agent-config, ziggy, knowledge-base]
-role: physics-advisor
-version: 1.0
-scope: comprehensive-physics
-style: feynman-eli5
----
+# Physics Knowledge Base — Ziggy Agent Instructions
 
 ## Purpose
 

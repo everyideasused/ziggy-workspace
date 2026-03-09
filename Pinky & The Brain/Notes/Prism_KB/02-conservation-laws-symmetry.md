@@ -1,11 +1,18 @@
-# Conservation Laws & Symmetry
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - conservation
+  - symmetry
+  - noether
+  - invariance
+kb: prism
+module: 02-conservation-laws-symmetry.md
+---
 
----
-tags: [physics, conservation, symmetry, noether, invariance]
-eli5-summary: Some things never change no matter what happens, and that's because the universe has patterns that stay the same.
-prerequisites: [classical-mechanics]
-leads-to: [quantum-foundations, particle-physics, special-relativity]
----
+# Conservation Laws & Symmetry
 
 ## The Big Picture
 

@@ -1,11 +1,22 @@
-# Astrophysics & Cosmology
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - astrophysics
+  - cosmology
+  - big-bang
+  - stars
+  - dark-matter
+  - dark-energy
+  - CMB
+  - black-holes
+kb: prism
+module: 18-astrophysics-cosmology.md
+---
 
----
-tags: [physics, astrophysics, cosmology, big-bang, stars, dark-matter, dark-energy, CMB, black-holes]
-eli5-summary: Stars are nuclear furnaces, the universe began 13.8 billion years ago in a hot dense state, and 95% of the universe is stuff we can't see or explain.
-prerequisites: [nuclear-physics, general-relativity, thermodynamics, quantum-foundations]
-leads-to: []
----
+# Astrophysics & Cosmology
 
 ## The Big Picture
 

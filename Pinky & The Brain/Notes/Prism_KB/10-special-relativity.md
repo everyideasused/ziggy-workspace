@@ -1,11 +1,20 @@
-# Special Relativity
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - special-relativity
+  - einstein
+  - lorentz
+  - time-dilation
+  - E-mc2
+  - spacetime
+kb: prism
+module: 10-special-relativity.md
+---
 
----
-tags: [physics, special-relativity, einstein, lorentz, time-dilation, E-mc2, spacetime]
-eli5-summary: The speed of light is the same for everyone, and this simple fact makes time stretchy, lengths shrinkable, and mass into energy.
-prerequisites: [classical-mechanics, maxwells-equations]
-leads-to: [general-relativity, quantum-electrodynamics, particle-physics]
----
+# Special Relativity
 
 ## The Big Picture
 

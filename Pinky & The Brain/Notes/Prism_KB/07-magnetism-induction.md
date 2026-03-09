@@ -1,11 +1,20 @@
-# Magnetism & Electromagnetic Induction
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - magnetism
+  - magnetic-field
+  - lorentz-force
+  - faraday
+  - inductance
+  - induction
+kb: prism
+module: 07-magnetism-induction.md
+---
 
----
-tags: [physics, magnetism, magnetic-field, lorentz-force, faraday, inductance, induction]
-eli5-summary: Moving charges create magnetic fields, and changing magnetic fields create electric forces. This loop is the foundation of every motor and generator on Earth.
-prerequisites: [electrostatics, classical-mechanics]
-leads-to: [maxwells-equations, condensed-matter]
----
+# Magnetism & Electromagnetic Induction
 
 ## The Big Picture
 

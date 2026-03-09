@@ -1,11 +1,19 @@
-# Quantum Electrodynamics (QED)
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - QED
+  - feynman-diagrams
+  - path-integrals
+  - renormalization
+  - fine-structure-constant
+kb: prism
+module: 16-quantum-electrodynamics.md
+---
 
----
-tags: [physics, QED, feynman-diagrams, path-integrals, renormalization, fine-structure-constant]
-eli5-summary: QED describes how light and matter interact at the quantum level, using Feynman's brilliant picture language of particle diagrams. It's the most precisely tested theory in all of science.
-prerequisites: [quantum-foundations, special-relativity, electrostatics, maxwells-equations]
-leads-to: [particle-physics]
----
+# Quantum Electrodynamics (QED)
 
 ## The Big Picture
 

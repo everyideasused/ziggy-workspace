@@ -1,11 +1,21 @@
-# Optics
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - optics
+  - refraction
+  - reflection
+  - interference
+  - polarization
+  - lasers
+  - lenses
+kb: prism
+module: 09-optics.md
+---
 
----
-tags: [physics, optics, refraction, reflection, interference, polarization, lasers, lenses]
-eli5-summary: Light bounces, bends, splits, and interferes with itself — and understanding how gives us cameras, glasses, fiber optics, and lasers.
-prerequisites: [oscillations-waves, maxwells-equations]
-leads-to: [quantum-foundations, quantum-electrodynamics]
----
+# Optics
 
 ## The Big Picture
 

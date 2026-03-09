@@ -1,11 +1,20 @@
-# Electrostatics
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - electrostatics
+  - coulomb
+  - electric-field
+  - gauss-law
+  - capacitance
+  - potential
+kb: prism
+module: 06-electrostatics.md
+---
 
----
-tags: [physics, electrostatics, coulomb, electric-field, gauss-law, capacitance, potential]
-eli5-summary: Like charges repel, opposites attract, and this simple rule builds lightning, computers, and your entire nervous system.
-prerequisites: [classical-mechanics, conservation-laws]
-leads-to: [magnetism, maxwells-equations, quantum-foundations]
----
+# Electrostatics
 
 ## The Big Picture
 

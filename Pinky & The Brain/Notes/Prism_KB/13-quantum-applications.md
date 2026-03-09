@@ -1,11 +1,20 @@
-# Quantum Applications
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - quantum
+  - tunneling
+  - spin
+  - entanglement
+  - quantum-computing
+  - hydrogen-atom
+kb: prism
+module: 13-quantum-applications.md
+---
 
----
-tags: [physics, quantum, tunneling, spin, entanglement, quantum-computing, hydrogen-atom]
-eli5-summary: Quantum weirdness isn't just philosophy — it powers lasers, computer chips, MRI machines, and the next revolution in computing.
-prerequisites: [quantum-foundations]
-leads-to: [atomic-nuclear-physics, condensed-matter, quantum-electrodynamics]
----
+# Quantum Applications
 
 ## The Big Picture
 

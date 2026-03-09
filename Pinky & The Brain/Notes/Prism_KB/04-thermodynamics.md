@@ -1,11 +1,19 @@
-# Thermodynamics & Statistical Mechanics
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - thermodynamics
+  - entropy
+  - statistical-mechanics
+  - heat
+  - temperature
+kb: prism
+module: 04-thermodynamics.md
+---
 
----
-tags: [physics, thermodynamics, entropy, statistical-mechanics, heat, temperature]
-eli5-summary: Heat flows from hot to cold, and you can never un-scramble an egg. That's thermodynamics.
-prerequisites: [classical-mechanics, conservation-laws]
-leads-to: [astrophysics-cosmology, condensed-matter, quantum-foundations]
----
+# Thermodynamics & Statistical Mechanics
 
 ## The Big Picture
 

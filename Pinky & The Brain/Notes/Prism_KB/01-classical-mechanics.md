@@ -1,11 +1,19 @@
-# Classical Mechanics
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - mechanics
+  - newton
+  - forces
+  - energy
+  - momentum
+kb: prism
+module: 01-classical-mechanics.md
+---
 
----
-tags: [physics, mechanics, newton, forces, energy, momentum]
-eli5-summary: Things move when you push them, and they keep moving unless something stops them.
-prerequisites: none
-leads-to: [conservation-laws, oscillations-waves, fluid-mechanics, special-relativity]
----
+# Classical Mechanics
 
 ## The Big Picture
 

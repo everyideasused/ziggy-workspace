@@ -1,11 +1,19 @@
-# Maxwell's Equations & Electromagnetic Waves
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - maxwell
+  - electromagnetic-waves
+  - light
+  - radiation
+  - EM-spectrum
+kb: prism
+module: 08-maxwells-equations-em-waves.md
+---
 
----
-tags: [physics, maxwell, electromagnetic-waves, light, radiation, EM-spectrum]
-eli5-summary: Four equations unify electricity and magnetism, and predict that light is an electromagnetic wave traveling at 300 million meters per second.
-prerequisites: [electrostatics, magnetism-induction]
-leads-to: [optics, special-relativity, quantum-electrodynamics]
----
+# Maxwell's Equations & Electromagnetic Waves
 
 ## The Big Picture
 

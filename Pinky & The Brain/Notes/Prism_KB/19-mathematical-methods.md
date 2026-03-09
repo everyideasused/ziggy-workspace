@@ -1,11 +1,20 @@
-# Mathematical Methods for Physics
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - math
+  - vector-calculus
+  - differential-equations
+  - linear-algebra
+  - fourier
+  - complex-analysis
+kb: prism
+module: 19-mathematical-methods.md
+---
 
----
-tags: [physics, math, vector-calculus, differential-equations, linear-algebra, fourier, complex-analysis]
-eli5-summary: Physics speaks mathematics. Here's the essential toolkit — the math you actually need to read nature's language.
-prerequisites: [none — this supports all other files]
-leads-to: [all physics topics]
----
+# Mathematical Methods for Physics
 
 ## The Big Picture
 

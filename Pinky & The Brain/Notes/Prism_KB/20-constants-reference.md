@@ -1,11 +1,19 @@
-# Constants & Reference
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - constants
+  - units
+  - reference
+  - data
+  - conversion
+kb: prism
+module: 20-constants-reference.md
+---
 
----
-tags: [physics, constants, units, reference, data, conversion]
-eli5-summary: The universe has a set of fundamental numbers baked into it. Here they are.
-prerequisites: [none]
-leads-to: [all topics]
----
+# Constants & Reference
 
 ## Fundamental Constants
 

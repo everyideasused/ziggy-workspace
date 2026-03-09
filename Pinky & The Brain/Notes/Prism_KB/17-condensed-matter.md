@@ -1,11 +1,20 @@
-# Condensed Matter Physics
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - condensed-matter
+  - solids
+  - semiconductors
+  - superconductivity
+  - band-theory
+  - crystals
+kb: prism
+module: 17-condensed-matter.md
+---
 
----
-tags: [physics, condensed-matter, solids, semiconductors, superconductivity, band-theory, crystals]
-eli5-summary: Quantum mechanics applied to huge numbers of atoms explains why some things conduct electricity, some don't, some are magnetic, and some lose all resistance at low temperatures.
-prerequisites: [quantum-foundations, quantum-applications, electrostatics, thermodynamics]
-leads-to: []
----
+# Condensed Matter Physics
 
 ## The Big Picture
 

@@ -1,11 +1,20 @@
-# Fluid Mechanics
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - fluids
+  - pressure
+  - buoyancy
+  - bernoulli
+  - viscosity
+  - turbulence
+kb: prism
+module: 05-fluid-mechanics.md
+---
 
----
-tags: [physics, fluids, pressure, buoyancy, bernoulli, viscosity, turbulence]
-eli5-summary: Liquids and gases push on things, flow around obstacles, and do surprising stuff when they move fast.
-prerequisites: [classical-mechanics, thermodynamics]
-leads-to: [astrophysics-cosmology]
----
+# Fluid Mechanics
 
 ## The Big Picture
 

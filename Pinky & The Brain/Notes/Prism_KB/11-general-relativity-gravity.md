@@ -1,11 +1,20 @@
-# General Relativity & Gravity
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - general-relativity
+  - gravity
+  - spacetime
+  - black-holes
+  - gravitational-waves
+  - einstein
+kb: prism
+module: 11-general-relativity-gravity.md
+---
 
----
-tags: [physics, general-relativity, gravity, spacetime, black-holes, gravitational-waves, einstein]
-eli5-summary: Mass bends space and time. Things move along the curves. That bending IS gravity.
-prerequisites: [special-relativity, classical-mechanics]
-leads-to: [astrophysics-cosmology, quantum-foundations]
----
+# General Relativity & Gravity
 
 ## The Big Picture
 

@@ -1,11 +1,20 @@
-# Particle Physics & The Standard Model
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - particle-physics
+  - standard-model
+  - quarks
+  - leptons
+  - higgs
+  - fundamental-forces
+kb: prism
+module: 15-particle-physics-standard-model.md
+---
 
----
-tags: [physics, particle-physics, standard-model, quarks, leptons, higgs, fundamental-forces]
-eli5-summary: Everything in the universe is built from 17 fundamental particles interacting through 4 forces, and we've put it all in one chart.
-prerequisites: [quantum-foundations, special-relativity, conservation-laws]
-leads-to: [quantum-electrodynamics, astrophysics-cosmology]
----
+# Particle Physics & The Standard Model
 
 ## The Big Picture
 

@@ -1,11 +1,20 @@
-# Quantum Foundations
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - quantum-mechanics
+  - wave-particle-duality
+  - uncertainty
+  - schrodinger
+  - measurement
+  - superposition
+kb: prism
+module: 12-quantum-foundations.md
+---
 
----
-tags: [physics, quantum-mechanics, wave-particle-duality, uncertainty, schrodinger, measurement, superposition]
-eli5-summary: Tiny things don't have definite properties until you look at them. They're not particles or waves — they're something weirder that acts like both depending on how you check.
-prerequisites: [oscillations-waves, classical-mechanics]
-leads-to: [quantum-applications, atomic-nuclear-physics, particle-physics, quantum-electrodynamics]
----
+# Quantum Foundations
 
 ## The Big Picture
 

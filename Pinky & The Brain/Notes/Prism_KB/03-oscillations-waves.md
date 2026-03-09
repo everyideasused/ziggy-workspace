@@ -1,11 +1,20 @@
-# Oscillations & Waves
+---
+type: knowledge-base
+area: knowledge
+status: active
+tags:
+  - physics
+  - oscillations
+  - waves
+  - SHM
+  - interference
+  - diffraction
+  - sound
+kb: prism
+module: 03-oscillations-waves.md
+---
 
----
-tags: [physics, oscillations, waves, SHM, interference, diffraction, sound]
-eli5-summary: Things that wobble back and forth create ripples that carry energy without carrying stuff.
-prerequisites: [classical-mechanics]
-leads-to: [electromagnetism, optics, quantum-foundations]
----
+# Oscillations & Waves
 
 ## The Big Picture
 
