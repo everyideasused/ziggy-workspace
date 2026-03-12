@@ -99,6 +99,7 @@ Physical construction of the project. This is where the design becomes reality a
 53. Punch list walkthrough and corrections
 54. **INSPECTION: Final building, MEP, fire**
 55. Certificate of Occupancy
+- For detailed commissioning procedures by system and sector, see [[Commissioning & Systems Turnover]]
 
 ---
 
@@ -157,6 +158,10 @@ If approved → COR becomes formal Change Order → SOV updated
 - Critical path monitoring
 - Float tracking
 - Delay documentation (weather days, owner delays, unforeseen conditions)
+- For delay analysis methods, recovery techniques, and acceleration frameworks, see [[Schedule Recovery & Acceleration]]
+- For trade-specific dependency monitoring and escalation, see [[Trade Dependency Matrix — PM Perspective]]
+- For schedule specification requirements and baseline review, see [[Schedule Specification & Analysis Methods]]
+- For delay documentation standards and claims process, see [[Delay Documentation & Claims]]
 
 ### Financial Management
 - Monthly pay applications (see [[Financial Management & Billing]])
@@ -201,7 +206,7 @@ If approved → COR becomes formal Change Order → SOV updated
 |------|------------|
 | Unforeseen site conditions | Owner contingency; geotech report; site investigation |
 | Material delivery delays | Early procurement of long-lead items; tracking log |
-| Subcontractor performance issues | Pre-qualification; performance bonds; backup subs identified |
+| Subcontractor performance issues | Pre-qualification; performance bonds; backup subs identified (see [[Subcontractor Default & Replacement]] for default response process) |
 | Weather delays | Schedule float; seasonal planning |
 | Design errors discovered during construction | RFI process; E&O insurance on design team |
 | Change order disputes | Clear change management process; documentation discipline |

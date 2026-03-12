@@ -77,7 +77,7 @@
 ### Pinky & The Brain — Web Access & Infra
 
 - **URL:** https://pkm.mouthygeese.com (NoteDiscovery web) + Obsidian Desktop
-- **Password:** suxvIm-nipnod-sygro0
+- **Password:** Stored in ~/.openclaw/secrets/notediscovery.txt (not git-tracked)
 - **Docker container:** `notediscovery` on port 8000
 - **Tunnel:** cloudflared `affine-pkm-tunnel` → pkm.mouthygeese.com → localhost:8000
 - **API access:** `curl -b "session=..." http://localhost:8000/api/notes/{path}` (GET/POST/DELETE)
@@ -186,3 +186,13 @@
 - Buttons (NEW — quick create on daily note)
 - Periodic Notes (recommended)
 - Homepage (recommended)
+
+### Vault Audit Gap Closure — March 2026
+
+- Completed 6-phase security and process hardening project
+- Credentials moved out of git-tracked files to ~/.openclaw/secrets/
+- Model strings normalized across all system files
+- Agent maturity table and learning logs activated
+- KB ingestion variant and expand-vs-new-agent frameworks added
+- Exec permissions risk documented, implementation deferred to April 7
+- Data classification system (sensitivity field) established for work notes

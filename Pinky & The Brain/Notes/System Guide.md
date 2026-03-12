@@ -166,6 +166,54 @@ For work items, always include `client_id` and `project_id` in frontmatter so yo
 
 ---
 
+## 📊 Project Management Rules
+
+### Rule: Every Project Must Have Scheduled Tasks
+
+**All project notes (`type: project` or `type: work-project`) MUST include:**
+
+1. **Task checkboxes with due dates** using Tasks plugin format
+2. **At least one milestone or deadline** marked with a specific date
+3. **Clear next actions** with dates assigned
+
+**Format for project tasks:**
+```markdown
+## 🎯 Project Tasks
+
+### Phase 1 — Kickoff (Week of March 8)
+- [ ] Review project scope 📅 2026-03-08
+- [ ] Schedule kickoff meeting 📅 2026-03-10
+- [ ] Send initial questionnaire to client 📅 2026-03-12
+
+### Phase 2 — Execution (Week of March 15)
+- [ ] Complete first draft 📅 2026-03-18
+- [ ] Internal review 📅 2026-03-20
+- [ ] Client presentation 📅 2026-03-22
+```
+
+**Why this matters:**
+- Tasks with due dates (`📅 YYYY-MM-DD`) automatically appear on daily notes
+- Daily note queries surface overdue and upcoming work
+- Projects without dates become invisible and stagnate
+- Clear milestones make progress measurable
+
+**When creating a project:**
+1. Define major phases or milestones
+2. Break each phase into actionable tasks
+3. Assign realistic due dates to each task
+4. Add tasks directly in the project note (not just in a separate task list)
+
+**Project templates enforce this:**
+- Project.md template includes a "🎯 Project Tasks" section
+- Templater prompts for start/end dates
+- Example task structure provided
+
+**Enforcement:**
+- `vault-health-check` script flags projects without any dated tasks
+- Weekly review checklist includes: "Do all active projects have dated next actions?"
+
+---
+
 ## 🏛️ Areas
 
 These are your permanent areas of responsibility. They don't end — they're maintained.
@@ -433,6 +481,26 @@ Budget categories: housing, utilities, groceries, dining, transportation, health
 ### Workouts
 `workout`, `mesocycle`, `week`, `kb_weight`, `bodyweight`, `session_rpe`, `energy_level`, `sleep_hours`, `protein_hit`, `water_hit`
 
+### Data Sensitivity (Work Notes)
+
+**Optional field** for work notes that reference client-specific information:
+
+| Field | Values | When to Use |
+|---|---|---|
+| `sensitivity` | `public`, `internal`, `confidential` | Any work note with client data |
+
+**Definitions:**
+- `public` — No restricted information. Could be shared externally. (e.g., general construction knowledge, AHJ methodology)
+- `internal` — Contains Nathan's strategic thinking, opinions, or analysis. Not client-facing. (e.g., client relationship notes, vendor assessments)
+- `confidential` — Contains client names, project specifics, dollar figures, contacts, or other data covered by professional obligations. (e.g., project meeting notes, budget analysis)
+
+**Rules:**
+- `confidential` notes must NEVER be referenced in agent session states or injected into cloud model context without sanitization
+- The GitHub repo must remain PRIVATE at all times
+- If a `confidential` note is created, Ziggy flags it: "⚠️ This note is marked confidential — I won't include its contents in any external-facing output."
+
+**Default:** If `sensitivity` is omitted, treat work notes as `internal` and all other notes as `public`.
+
 ---
 
 ## 🤖 Common Tasks Reference
@@ -509,8 +577,8 @@ Created by: [Agent Name] · AI: [Model Name]
 **Placement:** At the end of the document (after all content, before navigation header if one exists at bottom).
 
 **Examples:**
-- `Created by: Ziggy · AI: anthropic/claude-sonnet-4-6`
-- `Created by: Atlas · AI: anthropic/claude-sonnet-4-6`
+- `Created by: Ziggy · AI: anthropic/claude-sonnet-4-5-20250929`
+- `Created by: Atlas · AI: anthropic/claude-sonnet-4-5-20250929`
 - `Created by: Forge · AI: openrouter/moonshotai/kimi-k2.5`
 
 **Applies to:**
@@ -606,4 +674,4 @@ calculate-net-worth --update-hub    # Display + update Finances Hub
 
 ---
 
-Created by: Ziggy · AI: anthropic/claude-sonnet-4-6
+Created by: Ziggy · AI: anthropic/claude-sonnet-4-5-20250929

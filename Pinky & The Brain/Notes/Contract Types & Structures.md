@@ -116,12 +116,14 @@ tags:
 - Professional Liability (E&O — for design professionals)
 - Umbrella/Excess Liability
 - Owner as Additional Insured on contractor's policies
+- For detailed insurance types, COI review standards, and claims management, see [[Insurance & Bonding During Construction]]
 
 ### Bonding
 - **Payment Bond:** Guarantees subcontractors and suppliers will be paid
 - **Performance Bond:** Guarantees contractor will complete the work
 - Typically required on public projects and large private projects
 - Bond amount = 100% of contract value (each)
+- For bond cost benchmarks, when-to-require guidance, and claim process, see [[Insurance & Bonding During Construction]]
 
 ### Dispute Resolution
 - **Negotiation** → **Mediation** → **Arbitration** or **Litigation**
@@ -146,3 +148,12 @@ tags:
 | Infrastructure with variable quantities | Unit Price (EJCDC C-700) |
 | Fast-track, single accountability | Design-Build (A141) |
 | Complex, collaborative, innovative | IPD (C191) |
+
+
+---
+
+## Related
+
+- [[Schedule Specification & Analysis Methods]] — Schedule specification language for contracts
+- [[Delay Documentation & Claims]] — Delay-related contract provisions and claims process
+- [[Subcontractor Default & Replacement]] — Default and termination provisions

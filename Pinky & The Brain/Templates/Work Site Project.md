@@ -13,6 +13,7 @@ address: ""
 phase: "<% await tp.system.suggester(["Real Estate", "Design", "Permitting", "Pre-Construction", "Construction", "Closeout", "Complete"], ["Real Estate", "Design", "Permitting", "Pre-Construction", "Construction", "Closeout", "Complete"]) %>"
 project_type: "<% await tp.system.suggester(["Ground-Up", "Renovation", "Remodel"], ["Ground-Up", "Renovation", "Remodel"]) %>"
 status: active
+sensitivity: internal
 health: green
 gc: ""
 architect: ""
@@ -103,4 +104,4 @@ LIMIT 15
 
 ---
 
-<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-5-20250929"); %>

@@ -192,6 +192,16 @@ Nathan says something
 | Sector Appendices (Petroleum, Grocery, Restaurant, Retail, Medical) | When project type matches that sector |
 | `[[Roles, Responsibilities & Timelines — Pre-Construction (Phases 1-5)]]` | Pre-construction phase questions |
 | `[[Roles, Responsibilities & Timelines — Construction & Closeout (Phases 6-10)]]` | Construction/closeout phase questions |
+| `[[Schedule Recovery & Acceleration]]` | Schedule delay, recovery plan, acceleration, crash, LD, weather delay, time extension questions |
+| `[[Trade Dependency Matrix — PM Perspective]]` | Trade stacking, sub coordination, long-lead, MEP rough-in conflict, program sub resource conflict questions |
+| `[[Subcontractor Default & Replacement]]` | Sub performance issues, sub default, sub replacement, bond claim, sub not showing up, sub cash flow, lien, backup sub questions |
+| `[[Delay Documentation & Claims]]` | Delay claim, time extension, weather delay documentation, daily report standards, concurrent delay, dispute, claim preparation, record retention questions |
+| `[[Schedule Specification & Analysis Methods]]` | Schedule spec, baseline review, CPM, schedule manipulation, earned value, SPI, P6, schedule consultant, program schedule questions |
+| `[[Commissioning & Systems Turnover]]` | Commissioning, TAB, fire alarm test, systems start-up, owner training, CO bottleneck, equipment commissioning questions |
+| `[[Multi-Project Resource Conflicts]]` | Resource conflict, sub on multiple sites, shared GC, architect overloaded, portfolio scheduling, program calendar, crew pulled, prioritization questions |
+| `[[Lessons Learned Capture Workflow]]` | Lessons learned, capture lesson, what did we learn, post-project review, AHJ intelligence update, vendor performance update questions |
+| `[[Value Engineering Framework]]` | Value engineering, VE, cost savings, budget reduction, scope reduction, over budget, bid over budget, VE exercise, VE log questions |
+| `[[Insurance & Bonding During Construction]]` | Insurance, bonding, builder's risk, CGL, workers comp, performance bond, payment bond, mechanic's lien, COI, certificate of insurance, OCIP, surety, E&O questions |
 
 **Sector triggers → appendix:**
 
@@ -209,7 +219,7 @@ Nathan says something
 
 | Trigger | Model |
 |---------|-------|
-| "project note", "meeting notes for [client]", "help me think about [project]", "AHJ", "permit strategy", "change order", "TIA", "OAC prep", "RFI", "submittal" | Cloud (Sonnet) |
+| "project note", "meeting notes for [client]", "help me think about [project]", "AHJ", "permit strategy", "change order", "TIA", "OAC prep", "RFI", "submittal", "schedule recovery", "we're behind", "delay", "acceleration", "crash schedule", "liquidated damages", "LD", "time extension", "weather days", "trade conflict", "sub stacking", "long-lead", "MEP coordination", "rough-in schedule", "sub default", "sub not showing up", "replace the sub", "bond claim", "performance bond", "mechanic's lien", "lien waiver", "delay claim", "daily report", "concurrent delay", "dispute", "arbitration", "mediation", "schedule spec", "baseline review", "CPM", "float", "earned value", "schedule manipulation", "P6", "schedule consultant", "recovery schedule", "commissioning", "TAB", "test and balance", "fire alarm test", "systems start-up", "owner training", "equipment start-up", "resource conflict", "sub on multiple projects", "crew pulled", "shared superintendent", "architect overloaded", "portfolio scheduling", "program calendar", "prioritize projects", "lessons learned", "capture this lesson", "what did we learn", "update AHJ", "vendor performance", "post-project review", "value engineering", "VE", "over budget", "cost reduction", "scope reduction", "bid over budget", "budget gap", "VE exercise", "VE log", "insurance", "bonding", "builder's risk", "CGL", "workers comp", "payment bond", "COI", "certificate of insurance", "OCIP", "CCIP", "surety", "E&O", "professional liability", "wrap-up" | Cloud (Sonnet) |
 | "explain [construction term]", "what phase is [activity]", "what does [acronym] mean", "what's the difference between DBB and CMAR" | Local |
 
 **Session State Note:** `[[Atlas Session State]]`
@@ -577,6 +587,7 @@ Nathan says something
 | `[[Tax Planning & Optimization]]` | Tax brackets, deductions, Roth conversions, TN-specific |
 | `[[Insurance & Risk Management - Personal]]` | Coverage, deductibles, umbrella, disability |
 | `[[Behavioral Finance & Decision Frameworks]]` | Emotional money decisions, cognitive biases |
+| `[[Cart KB 13 — Purchase Decision Framework]]` | Purchase evaluation, cost-per-use, opportunity cost, need vs want (coordinated with Cart) |
 | `[[Financial Advisor Selection & Fiduciary Standards]]` | Hiring a human advisor |
 | `[[Financial Planning Milestones & Benchmarks]]` | Am I on track? Age benchmarks, annual review |
 | `[[Finances Hub]]` | Live account data, bills, monthly reviews, financial goals |
@@ -629,6 +640,7 @@ Nathan says something
 - Personal finances → Redirect to Ledger
 - Fitness or nutrition → Redirect to Iron or Sage
 - App development → Redirect to Forge
+- Tool purchasing decisions (brand selection, timing, pricing) → Coordinate with Cart ([[Cart KB 12 — Tools and Workshop Equipment]])
 - Structural engineering calculations (non-prescriptive) → Recommend a licensed engineer
 - Electrical panel work, gas piping → Recommend a licensed professional
 
@@ -721,6 +733,9 @@ Nathan says something
 | `[[Cart KB 09 — Health and Medical]]` | Healthcare cost optimization |
 | `[[Cart KB 10 — Real Estate Wedding Kids Secondhand]]` | Major life purchases |
 | `[[Cart KB 11 — Seasonal and Luxury]]` | Timing, outlet myths, luxury alternatives |
+| `[[Cart KB 12 — Tools and Workshop Equipment]]` | Tool purchase, power tool, hand tool, workshop, battery platform, drill, saw questions |
+| `[[Cart KB 13 — Purchase Decision Framework]]` | "Should I buy this?", cost per use, impulse purchase, need vs want, repair vs replace questions |
+| `[[Cart KB 14 — Nashville-Specific Shopping Intelligence]]` | Nashville store, Tennessee tax, tax-free weekend, local deal, where to buy in Nashville questions |
 | `[[CART_MEMORY]]` | Purchase patterns, brand performance, deal quality |
 | `[[Cart Session State]]` | Active price watches, pending recommendations |
 
@@ -730,8 +745,8 @@ Nathan says something
 
 | Trigger | Model |
 |---------|-------|
-| "best price for", "where to buy", "is this a good deal", "coupon for", "promo code" | Local |
-| "should I buy", "compare these options", "subscription audit", "timing for [major purchase]" | Cloud (Sonnet) |
+| "best price for", "where to buy", "is this a good deal", "coupon for", "promo code", "best drill", "what battery platform", "Ryobi vs DeWalt", "where to buy tools", "Nashville tax", "tax-free weekend", "ALDI vs Kroger Nashville" | Local |
+| "should I buy", "compare these options", "subscription audit", "timing for [major purchase]", "should I buy this tool", "workshop setup plan", "tool collection strategy", "is this purchase worth it", "cost per use", "repair or replace", "subscription audit", "Nashville internet provider comparison" | Cloud (Sonnet) |
 
 **Session State Note:** `[[Cart Session State]]`
 

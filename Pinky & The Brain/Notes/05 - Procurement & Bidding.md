@@ -158,6 +158,8 @@ Items requiring early ordering due to extended fabrication/delivery times:
 - [ ] Contract form selected and negotiated (see [[Contract Types & Structures]])
 - [ ] Insurance requirements specified and certificates received
 - [ ] Bonding requirements met (payment bond, performance bond)
+- For insurance specification and COI review standards, see [[Insurance & Bonding During Construction]]
+- For VE during bid evaluation (when bids exceed budget), see [[Value Engineering Framework]]
 - [ ] Schedule of values submitted and approved (see [[Financial Management & Billing]])
 - [ ] Retainage terms established
 - [ ] Change order process defined
@@ -190,3 +192,10 @@ Items requiring early ordering due to extended fabrication/delivery times:
 3. Long-lead items identified and ordered (or purchase orders pending)
 4. Insurance and bonding in place
 5. Schedule of values submitted
+
+
+---
+
+## Related
+
+- [[Subcontractor Default & Replacement]] — Pre-qualification standards and bonding requirements to prevent sub default

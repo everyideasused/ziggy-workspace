@@ -38,17 +38,19 @@ A knowledge base turns a chatbot into a specialist.
 
 ### Current Agent Status
 
-| Agent | Level | KB Status | Phase 4 Integration |
-|-------|-------|-----------|-------------------|
-| Ziggy | ✅ Active | System context | N/A |
+| Agent | Level | KB Status | Notes |
+|-------|-------|-----------|-------|
+| Ziggy | ✅ Active | System context | N/A — orchestrator |
 | Atlas | 3 | Construction PM KB — 28 notes, full lifecycle | ✅ Complete |
+| Tally | 2 | Estimator KB — full reasoning protocol, output formats, CSI index | ✅ Complete |
 | Ledger | 2 | Personal Finance KB — 12 notes, full lifecycle | ✅ Complete |
 | Hammer | 2 | Carpenter & GC KB — 14 notes, full craft/execution domain | ✅ Complete |
-| Iron | 1.5 | V-Shape program docs exist, no structured domain KB | Pending |
-| Sage | 1.5 | Meal planning workflow exists, no nutrition science KB | Pending |
-| Spin | 1 | No KB — general model knowledge only | Pending |
-| Compass | 1 | No KB — relies on web search | Pending |
-| Forge | 1.5 | Project-specific docs exist, no architecture patterns KB | Pending |
+| Sage | 2 | Nutrition & Culinary KB — 17 notes, PhD-level nutrition + Michelin-star culinary | ✅ Complete |
+| Cart | 2 | Shopping Assistant KB — 11 modules, 161 KB, purchase research | ✅ Complete |
+| Iron | 1.5 | Nathan 170@12 program docs + 6 Iron KB notes exist, no structured domain KB | Pending |
+| Forge | 1.5 | Foundational KB exists (595 lines), coding patterns + system design | Review needed |
+| Spin | 1.5 | Music Agent KB exists (SPIN — Music Agent KB.md) | Review needed |
+| Compass | 1 | Travel Agent KB exists (COMPASS — Travel Agent KB.md) — depth unknown | Review needed |
 
 *Update this table as KBs are built.*
 
@@ -253,6 +255,121 @@ tags:
 
 ---
 
+## KB Ingestion Variant — When the Knowledge Already Exists
+
+Sometimes the knowledge base content arrives pre-built: a PDF dump from a course, a research session output, notes from a consultant, or content generated in a Claude.ai project. This variant adapts the standard build process for existing material.
+
+### When to Use This Variant
+
+- Nathan provides a document, PDF, or set of notes and says "turn this into a KB"
+- A Claude.ai project session produces structured domain knowledge
+- Research output from web search needs to be formalized into the vault
+- A course or certification produces reference material worth preserving
+
+### Ingestion Process
+
+**Step 1: Triage (10 min)**
+1. Read the source material completely
+2. Identify the domain — does it map to an existing agent's scope?
+3. Assess quality — is it expert-level, or does it need enrichment?
+4. Assess structure — is it already in atomic topics, or one monolithic document?
+
+**Decision point:** 
+→ If it maps to an existing agent, go to Step 2A (Expand). 
+→ If it's a new domain, go to Step 2B (New Agent). 
+→ See "Expand vs. New Agent" decision framework below.
+
+**Step 2A: Expand Existing Agent KB**
+1. Map source topics to existing KB notes — what's new vs. what overlaps?
+2. For overlapping topics: merge new content into existing domain notes (don't duplicate)
+3. For new topics: create new domain notes following the Standard Note Structure
+4. Update the Master Reference to include new notes
+5. Update the agent's "Vault Reference Notes" table in the Agent Registry
+6. Skip to Step 4
+
+**Step 2B: Create New Agent from Source Material**
+1. Follow the standard KB Build Process from Phase 1 (Scoping)
+2. Use the source material as research input — don't just copy-paste
+3. Restructure into atomic domain notes (one topic per note)
+4. Calibrate to Nathan's current stage and goals
+5. Create the agent profile, session state, dispatch entry — full Phase 4
+
+**Step 3: Quality Enrichment**
+For each domain note created from external sources:
+- [ ] Add decision frameworks (the source probably has facts but not "how to decide")
+- [ ] Add Nathan's context section (calibrate to his situation)
+- [ ] Add quantified benchmarks/thresholds where possible
+- [ ] Add wikilinks to related vault notes
+- [ ] Ensure frontmatter is complete with proper `[domain]-kb` tag
+- [ ] Verify self-contained readability
+
+**Step 4: Standard Installation**
+Follow Phase 3 (Installation) through Phase 5 (Verification) from the standard process.
+
+### Quality Heuristic
+
+Source material quality determines enrichment effort:
+
+| Source Quality | Enrichment Needed | Example |
+|---|---|---|
+| Expert reference (textbook, professional guide) | Low — restructure and calibrate | Construction code reference, financial planning guide |
+| Good overview (course notes, blog series) | Medium — add depth, frameworks, numbers | Online course notes, podcast summaries |
+| Raw notes (conversation logs, brainstorm) | High — needs full rewrite into structured KB | Claude.ai session output, meeting notes |
+
+---
+
+## Expand vs. New Agent — Decision Framework
+
+When new knowledge arrives, decide whether to expand an existing agent or create a new one.
+
+### Decision Tree
+
+```
+New domain knowledge arrives
+│
+├── Does it overlap >50% with an existing agent's scope?
+│   YES → Expand that agent's KB
+│   NO  → Continue
+│
+├── Would Ziggy's dispatch table route these questions to an existing agent?
+│   YES → Expand that agent (even if overlap is <50% — routing coherence matters)
+│   NO  → Continue
+│
+├── Would it need its own unique dispatch keywords?
+│   YES → New agent
+│   NO  → Continue
+│
+├── Is the domain large enough to justify 5+ KB notes?
+│   YES → New agent
+│   NO  → Add as 1-2 resource notes under the closest agent or Ziggy
+│
+└── Default: Ask Nathan. Present the trade-offs:
+    - New agent = cleaner routing + dedicated session state + domain-specific memory
+    - Expanding = less maintenance overhead + simpler dispatch table + fewer agents to track
+```
+
+### Examples
+
+| Knowledge | Decision | Reasoning |
+|---|---|---|
+| Advanced vegan baking techniques | Expand Sage | Clearly within Sage's culinary scope |
+| Home networking & server setup | Expand Forge | Technical infrastructure falls under engineering |
+| Dog training methodology | New agent or Ziggy resource | New domain, no existing agent fits, probably <5 notes |
+| Real estate investing strategy | Expand Ledger | Financial domain, Ledger already covers investment strategy |
+| Photography & visual arts | New agent | Distinct creative domain, unique dispatch keywords, 5+ topics |
+
+### Maintenance Cost Check
+
+Before creating a new agent, verify willingness to maintain:
+- [ ] Session state note (checked weekly)
+- [ ] Learning log (updated on Fridays via heartbeat)
+- [ ] KB review cadence (at least annually)
+- [ ] Dispatch table entry (routing tested)
+
+If the answer to any is "probably not" — make it resource notes under Ziggy instead.
+
+---
+
 ## KB Maintenance
 
 ### When to Update a KB
@@ -287,6 +404,9 @@ Every KB uses a consistent tag pattern:
 | Construction PM | `construction-kb` | work | `database` |
 | Personal Finance | `finance-kb` | finances | `resource` |
 | Carpenter/GC | `carpenter-kb` | work + household | `resource` |
+| Estimating | `estimating-kb` | work | `resource` |
+| Shopping | `shopping-kb` | household | `resource` |
+| Music | `music-kb` | interests | `resource` |
 | Travel | `travel-kb` | interests | `resource` |
 | Engineering | `engineering-kb` | system | `resource` |
 | Fitness Science | `fitness-kb` | health | `resource` |
@@ -352,3 +472,7 @@ Copy this checklist when starting a new KB build:
 ---
 
 *This process note should be updated as lessons are learned from building future KBs.*
+
+---
+
+Created by: Ziggy · AI: anthropic/claude-sonnet-4-5-20250929

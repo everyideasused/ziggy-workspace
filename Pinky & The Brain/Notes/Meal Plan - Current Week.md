@@ -1,57 +1,78 @@
 ---
 type: meal-plan
 area: household
-week_of: "2026-03-02"
+week_of: "2026-03-08"
 status: active
-recipes:
-  - "[[Tofu Stir Fry]]"
-  - "[[Black Bean Tempeh Tacos]]"
-  - "[[Mediterranean Chickpea Pasta Salad]]"
-  - "[[Coconut Chickpea Curry]]"
 tags:
-  - household
-  - meal-plan
+  - meal-planning
+  - vegan
+  - weekly
 ---
 
-> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
-
----
-
-# 📅 Meal Plan — Week of March 2, 2026
-
-**Week:** 2026-03-02
+> [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]] · [[Recipe Index]] · [[Grocery List - Week of Mar 8|🛒 This Week's List]]
 
 ---
 
-## 🍽️ This Week's Dinners
+# 🍽️ Meal Plan — Week of March 8, 2026
 
-- [date:: 2026-03-02] **[[Tofu Stir Fry]]** | Asian | 20 min | 12g protein | Quick weeknight meal, serve with rice
-- [date:: 2026-03-03] _Skipped - meal pushed to Wednesday_
-- [date:: 2026-03-04] **[[Black Bean Tempeh Tacos]]** | Mexican | 30 min | 10g per taco | Make extra for leftovers
-- [date:: 2026-03-05] **[[Mediterranean Chickpea Pasta Salad]]** | Mediterranean | 30 min | 13g protein | Can be served cold, great for meal prep
-- [date:: 2026-03-06] **[[Coconut Chickpea Curry]]** | Indian | 45 min | 7g + rice | One-pot, don't skip the lime!
+**Status:** Ready for Grocery List  
+**Meals Selected:** 5 dinners
+
+---
+
+## 🗓️ This Week's Meals
+
+- [date:: 2026-03-08] **[[Recipe - Tempeh Taco Bowl|Tempeh Taco Bowl]]** | Mexican | 20 min | 30g protein | ⭐ MEAL PREP TODAY
+- [date:: 2026-03-08] **[[Recipe - Lentil Bolognese|Lentil Bolognese]]** | Italian | 30 min | 35g protein | ⭐ MEAL PREP TODAY
+- [date:: 2026-03-08] **[[Recipe - White Bean Minestrone|White Bean Minestrone]]** | Italian | 35 min | 32g protein | ⭐ MEAL PREP TODAY
+- [date:: 2026-03-09] **[[Recipe - Thai Green Curry|Thai Green Curry]]** | Thai | 25 min | Good protein | Fresh cook Monday
+- [date:: 2026-03-10] **[[Recipe - Tempeh Taco Bowl|Tempeh Taco Bowl]]** | Mexican | Reheat | 30g protein | From freezer
+- [date:: 2026-03-11] **[[Recipe - Black Bean & Sweet Potato Tacos|Black Bean & Sweet Potato Tacos]]** | Mexican | 25 min | 30g protein | Fresh cook Wednesday
+- [date:: 2026-03-12] **[[Recipe - Lentil Bolognese|Lentil Bolognese]]** | Italian | Reheat | 35g protein | From freezer
+- [date:: 2026-03-13] **[[Recipe - White Bean Minestrone|White Bean Minestrone]]** | Italian | Reheat | 32g protein | From freezer
+
+---
+
+## 🍳 Sunday Meal Prep Plan (Today)
+
+**Batch cook these 3 recipes (~85 min total):**
+
+1. **Tempeh Taco Bowl** (20 min)
+   - Make 2-3 portions
+   - Store in freezer-safe containers
+   - Reheat Tuesday
+
+2. **Lentil Bolognese** (30 min)
+   - Make 2-3 portions
+   - Store in freezer-safe containers
+   - Reheat Thursday
+
+3. **White Bean Minestrone** (35 min)
+   - Make 2-3 portions (soup freezes great!)
+   - Store in freezer-safe containers
+   - Reheat Friday
+
+**Storage tip:** Label containers with recipe name + reheat date
 
 ---
 
 ## 📝 Notes
 
-- First week of new meal planning system!
-- All recipes are vegan, quick (≤45 min), and high-protein
-- Pasta salad and curry are great for meal prep (5 days storage)
-- Stir fry and tacos best made fresh
+- **3 freezer meals** prepped today = easy weeknight dinners Tue/Thu/Fri
+- **2 fresh meals** (Mon/Wed) = 25 min cook time
+- Saturday is open for leftovers or eating out
+- Total protein: ~160g across 5 dinners
 
 ---
 
-## 🔗 Quick Actions
+## ⏭️ Next Steps
 
-- [[Recipe Index|Browse Recipe Index]]
-- Grocery list: [[Grocery List - Week of Mar 2]]
-- [[Grocery Lists|View All Grocery Lists]]
+1. ✅ Recipes selected & scheduled
+2. ✅ Grocery list ready → [[Grocery List - Week of Mar 8|🛒 Shop from this list]]
+3. [ ]  Shop (today or tomorrow)
+4. [ ]  Meal prep Sunday (batch cook 3 recipes)
 
 ---
 
-## 🔗 Related
-
-- [[Recipe Index|🍳 Recipes]]
-- [[Household Hub|Household Hub]]
-- [[Recipe to Grocery List - Process|📋 Process Documentation]]
+_Updated: 2026-03-08_  
+_For: Week of March 8-14, 2026_

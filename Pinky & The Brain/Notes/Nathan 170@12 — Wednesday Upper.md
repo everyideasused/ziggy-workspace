@@ -138,16 +138,48 @@ created: 2026-03-06
 
 ---
 
-## Cool-down (3 min)
+## Post-Workout Stretching (10 min) — Upper Body Focus
 
-1. **Doorway Chest Stretch** — 60 sec  
-   *Purpose:* Pec stretch, shoulder mobility
+**See:** [[Nathan 170@12 — Stretching Protocol#Wednesday — Post-Upper Body (10 min)|Full stretching guide]]
 
-2. **Cross-body Shoulder Stretch** — 30 sec per arm  
-   *Purpose:* Rear delt / rotator cuff stretch
+**Hold each stretch 30-60 seconds. Breathe deeply. Pain-free range only.**
 
-3. **Tricep Overhead Stretch** — 30 sec per arm  
-   *Purpose:* Tricep + lat stretch
+1. **Doorway Chest Stretch** — 60 sec per side
+   - Arm on doorframe at 90°
+   - Step through doorway
+   - Feel stretch across chest
+
+2. **Cross-Body Shoulder Stretch** — 60 sec per arm
+   - Pull arm across chest
+   - Opposite hand on elbow
+   - Feel stretch in rear shoulder
+
+3. **Lat Stretch (Overhead Side Bend)** — 60 sec per side
+   - Reach arm overhead
+   - Bend to opposite side
+   - Feel stretch down side of torso
+
+4. **Tricep Stretch (Overhead)** — 60 sec per arm
+   - Reach overhead, bend elbow
+   - Opposite hand pulls elbow deeper
+   - Feel stretch down back of arm
+
+5. **Thread the Needle** — 60 sec per side
+   - Hands and knees position
+   - Thread one arm under opposite arm
+   - Feel stretch across upper back
+
+6. **Child's Pose with Lat Focus** — 90 sec
+   - Sit back on heels
+   - Walk hands to one side (45 sec each)
+   - Feel lat stretch
+
+7. **Neck Stretch (4-way)** — 30 sec total
+   - Ear to shoulder (left/right)
+   - Chin to chest
+   - Look up slightly
+
+**Total:** ~10 minutes stretching + transition time
 
 ---
 
@@ -177,6 +209,7 @@ created: 2026-03-06
 - Next session adjustments: ___
 
 **Post-workout:**
+- Stretching completed: ☐ (10 min upper body focus)
 - Protein within 2 hours: ___ g
 - Recovery feeling: 1-10 ___
 ```

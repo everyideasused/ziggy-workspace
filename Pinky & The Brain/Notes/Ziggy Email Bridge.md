@@ -6,8 +6,8 @@ client_id: "PERSONAL"
 status: active
 health: green
 priority: high
-start_date: 2026-04-01
-target_date: 2026-05-17
+start_date: 2026-03-11
+target_date: 2026-04-26
 tags:
   - project
   - interests
@@ -38,7 +38,7 @@ next_action: "Verify Proton Mail plan supports Bridge"
 - Full end-to-end test: Smartsheet change → email → parse → vault update in under 10 minutes
 - System runs unattended for 7 consecutive days without failure
 
-**Deadline:** May 17, 2026 (7 weeks from start)
+**Deadline:** April 26, 2026 (7 weeks from start)
 
 **Architecture Reference:** [[Ziggy Email Bridge Architecture]]
 
@@ -46,46 +46,33 @@ next_action: "Verify Proton Mail plan supports Bridge"
 
 ## 🎯 Milestones
 
-| # | Milestone | Target Date | Status | Depends On |
-|---|-----------|------------|--------|------------|
-| M1 | Infrastructure ready (Bridge + service scaffold) | 2026-04-06 | ⬜ Not Started | — |
-| M2 | Email fetch + attachment download working | 2026-04-13 | ⬜ Not Started | M1 |
-| M3 | All parsers tested with real Smartsheet exports | 2026-04-20 | ⬜ Not Started | M2 |
-| M4 | Vault updater writing to notes correctly | 2026-04-27 | ⬜ Not Started | M3 |
-| M5 | Smartsheet automations live and sending | 2026-05-03 | ⬜ Not Started | M4 |
-| M6 | AI interpretation layer operational | 2026-05-10 | ⬜ Not Started | M4 |
-| M7 | Hardened, monitored, 7-day unattended run complete | 2026-05-17 | ⬜ Not Started | M5, M6 |
+- [ ] **M1: Infrastructure ready** (Bridge + service scaffold) 📅 2026-03-16
+- [ ] **M2: Email fetch + attachment download working** 📅 2026-03-23
+- [ ] **M3: All parsers tested with real Smartsheet exports** 📅 2026-03-30
+- [ ] **M4: Vault updater writing to notes correctly** 📅 2026-04-06
+- [ ] **M5: Smartsheet automations live and sending** 📅 2026-04-12
+- [ ] **M6: AI interpretation layer operational** 📅 2026-04-19
+- [ ] **M7: Hardened, monitored, 7-day unattended run complete** 📅 2026-04-26
 
 ---
 
 ## 📅 Phase Plan
 
-### Phase 1: Foundation — Apr 1–6
+### Phase 1: Foundation — Mar 11–16
 > *Get the plumbing working. Bridge installed, watcher service running, emails being received.*
 
-- [ ] Verify Proton Mail plan supports Bridge (paid plan required)
-- [ ] Download and install Proton Mail Bridge on Mac Mini
-- [ ] Log in with ziggy@mouthygeese.com
-- [ ] Note the bridge password (store in ~/ziggy/.env)
-- [ ] Test IMAP connection manually (Python REPL or telnet to 127.0.0.1:1143)
-- [ ] Create ~/ziggy/ directory structure:
-  ```
-  ~/ziggy/
-  ├── .env
-  ├── ziggy_watcher.py
-  ├── ziggy_parsers.py
-  ├── ziggy_vault_updater.py
-  ├── attachments/
-  ├── processed/
-  ├── logs/
-  └── queue/
-  ```
-- [ ] Write ziggy_watcher.py (email polling loop only — no parsing yet)
-- [ ] Send test email from personal address to ziggy@mouthygeese.com
-- [ ] Confirm watcher detects and logs the email
-- [ ] Create launchd plist at ~/Library/LaunchAgents/com.ziggy.watcher.plist
-- [ ] Load service, verify it starts on login
-- [ ] Verify it survives Mac Mini restart
+- [ ] Verify Proton Mail plan supports Bridge (paid plan required) 📅 2026-03-11
+- [ ] Download and install Proton Mail Bridge on Mac Mini 📅 2026-03-11
+- [ ] Log in with ziggy@mouthygeese.com 📅 2026-03-11
+- [ ] Note the bridge password (store in ~/ziggy/.env) 📅 2026-03-11
+- [ ] Test IMAP connection manually (Python REPL or telnet to 127.0.0.1:1143) 📅 2026-03-12
+- [ ] Create ~/ziggy/ directory structure 📅 2026-03-12
+- [ ] Write ziggy_watcher.py (email polling loop only — no parsing yet) 📅 2026-03-13
+- [ ] Send test email from personal address to ziggy@mouthygeese.com 📅 2026-03-13
+- [ ] Confirm watcher detects and logs the email 📅 2026-03-13
+- [ ] Create launchd plist at ~/Library/LaunchAgents/com.ziggy.watcher.plist 📅 2026-03-14
+- [ ] Load service, verify it starts on login 📅 2026-03-14
+- [ ] Verify it survives Mac Mini restart 📅 2026-03-15
 
 **Phase 1 deliverable:** Watcher service running persistently, successfully detecting new emails and downloading attachments to ~/ziggy/attachments/.
 
@@ -93,28 +80,28 @@ next_action: "Verify Proton Mail plan supports Bridge"
 
 ---
 
-### Phase 2: Parsing — Apr 7–20
+### Phase 2: Parsing — Mar 17–30
 > *Build the brains. Each Smartsheet export type gets its own parser.*
 
-**Week 1 (Apr 7–13): Core parsers**
-- [ ] Export a real Project Master Tracker from Smartsheet as Excel
-- [ ] Export a real Financial Tracker from Smartsheet as Excel
-- [ ] Export a real Permit Tracker from Smartsheet as Excel
-- [ ] Write parse_project_master() — test with real export
-- [ ] Write parse_financial() — test with real export
-- [ ] Write parse_permits() — test with real export
-- [ ] Write route_attachment() — verify routing by filename and subject
-- [ ] Write unit tests for each parser (at least 3 test cases each)
+**Week 1 (Mar 17–23): Core parsers**
+- [ ] Export a real Project Master Tracker from Smartsheet as Excel 📅 2026-03-17
+- [ ] Export a real Financial Tracker from Smartsheet as Excel 📅 2026-03-17
+- [ ] Export a real Permit Tracker from Smartsheet as Excel 📅 2026-03-17
+- [ ] Write parse_project_master() — test with real export 📅 2026-03-18
+- [ ] Write parse_financial() — test with real export 📅 2026-03-19
+- [ ] Write parse_permits() — test with real export 📅 2026-03-20
+- [ ] Write route_attachment() — verify routing by filename and subject 📅 2026-03-21
+- [ ] Write unit tests for each parser (at least 3 test cases each) 📅 2026-03-22
 
-**Week 2 (Apr 14–20): Remaining parsers + edge cases**
-- [ ] Export Issues Log, Change Order Log, Dashboard Metrics from Smartsheet
-- [ ] Write parse_issues()
-- [ ] Write parse_change_orders()
-- [ ] Write parse_dashboard()
-- [ ] Handle edge cases: empty sheets, formula error values (#N/A, #REF), missing columns
-- [ ] Handle both .xlsx and .csv attachment types
-- [ ] Test with intentionally malformed files (missing headers, extra columns)
-- [ ] Wire parsers into watcher — end-to-end: email → download → parse → structured JSON output
+**Week 2 (Mar 24–30): Remaining parsers + edge cases**
+- [ ] Export Issues Log, Change Order Log, Dashboard Metrics from Smartsheet 📅 2026-03-24
+- [ ] Write parse_issues() 📅 2026-03-25
+- [ ] Write parse_change_orders() 📅 2026-03-26
+- [ ] Write parse_dashboard() 📅 2026-03-27
+- [ ] Handle edge cases: empty sheets, formula error values, missing columns 📅 2026-03-28
+- [ ] Handle both .xlsx and .csv attachment types 📅 2026-03-28
+- [ ] Test with intentionally malformed files (missing headers, extra columns) 📅 2026-03-29
+- [ ] Wire parsers into watcher — end-to-end: email → download → parse → structured JSON output 📅 2026-03-30
 
 **Phase 2 deliverable:** All 6 parsers working and tested. Emails arrive, attachments download, data extracts cleanly into structured Python dicts.
 
@@ -122,33 +109,33 @@ next_action: "Verify Proton Mail plan supports Bridge"
 
 ---
 
-### Phase 3: Vault Integration — Apr 21–May 3
+### Phase 3: Vault Integration — Mar 31–Apr 12
 > *Connect the parsers to the actual Obsidian files. This is where it gets real.*
 
-**Week 1 (Apr 21–27): Vault updater core**
-- [ ] Write read_note() and write_note() (frontmatter + body split/merge)
-- [ ] Write find_note_by_project_id() — search vault for matching notes
-- [ ] Write find_note_by_client_id()
-- [ ] Write update_project_phase() — modify frontmatter `phase` field
-- [ ] Write update_project_health() — modify frontmatter `health` field
-- [ ] Write update_project_budget() — modify frontmatter `budget` field
-- [ ] Write append_to_note_section() — add content under a markdown header
-- [ ] Write create_update_log_entry() — append to daily note
-- [ ] Test each function individually against real vault notes
-- [ ] Test the full chain: email → parse → vault update → verify file changed
-- [ ] Verify Syncthing propagates the changes to MacBook and iPhone
+**Week 1 (Mar 31–Apr 6): Vault updater core**
+- [ ] Write read_note() and write_note() (frontmatter + body split/merge) 📅 2026-03-31
+- [ ] Write find_note_by_project_id() — search vault for matching notes 📅 2026-04-01
+- [ ] Write find_note_by_client_id() 📅 2026-04-01
+- [ ] Write update_project_phase() — modify frontmatter `phase` field 📅 2026-04-02
+- [ ] Write update_project_health() — modify frontmatter `health` field 📅 2026-04-02
+- [ ] Write update_project_budget() — modify frontmatter `budget` field 📅 2026-04-03
+- [ ] Write append_to_note_section() — add content under a markdown header 📅 2026-04-03
+- [ ] Write create_update_log_entry() — append to daily note 📅 2026-04-04
+- [ ] Test each function individually against real vault notes 📅 2026-04-05
+- [ ] Test the full chain: email → parse → vault update → verify file changed 📅 2026-04-05
+- [ ] Verify Syncthing propagates the changes to MacBook and iPhone 📅 2026-04-06
 
-**Week 2 (Apr 28–May 3): Smartsheet automations**
-- [ ] Set up Smartsheet automation: Project Master → weekly Friday email
-- [ ] Set up Smartsheet automation: Financial Tracker → monthly 1st email
-- [ ] Set up Smartsheet automation: Permit Tracker → weekly Monday email
-- [ ] Set up Smartsheet automation: Dashboard Metrics → weekly Friday email
-- [ ] Set up Smartsheet automation: Issues Log → daily 6pm email
-- [ ] Set up Smartsheet automation: Change Order Log → on status change email
-- [ ] Verify all 6 automations send correctly to ziggy@mouthygeese.com
-- [ ] Run full integration test: wait for a real scheduled email, verify vault updates
-- [ ] Fix any subject line routing issues
-- [ ] Fix any attachment format issues
+**Week 2 (Apr 7–12): Smartsheet automations**
+- [ ] Set up Smartsheet automation: Project Master → weekly Friday email 📅 2026-04-07
+- [ ] Set up Smartsheet automation: Financial Tracker → monthly 1st email 📅 2026-04-07
+- [ ] Set up Smartsheet automation: Permit Tracker → weekly Monday email 📅 2026-04-08
+- [ ] Set up Smartsheet automation: Dashboard Metrics → weekly Friday email 📅 2026-04-08
+- [ ] Set up Smartsheet automation: Issues Log → daily 6pm email 📅 2026-04-09
+- [ ] Set up Smartsheet automation: Change Order Log → on status change email 📅 2026-04-09
+- [ ] Verify all 6 automations send correctly to ziggy@mouthygeese.com 📅 2026-04-10
+- [ ] Run full integration test: wait for a real scheduled email, verify vault updates 📅 2026-04-11
+- [ ] Fix any subject line routing issues 📅 2026-04-11
+- [ ] Fix any attachment format issues 📅 2026-04-12
 
 **Phase 3 deliverable:** Real Smartsheet data flowing into the vault on schedule. Project notes auto-updating. Daily note showing what changed.
 
@@ -156,22 +143,19 @@ next_action: "Verify Proton Mail plan supports Bridge"
 
 ---
 
-### Phase 4: AI Layer — May 4–10
+### Phase 4: AI Layer — Apr 13–19
 > *Optional but valuable. Add intelligence to the data flow.*
 
-- [ ] Install/verify Ollama is running on Mac Mini with a suitable model (llama3.2 or mistral)
-- [ ] Write ziggy_ai.py with call_ollama() helper function
-- [ ] Implement health assessment prompt: given project data, should health change?
-- [ ] Implement anomaly detection: flag budget variances >10%
-- [ ] Implement permit delay alerting: flag permits with >30 days in review
-- [ ] Create the review queue system:
-  - AI suggestions write to ~/ziggy/queue/ as JSON files
-  - Each file contains: what Ziggy recommends, the data behind it, and a "confirm/reject" field
-  - Build a simple script to review and apply queued changes
-- [ ] Test AI assessments against known project scenarios
-- [ ] Optional: Add weekly summary generation via Claude API (Sonnet)
-  - Summarize all changes across the portfolio for the week
-  - Write summary to a "Weekly Ziggy Briefing" note in the vault
+- [ ] Install/verify Ollama is running on Mac Mini with a suitable model (llama3.2 or mistral) 📅 2026-04-13
+- [ ] Write ziggy_ai.py with call_ollama() helper function 📅 2026-04-14
+- [ ] Implement health assessment prompt: given project data, should health change? 📅 2026-04-15
+- [ ] Implement anomaly detection: flag budget variances >10% 📅 2026-04-15
+- [ ] Implement permit delay alerting: flag permits with >30 days in review 📅 2026-04-16
+- [ ] Create the review queue system 📅 2026-04-16
+- [ ] Test AI assessments against known project scenarios 📅 2026-04-17
+- [ ] Optional: Add weekly summary generation via Claude API (Sonnet) 📅 2026-04-18
+- [ ] Summarize all changes across the portfolio for the week 📅 2026-04-18
+- [ ] Write summary to a "Weekly Ziggy Briefing" note in the vault 📅 2026-04-19
 
 **Phase 4 deliverable:** AI layer providing health change suggestions and anomaly alerts. Review queue operational for human-in-the-loop decisions.
 
@@ -179,26 +163,25 @@ next_action: "Verify Proton Mail plan supports Bridge"
 
 ---
 
-### Phase 5: Hardening — May 11–17
+### Phase 5: Hardening — Apr 20–26
 > *Make it bulletproof. This is what separates a hack from a system.*
 
-- [ ] Add retry logic: if IMAP connection fails, retry 3x with backoff
-- [ ] Add error handling: malformed attachments don't crash the service
-- [ ] Add log rotation (keep 30 days of logs, auto-delete older)
-- [ ] Add monitoring: if watcher hasn't processed an email in 48 hours, alert via email
-- [ ] Add self-healing: if launchd restarts the service, it picks up where it left off
-- [ ] Add a "heartbeat" log entry every hour so you can verify it's alive
-- [ ] Test failure scenarios:
-  - [ ] Proton Bridge not running → watcher retries gracefully
-  - [ ] Malformed Excel file → parser logs error, skips file, continues
-  - [ ] Vault note doesn't exist for a project ID → logs warning, doesn't crash
-  - [ ] Disk full → graceful error before corruption
-  - [ ] Mac Mini reboots → service auto-starts, Bridge auto-starts, resumes
-- [ ] Run unattended for 7 consecutive days
-- [ ] Review logs daily during the 7-day test
-- [ ] Fix any issues found during the 7-day run
-- [ ] Document any operational procedures (how to restart, how to debug, how to add a new parser)
-- [ ] Update [[Ziggy Email Bridge Architecture]] with any changes made during build
+- [ ] Add retry logic: if IMAP connection fails, retry 3x with backoff 📅 2026-04-20
+- [ ] Add error handling: malformed attachments don't crash the service 📅 2026-04-20
+- [ ] Add log rotation (keep 30 days of logs, auto-delete older) 📅 2026-04-21
+- [ ] Add monitoring: if watcher hasn't processed an email in 48 hours, alert via email 📅 2026-04-21
+- [ ] Add self-healing: if launchd restarts the service, it picks up where it left off 📅 2026-04-22
+- [ ] Add a "heartbeat" log entry every hour so you can verify it's alive 📅 2026-04-22
+- [ ] Test failure scenario: Proton Bridge not running → watcher retries gracefully 📅 2026-04-23
+- [ ] Test failure scenario: Malformed Excel file → parser logs error, skips file, continues 📅 2026-04-23
+- [ ] Test failure scenario: Vault note doesn't exist for a project ID → logs warning, doesn't crash 📅 2026-04-23
+- [ ] Test failure scenario: Disk full → graceful error before corruption 📅 2026-04-24
+- [ ] Test failure scenario: Mac Mini reboots → service auto-starts, Bridge auto-starts, resumes 📅 2026-04-24
+- [ ] Run unattended for 7 consecutive days 📅 2026-04-25
+- [ ] Review logs daily during the 7-day test 📅 2026-04-25
+- [ ] Fix any issues found during the 7-day run 📅 2026-04-25
+- [ ] Document any operational procedures (how to restart, how to debug, how to add a new parser) 📅 2026-04-26
+- [ ] Update Architecture doc with any changes made during build 📅 2026-04-26
 
 **Phase 5 deliverable:** System runs unattended for 7 days with zero failures. Operational runbook documented.
 
@@ -231,6 +214,11 @@ next_action: "Verify Proton Mail plan supports Bridge"
 ---
 
 ## 📝 Notes & Decisions
+
+### 2026-03-08
+- Project timeline updated: Start date moved to March 11, 2026
+- All tasks now have due dates and will surface on daily notes
+- Completion target: April 26, 2026 (7 weeks)
 
 ### 2026-02-28
 - Designed full architecture with Claude. Architecture doc created: [[Ziggy Email Bridge Architecture]]

@@ -6,7 +6,7 @@ target_per_day: 1
 streak: 0
 best_streak: 0
 start_date: 2026-03-01
-status: active
+status: retired
 tags:
   - habit
   - health

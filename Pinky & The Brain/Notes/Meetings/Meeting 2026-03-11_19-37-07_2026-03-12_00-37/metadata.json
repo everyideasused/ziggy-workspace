@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "meeting_id": null,
+  "meeting_name": "Meeting 2026-03-11_19-37-07",
+  "created_at": "2026-03-12T00:37:07.876050+00:00",
+  "completed_at": "2026-03-12T00:37:55.461375+00:00",
+  "duration_seconds": 43.54,
+  "devices": {
+    "microphone": "MacBook Air Microphone",
+    "system_audio": "MacBook Air Speakers"
+  },
+  "audio_file": "audio.mp4",
+  "transcript_file": "transcripts.json",
+  "sample_rate": 48000,
+  "status": "completed"
+}

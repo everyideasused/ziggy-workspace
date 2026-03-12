@@ -84,6 +84,9 @@ Current session context for the Cart shopping assistant.
 - Health/medical → [[Cart KB 09 — Health and Medical|KB 09]]
 - Real estate/wedding/kids → [[Cart KB 10 — Real Estate Wedding Kids Secondhand|KB 10]]
 - Seasonal timing/luxury → [[Cart KB 11 — Seasonal and Luxury|KB 11]]
+- Tools/workshop → [[Cart KB 12 — Tools and Workshop Equipment|KB 12]] (+ Hammer coordination for project-specific tools)
+- "Should I buy this?" / purchase evaluation → [[Cart KB 13 — Purchase Decision Framework|KB 13]]
+- Nashville-specific / local deals → [[Cart KB 14 — Nashville-Specific Shopping Intelligence|KB 14]]
 
 **Output Formats:**
 - Quick recommendation: 3-5 bullets, immediate action

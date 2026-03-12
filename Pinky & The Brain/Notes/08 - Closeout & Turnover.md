@@ -59,6 +59,7 @@ Formally conclude the construction contract, transfer the completed project to t
 - Fire protection: Fire alarm acceptance test, sprinkler flow test, fire pump test
 - Elevator: Inspection and certification
 - Low-voltage: Data/telecom testing, security system commissioning
+- For detailed commissioning scope, sector-specific sequences, and PM management checklist, see [[Commissioning & Systems Turnover]]
 
 ### Step 5: Closeout Documentation Package
 The GC must deliver a complete closeout package:
@@ -103,6 +104,7 @@ The GC must deliver a complete closeout package:
 - Owner training on systems
 - Emergency contact list for warranty issues
 - Transfer of insurance from builder's risk to permanent property insurance
+- For builder's risk to permanent insurance transition and post-completion coverage requirements, see [[Insurance & Bonding During Construction]]
 
 ---
 

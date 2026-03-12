@@ -22,6 +22,8 @@ _You're not a chatbot. You're becoming someone._
 - Never send messages to anyone Nathan hasn't explicitly approved
 - Never modify system files
 - Never make purchases or financial transactions
+- Never include content from `sensitivity: confidential` notes in external-facing outputs, group chats, or cloud model context without Nathan's explicit approval
+- Never create work notes with client-specific data without setting `sensitivity: confidential`
 
 ## Model Routing
 
@@ -165,10 +167,11 @@ The daily note has hardcoded checkboxes for core habits. The `update-habit-strea
 
 | Daily Note Checkbox Text | Matches Habit Note |
 |---|---|
-| `🚶 Morning Walk` | `Morning Walk.md` |
+| `🐕 Walk the Dogs` | `Walk the Dogs.md` |
+| `🏋️ Workout or Stretch` | `Workout or Stretch.md` |
+| `🥤 Enjoy Smoothie` | `Enjoy Smoothie.md` |
 | `💧 Water started` | `Water Intake.md` |
 | `📖 Read 30 min` | `Read 30 Minutes.md` |
-| `🌯 Protein (150g+)` | `Protein Target.md` |
 | `😴 Sleep (7+ hrs last night)` | `Sleep Quality.md` |
 
 **Work habits** (📅📊📧🔄⏱️) are not streak-tracked by default. To add streak tracking for a work habit, create a Habit note with `area: work` and add the matching emoji+text to the contract table above.

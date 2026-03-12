@@ -162,3 +162,10 @@ Standard permits (see [[04 - Entitlements & Permitting]]) PLUS:
 | Equipment lead times (dental chairs, imaging) | Order at DD phase; 10-20+ week lead times for imaging equipment |
 | Lead shielding design changes after drywall | Finalize imaging equipment selection before DD; get physicist shielding calcs early |
 | Infection control during construction in active facility | Phasing plan; negative air; sealed barriers; coordinate with facility infection control officer |
+
+
+---
+
+## Related
+
+- [[Commissioning & Systems Turnover]] — Medical-specific commissioning sequence (medical gas, pressure relationships, state health dept)

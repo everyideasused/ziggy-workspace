@@ -30,6 +30,9 @@ Master index for the Cart shopping assistant agent. 11 knowledge base modules co
 | [[Cart KB 09 — Health and Medical\|09 — Health and Medical]] | Healthcare costs | 8 KB | In-network, HSA, comparison shopping |
 | [[Cart KB 10 — Real Estate Wedding Kids Secondhand\|10 — Real Estate Wedding Kids Secondhand]] | Major life purchases | 16 KB | Closing costs, wedding markup, kid gear depreciation |
 | [[Cart KB 11 — Seasonal and Luxury\|11 — Seasonal and Luxury]] | Timing, psychology | 9 KB | Black Friday reality, outlet myths, luxury alternatives |
+| [[Cart KB 12 — Tools and Workshop Equipment\|12 — Tools & Workshop Equipment]] | Power tools, hand tools, workshop | 19 KB | Brand tiers, battery platforms, buy vs rent, workshop setup |
+| [[Cart KB 13 — Purchase Decision Framework\|13 — Purchase Decision Framework]] | Meta-decision making | 16 KB | Cost-per-use, cognitive biases, need/want/aspiration, TCO |
+| [[Cart KB 14 — Nashville-Specific Shopping Intelligence\|14 — Nashville Shopping]] | Local intelligence | 18 KB | TN sales tax, Nashville stores, tax-free weekend, local deals |
 
 ## Usage by Purchase Type
 
@@ -44,7 +47,9 @@ Master index for the Cart shopping assistant agent. 11 knowledge base modules co
 | Medical procedure | 09 | 07 |
 | Wedding planning | 10 | 03, 11 |
 | Black Friday deals | 11 | 03 |
-| Any purchase >$100 | 03 | Category-specific |
+| Tool/workshop purchase | 12 | 06 (if contractor install needed) |
+| Any purchase over $100 | 13 | Category-specific |
+| Nashville-specific pricing/timing | 14 | Category-specific |
 
 ## Core Operating Principles
 
@@ -54,6 +59,9 @@ Master index for the Cart shopping assistant agent. 11 knowledge base modules co
 4. **Audit subscriptions quarterly** — $30/month = $360/year (Module 04)
 5. **Three bids minimum** — Home services, contractors, major repairs (Module 06)
 6. **Calculate total cost of ownership** — Not just purchase price (Modules 05, 07)
+7. **Cost per use, not sticker price** — A $300 item used 300 times beats a $30 item used twice (Module 13)
+8. **Pick a battery platform and commit** — Switching costs are real (Module 12)
+9. **9.25% Nashville sales tax is your invisible enemy** — Time purchases around tax-free events (Module 14)
 
 ## Agent Integration
 

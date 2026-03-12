@@ -43,6 +43,7 @@ Bridge between contract execution and the first day of physical construction. Es
 - Develop **3-week look-ahead schedules** (rolling short-interval schedules)
 - Coordinate specialty sub schedules into master schedule
 - Identify **schedule constraints** (weather, delivery, inspections, owner move-in)
+- For schedule specification requirements and baseline review standards, see [[Schedule Specification & Analysis Methods]]
 
 ### Submittal Process Initiation
 - GC submits **submittal schedule** (list of all submittals required with planned dates)

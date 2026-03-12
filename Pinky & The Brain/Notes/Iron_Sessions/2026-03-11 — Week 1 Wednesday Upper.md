@@ -23,7 +23,7 @@ date: 2026-03-11
 - Protein yesterday: ___ g
 
 **Main Work:**
-- Push-up: ___ reps × ___ sets | RPE ___
+- Push-up: 8 reps × 3 sets | RPE 6
 - KB Row: ___ kg × ___ reps/side × 3 sets | RPE ___
 - KB Overhead Press: ___ kg × ___ reps/side × 3 sets | RPE ___
 - Pike Push-up: ___ reps × ___ sets | RPE ___

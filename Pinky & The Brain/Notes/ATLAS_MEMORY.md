@@ -17,6 +17,8 @@ tags:
 
 > **Purpose:** Atlas's persistent memory layer for project lessons learned, AHJ intelligence, vendor performance notes, and decision patterns. Auto-updated after project milestones, issue resolution, and permit outcomes. Used to improve future project advisory and risk identification.
 
+> **Capture Workflow:** See [[Lessons Learned Capture Workflow]] for triggers, formats, and review cadence.
+
 ---
 
 ## Active Project Context

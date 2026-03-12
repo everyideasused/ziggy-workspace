@@ -240,7 +240,7 @@ short mode
 ```
 
 # Recurring task example
-- [ ] Weekly Review 📅 2026-03-15 🔁 every week
+- [ ] Weekly Review 🔁 every week 📅 2026-03-15
 ```
 
 ### Vault Toolkit Updates
@@ -354,8 +354,7 @@ These stay LOCAL to the note where you wrote them. They never appear on any dail
 
 **2. Scheduled tasks (with due date)**
 ```
-- [ ] Call the electrician [due:: 2026-03-10]
-- [ ] Submit report 📅 2026-03-10
+
 ```
 These surface on the daily note for that date. If missed, they roll into "Overdue."
 

@@ -18,7 +18,7 @@ tags:
 
 ## 📋 Current Week
 
-**Active:** [[Grocery List - Week of Mar 2]]
+**Active:** [[Grocery List - Week of Mar 8]]
 
 ---
 

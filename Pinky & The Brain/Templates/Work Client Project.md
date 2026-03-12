@@ -10,6 +10,7 @@ contract_end:
 retainer: 
 billing_rate: 
 status: active
+sensitivity: internal
 health: green
 priority: normal
 start_date: <% tp.date.now("YYYY-MM-DD") %>
@@ -136,4 +137,4 @@ LIMIT 15
 
 ---
 
-<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-5-20250929"); %>

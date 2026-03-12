@@ -69,6 +69,24 @@ tags:
 
 ---
 
+## 🔧 System Maintenance
+
+### Security Tasks
+
+- [ ] 🔐 Quarterly Credential Rotation 📅 2026-06-08 🔁 every 3 months
+- [ ] 🔐 Implement agent-scoped exec permissions (see [[Agent Registry]] security section) 📅 2026-04-07
+
+**Rotation Checklist:**
+
+| Credential | Location | How to Rotate |
+|---|---|---|
+| GitHub Personal Access Token | macOS Keychain | GitHub → Settings → Developer Settings → Tokens → Regenerate |
+| NoteDiscovery password | `~/.openclaw/secrets/notediscovery.txt` | Change in NoteDiscovery container config + update secrets file |
+| Spotify OAuth token | `~/.openclaw/spotify_cache.json` | Delete cache file → re-run `ziggy-spotify` to trigger re-auth |
+| OpenRouter API key | OpenClaw config | Regenerate at openrouter.ai → update `~/.openclaw/openclaw.json` |
+
+---
+
 ## 📋 Related Hubs
 
 - [[Ziggy Hub]] — AI conversation archive
@@ -77,4 +95,5 @@ tags:
 ---
 
 *Created: 2026-03-06*  
+*Updated: 2026-03-08 (Security tasks added)*  
 *Created by: Ziggy · AI: anthropic/claude-sonnet-4-5-20250929*

@@ -61,15 +61,45 @@ target-completion: 2026-12-01
 
 ## Weekly Training Schedule
 
-| Day | Focus | Duration | Type |
-|-----|-------|----------|------|
-| **Monday** | Lower Strength | 30 min | Kettlebell + Calisthenics |
-| **Tuesday** | Conditioning + Pull | 30 min | Walk/Run + Pull-up Work |
-| **Wednesday** | Upper Strength | 30 min | Kettlebell + Calisthenics |
-| **Thursday** | Conditioning + Mobility | 30 min | Walk/Run + Skill Work |
-| **Friday** | Full Body | 30 min | Kettlebell + Calisthenics |
-| **Saturday** | Rest | — | Recovery |
-| **Sunday** | Rest | — | Recovery |
+| Day | Focus | Duration | Stretching |
+|-----|-------|----------|-----------|
+| **Monday** | Lower Strength | 30 min | 10 min post-workout (lower focus) |
+| **Tuesday** | Conditioning + Pull | 30 min | *(Phase 3: 5-10 min optional)* |
+| **Wednesday** | Upper Strength | 30 min | 10 min post-workout (upper focus) |
+| **Thursday** | Conditioning + Mobility | 30 min | *(Phase 3: 5-10 min optional)* |
+| **Friday** | Full Body | 30 min | 10 min post-workout (full body) |
+| **Saturday** | Rest | — | *(Phase 2: 20-30 min flexibility session)* |
+| **Sunday** | Rest | — | — |
+
+---
+
+## Stretching Protocol — Progressive 3-Phase System
+
+**See:** [[Nathan 170@12 — Stretching Protocol]]
+
+Flexibility work is integrated progressively to enhance recovery, reduce injury risk, and improve movement quality.
+
+### Phase 1 (Weeks 1-4): Post-Workout Stretching
+- **Monday:** 10 min post-workout (lower body focus)
+- **Wednesday:** 10 min post-workout (upper body focus)
+- **Friday:** 10 min post-workout (full body)
+- **Total:** 30 min/week
+
+### Phase 2 (Weeks 5-8): Add Saturday Session
+- Keep M/W/F post-workout stretches
+- **Add Saturday:** 20-30 min dedicated flexibility/mobility (yoga-style)
+- **Total:** 50-60 min/week
+
+### Phase 3 (Weeks 9+): Optional T/Th Addition
+- Keep all Phase 1 & 2 stretching
+- **Add T/Th (optional):** 5-10 min post-conditioning stretch if recovery is good
+- **Total:** 60-80 min/week
+
+**Key principles:**
+- Hold times: 30-60 sec per stretch
+- Breathe deeply (exhale to deepen)
+- Pain-free range only
+- Consistency > intensity
 
 ---
 
@@ -81,6 +111,7 @@ See individual workout templates:
 - [[Nathan 170@12 — Wednesday Upper]]
 - [[Nathan 170@12 — Thursday Conditioning]]
 - [[Nathan 170@12 — Friday Full Body]]
+- [[Nathan 170@12 — Stretching Protocol]]
 
 ---
 
@@ -182,9 +213,9 @@ Complete form guides for:
 ## Next Steps
 
 1. **This weekend:** Review exercise library, watch form videos
-2. **Monday March 10:** Start Week 1 — Monday Lower workout
+2. **Monday March 9:** Start Week 1 — Monday Lower workout
 3. **Coordinate with Sage:** Adjust meal plan to hit 2,400-2,600 cal, 150g+ protein
-4. **Set up tracking:** Create first workout log in `Iron_Sessions/2026-03-10 — Week 1 Monday Lower.md`
+4. **Set up tracking:** Create first workout log in `Iron_Sessions/2026-03-09 — Week 1 Monday Lower.md`
 
 ---
 

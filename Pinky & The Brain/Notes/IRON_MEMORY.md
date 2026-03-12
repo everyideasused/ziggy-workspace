@@ -217,10 +217,6 @@ tags:
 
 ## Related
 
-- [[V-Shape Program]] — Full program reference
-- [[V-Shape Exercise Guide]] — Exercise library with form cues
-- [[V-Shape Daily Logs]] — Template for daily workout logging
-- [[Workout Program]] — Current program status
 - [[Protein Target]] — Daily protein habit tracking
 - [[Water Intake]] — Daily water habit tracking
 - [[Sleep Quality]] — Sleep habit tracking

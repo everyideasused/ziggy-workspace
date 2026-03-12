@@ -323,6 +323,19 @@ Named `YYYY-MM Finances`. Fields: `month`, `total_income`, `total_expenses`, `to
 | `energy_level`, `sleep_hours` | Recovery metrics |
 | `protein_hit`, `water_hit` | yes/no compliance |
 
+### Optional Fields
+
+| Field | Values | Applies To | Purpose |
+|---|---|---|---|
+| `sensitivity` | `public`, `internal`, `confidential` | Work notes | Data classification for security |
+
+**Definitions:**
+- `public` — No restricted information. Could be shared externally.
+- `internal` — Contains Nathan's strategic thinking, opinions, or analysis. Not client-facing.
+- `confidential` — Contains client names, project specifics, dollar figures, contacts, or other data covered by professional obligations.
+
+**Default:** If `sensitivity` is omitted, treat work notes as `internal` and all other notes as `public`.
+
 ---
 
 ## 6. TASK MANAGEMENT

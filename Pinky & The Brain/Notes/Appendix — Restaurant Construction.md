@@ -228,3 +228,10 @@ Standard permits (see [[04 - Entitlements & Permitting]]) PLUS:
 | Liquor license delay | Apply at lease signing, not at construction start |
 | Kitchen equipment lead times | Order at DD/CD phase; 8-14 week lead times typical |
 | Menu changes driving equipment changes mid-construction | Lock menu/equipment by end of DD; formalize change order process |
+
+
+---
+
+## Related
+
+- [[Commissioning & Systems Turnover]] — Restaurant-specific commissioning sequence (hood, MUA, fire suppression, health dept)

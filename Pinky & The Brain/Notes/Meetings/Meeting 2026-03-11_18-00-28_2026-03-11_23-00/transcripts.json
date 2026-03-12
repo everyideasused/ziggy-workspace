@@ -1,0 +1,217 @@
+{
+  "last_updated": "2026-03-11T23:01:37.193373+00:00",
+  "segments": [
+    {
+      "audio_end_time": 2.65,
+      "audio_start_time": 1.26,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:31",
+      "duration": 1.39,
+      "id": "seg_0",
+      "sequence_id": 0,
+      "text": "Winning name."
+    },
+    {
+      "audio_end_time": 3.67,
+      "audio_start_time": 2.52,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:33",
+      "duration": 1.15,
+      "id": "seg_1",
+      "sequence_id": 1,
+      "text": "Test."
+    },
+    {
+      "audio_end_time": 5.47,
+      "audio_start_time": 4.05,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:34",
+      "duration": 1.42,
+      "id": "seg_2",
+      "sequence_id": 2,
+      "text": "Project."
+    },
+    {
+      "audio_end_time": 6.5200000000000005,
+      "audio_start_time": 5.19,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:35",
+      "duration": 1.33,
+      "id": "seg_3",
+      "sequence_id": 3,
+      "text": "Melt"
+    },
+    {
+      "audio_end_time": 8.26,
+      "audio_start_time": 6.84,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:37",
+      "duration": 1.42,
+      "id": "seg_4",
+      "sequence_id": 4,
+      "text": "Sight."
+    },
+    {
+      "audio_end_time": 9.52,
+      "audio_start_time": 8.28,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:38",
+      "duration": 1.24,
+      "id": "seg_5",
+      "sequence_id": 5,
+      "text": "Braya."
+    },
+    {
+      "audio_end_time": 17.259999999999998,
+      "audio_start_time": 15.54,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:46",
+      "duration": 1.72,
+      "id": "seg_6",
+      "sequence_id": 6,
+      "text": "Attendees."
+    },
+    {
+      "audio_end_time": 18.58,
+      "audio_start_time": 16.98,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:47",
+      "duration": 1.6,
+      "id": "seg_7",
+      "sequence_id": 7,
+      "text": "Nathan."
+    },
+    {
+      "audio_end_time": 23.77,
+      "audio_start_time": 22.56,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:52",
+      "duration": 1.21,
+      "id": "seg_8",
+      "sequence_id": 8,
+      "text": "Okay."
+    },
+    {
+      "audio_end_time": 24.459999999999997,
+      "audio_start_time": 23.49,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:53",
+      "duration": 0.97,
+      "id": "seg_9",
+      "sequence_id": 9,
+      "text": "Well"
+    },
+    {
+      "audio_end_time": 29.8,
+      "audio_start_time": 24.69,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:00:59",
+      "duration": 5.11,
+      "id": "seg_10",
+      "sequence_id": 10,
+      "text": "This was a test message to see if it worked."
+    },
+    {
+      "audio_end_time": 38.379999999999995,
+      "audio_start_time": 32.79,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:07",
+      "duration": 5.59,
+      "id": "seg_11",
+      "sequence_id": 11,
+      "text": "Let's see if Ziggy can understand this audio recording."
+    },
+    {
+      "audio_end_time": 39.64,
+      "audio_start_time": 38.19,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:09",
+      "duration": 1.45,
+      "id": "seg_12",
+      "sequence_id": 12,
+      "text": "And then"
+    },
+    {
+      "audio_end_time": 44.53,
+      "audio_start_time": 40.68,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:13",
+      "duration": 3.85,
+      "id": "seg_13",
+      "sequence_id": 13,
+      "text": "Set notes that provide the"
+    },
+    {
+      "audio_end_time": 49.57,
+      "audio_start_time": 47.79,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:18",
+      "duration": 1.78,
+      "id": "seg_14",
+      "sequence_id": 14,
+      "text": "Action items."
+    },
+    {
+      "audio_end_time": 51.85,
+      "audio_start_time": 49.86,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:21",
+      "duration": 1.99,
+      "id": "seg_15",
+      "sequence_id": 15,
+      "text": "Decisions made."
+    },
+    {
+      "audio_end_time": 53.92,
+      "audio_start_time": 51.9,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:22",
+      "duration": 2.02,
+      "id": "seg_16",
+      "sequence_id": 16,
+      "text": "Questions brought up."
+    },
+    {
+      "audio_end_time": 57.82,
+      "audio_start_time": 54.72,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:27",
+      "duration": 3.1,
+      "id": "seg_17",
+      "sequence_id": 17,
+      "text": "impacted departments and people?"
+    },
+    {
+      "audio_end_time": 60.79,
+      "audio_start_time": 58.89,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:30",
+      "duration": 1.9,
+      "id": "seg_18",
+      "sequence_id": 18,
+      "text": "When to follow up."
+    },
+    {
+      "audio_end_time": 62.59,
+      "audio_start_time": 61.02,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:31",
+      "duration": 1.57,
+      "id": "seg_19",
+      "sequence_id": 19,
+      "text": "etc."
+    },
+    {
+      "audio_end_time": 66.07000000000001,
+      "audio_start_time": 64.68,
+      "confidence": 0.8500000238418579,
+      "display_time": "23:01:35",
+      "duration": 1.39,
+      "id": "seg_20",
+      "sequence_id": 20,
+      "text": "Meeting over."
+    }
+  ],
+  "total_segments": 21,
+  "version": "1.0"
+}

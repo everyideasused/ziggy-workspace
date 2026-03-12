@@ -201,3 +201,10 @@ Standard permits (see [[04 - Entitlements & Permitting]]) PLUS:
 | Kitchen/bakery/deli equipment | $15-30/SF |
 | FF&E (shelving, fixtures, POS) | $15-30/SF |
 | **Total (turnkey)** | **$200-400/SF** |
+
+
+---
+
+## Related
+
+- [[Commissioning & Systems Turnover]] — Grocery-specific commissioning sequence (refrigeration run test, health dept)

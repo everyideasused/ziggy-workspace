@@ -176,3 +176,10 @@ Under ASC 842 (current lease accounting standard):
 | Missing lien waivers delay payment | Track lien waivers systematically from Day 1 |
 | Change orders consume TIA buffer | Establish change management process; maintain contingency |
 | Rent commencement before build-out complete | Negotiate completion-based (not date-based) rent start |
+
+
+---
+
+## Related
+
+- [[Value Engineering Framework]] — VE strategies when TI costs exceed TIA cap

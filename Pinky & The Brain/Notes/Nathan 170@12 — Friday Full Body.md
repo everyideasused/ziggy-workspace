@@ -138,16 +138,53 @@ created: 2026-03-06
 
 ---
 
-## Cool-down (3 min)
+## Post-Workout Stretching (10 min) — Full Body
 
-1. **Child's Pose** — 60 sec  
-   *Purpose:* Full-body decompression, lat stretch
+**See:** [[Nathan 170@12 — Stretching Protocol#Friday — Post-Full Body (10 min)|Full stretching guide]]
 
-2. **Spinal Twist (lying)** — 30 sec per side  
-   *Purpose:* Thoracic mobility, lower back release
+**Hold each stretch 30-90 seconds. Breathe deeply. Pain-free range only.**
 
-3. **Happy Baby** — 60 sec  
-   *Purpose:* Hip opener, groin stretch
+1. **Child's Pose** — 60 sec
+   - Rest position, deep breathing
+   - Arms extended or by sides
+   - Forehead to ground
+
+2. **Cat-Cow Flow** — 10 reps (60 sec)
+   - Hands and knees
+   - Flow between arch (cow) and round (cat)
+   - Inhale cow, exhale cat
+
+3. **Downward Dog Hold** — 60 sec
+   - Inverted V shape
+   - Push hips up and back
+   - Pedal feet to stretch calves
+
+4. **Low Lunge (Hip Flexor + Quad)** — 60 sec per side
+   - Front foot flat, rear knee down
+   - Sink hips forward
+   - Feel stretch in front of hip
+
+5. **Lizard Pose** — 60 sec per side
+   - Low lunge, front foot wide
+   - Drop to elbows
+   - Feel deep hip stretch
+
+6. **Seated Spinal Twist** — 60 sec per side
+   - Sit cross-legged
+   - Twist to one side
+   - Look over shoulder
+
+7. **Supine Figure-4 (Glute Stretch)** — 60 sec per side
+   - Lie on back
+   - Cross ankle over opposite knee
+   - Pull knee toward chest
+
+8. **Corpse Pose (Savasana)** — 90 sec
+   - Lie flat, arms by sides
+   - Close eyes, body scan
+   - Full body relaxation
+
+**Total:** ~10 minutes stretching + transition time
 
 ---
 
@@ -176,6 +213,7 @@ created: 2026-03-06
 - Next session adjustments: ___
 
 **Post-workout:**
+- Stretching completed: ☐ (10 min full body)
 - Protein within 2 hours: ___ g
 - Recovery feeling: 1-10 ___
 ```

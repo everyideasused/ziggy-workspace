@@ -17,17 +17,17 @@ date: 2026-03-09
 # 2026-03-09 — Week 1 Monday Lower
 
 **Pre-workout:**
-- Weight: ___ lbs (Monday AM weigh-in)
-- Sleep: ___ hours
-- Energy: 1-10 ___
-- Protein yesterday: ___ g
+- Weight: 147 lbs (Monday AM weigh-in)
+- Sleep: 6 hours
+- Energy: 1-10 8
+- Protein yesterday:  g
 
 **Main Work:**
-- Goblet Squat: ___ kg × ___ reps × 3 sets | RPE ___
-- Kettlebell Swing: ___ kg × ___ reps × 3 sets | RPE ___
-- Bulgarian Split Squat: ___ kg × ___ reps/leg × 3 sets | RPE ___
-- Single-Leg Deadlift: ___ kg × ___ reps/leg × 2 sets | RPE ___
-- Farmer Carry: ___ kg × 30 sec/side × 3 sets | RPE ___
+- Goblet Squat: 9 kg × 10 reps × 3 sets | RPE 6
+- Kettlebell Swing: 9 kg × 20 reps × 3 sets | RPE 7
+- Bulgarian Split Squat: 9 kg × 10 reps/leg × 3 sets | RPE 9
+- Single-Leg Deadlift: 9 kg × 5 reps/leg × 3 sets | RPE 10
+- Farmer Carry: 9 kg × 30 sec/side × 3 sets | RPE 6
 
 **Notes:**
 - Form check:
@@ -36,8 +36,8 @@ date: 2026-03-09
 - Next session adjustments:
 
 **Post-workout:**
-- Protein within 2 hours: ___ g
-- Recovery feeling: 1-10 ___
+- Protein within 2 hours: 25g
+- Recovery feeling: 1-10 8
 
 ---
 

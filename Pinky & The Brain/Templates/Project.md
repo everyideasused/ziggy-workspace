@@ -41,8 +41,22 @@ next_action: ""
 
 ---
 
-## ✅ Active Tasks
-- [ ] 
+## 🎯 Project Tasks
+
+> **REQUIRED:** Every project must have tasks with due dates. Tasks surface on daily notes automatically.
+
+### Phase 1 — [Phase Name] (Week of [Date])
+- [ ] [Task description] 📅 YYYY-MM-DD
+- [ ] [Task description] 📅 YYYY-MM-DD
+- [ ] [Task description] 📅 YYYY-MM-DD
+
+### Phase 2 — [Phase Name] (Week of [Date])
+- [ ] [Task description] 📅 YYYY-MM-DD
+- [ ] [Task description] 📅 YYYY-MM-DD
+- [ ] [Task description] 📅 YYYY-MM-DD
+
+### Recurring / Ongoing
+- [ ] [Recurring task] 📅 YYYY-MM-DD 🔁 every week
 
 ---
 
@@ -74,4 +88,4 @@ LIMIT 15
 
 ---
 
-<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-5-20250929"); %>

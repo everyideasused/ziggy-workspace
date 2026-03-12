@@ -1,7 +1,7 @@
 ---
 type: habit
 area: health
-frequency: 5x-week
+frequency: daily
 target_per_day: 1
 streak: 0
 best_streak: 0
@@ -20,8 +20,8 @@ tags:
 
 # 🥤 Enjoy Smoothie
 
-**Frequency:** 5x per week (Mon-Fri typical) | **Target/day:** 1 smoothie  
-**Started:** 2026-03-03  
+**Frequency:** Daily | **Target/day:** 1 smoothie  
+**Started:** 2026-03-08  
 **Current streak:** 0 days | **Best streak:** 0 days
 
 ---
@@ -35,9 +35,9 @@ The [[Ultimate Vegan Micronutrient Smoothie]] delivers 24 out of 24 essential mi
 - 50g protein to support muscle growth and recovery
 - Eliminates decision fatigue (same blueprint daily)
 - Energy and focus throughout the day
-- Supports [[V-Shape Program]] with optimal nutrition
+- Supports V-Shape program with optimal nutrition
 
-**Target:** 5 days per week (typically Mon-Fri). Weekend flexibility built in.
+**Target:** Every day for consistency and optimal recovery.
 
 ---
 

@@ -1,0 +1,97 @@
+{
+  "last_updated": "2026-03-12T00:37:55.461113+00:00",
+  "segments": [
+    {
+      "audio_end_time": 5.08,
+      "audio_start_time": 2.37,
+      "confidence": 0.8500000238418579,
+      "display_time": "00:37:13",
+      "duration": 2.71,
+      "id": "seg_0",
+      "sequence_id": 0,
+      "text": "Okay."
+    },
+    {
+      "audio_end_time": 9.85,
+      "audio_start_time": 6.6,
+      "confidence": 0.8500000238418579,
+      "display_time": "00:37:18",
+      "duration": 3.25,
+      "id": "seg_1",
+      "sequence_id": 1,
+      "text": "Do you name the file? Like what's going on? How do we do it?"
+    },
+    {
+      "audio_end_time": 12.13,
+      "audio_start_time": 9.81,
+      "confidence": 0.8500000238418579,
+      "display_time": "00:37:20",
+      "duration": 2.32,
+      "id": "seg_2",
+      "sequence_id": 2,
+      "text": "Pause."
+    },
+    {
+      "audio_end_time": 19.06,
+      "audio_start_time": 17.88,
+      "confidence": 0.8500000238418579,
+      "display_time": "00:37:27",
+      "duration": 1.18,
+      "id": "seg_3",
+      "sequence_id": 3,
+      "text": "Hmm."
+    },
+    {
+      "audio_end_time": 22.0,
+      "audio_start_time": 20.67,
+      "confidence": 0.8500000238418579,
+      "display_time": "00:37:30",
+      "duration": 1.33,
+      "id": "seg_4",
+      "sequence_id": 4,
+      "text": "Let's see."
+    },
+    {
+      "audio_end_time": 33.46,
+      "audio_start_time": 26.61,
+      "confidence": 0.8500000238418579,
+      "display_time": "00:37:41",
+      "duration": 6.85,
+      "id": "seg_5",
+      "sequence_id": 5,
+      "text": "It's not in settings, not in about."
+    },
+    {
+      "audio_end_time": 36.07,
+      "audio_start_time": 34.53,
+      "confidence": 0.8500000238418579,
+      "display_time": "00:37:44",
+      "duration": 1.54,
+      "id": "seg_6",
+      "sequence_id": 6,
+      "text": "You took it"
+    },
+    {
+      "audio_end_time": 40.45,
+      "audio_start_time": 36.06,
+      "confidence": 0.8500000238418579,
+      "display_time": "00:37:49",
+      "duration": 4.39,
+      "id": "seg_7",
+      "sequence_id": 7,
+      "text": "We're definitely bugs in this, but let's see."
+    },
+    {
+      "audio_end_time": 43.54,
+      "audio_start_time": 40.44,
+      "confidence": 0.8500000238418579,
+      "display_time": "00:37:52",
+      "duration": 3.1,
+      "id": "seg_8",
+      "sequence_id": 8,
+      "text": "Alright. Um"
+    }
+  ],
+  "total_segments": 9,
+  "version": "1.0"
+}

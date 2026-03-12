@@ -192,3 +192,10 @@ Operational Compliance Monitoring Begins
 | Fuel supplier branding requirements conflict with design | Coordinate brand standards with architecture in SD phase |
 | Dispenser or ATG lead times | Order equipment at DD phase; 12-20 week lead times common |
 | Weights & Measures inspector availability | Schedule early; required before fuel sales can begin |
+
+
+---
+
+## Related
+
+- [[Commissioning & Systems Turnover]] — Fuel station-specific commissioning sequence (UST, dispensers, Weights & Measures)

@@ -1,6 +1,6 @@
 ---
 created: 2025-02-01
-updated: 2026-03-01
+updated: 2026-03-08
 type: area-hub
 area: system
 tags:
@@ -9,14 +9,11 @@ tags:
   - system
 status: active
 ---
-
----
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily)
 
 > **First time?** Start here → [[Human Guide]] · [[Getting Started]] · [[System Guide]]
 
 ---
-
 # 📥 INBOX
 > *Process these — assign an area, convert to a project, move to resources, or archive.*
 
@@ -44,19 +41,34 @@ SORT file.cday DESC
 
 ---
 
-# 🚧 PROJECTS
-> *Active projects across all areas of life. Work and personal.*
+# 🌿 ACTIVE PERSONAL PROJECTS
 
 ```dataview
 TABLE WITHOUT ID
 	file.link AS "Project",
 	area AS "Area",
-	client AS "Client",
-	status AS "Status",
+	health AS "Health",
+	phase AS "Phase",
 	target_date AS "Target"
 FROM "Notes"
-WHERE type = "project" AND status != "archived" AND status != "complete"
-SORT area ASC, status ASC
+WHERE type = "project" AND status = "active" AND area != "work"
+SORT health ASC, area ASC
+```
+
+---
+
+# 💼 ACTIVE WORK PROJECTS
+
+```dataview
+TABLE WITHOUT ID
+	file.link AS "Project",
+	client AS "Client",
+	health AS "Health",
+	phase AS "Phase",
+	target_date AS "Target"
+FROM "Notes"
+WHERE type = "project" AND status = "active" AND area = "work"
+SORT health ASC
 ```
 
 ---
@@ -76,16 +88,17 @@ SORT file.name ASC
 ---
 
 # 💧 RESOURCES
-> *Reference material, databases, and saved knowledge.*
+> *Recently used reference material, databases, and saved knowledge.*
 
 ```dataview
 TABLE WITHOUT ID
 	file.link AS "Resource",
 	resource_type AS "Type",
-	dateformat(file.mday, "MM/dd") AS "Updated"
+	dateformat(file.mtime, "MM/dd HH:mm") AS "Last Used"
 FROM "Notes"
-WHERE type = "resource" OR type = "database"
-SORT resource_type ASC, file.name ASC
+WHERE type = "resource" OR type = "database" OR type = "reference"
+SORT file.mtime DESC
+LIMIT 5
 ```
 
 ---

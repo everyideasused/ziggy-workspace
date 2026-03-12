@@ -88,6 +88,7 @@ After every project (or at minimum, quarterly for programs):
 - Lessons learned report distributed to all project stakeholders
 - Added to the knowledge base for future projects
 - Feed back into standardized workflows and templates
+- For the complete capture workflow, triggers, formats, and review cadence, see [[Lessons Learned Capture Workflow]]
 
 ---
 

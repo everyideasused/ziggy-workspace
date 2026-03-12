@@ -209,6 +209,8 @@ The owner/client must provide timely:
 | Incomplete or inaccurate existing conditions | Invest in thorough as-built verification before design |
 | Permitting requirements not anticipated | Engage AHJ early (pre-application meetings) |
 
+- For value engineering methodology during design, see [[Value Engineering Framework]]
+
 ---
 
 ## Transition to Next Phase

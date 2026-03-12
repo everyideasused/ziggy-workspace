@@ -4,7 +4,7 @@ area: household
 client: "Nathan"
 client_id: "PERSONAL"
 status: active
-health: green
+health: yellow
 priority: normal
 start_date: 2026-03-05
 target_date: 2026-03-30
@@ -13,7 +13,7 @@ tags:
   - home-improvement
   - outdoor
   - painting
-next_action: "Purchase materials & supplies"
+next_action: "Purchase materials by Monday 3/9"
 ---
 
 > [[🏠base|🏠]] · [📅 Today](obsidian://daily) · [[Household Hub|Household Hub]]
@@ -37,72 +37,70 @@ next_action: "Purchase materials & supplies"
 
 ---
 
-## 🎯 Goals & Milestones
+## 🎯 Milestones
 
-| Milestone | Target Date | Status |
-|-----------|------------|--------|
-| Materials purchased & gathered | 2026-03-08 | ⬜ Not Started |
-| Pool drained, cleaned & prepped | 2026-03-14 | ⬜ Not Started |
-| Surface prep & priming complete | 2026-03-18 | ⬜ Not Started |
-| Painting complete (all coats) | 2026-03-24 | ⬜ Not Started |
-| Cure, inspect & refill | 2026-03-30 | ⬜ Not Started |
+- [ ] **Materials purchased & gathered** 📅 2026-03-09
+- [ ] **Pool drained, cleaned & prepped** 📅 2026-03-12
+- [ ] **Surface prep & priming complete** 📅 2026-03-16
+- [ ] **Painting complete (all coats)** 📅 2026-03-23
+- [ ] **Cure, inspect & refill** 📅 2026-03-30
 
 ---
 
 ## ✅ Active Tasks
 
-### Phase 1: Planning & Materials (Mar 5–8) — *~2 hours*
-- [ ] Choose paint color and finish 🎨
-- [ ] Purchase materials (see materials list below)
-- [ ] Gather tools and supplies
-- [ ] Check weather forecast for painting window (need 3+ dry days in a row)
+### Phase 1: Planning & Materials (Mar 5–9) — *~2 hours*
+- [ ] Choose paint color and finish 🎨 📅 2026-03-08
+- [ ] Purchase materials (see materials list below) 📅 2026-03-09
+- [ ] Gather tools and supplies 📅 2026-03-09
+- [ ] Check weather forecast for painting window (need 3+ dry days in a row) 📅 2026-03-09
 
-### Phase 2: Drain & Clean (Mar 9–11) — *~3 hours*
-- [ ] Drain the pool completely
-- [ ] Remove any accessories, hoses, or fittings
-- [ ] Scrub interior with TSP (trisodium phosphate) cleaner to remove algae, grime, and mineral deposits
-- [ ] Scrub exterior to remove dirt and oxidation
-- [ ] Rinse thoroughly with garden hose
-- [ ] Let dry completely (24–48 hours) — *depends on: weather*
+### Phase 2: Drain & Clean (Mar 10–12) — *~3 hours*
+- [x] Drain the pool completely 📅 2026-03-10 ✅ 2026-03-10
+- [x] Remove any accessories, hoses, or fittings 📅 2026-03-10 ✅ 2026-03-10
+- [ ] Scrub interior with TSP cleaner to remove algae, grime, and mineral deposits 📅 2026-03-11
+- [ ] Scrub exterior to remove dirt and oxidation 📅 2026-03-11
+- [ ] Rinse thoroughly with garden hose 📅 2026-03-11
+- [ ] Let dry completely (24–48 hours) — *depends on: weather* 📅 2026-03-12
 
-### Phase 3: Surface Prep (Mar 12–14) — *~3–4 hours*
-- [ ] Inspect for rust spots, dents, or damage
-- [ ] Sand/grind any rust spots down to bare metal with wire brush or angle grinder
-- [ ] Treat rust spots with rust converter/naval jelly
-- [ ] Sand entire surface (inside and out) with 120-grit sandpaper or scotch-brite pad to create tooth for primer
-- [ ] Wipe down with denatured alcohol or acetone to remove sanding dust and oils
-- [ ] Tape off any areas not being painted (fittings, drain hardware)
-- [ ] Let degreased surface dry completely
+### Phase 3: Surface Prep (Mar 13–16) — *~3–4 hours*
+- [ ] Inspect for rust spots, dents, or damage 📅 2026-03-13
+- [ ] Sand/grind any rust spots down to bare metal with wire brush or angle grinder 📅 2026-03-13
+- [ ] Treat rust spots with rust converter/naval jelly 📅 2026-03-13
+- [ ] Sand entire surface (inside and out) with 120-grit sandpaper or scotch-brite pad to create tooth for primer 📅 2026-03-14
+- [ ] Wipe down with denatured alcohol or acetone to remove sanding dust and oils 📅 2026-03-14
+- [ ] Tape off any areas not being painted (fittings, drain hardware) 📅 2026-03-15
+- [ ] Let degreased surface dry completely 📅 2026-03-16
 
-### Phase 4: Priming (Mar 15–18) — *~2–3 hours active, plus dry time*
-- [ ] Apply rust-inhibiting metal primer to any bare metal/rust-treated spots (spot prime)
-- [ ] Apply first coat of bonding primer to entire interior — *let dry 24 hours*
-- [ ] Apply first coat of bonding primer to entire exterior — *let dry 24 hours*
-- [ ] Light sand between primer coats if needed (220-grit)
-- [ ] Apply second coat of primer if coverage is uneven — *let dry 24 hours*
-- [ ] Inspect primer for any missed spots or adhesion issues
+### Phase 4: Priming (Mar 17–20) — *~2–3 hours active, plus dry time*
+- [ ] Apply rust-inhibiting metal primer to any bare metal/rust-treated spots (spot prime) 📅 2026-03-17
+- [ ] Apply first coat of bonding primer to entire interior — *let dry 24 hours* 📅 2026-03-17
+- [ ] Apply first coat of bonding primer to entire exterior — *let dry 24 hours* 📅 2026-03-18
+- [ ] Light sand between primer coats if needed (220-grit) 📅 2026-03-19
+- [ ] Apply second coat of primer if coverage is uneven — *let dry 24 hours* 📅 2026-03-19
+- [ ] Inspect primer for any missed spots or adhesion issues 📅 2026-03-20
 
-### Phase 5: Painting (Mar 19–24) — *~4–5 hours active, plus dry time*
-- [ ] Apply first coat of topcoat paint to interior — *let dry 24 hours*
-- [ ] Apply first coat of topcoat paint to exterior — *let dry 24 hours*
-- [ ] Light sand between coats if needed (220-grit) and wipe clean
-- [ ] Apply second coat of topcoat paint to interior — *let dry 24 hours*
-- [ ] Apply second coat of topcoat paint to exterior — *let dry 24 hours*
-- [ ] Inspect for any thin spots, drips, or missed areas
-- [ ] Touch up as needed — *let dry 24 hours*
+### Phase 5: Painting (Mar 21–26) — *~4–5 hours active, plus dry time*
+- [ ] Apply first coat of topcoat paint to interior — *let dry 24 hours* 📅 2026-03-21
+- [ ] Apply first coat of topcoat paint to exterior — *let dry 24 hours* 📅 2026-03-22
+- [ ] Light sand between coats if needed (220-grit) and wipe clean 📅 2026-03-23
+- [ ] Apply second coat of topcoat paint to interior — *let dry 24 hours* 📅 2026-03-23
+- [ ] Apply second coat of topcoat paint to exterior — *let dry 24 hours* 📅 2026-03-24
+- [ ] Inspect for any thin spots, drips, or missed areas 📅 2026-03-25
+- [ ] Touch up as needed — *let dry 24 hours* 📅 2026-03-26
 
-### Phase 6: Seal & Cure (Mar 25–28) — *~1–2 hours active, plus cure time*
-- [ ] Apply waterproof sealant/clear coat to interior (if using non-pool-specific paint)
-- [ ] Allow full cure time per manufacturer specs (typically 3–7 days for full cure)
-- [ ] Do NOT rush this — premature water exposure will ruin the job
+### Phase 6: Seal & Cure (Mar 27–29) — *~1–2 hours active, plus cure time*
+- [ ] Apply waterproof sealant/clear coat to interior (if using non-pool-specific paint) 📅 2026-03-27
+- [ ] Allow full cure time per manufacturer specs (typically 3–7 days for full cure) 📅 2026-03-29
+- [ ] Do NOT rush this — premature water exposure will ruin the job 📅 2026-03-29
 
-### Phase 7: Final Inspection & Refill (Mar 29–30) — *~2 hours*
-- [ ] Remove all tape and masking
-- [ ] Final visual inspection — check for any defects
-- [ ] Fill pool partially (2–3 inches) and let sit 24 hours to test for any paint reaction
-- [ ] If no issues, fill pool completely
-- [ ] Reinstall accessories, fittings, and hoses
-- [ ] 🎉 Done — enjoy the pool!
+### Phase 7: Final Inspection & Refill (Mar 30) — *~2 hours*
+- [ ] Remove all tape and masking 📅 2026-03-30
+- [ ] Final visual inspection — check for any defects 📅 2026-03-30
+- [ ] Fill pool partially (2–3 inches) and let sit 24 hours to test for any paint reaction 📅 2026-03-30
+- [ ] If no issues, fill pool completely 📅 2026-03-30
+- [ ] Reinstall accessories, fittings, and hoses 📅 2026-03-30
+- [ ] 🎉 Done — enjoy the pool! 📅 2026-03-30
 
 ---
 
@@ -148,13 +146,13 @@ next_action: "Purchase materials & supplies"
 
 | Dates | Phase | Duration | Dependencies |
 |-------|-------|----------|-------------|
-| Mar 5–8 | Planning & Materials | 4 days | None |
-| Mar 9–11 | Drain & Clean | 3 days | Materials purchased |
-| Mar 12–14 | Surface Prep | 3 days | Pool fully dry |
-| Mar 15–18 | Priming | 4 days | Surface prepped, dry weather |
-| Mar 19–24 | Painting | 6 days | Primer cured, dry weather |
-| Mar 25–28 | Seal & Cure | 4 days | Paint complete |
-| Mar 29–30 | Inspect & Refill | 2 days | Full cure complete |
+| Mar 5–9 | Planning & Materials | 5 days | None |
+| Mar 10–12 | Drain & Clean | 3 days | Materials purchased |
+| Mar 13–16 | Surface Prep | 4 days | Pool fully dry |
+| Mar 17–20 | Priming | 4 days | Surface prepped, dry weather |
+| Mar 21–26 | Painting | 6 days | Primer cured, dry weather |
+| Mar 27–29 | Seal & Cure | 3 days | Paint complete |
+| Mar 30 | Inspect & Refill | 1 day | Full cure complete |
 
 > ⚠️ **Weather dependency:** Painting and priming phases need dry weather with temps above 50°F. Check forecast before starting Phase 4. If rain is expected, shift the schedule — better to delay than paint in moisture.
 
@@ -164,6 +162,11 @@ next_action: "Purchase materials & supplies"
 
 ## 📝 Notes & Decisions
 > *Running log of important notes, decisions, and context.*
+
+### 2026-03-08
+- Project overhauled: All tasks now have due dates and will surface on daily notes
+- Health changed to yellow (target date for materials purchase already passed, need to catch up)
+- Next action: Purchase materials by Sunday 3/9 to stay on track
 
 ### 2026-03-05
 - Project created

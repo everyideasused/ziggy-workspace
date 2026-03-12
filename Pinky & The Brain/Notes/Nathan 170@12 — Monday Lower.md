@@ -137,16 +137,43 @@ created: 2026-03-06
 
 ---
 
-## Cool-down (3 min)
+## Post-Workout Stretching (10 min) — Lower Body Focus
 
-1. **Couch Stretch** — 60 sec per leg  
-   *Purpose:* Hip flexor stretch
+**See:** [[Nathan 170@12 — Stretching Protocol#Monday — Post-Lower Body (10 min)|Full stretching guide]]
 
-2. **Pigeon Pose** — 60 sec per leg  
-   *Purpose:* Hip external rotation, glute stretch
+**Hold each stretch 30-60 seconds. Breathe deeply. Pain-free range only.**
 
-3. **Forward Fold** — 60 sec  
-   *Purpose:* Hamstring stretch, decompress spine
+1. **Hip Flexor Stretch (Couch Stretch)** — 60 sec per leg
+   - Rear knee down, shin against wall/couch
+   - Squeeze glute, drive hips forward
+   - Feel stretch in front of hip
+
+2. **Pigeon Pose** — 60 sec per leg
+   - Front shin parallel to mat
+   - Fold forward over front leg
+   - Feel stretch in glute
+
+3. **Seated Forward Fold** — 90 sec
+   - Legs extended, hinge at hips
+   - Reach toward toes
+   - Feel stretch in hamstrings
+
+4. **Quad Stretch (Standing)** — 60 sec per leg
+   - Pull foot to glute
+   - Keep knees together
+   - Feel stretch down front of thigh
+
+5. **Calf Stretch (Wall Lean)** — 60 sec per leg
+   - Rear leg straight, heel down
+   - Lean into wall
+   - Feel stretch in calf
+
+6. **90/90 Hip Stretch** — 60 sec per side
+   - Sit with both legs at 90°
+   - Lean over front leg
+   - Feel stretch in hips
+
+**Total:** ~9 minutes stretching + transition time
 
 ---
 
@@ -175,6 +202,7 @@ created: 2026-03-06
 - Next session adjustments: ___
 
 **Post-workout:**
+- Stretching completed: ☐ (10 min lower body focus)
 - Protein within 2 hours: ___ g
 - Recovery feeling: 1-10 ___
 ```

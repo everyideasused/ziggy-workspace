@@ -218,4 +218,6 @@ Maintain a running VE log throughout design:
 ---
 
 *Tags: #VE #value-engineering #templates #merchandising #cost-reduction*
-*Links: [[ESTIMATOR-MOC]] | [[WF-TIA-and-GMP]] | [[CSI-MasterFormat-Index]] | [[BM-Restaurant-and-Retail-Benchmarks]]*
+*Links: [[ESTIMATOR-MOC]] | [[WF-TIA-and-GMP]] | [[CSI-MasterFormat-Index]] | [[BM-Restaurant-and-Retail-Benchmarks]] | [[Value Engineering Framework]]*
+
+*Note: See [[Value Engineering Framework]] (Atlas KB) for PM's strategic VE framework — when, why, and how to present VE to clients.*

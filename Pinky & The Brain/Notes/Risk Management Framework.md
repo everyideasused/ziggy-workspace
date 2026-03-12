@@ -87,6 +87,8 @@ tags:
 | **Transfer** | Shift risk to another party | Performance bond; insurance; contractual risk allocation |
 | **Accept** | Acknowledge and budget for it | Owner contingency for unforeseen conditions |
 
+- For detailed insurance and bonding risk transfer guidance, see [[Insurance & Bonding During Construction]]
+
 ---
 
 ## Contingency Guidelines
@@ -99,3 +101,15 @@ tags:
 | Construction Document estimate | 5-7% |
 | GMP (contractor contingency) | 3-5% |
 | Owner contingency (during construction) | 5-10% |
+
+
+---
+
+## Related
+
+- [[Schedule Recovery & Acceleration]] — Recovery techniques when risks materialize as schedule delays
+- [[Trade Dependency Matrix — PM Perspective]] — Trade-specific risk monitoring
+- [[Subcontractor Default & Replacement]] — When sub performance risk materializes as default
+- [[Delay Documentation & Claims]] — Documenting risk events for claims and defense
+- [[Value Engineering Framework]] — Budget risk mitigation through VE
+- [[Insurance & Bonding During Construction]] — Risk transfer through insurance and bonding

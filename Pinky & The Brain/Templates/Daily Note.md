@@ -35,12 +35,13 @@ if (yesterdayFile) {
 ## 🔁 Daily Habits
 
 **Morning**
-- [ ] 🚶 Morning Walk — [[Morning Walk|tracker]]
+- [ ] 🐕 Walk the Dogs — [[Walk the Dogs|tracker]]
+- [ ] 🏋️ Workout or Stretch — [[Workout or Stretch|tracker]]
+- [ ] 🥤 Enjoy Smoothie — [[Enjoy Smoothie|tracker]]
 - [ ] 💧 Water started (75+ oz goal) — [[Water Intake|tracker]]
 
 **Evening**
 - [ ] 📖 Read 30 min — [[Read 30 Minutes|tracker]]
-- [ ] 🌯 Protein (150g+) — [[Protein Target|tracker]]
 - [ ] 😴 Sleep (7+ hrs last night) — [[Sleep Quality|tracker]]
 
 ```dataview
@@ -159,7 +160,6 @@ path does not include Templates
 path does not include Work Hub
 path does not include Work Client
 path does not include Work Site
-short mode
 ```
 
 ### Overdue (Personal)
@@ -170,7 +170,6 @@ path does not include Templates
 path does not include Work Hub
 path does not include Work Client
 path does not include Work Site
-short mode
 ```
 
 > [!abstract]- 📅 Personal Tasks — This Week
@@ -182,7 +181,6 @@ short mode
 > path does not include Work Hub
 > path does not include Work Client
 > path does not include Work Site
-> short mode
 > ```
 
 ---
@@ -262,7 +260,6 @@ not done
 due on <% tp.date.now("YYYY-MM-DD") %>
 path does not include Templates
 (path includes Work) OR (description includes #work)
-short mode
 ```
 
 ### Overdue (Work)
@@ -271,7 +268,6 @@ not done
 due before <% tp.date.now("YYYY-MM-DD") %>
 path does not include Templates
 (path includes Work) OR (description includes #work)
-short mode
 ```
 
 ---
@@ -390,6 +386,27 @@ action QuickAdd: New Meeting
 color default
 ```
 
+```button
+name 📦 Add Item
+type command
+action QuickAdd: Add Item
+color default
+```
+
+---
+
+> [!info]- 📝 Notes Created Today
+> ```dataview
+> TABLE WITHOUT ID
+> 	file.link AS "Note",
+> 	type AS "Type",
+> 	area AS "Area",
+> 	status AS "Status"
+> FROM "Notes"
+> WHERE file.cday = this.file.day
+> SORT file.ctime DESC
+> ```
+
 ---
 
 <%*
@@ -419,4 +436,4 @@ if (todayDate >= progStart && dayOfWeek === 1) {
 }
 %>
 
-<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-5-20250929"); %>

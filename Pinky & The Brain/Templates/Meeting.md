@@ -8,6 +8,7 @@ meeting_type: "<% await tp.system.suggester(["OAC Meeting", "Program Review", "C
 date: <% tp.date.now("YYYY-MM-DD") %>
 attendees: []
 status: complete
+sensitivity: internal
 tags:
   - meeting
 ---
@@ -46,4 +47,4 @@ tags:
 
 ---
 
-<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-6"); %>
+<%* tR += "Created by: " + (tp.user?.agentName || "Ziggy") + " · AI: " + (tp.user?.modelName || "anthropic/claude-sonnet-4-5-20250929"); %>

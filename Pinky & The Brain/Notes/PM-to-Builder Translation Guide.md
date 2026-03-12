@@ -163,6 +163,8 @@ When a PM understands the builder's craft and a builder understands the PM's con
 - [[Trade Coordination & Subcontractor Management]] — How trades interact on site
 - [[Risk Management Framework]] — PM KB risk assessment methodology
 - [[Stakeholder Directory]] — PM KB stakeholder roles and responsibilities
+- [[Schedule Recovery & Acceleration]] — Deep dive on acceleration from PM perspective
+- [[Trade Dependency Matrix — PM Perspective]] — Trade dependency monitoring for PMs
 
 ---
 
